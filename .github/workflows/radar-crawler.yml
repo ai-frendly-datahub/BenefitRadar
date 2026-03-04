@@ -3,7 +3,7 @@ name: BenefitRadar Crawler
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # 매일 00:00 UTC
+    - cron: "0 8,20 * * *" # 일 2회 (08:00, 20:00 UTC = KST 17:00, 05:00)
 
 permissions:
   contents: write
