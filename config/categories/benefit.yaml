@@ -1,0 +1,30 @@
+category_name: "benefit"
+display_name: "혜택/지원금 레이더"
+
+sources:
+  - name: "TechCrunch"
+    type: "rss"
+    url: "https://techcrunch.com/feed/"
+  - name: "The Verge"
+    type: "rss"
+    url: "https://www.theverge.com/rss/index.xml"
+  - name: "GovTech"
+    type: "rss"
+    url: "https://www.govtech.com/rss/"
+
+entities:
+  - name: "Subsidy"
+    display_name: "보조금/지원금"
+    keywords: ["subsidy", "grant", "보조금", "지원금", "funding", "재정 지원"]
+  - name: "TaxCredit"
+    display_name: "세금 혜택"
+    keywords: ["tax credit", "세액공제", "tax deduction", "소득공제", "tax benefit"]
+  - name: "Eligibility"
+    display_name: "자격 요건"
+    keywords: ["eligibility", "자격", "eligible", "qualification", "요건", "조건"]
+  - name: "Deadline"
+    display_name: "신청 기한"
+    keywords: ["deadline", "마감", "due date", "application period", "신청 기간"]
+  - name: "Welfare"
+    display_name: "복지/사회 보장"
+    keywords: ["welfare", "복지", "social security", "사회보장", "medicare", "medicaid"]

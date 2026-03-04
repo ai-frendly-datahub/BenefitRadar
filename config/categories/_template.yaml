@@ -1,0 +1,28 @@
+# This is a template for a new Radar category.
+# Copy this file to a new file named `[your_category_name].yaml` and fill in the details.
+
+category_name: "my_category"
+display_name: "My Category Radar"
+
+# List of data sources to collect from
+# Supported types: "rss", "html" (html is a placeholder for future extension)
+sources:
+  - name: "Example News RSS"
+    type: "rss"
+    url: "https://www.example.com/feed"
+  # - name: "Example Website"
+  #   type: "html"
+  #   url: "https://www.example.com/news"
+
+# List of entities to extract from the collected items.
+# The analyzer will perform simple keyword matching based on these lists.
+entities:
+  - name: "Topic"
+    keywords:
+      - "keyword1"
+      - "keyword2"
+      - "keyword3"
+  - name: "Brand"
+    keywords:
+      - "BrandA"
+      - "BrandB"
