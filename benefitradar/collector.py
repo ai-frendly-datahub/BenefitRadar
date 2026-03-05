@@ -8,6 +8,7 @@ from typing import List, Tuple
 import feedparser
 import requests
 
+from .bokjiro_collector import collect_bokjiro
 from .models import Article, Source
 
 
@@ -38,10 +39,18 @@ def _collect_single(
     limit: int,
     timeout: int,
 ) -> List[Article]:
-    if source.type.lower() != "rss":
-        raise ValueError(f"Unsupported source type '{source.type}'. Only 'rss' is supported in the template.")
+    source_type = source.type.lower()
 
-    response = requests.get(source.url, timeout=timeout)
+    if source_type == "api":
+        return _collect_api(source, category=category, limit=limit, timeout=timeout)
+    if source_type != "rss":
+        raise ValueError(f"Unsupported source type '{source.type}'. Only 'rss' and 'api' are supported.")
+
+    headers = {
+        "User-Agent": "BenefitRadar/1.0 (Government Benefits Aggregator; +https://github.com/zzragida/ai-frendly-datahub)",
+        "Accept": "application/rss+xml, application/xml, application/atom+xml, text/xml, */*",
+    }
+    response = requests.get(source.url, timeout=timeout, headers=headers)
     response.raise_for_status()
 
     feed = feedparser.parse(response.content)
@@ -65,7 +74,20 @@ def _collect_single(
     return items
 
 
-def _extract_datetime(entry: dict) -> datetime | None:
+def _collect_api(
+    source: Source,
+    *,
+    category: str,
+    limit: int,
+    timeout: int,
+) -> List[Article]:
+    """Route API-type sources to their specific collectors."""
+    if "bokjiro" in source.url or "보조금" in source.name:
+        return collect_bokjiro(source, category=category, limit=limit, timeout=timeout)
+    raise ValueError(f"No API collector registered for source '{source.name}' (url: {source.url})")
+
+
+def _extract_datetime(entry: dict) -> datetime | None:  # type: ignore[type-arg]
     """Parse a feed entry date into a timezone-aware datetime."""
     if entry.get("published_parsed"):
         return datetime.fromtimestamp(time.mktime(entry.published_parsed), tz=timezone.utc)
