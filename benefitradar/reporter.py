@@ -28,11 +28,26 @@ def generate_report(
 
     articles_list = list(articles)
     entity_counts = _count_entities(articles_list)
+    
+    # Convert Article objects to dicts for JSON serialization (for JavaScript charts)
+    articles_json = []
+    for article in articles_list:
+        article_data = {
+            'title': article.title,
+            'link': article.link,
+            'source': article.source,
+            'published': article.published.isoformat() if article.published else None,
+            'published_at': article.published.isoformat() if article.published else None,
+            'summary': article.summary,
+            'matched_entities': article.matched_entities or {}
+        }
+        articles_json.append(article_data)
 
     template = cast(_TemplateRenderer, Template(_REPORT_TEMPLATE))
     rendered = template.render(
             category=category,
-            articles=articles_list,
+            articles=articles_list,  # Keep original for template rendering
+            articles_json=articles_json,  # JSON-serializable version for charts
             generated_at=datetime.now(timezone.utc),
             stats=stats,
             entity_counts=entity_counts,
@@ -822,7 +837,7 @@ _REPORT_TEMPLATE = """<!doctype html>
         </div>
       </footer>
 
-      <script id="articles-data" type="application/json">{{ articles|tojson }}</script>
+      <script id="articles-data" type="application/json">{{ articles_json|tojson }}</script>
       <script id="entities-data" type="application/json">{{ entity_counts|tojson if entity_counts else '{}' }}</script>
 
       <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
