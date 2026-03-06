@@ -6,6 +6,7 @@ from typing import cast
 
 from benefitradar.analyzer import apply_entity_rules
 from benefitradar.collector import collect_sources
+from benefitradar.common.validators import validate_article
 from benefitradar.config_loader import load_category_config, load_settings
 from benefitradar.raw_logger import RawLogger
 from benefitradar.reporter import generate_report
@@ -43,12 +44,22 @@ def run(
 
     analyzed = apply_entity_rules(collected, category_cfg.entities)
 
+    # Validate articles for data quality
+    validated_articles = []
+    validation_errors = []
+    for article in analyzed:
+        is_valid, validation_msgs = validate_article(article)
+        if is_valid:
+            validated_articles.append(article)
+        else:
+            validation_errors.append(f"{article.link}: {', '.join(validation_msgs)}")
+
     storage = RadarStorage(settings.database_path)
-    storage.upsert_articles(analyzed)
+    storage.upsert_articles(validated_articles)
     _ = storage.delete_older_than(keep_days)
 
     with SearchIndex(settings.search_db_path) as search_idx:
-        for article in analyzed:
+        for article in validated_articles:
             search_idx.upsert(article.link, article.title, article.summary)
 
     recent_articles = storage.recent_articles(category_cfg.category_name, days=recent_days)
@@ -67,11 +78,11 @@ def run(
         articles=recent_articles,
         output_path=output_path,
         stats=stats,
-        errors=errors,
+        errors=errors + validation_errors,
     )
     print(f"[Radar] Report generated at {output_path}")
-    if errors:
-        print(f"[Radar] {len(errors)} source(s) had issues. See report for details.")
+    if errors or validation_errors:
+        print(f"[Radar] {len(errors) + len(validation_errors)} issue(s) found. See report for details.")
     return output_path
 
 
