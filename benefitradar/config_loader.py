@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import os
+import re
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
 
 import yaml
 
 from .models import CategoryConfig, EntityDefinition, RadarSettings, Source
+from .notifier import NotificationConfig
 
 
 def _resolve_path(path_value: str, *, project_root: Path) -> Path:
@@ -43,6 +46,9 @@ def _dict_items(value: object) -> list[dict[str, object]]:
     return items
 
 
+_ENV_PATTERN = re.compile(r"\$\{([A-Z0-9_]+)\}")
+
+
 def load_settings(config_path: Path | None = None) -> RadarSettings:
     """Load global radar settings such as database and report directories."""
     project_root = Path(__file__).resolve().parent.parent
@@ -52,10 +58,18 @@ def load_settings(config_path: Path | None = None) -> RadarSettings:
         raise FileNotFoundError(f"Config file not found: {config_file}")
 
     raw = _read_yaml_dict(config_file)
-    db_path = _resolve_path(_string_value(raw, "database_path", "data/radar_data.duckdb"), project_root=project_root)
-    report_dir = _resolve_path(_string_value(raw, "report_dir", "reports"), project_root=project_root)
-    raw_data_dir = _resolve_path(_string_value(raw, "raw_data_dir", "data/raw"), project_root=project_root)
-    search_db_path = _resolve_path(_string_value(raw, "search_db_path", "data/search_index.db"), project_root=project_root)
+    db_path = _resolve_path(
+        _string_value(raw, "database_path", "data/radar_data.duckdb"), project_root=project_root
+    )
+    report_dir = _resolve_path(
+        _string_value(raw, "report_dir", "reports"), project_root=project_root
+    )
+    raw_data_dir = _resolve_path(
+        _string_value(raw, "raw_data_dir", "data/raw"), project_root=project_root
+    )
+    search_db_path = _resolve_path(
+        _string_value(raw, "search_db_path", "data/search_index.db"), project_root=project_root
+    )
     return RadarSettings(
         database_path=db_path,
         report_dir=report_dir,
@@ -77,7 +91,11 @@ def load_category_config(category_name: str, categories_dir: Path | None = None)
     sources = [_parse_source(entry) for entry in _dict_items(raw.get("sources"))]
     entities = [_parse_entity(entry) for entry in _dict_items(raw.get("entities"))]
 
-    display_name = _string_value(raw, "display_name", "") or _string_value(raw, "category_name", "") or category_name
+    display_name = (
+        _string_value(raw, "display_name", "")
+        or _string_value(raw, "category_name", "")
+        or category_name
+    )
 
     return CategoryConfig(
         category_name=_string_value(raw, "category_name", category_name),
@@ -85,6 +103,38 @@ def load_category_config(category_name: str, categories_dir: Path | None = None)
         sources=sources,
         entities=entities,
     )
+
+
+def load_notification_config(config_path: Path) -> NotificationConfig:
+    if not config_path.exists():
+        return NotificationConfig(enabled=False, channels=[])
+
+    loaded = cast(object, yaml.safe_load(config_path.read_text(encoding="utf-8")))
+    root = cast(dict[str, Any], loaded if isinstance(loaded, dict) else {})
+    notifications = cast(dict[str, Any], root.get("notifications", {}))
+
+    channels = notifications.get("channels", [])
+    if not isinstance(channels, list):
+        channels = []
+
+    return NotificationConfig(
+        enabled=bool(notifications.get("enabled", False)),
+        channels=[str(channel) for channel in channels],
+        email_settings=_resolve_env_refs(cast(dict[str, Any], notifications.get("email", {}))),
+        webhook_url=str(_resolve_env_refs(notifications.get("webhook_url", ""))),
+        telegram_config=_resolve_env_refs(cast(dict[str, Any], notifications.get("telegram", {}))),
+        rules=_resolve_env_refs(cast(dict[str, Any], notifications.get("rules", {}))),
+    )
+
+
+def _resolve_env_refs(value: Any) -> Any:
+    if isinstance(value, str):
+        return _ENV_PATTERN.sub(lambda match: os.environ.get(match.group(1), ""), value)
+    if isinstance(value, list):
+        return [_resolve_env_refs(item) for item in value]
+    if isinstance(value, dict):
+        return {str(key): _resolve_env_refs(item) for key, item in value.items()}
+    return value
 
 
 def _parse_source(entry: dict[str, object]) -> Source:
@@ -108,9 +158,9 @@ def _parse_entity(entry: dict[str, object]) -> EntityDefinition:
         keywords = []
         for keyword in cast(list[object], keywords_raw):
             keywords.append(keyword)
-    elif isinstance(keywords_raw, tuple | set):
+    elif isinstance(keywords_raw, (tuple, set)):
         keywords = []
-        for keyword in cast(tuple[object, ...] | set[object], keywords_raw):
+        for keyword in cast(list[object], list(keywords_raw)):
             keywords.append(keyword)
     else:
         keywords = []

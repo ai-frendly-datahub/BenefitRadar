@@ -2,371 +2,108 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import patch
 
 import pytest
 
-from benefitradar.notifier import (
-    CompositeNotifier,
-    EmailNotifier,
-    NotificationPayload,
-    WebhookNotifier,
-)
+from benefitradar.config_loader import load_notification_config
+from benefitradar.models import Article
+from benefitradar.notifier import NotificationConfig, Notifier, detect_benefit_notifications
 
 
-class TestNotificationPayload:
-    """Test NotificationPayload structure and serialization."""
-
-    def test_payload_creation(self) -> None:
-        """Test creating a notification payload."""
-        now = datetime.now(timezone.utc)
-        payload = NotificationPayload(
-            category_name="test_category",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=2,
-            timestamp=now,
-            report_url="http://example.com/report.html",
+@pytest.mark.unit
+def test_notifier_sends_webhook_channel() -> None:
+    notifier = Notifier(
+        NotificationConfig(
+            enabled=True,
+            channels=["webhook"],
+            webhook_url="https://hooks.example",
         )
+    )
 
-        assert payload.category_name == "test_category"
-        assert payload.sources_count == 5
-        assert payload.collected_count == 100
-        assert payload.matched_count == 25
-        assert payload.errors_count == 2
-        assert payload.timestamp == now
-        assert payload.report_url == "http://example.com/report.html"
+    with patch("benefitradar.notifier.requests.post") as mock_post:
+        notifier.send("title", "message", "high")
 
-    def test_payload_to_dict(self) -> None:
-        """Test converting payload to dictionary."""
-        now = datetime.now(timezone.utc)
-        payload = NotificationPayload(
-            category_name="test_category",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=2,
-            timestamp=now,
-            report_url="http://example.com/report.html",
+    mock_post.assert_called_once()
+
+
+@pytest.mark.unit
+def test_notifier_sends_email_channel() -> None:
+    notifier = Notifier(
+        NotificationConfig(
+            enabled=True,
+            channels=["email"],
+            email_settings={
+                "smtp_host": "smtp.example.com",
+                "smtp_port": 587,
+                "from_address": "from@example.com",
+                "to_addresses": ["to@example.com"],
+            },
         )
+    )
 
-        data = payload.to_dict()
-        assert data["category_name"] == "test_category"
-        assert data["sources_count"] == 5
-        assert data["collected_count"] == 100
-        assert data["matched_count"] == 25
-        assert data["errors_count"] == 2
-        assert data["timestamp"] == now.isoformat()
-        assert data["report_url"] == "http://example.com/report.html"
+    with patch("benefitradar.notifier.smtplib.SMTP") as mock_smtp:
+        notifier.send("title", "message", "normal")
+
+    mock_smtp.assert_called_once()
 
 
-class TestEmailNotifier:
-    """Test EmailNotifier with mocked smtplib."""
-
-    def test_send_email_success(self) -> None:
-        """Test successful email sending."""
-        notifier = EmailNotifier(
-            smtp_host="smtp.example.com",
-            smtp_port=587,
-            smtp_user="user@example.com",
-            smtp_password="password",
-            from_addr="sender@example.com",
-            to_addrs=["recipient@example.com"],
+@pytest.mark.unit
+def test_notifier_sends_telegram_channel() -> None:
+    notifier = Notifier(
+        NotificationConfig(
+            enabled=True,
+            channels=["telegram"],
+            telegram_config={"bot_token": "token", "chat_id": "chat"},
         )
+    )
 
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
+    with patch("benefitradar.notifier.requests.post") as mock_post:
+        notifier.send("title", "message", "high")
 
-        with patch("smtplib.SMTP") as mock_smtp:
-            mock_instance = MagicMock()
-            mock_smtp.return_value.__enter__.return_value = mock_instance
-
-            result = notifier.send(payload)
-
-            assert result is True
-            mock_instance.starttls.assert_called_once()
-            mock_instance.login.assert_called_once_with("user@example.com", "password")
-            mock_instance.send_message.assert_called_once()
-
-    def test_send_email_failure_smtp_error(self) -> None:
-        """Test email sending with SMTP error."""
-        notifier = EmailNotifier(
-            smtp_host="smtp.example.com",
-            smtp_port=587,
-            smtp_user="user@example.com",
-            smtp_password="password",
-            from_addr="sender@example.com",
-            to_addrs=["recipient@example.com"],
-        )
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        with patch("smtplib.SMTP") as mock_smtp:
-            mock_smtp.side_effect = Exception("SMTP connection failed")
-
-            result = notifier.send(payload)
-
-            assert result is False
-
-    def test_send_email_with_errors(self) -> None:
-        """Test email payload includes error count."""
-        notifier = EmailNotifier(
-            smtp_host="smtp.example.com",
-            smtp_port=587,
-            smtp_user="user@example.com",
-            smtp_password="password",
-            from_addr="sender@example.com",
-            to_addrs=["recipient@example.com"],
-        )
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=5,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        with patch("smtplib.SMTP") as mock_smtp:
-            mock_instance = MagicMock()
-            mock_smtp.return_value.__enter__.return_value = mock_instance
-
-            result = notifier.send(payload)
-
-            assert result is True
-            # Verify the message was sent
-            mock_instance.send_message.assert_called_once()
+    mock_post.assert_called_once()
 
 
-class TestWebhookNotifier:
-    """Test WebhookNotifier with mocked requests."""
+@pytest.mark.unit
+def test_load_notification_config_resolves_env(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setenv("WEBHOOK_URL", "https://hooks.example")
+    config_file = tmp_path / "notifications.yaml"
+    config_file.write_text(
+        """
+notifications:
+  enabled: true
+  channels: [webhook]
+  webhook_url: "${WEBHOOK_URL}"
+""".strip(),
+        encoding="utf-8",
+    )
 
-    def test_send_webhook_post_success(self) -> None:
-        """Test successful webhook POST."""
-        notifier = WebhookNotifier(
-            url="http://example.com/webhook",
-            method="POST",
-            headers={"Authorization": "Bearer token"},
-        )
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        with patch("requests.post") as mock_post:
-            mock_response = Mock()
-            mock_response.status_code = 200
-            mock_post.return_value = mock_response
-
-            result = notifier.send(payload)
-
-            assert result is True
-            mock_post.assert_called_once()
-            call_args = mock_post.call_args
-            assert call_args[0][0] == "http://example.com/webhook"
-            assert call_args[1]["json"] == payload.to_dict()
-            assert call_args[1]["headers"] == {"Authorization": "Bearer token"}
-
-    def test_send_webhook_get_success(self) -> None:
-        """Test successful webhook GET."""
-        notifier = WebhookNotifier(
-            url="http://example.com/webhook",
-            method="GET",
-            headers={},
-        )
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        with patch("requests.get") as mock_get:
-            mock_response = Mock()
-            mock_response.status_code = 200
-            mock_get.return_value = mock_response
-
-            result = notifier.send(payload)
-
-            assert result is True
-            mock_get.assert_called_once()
-
-    def test_send_webhook_failure_http_error(self) -> None:
-        """Test webhook sending with HTTP error."""
-        notifier = WebhookNotifier(
-            url="http://example.com/webhook",
-            method="POST",
-            headers={},
-        )
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        with patch("requests.post") as mock_post:
-            mock_post.side_effect = Exception("Connection failed")
-
-            result = notifier.send(payload)
-
-            assert result is False
-
-    def test_send_webhook_failure_bad_status(self) -> None:
-        """Test webhook sending with bad HTTP status."""
-        notifier = WebhookNotifier(
-            url="http://example.com/webhook",
-            method="POST",
-            headers={},
-        )
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        with patch("requests.post") as mock_post:
-            mock_response = Mock()
-            mock_response.status_code = 500
-            mock_post.return_value = mock_response
-
-            result = notifier.send(payload)
-
-            assert result is False
+    config = load_notification_config(config_file)
+    assert config.enabled is True
+    assert config.webhook_url == "https://hooks.example"
 
 
-class TestCompositeNotifier:
-    """Test CompositeNotifier with multiple notifiers."""
+@pytest.mark.unit
+def test_detect_benefit_notifications_priority_and_types() -> None:
+    article = Article(
+        title="청년 주거지원 신청 2026-03-10 마감",
+        link="https://example.com/benefit/1",
+        summary="저소득 청년 대상",
+        published=datetime.now(timezone.utc),
+        source="test",
+        category="benefit",
+    )
 
-    def test_send_all_notifiers_success(self) -> None:
-        """Test sending to multiple notifiers all succeed."""
-        email_notifier = Mock()
-        email_notifier.send.return_value = True
+    events = detect_benefit_notifications(
+        [article],
+        known_links=set(),
+        rules={"deadline_days": 7, "condition_keywords": ["청년", "저소득"]},
+    )
 
-        webhook_notifier = Mock()
-        webhook_notifier.send.return_value = True
-
-        composite = CompositeNotifier([email_notifier, webhook_notifier])
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        result = composite.send(payload)
-
-        assert result is True
-        email_notifier.send.assert_called_once_with(payload)
-        webhook_notifier.send.assert_called_once_with(payload)
-
-    def test_send_partial_failure(self) -> None:
-        """Test sending with one notifier failing."""
-        email_notifier = Mock()
-        email_notifier.send.return_value = False
-
-        webhook_notifier = Mock()
-        webhook_notifier.send.return_value = True
-
-        composite = CompositeNotifier([email_notifier, webhook_notifier])
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        result = composite.send(payload)
-
-        # Should return False if any notifier fails
-        assert result is False
-        email_notifier.send.assert_called_once_with(payload)
-        webhook_notifier.send.assert_called_once_with(payload)
-
-    def test_send_all_notifiers_fail(self) -> None:
-        """Test sending with all notifiers failing."""
-        email_notifier = Mock()
-        email_notifier.send.return_value = False
-
-        webhook_notifier = Mock()
-        webhook_notifier.send.return_value = False
-
-        composite = CompositeNotifier([email_notifier, webhook_notifier])
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        result = composite.send(payload)
-
-        assert result is False
-
-    def test_send_empty_notifiers(self) -> None:
-        """Test composite with no notifiers."""
-        composite = CompositeNotifier([])
-
-        payload = NotificationPayload(
-            category_name="test",
-            sources_count=5,
-            collected_count=100,
-            matched_count=25,
-            errors_count=0,
-            timestamp=datetime.now(timezone.utc),
-            report_url="http://example.com/report.html",
-        )
-
-        result = composite.send(payload)
-
-        # Empty composite should return True (no-op success)
-        assert result is True
+    event_types = {event.event_type for event in events}
+    assert "new_benefit" in event_types
+    assert "deadline_soon" in event_types
+    assert "condition_match" in event_types
+    assert any(event.priority == "high" for event in events)

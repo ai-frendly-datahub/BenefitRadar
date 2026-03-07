@@ -1,9 +1,9 @@
-name: BenefitRadar Crawler
+name: Radar Crawler (Optimized)
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8,20 * * *" # 일 2회 (08:00, 20:00 UTC = KST 17:00, 05:00)
+    - cron: "0 8,20 * * *"  # Daily at 00:00 UTC (adjust per project)
 
 permissions:
   contents: write
@@ -11,9 +11,9 @@ permissions:
   id-token: write
 
 env:
-  RADAR_CATEGORY: benefit   # 카테고리 YAML 이름을 여기에 맞게 수정하세요.
+  RADAR_CATEGORY: benefit  # Update per project
   TZ: Asia/Seoul
-  BOKJIRO_API_KEY: ${{ secrets.BOKJIRO_API_KEY }}
+  PYTHON_VERSION: "3.11"
 
 concurrency:
   group: radar-collection
@@ -22,6 +22,7 @@ concurrency:
 jobs:
   run-and-deploy:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,7 +30,16 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
 
       - name: Install dependencies
         run: |
@@ -43,8 +53,10 @@ jobs:
       - name: Auto-commit data updates
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update benefitradar data"
+          commit_message: "chore: update radar data [skip ci]"
           file_pattern: data/*.duckdb
+          skip_fetch: false
+          skip_checkout: false
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -55,21 +67,40 @@ jobs:
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
           commit_message: "docs: update radar report"
+          cname: ""  # Add custom domain if needed
 
-      - name: Archive DuckDB (backup)
+      - name: Archive DuckDB (30-day backup)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: radar-db-${{ github.run_number }}
           path: data/radar_data.duckdb
-          retention-days: 7
+          retention-days: 30
           if-no-files-found: ignore
 
-      - name: Archive reports (backup)
+      - name: Archive reports (30-day backup)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: radar-reports-${{ github.run_number }}
           path: reports/
-          retention-days: 7
+          retention-days: 30
           if-no-files-found: warn
+
+      - name: Create workflow summary
+        if: always()
+        run: |
+          echo "## 📊 Radar Collection Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Category**: ${{ env.RADAR_CATEGORY }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Run**: ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timestamp**: $(date +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f "reports/index.html" ]; then
+            echo "✅ Report generated successfully" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "data/radar_data.duckdb" ]; then
+            SIZE=$(du -h data/radar_data.duckdb | cut -f1)
+            echo "✅ Database backed up ($SIZE)" >> $GITHUB_STEP_SUMMARY
+          fi

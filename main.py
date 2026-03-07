@@ -7,7 +7,8 @@ from typing import cast
 from benefitradar.analyzer import apply_entity_rules
 from benefitradar.collector import collect_sources
 from benefitradar.common.validators import validate_article
-from benefitradar.config_loader import load_category_config, load_settings
+from benefitradar.config_loader import load_category_config, load_notification_config, load_settings
+from benefitradar.notifier import Notifier, detect_benefit_notifications
 from benefitradar.raw_logger import RawLogger
 from benefitradar.reporter import generate_report
 from benefitradar.search_index import SearchIndex
@@ -23,12 +24,15 @@ def run(
     recent_days: int = 7,
     timeout: int = 15,
     keep_days: int = 90,
+    notifications_config: Path | None = None,
 ) -> Path:
     """Execute the lightweight collect -> analyze -> report pipeline."""
     settings = load_settings(config_path)
     category_cfg = load_category_config(category, categories_dir=categories_dir)
 
-    print(f"[Radar] Collecting '{category_cfg.display_name}' from {len(category_cfg.sources)} sources...")
+    print(
+        f"[Radar] Collecting '{category_cfg.display_name}' from {len(category_cfg.sources)} sources..."
+    )
     collected, errors = collect_sources(
         category_cfg.sources,
         category=category_cfg.category_name,
@@ -55,6 +59,37 @@ def run(
             validation_errors.append(f"{article.link}: {', '.join(validation_msgs)}")
 
     storage = RadarStorage(settings.database_path)
+
+    known_links = {
+        str(row[0])
+        for row in storage.conn.execute("SELECT link FROM articles").fetchall()
+        if row and row[0]
+    }
+
+    notifier = Notifier(
+        load_notification_config(
+            notifications_config
+            or (
+                config_path.parent / "notifications.yaml"
+                if config_path
+                else Path("config/notifications.yaml")
+            )
+        )
+    )
+
+    events = detect_benefit_notifications(
+        validated_articles,
+        known_links=known_links,
+        rules=notifier.config.rules,
+    )
+    for event in events:
+        notifier.send(
+            title=event.title,
+            message=event.message,
+            priority=event.priority,
+            metadata=event.metadata,
+        )
+
     storage.upsert_articles(validated_articles)
     _ = storage.delete_older_than(keep_days)
 
@@ -82,19 +117,41 @@ def run(
     )
     print(f"[Radar] Report generated at {output_path}")
     if errors or validation_errors:
-        print(f"[Radar] {len(errors) + len(validation_errors)} issue(s) found. See report for details.")
+        print(
+            f"[Radar] {len(errors) + len(validation_errors)} issue(s) found. See report for details."
+        )
     return output_path
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Lightweight Radar template runner")
-    _ = parser.add_argument("--category", required=True, help="Category name matching a YAML in config/categories/")
-    _ = parser.add_argument("--config", type=Path, default=None, help="Path to config/config.yaml (optional)")
-    _ = parser.add_argument("--categories-dir", type=Path, default=None, help="Custom directory for category YAML files")
-    _ = parser.add_argument("--per-source-limit", type=int, default=30, help="Max items to pull from each source")
-    _ = parser.add_argument("--recent-days", type=int, default=7, help="Window (days) to show in the report")
-    _ = parser.add_argument("--timeout", type=int, default=15, help="HTTP timeout per request (seconds)")
-    _ = parser.add_argument("--keep-days", type=int, default=90, help="Retention window for stored items")
+    _ = parser.add_argument(
+        "--category", required=True, help="Category name matching a YAML in config/categories/"
+    )
+    _ = parser.add_argument(
+        "--config", type=Path, default=None, help="Path to config/config.yaml (optional)"
+    )
+    _ = parser.add_argument(
+        "--categories-dir", type=Path, default=None, help="Custom directory for category YAML files"
+    )
+    _ = parser.add_argument(
+        "--per-source-limit", type=int, default=30, help="Max items to pull from each source"
+    )
+    _ = parser.add_argument(
+        "--recent-days", type=int, default=7, help="Window (days) to show in the report"
+    )
+    _ = parser.add_argument(
+        "--timeout", type=int, default=15, help="HTTP timeout per request (seconds)"
+    )
+    _ = parser.add_argument(
+        "--keep-days", type=int, default=90, help="Retention window for stored items"
+    )
+    _ = parser.add_argument(
+        "--notifications-config",
+        type=Path,
+        default=None,
+        help="Path to config/notifications.yaml (optional)",
+    )
     return parser.parse_args()
 
 
@@ -127,4 +184,5 @@ if __name__ == "__main__":
         recent_days=_to_int(args.get("recent_days"), 7),
         timeout=_to_int(args.get("timeout"), 15),
         keep_days=_to_int(args.get("keep_days"), 90),
+        notifications_config=_to_path(args.get("notifications_config")),
     )
