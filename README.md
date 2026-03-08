@@ -1,5 +1,8 @@
 # BenefitRadar - 복지 정보 레이더
 
+**🌐 Live Report**: https://ai-frendly-datahub.github.io/BenefitRadar/
+
+
 복지로 API를 통해 정부 복지 정보를 실시간으로 수집하고, 키워드 기반 엔티티 분석으로 복지 동향을 추적합니다.
 
 ## 프로젝트 목표
