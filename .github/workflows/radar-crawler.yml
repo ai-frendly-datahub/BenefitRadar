@@ -14,6 +14,7 @@ env:
   RADAR_CATEGORY: benefit  # Update per project
   TZ: Asia/Seoul
   PYTHON_VERSION: "3.11"
+  BOKJIRO_API_KEY: ${{ secrets.BOKJIRO_API_KEY }}
 
 concurrency:
   group: radar-collection
