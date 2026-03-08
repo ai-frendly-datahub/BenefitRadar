@@ -152,6 +152,12 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Path to config/notifications.yaml (optional)",
     )
+    _ = parser.add_argument(
+        "--generate-report",
+        action="store_true",
+        default=False,
+        help="Generate HTML report after collection",
+    )
     return parser.parse_args()
 
 
