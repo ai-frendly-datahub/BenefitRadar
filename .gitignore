@@ -172,5 +172,4 @@ marimo/_lsp/
 __marimo__/
 
 # Radar template artifacts
-data/
 reports/*.duckdb
