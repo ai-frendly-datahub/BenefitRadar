@@ -984,7 +984,7 @@ _REPORT_TEMPLATE = """<!doctype html>
                 datasets: [{
                   label: "count",
                   data: values,
-                  backgroundColor: "rgba(51,214,197,.26)",
+                  backgroundColor: "rgba(51,214,197,.35)",
                   borderColor: "rgba(51,214,197,.72)",
                   borderWidth: 1.2,
                   borderRadius: 10,
