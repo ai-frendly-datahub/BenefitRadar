@@ -2,14 +2,14 @@ from __future__ import annotations
 
 import os
 import sys
-from typing import Any
+from typing import Optional, Any
 
 import structlog
 
 
 def configure_logging(
-    log_level: str | None = None,
-    use_json: bool | None = None,
+    log_level: Optional[str] = None,
+    use_json: Optional[bool] = None,
 ) -> None:
     """Configure structlog with JSON or console output.
 

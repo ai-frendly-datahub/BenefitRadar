@@ -5,7 +5,7 @@ import re
 from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import cast
+from typing import Optional, cast
 
 import duckdb
 
@@ -145,7 +145,7 @@ def handle_top_trends(*, db_path: Path, days: int = 7, limit: int = 10) -> str:
             """,
             [cutoff],
         ).fetchall()
-        entity_rows = cast(list[tuple[str | None]], rows)
+        entity_rows = cast(list[tuple[Optional[str]]], rows)
     finally:
         conn.close()
 

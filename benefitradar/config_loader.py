@@ -3,12 +3,19 @@ from __future__ import annotations
 import os
 import re
 from pathlib import Path
-from typing import Any, cast
+from typing import Optional, Any, cast
 
 import yaml
 
-from .models import CategoryConfig, EntityDefinition, RadarSettings, Source
-from .notifier import NotificationConfig
+from .models import (
+    CategoryConfig,
+    EmailSettings,
+    EntityDefinition,
+    NotificationConfig,
+    RadarSettings,
+    Source,
+    TelegramSettings,
+)
 
 
 def _resolve_path(path_value: str, *, project_root: Path) -> Path:
@@ -49,7 +56,7 @@ def _dict_items(value: object) -> list[dict[str, object]]:
 _ENV_PATTERN = re.compile(r"\$\{([A-Z0-9_]+)\}")
 
 
-def load_settings(config_path: Path | None = None) -> RadarSettings:
+def load_settings(config_path: Optional[Path] = None) -> RadarSettings:
     """Load global radar settings such as database and report directories."""
     project_root = Path(__file__).resolve().parent.parent
     config_file = config_path or project_root / "config" / "config.yaml"
@@ -78,7 +85,7 @@ def load_settings(config_path: Path | None = None) -> RadarSettings:
     )
 
 
-def load_category_config(category_name: str, categories_dir: Path | None = None) -> CategoryConfig:
+def load_category_config(category_name: str, categories_dir: Optional[Path] = None) -> CategoryConfig:
     """Load a category YAML and parse it into a CategoryConfig object."""
     project_root = Path(__file__).resolve().parent.parent
     base_dir = categories_dir or project_root / "config" / "categories"
@@ -105,25 +112,88 @@ def load_category_config(category_name: str, categories_dir: Path | None = None)
     )
 
 
-def load_notification_config(config_path: Path) -> NotificationConfig:
-    if not config_path.exists():
+def load_notification_config(
+    config_path: Optional[Path] = None,
+) -> NotificationConfig:
+    """Load notification configuration from notifications.yaml.
+
+    Args:
+        config_path: Path to notifications.yaml. If None, uses project_root/config/notifications.yaml
+
+    Returns:
+        NotificationConfig with resolved environment variables
+
+    Raises:
+        FileNotFoundError: If notifications.yaml does not exist
+    """
+    project_root = Path(__file__).resolve().parent.parent
+    config_file = config_path or project_root / "config" / "notifications.yaml"
+
+    if not config_file.exists():
         return NotificationConfig(enabled=False, channels=[])
 
-    loaded = cast(object, yaml.safe_load(config_path.read_text(encoding="utf-8")))
-    root = cast(dict[str, Any], loaded if isinstance(loaded, dict) else {})
-    notifications = cast(dict[str, Any], root.get("notifications", {}))
+    raw = _read_yaml_dict(config_file)
+    notifications_raw = raw.get("notifications", {})
+    if not isinstance(notifications_raw, dict):
+        return NotificationConfig(enabled=False, channels=[])
 
-    channels = notifications.get("channels", [])
-    if not isinstance(channels, list):
-        channels = []
+    notifications_dict = cast(dict[str, object], notifications_raw)
+    enabled = bool(notifications_dict.get("enabled", False))
+    channels_raw = notifications_dict.get("channels", [])
+    channels = [str(c) for c in cast(list[object], channels_raw) if isinstance(c, str)]
+
+    email_settings = None
+    email_raw = notifications_dict.get("email")
+    if isinstance(email_raw, dict):
+        email_dict = cast(dict[str, object], _resolve_env_refs(email_raw))
+        try:
+            smtp_port_raw = email_dict.get("smtp_port", 587)
+            smtp_port = int(smtp_port_raw) if isinstance(smtp_port_raw, (int, str)) else 587
+            email_settings = EmailSettings(
+                smtp_host=_string_value(email_dict, "smtp_host", ""),
+                smtp_port=smtp_port,
+                username=_string_value(email_dict, "username", ""),
+                password=_string_value(email_dict, "password", ""),
+                from_address=_string_value(email_dict, "from_address", ""),
+                to_addresses=[
+                    str(addr)
+                    for addr in cast(list[object], email_dict.get("to_addresses", []))
+                    if isinstance(addr, str)
+                ],
+            )
+        except (ValueError, KeyError):
+            email_settings = None
+
+    webhook_url = None
+    webhook_raw = notifications_dict.get("webhook_url")
+    if isinstance(webhook_raw, str):
+        resolved = _resolve_env_refs(webhook_raw)
+        webhook_url = str(resolved) if resolved else None
+
+    telegram_settings = None
+    telegram_raw = notifications_dict.get("telegram")
+    if isinstance(telegram_raw, dict):
+        telegram_dict = cast(dict[str, object], _resolve_env_refs(telegram_raw))
+        try:
+            telegram_settings = TelegramSettings(
+                bot_token=_string_value(telegram_dict, "bot_token", ""),
+                chat_id=_string_value(telegram_dict, "chat_id", ""),
+            )
+        except (ValueError, KeyError):
+            telegram_settings = None
+
+    rules_raw = notifications_dict.get("rules", {})
+    rules = (
+        cast(dict[str, object], _resolve_env_refs(rules_raw)) if isinstance(rules_raw, dict) else {}
+    )
 
     return NotificationConfig(
-        enabled=bool(notifications.get("enabled", False)),
-        channels=[str(channel) for channel in channels],
-        email_settings=_resolve_env_refs(cast(dict[str, Any], notifications.get("email", {}))),
-        webhook_url=str(_resolve_env_refs(notifications.get("webhook_url", ""))),
-        telegram_config=_resolve_env_refs(cast(dict[str, Any], notifications.get("telegram", {}))),
-        rules=_resolve_env_refs(cast(dict[str, Any], notifications.get("rules", {}))),
+        enabled=enabled,
+        channels=channels,
+        email=email_settings,
+        webhook_url=webhook_url,
+        telegram=telegram_settings,
+        rules=rules,
     )
 
 

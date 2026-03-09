@@ -3,14 +3,14 @@ from __future__ import annotations
 import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Iterable, List
+from typing import Optional, Iterable, List
 
 import duckdb
 
 from .models import Article
 
 
-def _utc_naive(dt: datetime | None) -> datetime | None:
+def _utc_naive(dt: Optional[datetime]) -> Optional[datetime]:
     """Convert tz-aware datetime to UTC naive for DuckDB."""
     if dt is None:
         return None

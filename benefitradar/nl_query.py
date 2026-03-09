@@ -2,15 +2,15 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from typing import Callable
+from typing import Optional, Callable
 
 
 @dataclass
 class ParsedQuery:
     search_text: str
-    days: int | None
-    limit: int | None
-    category: str | None
+    days: Optional[int]
+    limit: Optional[int]
+    category: Optional[str]
 
 
 _TimeConverter = Callable[[re.Match[str]], int]
@@ -48,9 +48,9 @@ def _remove_span(text: str, start: int, end: int) -> str:
     return re.sub(r"\s+", " ", collapsed).strip()
 
 
-def _extract_time(text: str) -> tuple[int | None, str]:
-    best_match: re.Match[str] | None = None
-    best_converter: _TimeConverter | None = None
+def _extract_time(text: str) -> tuple[Optional[int], str]:
+    best_match: Optional[re.Match[str]] = None
+    best_converter: Optional[_TimeConverter] = None
 
     for pattern, converter in _TIME_PATTERNS:
         match = pattern.search(text)
@@ -68,8 +68,8 @@ def _extract_time(text: str) -> tuple[int | None, str]:
     return days, cleaned_text
 
 
-def _extract_limit(text: str) -> tuple[int | None, str]:
-    best_match: re.Match[str] | None = None
+def _extract_limit(text: str) -> tuple[Optional[int], str]:
+    best_match: Optional[re.Match[str]] = None
 
     for pattern in _LIMIT_PATTERNS:
         match = pattern.search(text)

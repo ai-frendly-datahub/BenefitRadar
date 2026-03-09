@@ -1,10 +1,12 @@
+# Canonical Notifications Configuration
+# Synced to: BenefitRadar, EventRadar, GameRadar, MobilityRadar, PaperRadar, PaperworkRadar, PolicyRadar, QueueRadar, RefundRadar, SubscriptionRadar, TrustRadar
+# DO NOT MODIFY this template in Standard repos — update Radar-Template instead
+
 notifications:
-  enabled: true
-  channels:
-    - webhook
+  enabled: false
+  channels: []
 
-  webhook_url: "${WEBHOOK_URL}"
-
+  # Email notification settings
   email:
     smtp_host: "${SMTP_HOST}"
     smtp_port: 587
@@ -14,14 +16,14 @@ notifications:
     to_addresses:
       - "${EMAIL_TO}"
 
+  # Webhook notification settings
+  webhook_url: "${WEBHOOK_URL}"
+
+  # Telegram notification settings
   telegram:
     bot_token: "${TELEGRAM_BOT_TOKEN}"
     chat_id: "${TELEGRAM_CHAT_ID}"
 
-  rules:
-    deadline_days: 7
-    condition_keywords:
-      - "청년"
-      - "신혼"
-      - "다자녀"
-      - "저소득"
+  # Domain-specific notification rules (empty by default)
+  # Each domain repo can define custom rules here
+  rules: {}
