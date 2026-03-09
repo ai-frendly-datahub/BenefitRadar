@@ -29,6 +29,7 @@ class Article:
     source: str
     category: str
     matched_entities: dict[str, list[str]] = field(default_factory=dict)
+    collected_at: Optional[datetime] = None
 
 
 @dataclass
