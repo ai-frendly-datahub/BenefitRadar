@@ -1,27 +1,55 @@
 from __future__ import annotations
 
-from typing import Iterable, List
+import re
+from collections.abc import Iterable
+from functools import lru_cache
 
 from .models import Article, EntityDefinition
 
 
-def apply_entity_rules(articles: Iterable[Article], entities: List[EntityDefinition]) -> List[Article]:
+def _is_ascii_only(keyword: str) -> bool:
+    return all(ord(char) < 128 for char in keyword)
+
+
+@lru_cache(maxsize=2048)
+def _compile_ascii_keyword_pattern(keyword: str) -> re.Pattern[str]:
+    return re.compile(r"\b" + re.escape(keyword) + r"\b", re.IGNORECASE)
+
+
+def apply_entity_rules(
+    articles: Iterable[Article], entities: list[EntityDefinition]
+) -> list[Article]:
     """Attach matched entity keywords to each article via simple keyword search."""
-    analyzed: List[Article] = []
-    lowered_entities = [
-        EntityDefinition(
-            name=e.name,
-            display_name=e.display_name,
-            keywords=[kw.lower() for kw in e.keywords],
-        )
-        for e in entities
-    ]
+    analyzed: list[Article] = []
+    normalized_entities: list[
+        tuple[EntityDefinition, list[tuple[str, re.Pattern[str] | None]]]
+    ] = []
+    for entity in entities:
+        normalized_keywords: list[tuple[str, re.Pattern[str] | None]] = []
+        for keyword in entity.keywords:
+            normalized_keyword = keyword.lower()
+            if not normalized_keyword:
+                continue
+
+            pattern = (
+                _compile_ascii_keyword_pattern(normalized_keyword)
+                if _is_ascii_only(normalized_keyword)
+                else None
+            )
+            normalized_keywords.append((normalized_keyword, pattern))
+
+        normalized_entities.append((entity, normalized_keywords))
 
     for article in articles:
-        haystack = f"{article.title}\n{article.summary}".lower()
+        haystack = f"{article.title}\n{article.summary}"
+        haystack_lower = haystack.lower()
         matches: dict[str, list[str]] = {}
-        for entity, lowered_entity in zip(entities, lowered_entities, strict=False):
-            hit_keywords = [kw for kw in lowered_entity.keywords if kw and kw in haystack]
+        for entity, keywords_with_patterns in normalized_entities:
+            hit_keywords = [
+                keyword
+                for keyword, pattern in keywords_with_patterns
+                if (pattern.search(haystack) if pattern is not None else keyword in haystack_lower)
+            ]
             if hit_keywords:
                 matches[entity.name] = hit_keywords
         article.matched_entities = matches
