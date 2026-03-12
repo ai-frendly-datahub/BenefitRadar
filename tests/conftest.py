@@ -4,6 +4,14 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
+import structlog
+
+
+@pytest.fixture(autouse=True)
+def reset_structlog() -> object:
+    structlog.reset_defaults()
+    yield
+    structlog.reset_defaults()
 
 
 @pytest.fixture
