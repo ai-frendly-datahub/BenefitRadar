@@ -1,16 +1,18 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Optional, Iterable, List
+from typing import cast
 
 import duckdb
 
+from .exceptions import StorageError
 from .models import Article
 
 
-def _utc_naive(dt: Optional[datetime]) -> Optional[datetime]:
+def _utc_naive(dt: datetime | None) -> datetime | None:
     """Convert tz-aware datetime to UTC naive for DuckDB."""
     if dt is None:
         return None
@@ -23,16 +25,22 @@ class RadarStorage:
     """DuckDB 기반 경량 스토리지."""
 
     def __init__(self, db_path: Path):
-        self.db_path = db_path
+        self.db_path: Path = db_path
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        self.conn = duckdb.connect(str(self.db_path))
+        self.conn: duckdb.DuckDBPyConnection = duckdb.connect(str(self.db_path))
         self._ensure_tables()
 
     def close(self) -> None:
         self.conn.close()
 
+    def __enter__(self) -> RadarStorage:
+        return self
+
+    def __exit__(self, *args: object) -> None:
+        self.close()
+
     def _ensure_tables(self) -> None:
-        self.conn.execute(
+        _ = self.conn.execute(
             """
             CREATE SEQUENCE IF NOT EXISTS articles_id_seq START 1;
             CREATE TABLE IF NOT EXISTS articles (
@@ -48,37 +56,55 @@ class RadarStorage:
             );
             """
         )
-        self.conn.execute(
+        _ = self.conn.execute(
             "CREATE INDEX IF NOT EXISTS idx_articles_category_time ON articles (category, published, collected_at);"
         )
 
     def upsert_articles(self, articles: Iterable[Article]) -> None:
         """중복 링크는 덮어쓰고 최신 수집 시각을 기록."""
         now = _utc_naive(datetime.now(timezone.utc))
+        rows: list[tuple[object, ...]] = []
         for article in articles:
-            entities_json = json.dumps(article.matched_entities, ensure_ascii=False)
-            published = _utc_naive(article.published)
-
-            # 단순화: 같은 링크는 삭제 후 삽입 (DuckDB MERGE 대신 안전한 방식으로)
-            self.conn.execute("DELETE FROM articles WHERE link = ?", [article.link])
-            self.conn.execute(
-                """
-                INSERT INTO articles (category, source, title, link, summary, published, collected_at, entities_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                """,
-                [
+            rows.append(
+                (
                     article.category,
                     article.source,
                     article.title,
                     article.link,
                     article.summary,
-                    published,
+                    _utc_naive(article.published),
                     now,
-                    entities_json,
-                ],
+                    json.dumps(article.matched_entities, ensure_ascii=False),
+                )
             )
 
-    def recent_articles(self, category: str, *, days: int = 7, limit: int = 200) -> List[Article]:
+        if not rows:
+            return
+
+        try:
+            _ = self.conn.begin()
+            _ = self.conn.executemany(
+                """
+                INSERT INTO articles (category, source, title, link, summary, published, collected_at, entities_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(link) DO UPDATE SET
+                    title = EXCLUDED.title,
+                    summary = EXCLUDED.summary,
+                    published = EXCLUDED.published,
+                    collected_at = EXCLUDED.collected_at,
+                    entities_json = EXCLUDED.entities_json
+                """,
+                rows,
+            )
+            _ = self.conn.commit()
+        except Exception as exc:
+            try:
+                _ = self.conn.rollback()
+            except duckdb.Error:
+                pass
+            raise StorageError("Failed to upsert articles") from exc
+
+    def recent_articles(self, category: str, *, days: int = 7, limit: int = 200) -> list[Article]:
         """최근 N일 내 기사 반환."""
         since = _utc_naive(datetime.now(timezone.utc) - timedelta(days=days))
         cur = self.conn.execute(
@@ -91,31 +117,48 @@ class RadarStorage:
             """,
             [category, since, limit],
         )
-        rows = cur.fetchall()
-        columns = [desc[0] for desc in cur.description]
+        rows = cast(
+            list[
+                tuple[str, str, str, str, str | None, datetime | None, datetime | None, str | None]
+            ],
+            cur.fetchall(),
+        )
 
-        results: List[Article] = []
+        results: list[Article] = []
         for row in rows:
-            row_map = dict(zip(columns, row))
-            published = row_map.get("published")
+            category_value, source, title, link, summary, published, collected_at, raw_entities = (
+                row
+            )
+            published_at = published if isinstance(published, datetime) else None
+            collected = collected_at if isinstance(collected_at, datetime) else None
 
-            entities = {}
-            raw_entities = row_map.get("entities_json")
+            entities: dict[str, list[str]] = {}
             if raw_entities:
                 try:
-                    entities = json.loads(raw_entities)
+                    parsed_entities = cast(object, json.loads(raw_entities))
+                    if isinstance(parsed_entities, dict):
+                        parsed_map = cast(dict[object, object], parsed_entities)
+                        entities = {}
+                        for name, keywords in parsed_map.items():
+                            if not isinstance(name, str) or not isinstance(keywords, list):
+                                continue
+                            normalized_keywords: list[str] = []
+                            for keyword in cast(list[object], keywords):
+                                normalized_keywords.append(str(keyword))
+                            entities[name] = normalized_keywords
                 except json.JSONDecodeError:
                     entities = {}
 
             results.append(
                 Article(
-                    title=row_map.get("title", ""),
-                    link=row_map.get("link", ""),
-                    summary=row_map.get("summary") or "",
-                    published=published,
-                    source=row_map.get("source", ""),
-                    category=row_map.get("category", ""),
+                    title=str(title),
+                    link=str(link),
+                    summary=str(summary) if summary is not None else "",
+                    published=published_at,
+                    source=str(source),
+                    category=str(category_value),
                     matched_entities=entities,
+                    collected_at=collected,
                 )
             )
         return results
@@ -127,5 +170,7 @@ class RadarStorage:
             "SELECT COUNT(*) FROM articles WHERE COALESCE(published, collected_at) < ?", [cutoff]
         ).fetchone()
         to_delete = count_row[0] if count_row else 0
-        self.conn.execute("DELETE FROM articles WHERE COALESCE(published, collected_at) < ?", [cutoff])
+        _ = self.conn.execute(
+            "DELETE FROM articles WHERE COALESCE(published, collected_at) < ?", [cutoff]
+        )
         return to_delete
