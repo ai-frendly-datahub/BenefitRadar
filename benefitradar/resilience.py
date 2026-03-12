@@ -1,29 +1,29 @@
 from __future__ import annotations
 
 import threading
-from typing import Any, Callable, Dict, Optional
+from typing import Any, Callable
 
 import structlog
-from pybreaker import CircuitBreaker
+from pybreaker import CircuitBreaker, CircuitBreakerListener, CircuitBreakerState
 
 logger = structlog.get_logger(__name__)
 
 
-class SourceCircuitBreakerListener:
+class SourceCircuitBreakerListener(CircuitBreakerListener):
     """Listener for circuit breaker state changes with structlog integration."""
 
     def state_change(
         self,
         cb: CircuitBreaker,
-        before: str,
-        after: str,
+        old_state: CircuitBreakerState | None,
+        new_state: CircuitBreakerState,
     ) -> None:
         """Log state transitions."""
         logger.info(
             "circuit_breaker_state_change",
             source=cb.name,
-            before=before,
-            after=after,
+            before=old_state.name if old_state is not None else None,
+            after=new_state.name,
         )
 
 
@@ -33,7 +33,7 @@ class SourceCircuitBreakerListener:
     def failure(
         self,
         cb: CircuitBreaker,
-        exc: Exception,
+        exc: BaseException,
     ) -> None:
         """Log failures."""
         logger.warning(
@@ -56,7 +56,7 @@ class SourceCircuitBreakerManager:
 
     def __init__(self) -> None:
         """Initialize the manager with empty registry and lock."""
-        self._instances: Dict[str, CircuitBreaker] = {}
+        self._instances: dict[str, CircuitBreaker] = {}
         self._lock = threading.RLock()
         self._listener = SourceCircuitBreakerListener()
 
@@ -96,28 +96,28 @@ class SourceCircuitBreakerManager:
         """
         with self._lock:
             if source_name in self._instances:
-                self._instances[source_name].reset()
+                self._instances[source_name].close()
                 logger.info("circuit_breaker_reset", source=source_name)
 
     def reset_all(self) -> None:
         """Reset all circuit breakers."""
         with self._lock:
             for breaker in self._instances.values():
-                breaker.reset()
+                breaker.close()
             logger.info("circuit_breaker_reset_all", count=len(self._instances))
 
-    def get_status(self) -> Dict[str, str]:
+    def get_status(self) -> dict[str, str]:
         """Get status of all circuit breakers.
 
         Returns:
             Dict mapping source names to their current state
         """
         with self._lock:
-            return {name: breaker.state for name, breaker in self._instances.items()}
+            return {name: breaker.current_state for name, breaker in self._instances.items()}
 
 
 # Global singleton instance
-_manager: Optional[SourceCircuitBreakerManager] = None
+_manager: SourceCircuitBreakerManager | None = None
 _manager_lock = threading.Lock()
 
 
