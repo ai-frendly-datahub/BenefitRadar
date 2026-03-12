@@ -26,6 +26,10 @@ class SourceCircuitBreakerListener:
             after=after,
         )
 
+
+    def before_call(self, cb: CircuitBreaker, func: object, *args: object, **kwargs: object) -> None:
+        """Called before the circuit breaker executes a function."""
+
     def failure(
         self,
         cb: CircuitBreaker,

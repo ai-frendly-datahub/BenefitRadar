@@ -8,7 +8,11 @@ from benefitradar.analyzer import apply_entity_rules
 from benefitradar.collector import collect_sources
 from benefitradar.common.validators import validate_article
 from benefitradar.config_loader import load_category_config, load_notification_config, load_settings
-from benefitradar.notifier import Notifier, detect_benefit_notifications
+from benefitradar.notifier import (
+    BenefitNotifier,
+    NotificationConfig as BenefitNotificationConfig,
+    detect_benefit_notifications,
+)
 from benefitradar.raw_logger import RawLogger
 from benefitradar.reporter import generate_report
 from benefitradar.search_index import SearchIndex
@@ -66,14 +70,36 @@ def run(
         if row and row[0]
     }
 
-    notifier = Notifier(
-        load_notification_config(
-            notifications_config
-            or (
-                config_path.parent / "notifications.yaml"
-                if config_path
-                else Path("config/notifications.yaml")
-            )
+    notification_config = load_notification_config(
+        notifications_config
+        or (
+            config_path.parent / "notifications.yaml"
+            if config_path
+            else Path("config/notifications.yaml")
+        )
+    )
+    notifier = BenefitNotifier(
+        BenefitNotificationConfig(
+            enabled=notification_config.enabled,
+            channels=notification_config.channels,
+            email_settings={
+                "smtp_host": notification_config.email.smtp_host,
+                "smtp_port": notification_config.email.smtp_port,
+                "username": notification_config.email.username,
+                "password": notification_config.email.password,
+                "from_address": notification_config.email.from_address,
+                "to_addresses": notification_config.email.to_addresses,
+            }
+            if notification_config.email is not None
+            else {},
+            webhook_url=notification_config.webhook_url or "",
+            telegram_config={
+                "bot_token": notification_config.telegram.bot_token,
+                "chat_id": notification_config.telegram.chat_id,
+            }
+            if notification_config.telegram is not None
+            else {},
+            rules=notification_config.rules,
         )
     )
 
@@ -83,7 +109,7 @@ def run(
         rules=notifier.config.rules,
     )
     for event in events:
-        notifier.send(
+        notifier.send_event(
             title=event.title,
             message=event.message,
             priority=event.priority,

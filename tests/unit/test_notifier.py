@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import patch
 
@@ -8,12 +8,12 @@ import pytest
 
 from benefitradar.config_loader import load_notification_config
 from benefitradar.models import Article
-from benefitradar.notifier import NotificationConfig, Notifier, detect_benefit_notifications
+from benefitradar.notifier import BenefitNotifier, NotificationConfig, detect_benefit_notifications
 
 
 @pytest.mark.unit
 def test_notifier_sends_webhook_channel() -> None:
-    notifier = Notifier(
+    notifier = BenefitNotifier(
         NotificationConfig(
             enabled=True,
             channels=["webhook"],
@@ -22,14 +22,14 @@ def test_notifier_sends_webhook_channel() -> None:
     )
 
     with patch("benefitradar.notifier.requests.post") as mock_post:
-        notifier.send("title", "message", "high")
+        notifier.send_event("title", "message", "high")
 
     mock_post.assert_called_once()
 
 
 @pytest.mark.unit
 def test_notifier_sends_email_channel() -> None:
-    notifier = Notifier(
+    notifier = BenefitNotifier(
         NotificationConfig(
             enabled=True,
             channels=["email"],
@@ -43,14 +43,14 @@ def test_notifier_sends_email_channel() -> None:
     )
 
     with patch("benefitradar.notifier.smtplib.SMTP") as mock_smtp:
-        notifier.send("title", "message", "normal")
+        notifier.send_event("title", "message", "normal")
 
     mock_smtp.assert_called_once()
 
 
 @pytest.mark.unit
 def test_notifier_sends_telegram_channel() -> None:
-    notifier = Notifier(
+    notifier = BenefitNotifier(
         NotificationConfig(
             enabled=True,
             channels=["telegram"],
@@ -59,7 +59,7 @@ def test_notifier_sends_telegram_channel() -> None:
     )
 
     with patch("benefitradar.notifier.requests.post") as mock_post:
-        notifier.send("title", "message", "high")
+        notifier.send_event("title", "message", "high")
 
     mock_post.assert_called_once()
 
@@ -70,7 +70,7 @@ def test_load_notification_config_resolves_env(
 ) -> None:
     monkeypatch.setenv("WEBHOOK_URL", "https://hooks.example")
     config_file = tmp_path / "notifications.yaml"
-    config_file.write_text(
+    _ = config_file.write_text(
         """
 notifications:
   enabled: true
@@ -87,8 +87,9 @@ notifications:
 
 @pytest.mark.unit
 def test_detect_benefit_notifications_priority_and_types() -> None:
+    deadline = (datetime.now(timezone.utc) + timedelta(days=2)).date().isoformat()
     article = Article(
-        title="청년 주거지원 신청 2026-03-10 마감",
+        title=f"청년 주거지원 신청 {deadline} 마감",
         link="https://example.com/benefit/1",
         summary="저소득 청년 대상",
         published=datetime.now(timezone.utc),
