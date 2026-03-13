@@ -38,7 +38,7 @@ sources:
   # Korean government policy
   - name: "정책브리핑"
     type: "rss"
-    url: "https://www.korea.kr/rss/policy.xml"
+    url: "https://www.korea.kr/policy/policyBrd/selectPolicyBrdList.do?menuNo=1000034"
   - name: "Pew Research"
     type: "rss"
     url: "https://www.pewresearch.org/feed/"

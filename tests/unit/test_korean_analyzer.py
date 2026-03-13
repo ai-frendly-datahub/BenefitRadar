@@ -3,7 +3,6 @@ from __future__ import annotations
 import re
 
 from _pytest.monkeypatch import MonkeyPatch
-
 from radar_core.common import korean_analyzer
 
 
