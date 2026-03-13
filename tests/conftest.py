@@ -1,17 +1,75 @@
 from __future__ import annotations
 
+from datetime import UTC, datetime
+from pathlib import Path
+
 import pytest
-
-from benefitradar.logger import configure_logging
-
-
-@pytest.fixture(scope="session", autouse=True)
-def configure_test_logging() -> None:
-    """Configure logging for tests (session-scoped)."""
-    configure_logging(log_level="INFO", use_json=False)
+import structlog
 
 
 @pytest.fixture(autouse=True)
-def reconfigure_logging_per_test() -> None:
-    """Reconfigure logging for each test to ensure logger is fresh."""
-    configure_logging(log_level="INFO", use_json=False)
+def reset_structlog() -> object:
+    structlog.reset_defaults()
+    yield
+    structlog.reset_defaults()
+
+
+@pytest.fixture
+def sample_source() -> object:
+    from benefitradar.models import Source
+
+    return Source(name="Example RSS", type="rss", url="https://example.com/feed.xml")
+
+
+@pytest.fixture
+def sample_entity() -> object:
+    from benefitradar.models import EntityDefinition
+
+    return EntityDefinition(name="topic", display_name="Topic", keywords=["ai", "cloud", "python"])
+
+
+@pytest.fixture
+def sample_article() -> object:
+    from benefitradar.models import Article
+
+    return Article(
+        title="AI and cloud market update",
+        link="https://example.com/article-1",
+        summary="Python tooling and AI adoption continue to grow.",
+        published=datetime(2026, 3, 10, 9, 0, tzinfo=UTC),
+        source="Example RSS",
+        category="tech",
+        matched_entities={"topic": ["ai", "cloud", "python"]},
+    )
+
+
+@pytest.fixture
+def tmp_duckdb(tmp_path: Path) -> Path:
+    return tmp_path / "test_radar_data.duckdb"
+
+
+@pytest.fixture
+def tmp_search_db(tmp_path: Path) -> Path:
+    return tmp_path / "test_search_index.db"
+
+
+@pytest.fixture
+def tmp_storage(tmp_duckdb: Path) -> object:
+    from benefitradar.storage import RadarStorage
+
+    storage = RadarStorage(tmp_duckdb)
+    try:
+        yield storage
+    finally:
+        storage.close()
+
+
+@pytest.fixture
+def tmp_search_index(tmp_search_db: Path) -> object:
+    from benefitradar.search_index import SearchIndex
+
+    index = SearchIndex(tmp_search_db)
+    try:
+        yield index
+    finally:
+        index.close()

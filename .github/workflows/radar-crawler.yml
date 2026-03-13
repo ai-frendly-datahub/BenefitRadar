@@ -49,7 +49,7 @@ jobs:
 
       - name: Run Radar
         run: |
-          python main.py --category "${{ env.RADAR_CATEGORY }}" --recent-days 7 --keep-days 90 --generate-report
+          python main.py --category "${{ env.RADAR_CATEGORY }}" --recent-days 7 --keep-days 90 --keep-raw-days 180 --keep-report-days 90 --snapshot-db --generate-report
 
       - name: Generate index.html
         run: |
@@ -124,3 +124,16 @@ jobs:
             SIZE=$(du -h data/radar_data.duckdb | cut -f1)
             echo "✅ Database backed up ($SIZE)" >> $GITHUB_STEP_SUMMARY
           fi
+      - name: Notify on failure
+        if: failure()
+        run: |
+          curl -s -X POST "${{ secrets.NOTIFICATION_WEBHOOK_URL }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "repo": "${{ github.repository }}",
+              "workflow": "${{ github.workflow }}",
+              "run_id": "${{ github.run_id }}",
+              "run_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+              "status": "failure",
+              "timestamp": "${{ github.event.head_commit.timestamp }}"
+            }' || true
