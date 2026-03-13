@@ -2,18 +2,19 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
-from typing import Optional, cast
+from typing import cast
 
 from benefitradar.analyzer import apply_entity_rules
 from benefitradar.collector import collect_sources
-from benefitradar.date_storage import apply_date_storage_policy
 from benefitradar.common.validators import validate_article
 from benefitradar.config_loader import load_category_config, load_notification_config, load_settings
 from benefitradar.date_storage import apply_date_storage_policy
 from benefitradar.notifier import (
     BenefitNotifier,
-    NotificationConfig as BenefitNotificationConfig,
     detect_benefit_notifications,
+)
+from benefitradar.notifier import (
+    NotificationConfig as BenefitNotificationConfig,
 )
 from benefitradar.raw_logger import RawLogger
 from benefitradar.reporter import generate_report
@@ -24,8 +25,8 @@ from benefitradar.storage import RadarStorage
 def run(
     *,
     category: str,
-    config_path: Optional[Path] = None,
-    categories_dir: Optional[Path] = None,
+    config_path: Path | None = None,
+    categories_dir: Path | None = None,
     per_source_limit: int = 30,
     recent_days: int = 7,
     timeout: int = 15,
@@ -33,7 +34,7 @@ def run(
     keep_raw_days: int = 180,
     keep_report_days: int = 90,
     snapshot_db: bool = False,
-    notifications_config: Optional[Path] = None,
+    notifications_config: Path | None = None,
 ) -> Path:
     """Execute the lightweight collect -> analyze -> report pipeline."""
     settings = load_settings(config_path)
@@ -215,7 +216,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def _to_path(value: object) -> Optional[Path]:
+def _to_path(value: object) -> Path | None:
     if isinstance(value, Path):
         return value
     return None

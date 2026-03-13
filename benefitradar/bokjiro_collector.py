@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 import os
-from datetime import datetime, timezone
-from typing import List
+from datetime import UTC, datetime
 from xml.etree import ElementTree
 
 import requests
@@ -16,7 +15,7 @@ def collect_bokjiro(
     category: str,
     limit: int = 30,
     timeout: int = 15,
-) -> List[Article]:
+) -> list[Article]:
     """Collect government subsidy program data from 보조금24 (bokjiro.go.kr).
 
     Requires BOKJIRO_API_KEY environment variable.
@@ -47,9 +46,9 @@ def _parse_bokjiro_xml(
     *,
     source_name: str,
     category: str,
-) -> List[Article]:
+) -> list[Article]:
     """Parse 보조금24 XML response into Article objects."""
-    articles: List[Article] = []
+    articles: list[Article] = []
 
     try:
         root = ElementTree.fromstring(content)
@@ -90,7 +89,7 @@ def _parse_bokjiro_xml(
                     title=title.strip(),
                     link=link.strip() if link else "",
                     summary=summary.strip(),
-                    published=datetime.now(timezone.utc),
+                    published=datetime.now(UTC),
                     source=source_name,
                     category=category,
                 )

@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import asyncio
-from importlib import import_module
 import os
+from collections.abc import Callable
+from importlib import import_module
 from pathlib import Path
-from typing import Optional, Callable, Protocol, cast
+from typing import Protocol, cast
 
 from mcp_server.tools import (
     handle_recent_updates,
@@ -140,7 +141,7 @@ class _StdioContext(Protocol):
     async def __aexit__(
         self,
         exc_type: type[BaseException] | None,
-        exc_value: Optional[BaseException],
+        exc_value: BaseException | None,
         traceback: object,
     ) -> object: ...
 
@@ -164,9 +165,9 @@ def _coerce_args(arguments: object) -> dict[str, object]:
 def create_app() -> _McpApp:
     server_module = import_module("mcp.server")
     types_module = import_module("mcp.types")
-    server_ctor = cast(_ServerCtor, getattr(server_module, "Server"))
-    tool_ctor = cast(_ToolCtor, getattr(types_module, "Tool"))
-    text_content_ctor = cast(_TextContentCtor, getattr(types_module, "TextContent"))
+    server_ctor = cast(_ServerCtor, server_module.Server)
+    tool_ctor = cast(_ToolCtor, types_module.Tool)
+    text_content_ctor = cast(_TextContentCtor, types_module.TextContent)
 
     app = server_ctor("benefit-radar")
 
@@ -188,7 +189,7 @@ def create_app() -> _McpApp:
 
 async def main() -> None:
     stdio_module = import_module("mcp.server.stdio")
-    stdio_server = cast(_StdioServer, getattr(stdio_module, "stdio_server"))
+    stdio_server = cast(_StdioServer, stdio_module.stdio_server)
 
     app = create_app()
     async with stdio_server() as (read_stream, write_stream):

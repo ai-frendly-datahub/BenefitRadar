@@ -5,12 +5,13 @@ import re
 from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Optional, cast
+from typing import cast
 
 import duckdb
 
 from benefitradar.nl_query import parse_query
 from benefitradar.search_index import SearchIndex
+
 
 _ALLOWED_SQL = re.compile(r"^\s*(SELECT|WITH|EXPLAIN)\b", re.IGNORECASE)
 
@@ -147,7 +148,7 @@ def handle_top_trends(*, db_path: Path, days: int = 7, limit: int = 10) -> str:
             """,
             [cutoff],
         ).fetchall()
-        entity_rows = cast(list[tuple[Optional[str]]], rows)
+        entity_rows = cast(list[tuple[str | None]], rows)
     finally:
         conn.close()
 

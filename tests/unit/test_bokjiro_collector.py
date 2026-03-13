@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-import os
 from unittest.mock import MagicMock, patch
 
 import pytest
 
 from benefitradar.bokjiro_collector import _parse_bokjiro_xml, collect_bokjiro
 from benefitradar.models import Source
+
 
 _SAMPLE_XML = """<?xml version="1.0" encoding="UTF-8"?>
 <response>
@@ -32,7 +32,7 @@ _SAMPLE_XML = """<?xml version="1.0" encoding="UTF-8"?>
       </item>
     </items>
   </body>
-</response>""".encode("utf-8")
+</response>""".encode()
 
 
 def _make_source() -> Source:
@@ -47,60 +47,42 @@ class TestParseBokjiroXml:
     """Unit tests for XML parsing logic (no network needed)."""
 
     def test_parses_two_items_from_sample(self) -> None:
-        articles = _parse_bokjiro_xml(
-            _SAMPLE_XML, source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(_SAMPLE_XML, source_name="보조금24", category="benefit")
         assert len(articles) == 2
 
     def test_first_article_title(self) -> None:
-        articles = _parse_bokjiro_xml(
-            _SAMPLE_XML, source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(_SAMPLE_XML, source_name="보조금24", category="benefit")
         assert articles[0].title == "청년 월세 지원"
 
     def test_first_article_has_link_with_serv_id(self) -> None:
-        articles = _parse_bokjiro_xml(
-            _SAMPLE_XML, source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(_SAMPLE_XML, source_name="보조금24", category="benefit")
         assert "WLF00001234" in articles[0].link
 
     def test_summary_contains_department(self) -> None:
-        articles = _parse_bokjiro_xml(
-            _SAMPLE_XML, source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(_SAMPLE_XML, source_name="보조금24", category="benefit")
         assert "국토교통부" in articles[0].summary
 
     def test_summary_contains_amount(self) -> None:
-        articles = _parse_bokjiro_xml(
-            _SAMPLE_XML, source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(_SAMPLE_XML, source_name="보조금24", category="benefit")
         assert "월 20만원" in articles[0].summary
 
     def test_source_and_category_set(self) -> None:
-        articles = _parse_bokjiro_xml(
-            _SAMPLE_XML, source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(_SAMPLE_XML, source_name="보조금24", category="benefit")
         assert all(a.source == "보조금24" for a in articles)
         assert all(a.category == "benefit" for a in articles)
 
     def test_published_is_set(self) -> None:
-        articles = _parse_bokjiro_xml(
-            _SAMPLE_XML, source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(_SAMPLE_XML, source_name="보조금24", category="benefit")
         assert all(a.published is not None for a in articles)
 
     def test_returns_empty_on_invalid_xml(self) -> None:
-        articles = _parse_bokjiro_xml(
-            b"<not valid xml", source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(b"<not valid xml", source_name="보조금24", category="benefit")
         assert articles == []
 
     def test_returns_empty_on_empty_items(self) -> None:
         xml = b"""<?xml version="1.0"?>
         <response><body><items></items></body></response>"""
-        articles = _parse_bokjiro_xml(
-            xml, source_name="보조금24", category="benefit"
-        )
+        articles = _parse_bokjiro_xml(xml, source_name="보조금24", category="benefit")
         assert articles == []
 
 
