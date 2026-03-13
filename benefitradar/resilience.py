@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import threading
-from typing import Any, Callable
 
 import structlog
 from pybreaker import CircuitBreaker, CircuitBreakerListener, CircuitBreakerState
+
 
 logger = structlog.get_logger(__name__)
 
@@ -26,8 +26,9 @@ class SourceCircuitBreakerListener(CircuitBreakerListener):
             after=new_state.name,
         )
 
-
-    def before_call(self, cb: CircuitBreaker, func: object, *args: object, **kwargs: object) -> None:
+    def before_call(
+        self, cb: CircuitBreaker, func: object, *args: object, **kwargs: object
+    ) -> None:
         """Called before the circuit breaker executes a function."""
 
     def failure(

@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-# pyright: reportPrivateUsage=false
-
-import pytest
-import requests
 import time
 from unittest.mock import Mock, patch
+
+# pyright: reportPrivateUsage=false
+import pytest
+import requests
 
 from benefitradar.collector import RateLimiter, _collect_single, collect_sources
 from benefitradar.exceptions import NetworkError, SourceError

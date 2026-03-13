@@ -7,10 +7,10 @@ import urllib.error
 import urllib.request
 from collections import Counter
 from collections.abc import Iterable
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from html import escape
 from pathlib import Path
-from typing import Any, Protocol
+from typing import Any
 
 import duckdb
 from jinja2 import Environment, FileSystemLoader
@@ -84,6 +84,7 @@ def _copy_static_assets(report_dir: Path) -> None:
             shutil.rmtree(dst)
         _ = shutil.copytree(str(src), str(dst))
 
+
 def generate_report(
     *,
     category: CategoryConfig,
@@ -131,7 +132,7 @@ def generate_report(
         category=category,
         articles=articles_list,  # Keep original for template rendering
         articles_json=articles_json,  # JSON-serializable version for charts
-        generated_at=datetime.now(timezone.utc),
+        generated_at=datetime.now(UTC),
         stats=stats,
         entity_counts=entity_counts,
         korea_map_html=korea_map_html,
@@ -140,7 +141,7 @@ def generate_report(
     )
     _ = output_path.write_text(rendered, encoding="utf-8")
 
-    now_ts = datetime.now(timezone.utc)
+    now_ts = datetime.now(UTC)
     date_stamp = now_ts.strftime("%Y%m%d")
     dated_name = f"{category.category_name}_{date_stamp}.html"
     dated_path = output_path.parent / dated_name
@@ -206,7 +207,7 @@ def _query_region_counts_from_duckdb(
     if database_path is None or not database_path.exists():
         return Counter()
 
-    since = (datetime.now(timezone.utc) - timedelta(days=window_days)).replace(tzinfo=None)
+    since = (datetime.now(UTC) - timedelta(days=window_days)).replace(tzinfo=None)
     try:
         with duckdb.connect(str(database_path), read_only=True) as conn:
             rows = conn.execute(
@@ -366,7 +367,7 @@ def _render_region_table(region_rows: list[dict[str, Any]]) -> str:
         count = int(row["count"])
         width = int((count / scale) * 100)
         rows_html.append(
-            """<tr>
+            f"""<tr>
                 <td><span class=\"mono\">{province}</span></td>
                 <td>{count}</td>
                 <td>
@@ -374,11 +375,7 @@ def _render_region_table(region_rows: list[dict[str, Any]]) -> str:
                     <span class=\"region-meter-fill\" style=\"width:{width}%\"></span>
                   </div>
                 </td>
-              </tr>""".format(
-                province=province,
-                count=count,
-                width=width,
-            )
+              </tr>"""
         )
 
     rows_html.append("</tbody></table>")
@@ -403,11 +400,9 @@ def generate_index_html(report_dir: Path) -> Path:
     template = _get_jinja_env().get_template("index.html")
     rendered = template.render(
         reports=reports,
-        generated_at=datetime.now(timezone.utc),
+        generated_at=datetime.now(UTC),
     )
 
     index_path = report_dir / "index.html"
     _ = index_path.write_text(rendered, encoding="utf-8")
     return index_path
-
-

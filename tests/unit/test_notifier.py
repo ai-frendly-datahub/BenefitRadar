@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from unittest.mock import patch
 
@@ -87,12 +87,12 @@ notifications:
 
 @pytest.mark.unit
 def test_detect_benefit_notifications_priority_and_types() -> None:
-    deadline = (datetime.now(timezone.utc) + timedelta(days=2)).date().isoformat()
+    deadline = (datetime.now(UTC) + timedelta(days=2)).date().isoformat()
     article = Article(
         title=f"청년 주거지원 신청 {deadline} 마감",
         link="https://example.com/benefit/1",
         summary="저소득 청년 대상",
-        published=datetime.now(timezone.utc),
+        published=datetime.now(UTC),
         source="test",
         category="benefit",
     )

@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import re
 from difflib import SequenceMatcher
-from typing import Optional
 from urllib.parse import urlparse
 
 from benefitradar.models import Article

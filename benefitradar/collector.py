@@ -1,13 +1,14 @@
 from __future__ import annotations
 
+import html
 import os
 import threading
-import html
 import time
+from collections.abc import Mapping
 from concurrent.futures import Future, ThreadPoolExecutor
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
-from typing import Any, Mapping
+from typing import Any
 from urllib.parse import urlparse
 
 import feedparser
@@ -226,11 +227,11 @@ def _extract_datetime(entry: Mapping[str, Any]) -> datetime | None:
     """Parse a feed entry date into a timezone-aware datetime."""
     published_parsed = entry.get("published_parsed")
     if isinstance(published_parsed, time.struct_time):
-        return datetime.fromtimestamp(time.mktime(published_parsed), tz=timezone.utc)
+        return datetime.fromtimestamp(time.mktime(published_parsed), tz=UTC)
 
     updated_parsed = entry.get("updated_parsed")
     if isinstance(updated_parsed, time.struct_time):
-        return datetime.fromtimestamp(time.mktime(updated_parsed), tz=timezone.utc)
+        return datetime.fromtimestamp(time.mktime(updated_parsed), tz=UTC)
 
     for key in ("published", "updated", "date"):
         raw = entry.get(key)
@@ -238,7 +239,7 @@ def _extract_datetime(entry: Mapping[str, Any]) -> datetime | None:
             try:
                 dt = parsedate_to_datetime(str(raw))
                 if dt and dt.tzinfo is None:
-                    dt = dt.replace(tzinfo=timezone.utc)
+                    dt = dt.replace(tzinfo=UTC)
                 return dt
             except Exception:
                 continue

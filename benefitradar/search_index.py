@@ -4,7 +4,7 @@ import sqlite3
 from dataclasses import dataclass
 from pathlib import Path
 from types import TracebackType
-from typing import Optional, cast
+from typing import cast
 
 
 @dataclass
@@ -17,7 +17,7 @@ class SearchResult:
 
 class SearchIndex:
     _db_path: Path
-    _conn: Optional[sqlite3.Connection]
+    _conn: sqlite3.Connection | None
 
     def __init__(self, db_path: Path) -> None:
         self._db_path = db_path
@@ -31,8 +31,8 @@ class SearchIndex:
     def __exit__(
         self,
         exc_type: type[BaseException] | None,
-        exc_value: Optional[BaseException],
-        traceback: Optional[TracebackType],
+        exc_value: BaseException | None,
+        traceback: TracebackType | None,
     ) -> None:
         self.close()
 

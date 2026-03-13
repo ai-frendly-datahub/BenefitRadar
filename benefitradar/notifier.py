@@ -5,16 +5,16 @@ from __future__ import annotations
 
 import re
 import smtplib
-from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from datetime import date, datetime, timezone
+from datetime import UTC, date, datetime
 from email.mime.text import MIMEText
-from typing import Optional, Any, Protocol
+from typing import Any, Protocol
 
 import requests
 import structlog
 
 from .models import Article
+
 
 logger = structlog.get_logger(__name__)
 
@@ -29,7 +29,7 @@ class NotificationPayload:
     matched_count: int
     errors_count: int
     timestamp: datetime
-    report_url: Optional[str] = None
+    report_url: str | None = None
 
     def to_dict(self) -> dict[str, object]:
         """Convert payload to dictionary for JSON serialization."""
@@ -140,20 +140,20 @@ class EmailNotifier:
     def _build_email_body(self, payload: NotificationPayload) -> str:
         """Build email body from payload."""
         lines = [
-            f"Radar Pipeline Completion Report",
-            f"================================",
-            f"",
+            "Radar Pipeline Completion Report",
+            "================================",
+            "",
             f"Category: {payload.category_name}",
             f"Timestamp: {payload.timestamp.isoformat()}",
-            f"",
-            f"Statistics:",
+            "",
+            "Statistics:",
             f"  Sources: {payload.sources_count}",
             f"  Collected: {payload.collected_count}",
             f"  Matched: {payload.matched_count}",
             f"  Errors: {payload.errors_count}",
         ]
         if payload.report_url:
-            lines.append(f"")
+            lines.append("")
             lines.append(f"Report: {payload.report_url}")
         return "\n".join(lines)
 
@@ -254,7 +254,7 @@ class CompositeNotifier:
         results = []
         for notifier in self.notifiers:
             try:
-                result = getattr(notifier, "send")(payload)
+                result = notifier.send(payload)
                 results.append(result)
             except Exception:
                 results.append(False)
@@ -374,7 +374,7 @@ def detect_benefit_notifications(
         if str(keyword).strip()
     ]
 
-    now = datetime.now(timezone.utc).date()
+    now = datetime.now(UTC).date()
     for article in articles:
         if article.link and article.link not in known_links:
             events.append(
@@ -421,7 +421,7 @@ def detect_benefit_notifications(
     return events
 
 
-def _extract_date(text: str) -> Optional[date]:
+def _extract_date(text: str) -> date | None:
     pattern = re.compile(r"(20\d{2})[.-](\d{1,2})[.-](\d{1,2})")
     match = pattern.search(text)
     if not match:
@@ -429,6 +429,6 @@ def _extract_date(text: str) -> Optional[date]:
 
     year, month, day = match.groups()
     try:
-        return datetime(int(year), int(month), int(day), tzinfo=timezone.utc).date()
+        return datetime(int(year), int(month), int(day), tzinfo=UTC).date()
     except ValueError:
         return None
