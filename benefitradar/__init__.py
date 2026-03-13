@@ -1,5 +1,3 @@
-from __future__ import annotations
-import importlib
+"""BenefitRadar - 복지 정보 레이더"""
 
-_ = importlib.import_module("radar_core")
-_core_version = "radar-core"
+__version__ = "0.2.0"
