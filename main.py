@@ -6,6 +6,7 @@ from typing import Optional, cast
 
 from benefitradar.analyzer import apply_entity_rules
 from benefitradar.collector import collect_sources
+from benefitradar.date_storage import apply_date_storage_policy
 from benefitradar.common.validators import validate_article
 from benefitradar.config_loader import load_category_config, load_notification_config, load_settings
 from benefitradar.notifier import (
@@ -28,6 +29,9 @@ def run(
     recent_days: int = 7,
     timeout: int = 15,
     keep_days: int = 90,
+    keep_raw_days: int = 180,
+    keep_report_days: int = 90,
+    snapshot_db: bool = False,
     notifications_config: Optional[Path] = None,
 ) -> Path:
     """Execute the lightweight collect -> analyze -> report pipeline."""
@@ -141,7 +145,18 @@ def run(
         stats=stats,
         errors=errors + validation_errors,
     )
+    date_storage = apply_date_storage_policy(
+        database_path=settings.database_path,
+        raw_data_dir=settings.raw_data_dir,
+        report_dir=settings.report_dir,
+        keep_raw_days=keep_raw_days,
+        keep_report_days=keep_report_days,
+        snapshot_db=snapshot_db,
+    )
     print(f"[Radar] Report generated at {output_path}")
+    snapshot_path = date_storage.get("snapshot_path")
+    if isinstance(snapshot_path, str) and snapshot_path:
+        print(f"[Radar] Snapshot saved at {snapshot_path}")
     if errors or validation_errors:
         print(
             f"[Radar] {len(errors) + len(validation_errors)} issue(s) found. See report for details."
@@ -171,6 +186,18 @@ def parse_args() -> argparse.Namespace:
     )
     _ = parser.add_argument(
         "--keep-days", type=int, default=90, help="Retention window for stored items"
+    )
+    _ = parser.add_argument(
+        "--keep-raw-days", type=int, default=180, help="Retention window for raw JSONL directories"
+    )
+    _ = parser.add_argument(
+        "--keep-report-days", type=int, default=90, help="Retention window for dated HTML reports"
+    )
+    _ = parser.add_argument(
+        "--snapshot-db",
+        action="store_true",
+        default=False,
+        help="Create a dated DuckDB snapshot after each run",
     )
     _ = parser.add_argument(
         "--notifications-config",
@@ -216,5 +243,8 @@ if __name__ == "__main__":
         recent_days=_to_int(args.get("recent_days"), 7),
         timeout=_to_int(args.get("timeout"), 15),
         keep_days=_to_int(args.get("keep_days"), 90),
+        keep_raw_days=_to_int(args.get("keep_raw_days"), 180),
+        keep_report_days=_to_int(args.get("keep_report_days"), 90),
+        snapshot_db=bool(args.get("snapshot_db", False)),
         notifications_config=_to_path(args.get("notifications_config")),
     )

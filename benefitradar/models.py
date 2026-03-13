@@ -1,9 +1,27 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from datetime import datetime
-from pathlib import Path
+# Re-export from radar-core shared package
+from radar_core.models import (
+    Article,
+    CategoryConfig,
+    EmailSettings,
+    EntityDefinition,
+    NotificationConfig,
+    RadarSettings,
+    Source,
+    TelegramSettings,
+)
 
+__all__ = [
+    "Article",
+    "CategoryConfig",
+    "EmailSettings",
+    "EntityDefinition",
+    "NotificationConfig",
+    "RadarSettings",
+    "Source",
+    "TelegramSettings",
+]
 
 @dataclass
 class Source:
