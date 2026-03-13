@@ -77,3 +77,22 @@ def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: date | Non
             continue
 
     return removed
+
+def apply_date_storage_policy(
+    *,
+    database_path: Path,
+    raw_data_dir: Path,
+    report_dir: Path,
+    keep_raw_days: int,
+    keep_report_days: int,
+    snapshot_db: bool,
+) -> dict[str, object]:
+    """Apply date-based storage policy: snapshot, cleanup raw data, cleanup reports."""
+    snapshot_path = snapshot_database(database_path) if snapshot_db else None
+    raw_removed = cleanup_date_directories(raw_data_dir, keep_days=keep_raw_days)
+    report_removed = cleanup_dated_reports(report_dir, keep_days=keep_report_days)
+    return {
+        "snapshot_path": str(snapshot_path) if snapshot_path is not None else None,
+        "raw_removed": raw_removed,
+        "report_removed": report_removed,
+    }
