@@ -6,6 +6,7 @@ from typing import cast
 
 from benefitradar.analyzer import apply_entity_rules
 from benefitradar.collector import collect_sources
+from benefitradar.common.date_storage import apply_date_storage_policy
 from benefitradar.common.validators import validate_article
 from benefitradar.config_loader import load_category_config, load_notification_config, load_settings
 from benefitradar.notifier import (
