@@ -8,6 +8,7 @@ from benefitradar.analyzer import apply_entity_rules
 from benefitradar.collector import collect_sources
 from benefitradar.common.validators import validate_article
 from benefitradar.config_loader import load_category_config, load_notification_config, load_settings
+from benefitradar.date_storage import apply_date_storage_policy
 from benefitradar.notifier import (
     BenefitNotifier,
     detect_benefit_notifications,
@@ -19,7 +20,6 @@ from benefitradar.raw_logger import RawLogger
 from benefitradar.reporter import generate_report
 from benefitradar.search_index import SearchIndex
 from benefitradar.storage import RadarStorage
-from benefitradar.date_storage import apply_date_storage_policy
 
 
 def run(
