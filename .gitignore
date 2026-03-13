@@ -178,6 +178,7 @@ reports/*.duckdb
 .sisyphus/
 data/raw/
 !data/raw/.gitkeep
+data/daily/
 data/search_index.db
 data/search_index.db-wal
 data/search_index.db-shm
