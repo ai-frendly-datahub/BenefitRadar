@@ -1,22 +1,21 @@
 from __future__ import annotations
 
 import shutil
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
-from typing import Optional
 
 
 def snapshot_database(
     db_path: Path,
     *,
-    snapshot_date: Optional[date] = None,
-    snapshot_root: Optional[Path] = None,
-) -> Optional[Path]:
+    snapshot_date: date | None = None,
+    snapshot_root: Path | None = None,
+) -> Path | None:
     if not db_path.exists():
         return None
 
     if snapshot_date is None:
-        snapshot_date = datetime.now(timezone.utc).date()
+        snapshot_date = datetime.now(UTC).date()
 
     if snapshot_root is None:
         snapshot_root = db_path.parent / "daily"
@@ -28,11 +27,9 @@ def snapshot_database(
     return snapshot_path
 
 
-def cleanup_date_directories(
-    base_dir: Path, *, keep_days: int, today: Optional[date] = None
-) -> int:
+def cleanup_date_directories(base_dir: Path, *, keep_days: int, today: date | None = None) -> int:
     if today is None:
-        today = datetime.now(timezone.utc).date()
+        today = datetime.now(UTC).date()
 
     cutoff = today - timedelta(days=keep_days)
     removed = 0
@@ -45,7 +42,7 @@ def cleanup_date_directories(
             continue
 
         try:
-            stamp: Optional[date] = None
+            stamp: date | None = None
             if len(item.name) == 10 and item.name.count("-") == 2:
                 stamp = date.fromisoformat(item.name)
         except ValueError:
@@ -58,9 +55,9 @@ def cleanup_date_directories(
     return removed
 
 
-def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: Optional[date] = None) -> int:
+def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: date | None = None) -> int:
     if today is None:
-        today = datetime.now(timezone.utc).date()
+        today = datetime.now(UTC).date()
 
     cutoff = today - timedelta(days=keep_days)
     removed = 0

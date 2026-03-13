@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date, datetime, timedelta, timezone
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 
@@ -14,7 +14,7 @@ def test_snapshot_database_creates_file(tmp_path: Path) -> None:
 
     assert result is not None
     assert result.exists()
-    today_iso = datetime.now(timezone.utc).date().isoformat()
+    today_iso = datetime.now(UTC).date().isoformat()
     assert result.name == f"{today_iso}.duckdb"
     assert result.parent == tmp_path / "daily"
     assert result.read_text() == "fake-db-content"
@@ -150,7 +150,7 @@ def test_storage_create_daily_snapshot(tmp_path: Path) -> None:
 
         assert result is not None
         assert result.exists()
-        today_iso = datetime.now(timezone.utc).date().isoformat()
+        today_iso = datetime.now(UTC).date().isoformat()
         assert result.name == f"{today_iso}.duckdb"
         assert result.parent == db_path.parent / "daily"
     finally:

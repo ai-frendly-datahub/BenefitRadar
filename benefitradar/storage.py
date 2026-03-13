@@ -4,7 +4,7 @@ import json
 from collections.abc import Iterable
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Optional, cast
+from typing import cast
 
 import duckdb
 
@@ -175,13 +175,13 @@ class RadarStorage:
         )
         return to_delete
 
-    def create_daily_snapshot(self, snapshot_dir: Optional[str] = None) -> Optional[Path]:
+    def create_daily_snapshot(self, snapshot_dir: str | None = None) -> Path | None:
         from .date_storage import snapshot_database
 
         snapshot_root = Path(snapshot_dir) if snapshot_dir else self.db_path.parent / "daily"
         return snapshot_database(self.db_path, snapshot_root=snapshot_root)
 
-    def cleanup_old_snapshots(self, snapshot_dir: Optional[str] = None, keep_days: int = 90) -> int:
+    def cleanup_old_snapshots(self, snapshot_dir: str | None = None, keep_days: int = 90) -> int:
         from .date_storage import cleanup_date_directories
 
         snapshot_root = Path(snapshot_dir) if snapshot_dir else self.db_path.parent / "daily"
