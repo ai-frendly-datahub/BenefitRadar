@@ -15,7 +15,7 @@ class _ParseQuery(Protocol):
     def __call__(self, raw: str) -> _ParsedQuery: ...
 
 
-parse_query = cast(_ParseQuery, import_module("benefitradar.nl_query").parse_query)
+parse_query = cast(_ParseQuery, import_module("radar.nl_query").parse_query)
 
 
 def test_parse_time_filter_days() -> None:

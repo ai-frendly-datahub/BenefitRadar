@@ -19,7 +19,7 @@ class TestCollectorRetryLogic:
         """Should retry on request timeout and eventually succeed."""
         source = Source(name="test_feed", type="rss", url="http://example.com/feed")
 
-        with patch("benefitradar.collector.requests.get") as mock_get:
+        with patch("radar.collector.requests.get") as mock_get:
             mock_response = Mock()
             mock_response.content = b"""<?xml version="1.0"?>
 <rss version="2.0">
@@ -52,7 +52,7 @@ class TestCollectorRetryLogic:
         """Should retry on 5xx server errors."""
         source = Source(name="test_feed", type="rss", url="http://example.com/feed")
 
-        with patch("benefitradar.collector.requests.get") as mock_get:
+        with patch("radar.collector.requests.get") as mock_get:
             mock_response = Mock()
             mock_response.content = b"""<?xml version="1.0"?>
 <rss version="2.0">
@@ -89,7 +89,7 @@ class TestCollectorRetryLogic:
         """Should retry on 4xx errors (RequestException) and raise after max retries."""
         source = Source(name="test_feed", type="rss", url="http://example.com/feed")
 
-        with patch("benefitradar.collector.requests.get") as mock_get:
+        with patch("radar.collector.requests.get") as mock_get:
             mock_get.side_effect = requests.exceptions.HTTPError("404 Not Found")
 
             with pytest.raises(SourceError):
@@ -101,7 +101,7 @@ class TestCollectorRetryLogic:
         """Should raise after 3 failed attempts."""
         source = Source(name="test_feed", type="rss", url="http://example.com/feed")
 
-        with patch("benefitradar.collector.requests.get") as mock_get:
+        with patch("radar.collector.requests.get") as mock_get:
             mock_get.side_effect = requests.exceptions.Timeout("timeout")
 
             with pytest.raises(NetworkError):
@@ -113,7 +113,7 @@ class TestCollectorRetryLogic:
         """Should retry on connection errors."""
         source = Source(name="test_feed", type="rss", url="http://example.com/feed")
 
-        with patch("benefitradar.collector.requests.get") as mock_get:
+        with patch("radar.collector.requests.get") as mock_get:
             mock_response = Mock()
             mock_response.content = b"""<?xml version="1.0"?>
 <rss version="2.0">
@@ -152,8 +152,8 @@ class TestCollectorRetryLogic:
         mock_manager.get_breaker.return_value = mock_breaker
 
         with (
-            patch("benefitradar.collector.requests.Session.get") as mock_get,
-            patch("benefitradar.collector.get_circuit_breaker_manager", return_value=mock_manager),
+            patch("radar.collector.requests.Session.get") as mock_get,
+            patch("radar.collector.get_circuit_breaker_manager", return_value=mock_manager),
         ):
             mock_response = Mock()
             mock_response.content = b"""<?xml version="1.0"?>

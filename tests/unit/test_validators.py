@@ -1,5 +1,5 @@
 """
-Unit tests for benefitradar.common.validators module.
+Unit tests for radar.common.validators module.
 
 Tests cover:
 - Title normalization
@@ -263,7 +263,7 @@ class TestValidateArticle:
             title="Valid Article",
             link="https://example.com/article",
             summary="This is a summary",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="Example Source",
             category="news",
         )
@@ -276,7 +276,7 @@ class TestValidateArticle:
             title="",
             link="https://example.com/article",
             summary="Summary",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="Source",
             category="news",
         )
@@ -289,7 +289,7 @@ class TestValidateArticle:
             title="Title",
             link="not-a-url",
             summary="Summary",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="Source",
             category="news",
         )
@@ -302,7 +302,7 @@ class TestValidateArticle:
             title="Title",
             link="https://example.com/article",
             summary="",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="Source",
             category="news",
         )
@@ -315,7 +315,7 @@ class TestValidateArticle:
             title="Title",
             link="https://example.com/article",
             summary="Summary",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="",
             category="news",
         )
@@ -328,7 +328,7 @@ class TestValidateArticle:
             title="Title",
             link="https://example.com/article",
             summary="Summary",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="Source",
             category="",
         )
@@ -341,7 +341,7 @@ class TestValidateArticle:
             title="",
             link="invalid",
             summary="",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="",
             category="",
         )
@@ -367,7 +367,7 @@ class TestValidateArticle:
             title="Title",
             link="https://example.com/article",
             summary="Summary",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="Source",
             category="news",
             matched_entities={"entity1": ["keyword1", "keyword2"]},
@@ -405,7 +405,7 @@ class TestValidatorsIntegration:
             title="Valid Article Title",
             link="https://example.com/news/article-123",
             summary="This is a comprehensive summary of the article content.",
-            published=datetime.now(tz=UTC),
+            published=datetime.now(UTC),
             source="News Source",
             category="technology",
         )

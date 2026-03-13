@@ -5,6 +5,8 @@ from datetime import UTC, datetime
 from importlib import import_module
 from typing import Protocol, cast
 
+from _pytest.monkeypatch import MonkeyPatch
+
 
 class _Article(Protocol):
     title: str
@@ -50,11 +52,10 @@ class _ApplyEntityRules(Protocol):
     ) -> list[_Article]: ...
 
 
-Article = cast(_ArticleCtor, import_module("benefitradar.models").Article)
-EntityDefinition = cast(_EntityCtor, import_module("benefitradar.models").EntityDefinition)
-apply_entity_rules = cast(
-    _ApplyEntityRules, import_module("benefitradar.analyzer").apply_entity_rules
-)
+Article = cast(_ArticleCtor, import_module("radar.models").Article)
+EntityDefinition = cast(_EntityCtor, import_module("radar.models").EntityDefinition)
+analyzer_module = import_module("radar.analyzer")
+apply_entity_rules = cast(_ApplyEntityRules, analyzer_module.apply_entity_rules)
 
 
 def _make_article(*, title: str, summary: str) -> _Article:
@@ -149,6 +150,50 @@ def test_apply_entity_rules_ascii_keyword_ai_false_positives_eliminated() -> Non
 
 
 def test_apply_entity_rules_cjk_keyword_keeps_substring_matching() -> None:
+    article = _make_article(title="최신 연구 동향", summary="인공지능 연구 논문 요약")
+    entities = [EntityDefinition(name="topic", display_name="Topic", keywords=["인공지능"])]
+
+    analyzed = apply_entity_rules([article], entities)
+
+    assert analyzed[0].matched_entities == {"topic": ["인공지능"]}
+
+
+def test_apply_entity_rules_cjk_keyword_uses_kiwi_matching_when_available(
+    monkeypatch: MonkeyPatch,
+) -> None:
+    class _KiwiAnalyzerStub:
+        def __init__(self) -> None:
+            self._kiwi: object | None = object()
+            self.called: bool = False
+
+        def match_keyword(self, text: str, keyword: str) -> bool:
+            self.called = True
+            return keyword == "인공지능" and "인공 지능" in text
+
+    kiwi_stub = _KiwiAnalyzerStub()
+    monkeypatch.setattr(analyzer_module, "_korean_analyzer", kiwi_stub, raising=False)
+
+    article = _make_article(title="최신 연구 동향", summary="인공 지능 기반 서비스 확산")
+    entities = [EntityDefinition(name="topic", display_name="Topic", keywords=["인공지능"])]
+
+    analyzed = apply_entity_rules([article], entities)
+
+    assert kiwi_stub.called is True
+    assert analyzed[0].matched_entities == {"topic": ["인공지능"]}
+
+
+def test_apply_entity_rules_cjk_keyword_falls_back_when_kiwi_unavailable(
+    monkeypatch: MonkeyPatch,
+) -> None:
+    class _NoKiwiAnalyzerStub:
+        _kiwi: object | None = None
+
+        def match_keyword(self, _text: str, _keyword: str) -> bool:
+            msg = "match_keyword should not run when kiwi is unavailable"
+            raise AssertionError(msg)
+
+    monkeypatch.setattr(analyzer_module, "_korean_analyzer", _NoKiwiAnalyzerStub(), raising=False)
+
     article = _make_article(title="최신 연구 동향", summary="인공지능 연구 논문 요약")
     entities = [EntityDefinition(name="topic", display_name="Topic", keywords=["인공지능"])]
 

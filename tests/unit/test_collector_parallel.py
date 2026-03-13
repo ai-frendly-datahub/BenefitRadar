@@ -52,8 +52,8 @@ def test_parallel_collection_reduces_runtime() -> None:
         ]
 
     with (
-        patch("benefitradar.collector._collect_single", side_effect=delayed_collect),
-        patch("benefitradar.collector.get_circuit_breaker_manager", return_value=manager),
+        patch("radar.collector._collect_single", side_effect=delayed_collect),
+        patch("radar.collector.get_circuit_breaker_manager", return_value=manager),
         patch.dict(os.environ, {"RADAR_MAX_WORKERS": "5"}, clear=False),
     ):
         start = time.monotonic()
@@ -95,8 +95,8 @@ def test_parallel_collection_isolates_source_errors() -> None:
         raise TimeoutError("simulated timeout")
 
     with (
-        patch("benefitradar.collector._collect_single", side_effect=selective_collect),
-        patch("benefitradar.collector.get_circuit_breaker_manager", return_value=manager),
+        patch("radar.collector._collect_single", side_effect=selective_collect),
+        patch("radar.collector.get_circuit_breaker_manager", return_value=manager),
         patch.dict(os.environ, {"RADAR_MAX_WORKERS": "5"}, clear=False),
     ):
         articles, errors = collect_sources(sources, category="test", min_interval_per_host=0.0)
@@ -130,8 +130,8 @@ def test_max_workers_one_preserves_sequential_order() -> None:
         ]
 
     with (
-        patch("benefitradar.collector._collect_single", side_effect=ordered_collect),
-        patch("benefitradar.collector.get_circuit_breaker_manager", return_value=manager),
+        patch("radar.collector._collect_single", side_effect=ordered_collect),
+        patch("radar.collector.get_circuit_breaker_manager", return_value=manager),
         patch.dict(os.environ, {"RADAR_MAX_WORKERS": "5"}, clear=False),
     ):
         articles, errors = collect_sources(
@@ -174,9 +174,9 @@ def test_env_var_radar_max_workers_is_used() -> None:
     mock_future.result.return_value = ([], [])
 
     with (
-        patch("benefitradar.collector._collect_single", return_value=[]),
-        patch("benefitradar.collector.get_circuit_breaker_manager", return_value=manager),
-        patch("benefitradar.collector.ThreadPoolExecutor") as mock_executor,
+        patch("radar.collector._collect_single", return_value=[]),
+        patch("radar.collector.get_circuit_breaker_manager", return_value=manager),
+        patch("radar.collector.ThreadPoolExecutor") as mock_executor,
         patch.dict(os.environ, {"RADAR_MAX_WORKERS": "7"}, clear=False),
     ):
         executor_instance = mock_executor.return_value.__enter__.return_value
@@ -194,9 +194,9 @@ def test_max_workers_is_capped_and_validated(env_value: str, expected_workers: i
     mock_future.result.return_value = ([], [])
 
     with (
-        patch("benefitradar.collector._collect_single", return_value=[]),
-        patch("benefitradar.collector.get_circuit_breaker_manager", return_value=manager),
-        patch("benefitradar.collector.ThreadPoolExecutor") as mock_executor,
+        patch("radar.collector._collect_single", return_value=[]),
+        patch("radar.collector.get_circuit_breaker_manager", return_value=manager),
+        patch("radar.collector.ThreadPoolExecutor") as mock_executor,
         patch.dict(os.environ, {"RADAR_MAX_WORKERS": env_value}, clear=False),
     ):
         executor_instance = mock_executor.return_value.__enter__.return_value

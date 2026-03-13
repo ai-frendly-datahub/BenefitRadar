@@ -33,7 +33,7 @@ class _SearchIndexCtor(Protocol):
     def __call__(self, db_path: Path) -> _SearchIndex: ...
 
 
-SearchIndex = cast(_SearchIndexCtor, import_module("benefitradar.search_index").SearchIndex)
+SearchIndex = cast(_SearchIndexCtor, import_module("radar.search_index").SearchIndex)
 
 
 def test_index_creation_creates_tables_fts_and_triggers(tmp_path: Path) -> None:

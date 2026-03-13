@@ -3,7 +3,7 @@ name: Radar Crawler (Optimized)
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8,20 * * *"  # Daily at 00:00 UTC (adjust per project)
+    - cron: "0 0 * * *"  # Daily at 00:00 UTC (adjust per project)
 
 permissions:
   contents: write
@@ -11,10 +11,9 @@ permissions:
   id-token: write
 
 env:
-  RADAR_CATEGORY: benefit  # Update per project
+  RADAR_CATEGORY: template  # Update per project
   TZ: Asia/Seoul
   PYTHON_VERSION: "3.11"
-  BOKJIRO_API_KEY: ${{ secrets.BOKJIRO_API_KEY }}
 
 concurrency:
   group: radar-collection
@@ -124,6 +123,7 @@ jobs:
             SIZE=$(du -h data/radar_data.duckdb | cut -f1)
             echo "✅ Database backed up ($SIZE)" >> $GITHUB_STEP_SUMMARY
           fi
+
       - name: Notify on failure
         if: failure()
         run: |
