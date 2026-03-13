@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import re
 from collections import Counter
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import cast
 
@@ -36,7 +36,7 @@ def _format_rows(columns: list[str], rows: list[tuple[object, ...]]) -> str:
 def _filter_links_by_days(*, db_path: Path, links: list[str], days: int) -> set[str]:
     if not links:
         return set()
-    cutoff = datetime.now() - timedelta(days=days)
+    cutoff = datetime.now(tz=UTC) - timedelta(days=days)
     placeholders = ", ".join("?" for _ in links)
     conn = duckdb.connect(str(db_path), read_only=True)
     try:
@@ -89,7 +89,7 @@ def handle_recent_updates(*, db_path: Path, days: int = 7, limit: int = 20) -> s
     if limit <= 0:
         return "No recent updates found."
 
-    cutoff = datetime.now() - timedelta(days=days)
+    cutoff = datetime.now(tz=UTC) - timedelta(days=days)
     conn = duckdb.connect(str(db_path), read_only=True)
     try:
         cursor = conn.execute(
@@ -137,7 +137,7 @@ def handle_top_trends(*, db_path: Path, days: int = 7, limit: int = 10) -> str:
     if limit <= 0:
         return "No trend data available."
 
-    cutoff = datetime.now() - timedelta(days=days)
+    cutoff = datetime.now(tz=UTC) - timedelta(days=days)
     conn = duckdb.connect(str(db_path), read_only=True)
     try:
         rows = conn.execute(

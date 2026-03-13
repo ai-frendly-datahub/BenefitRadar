@@ -150,7 +150,7 @@ def test_context_manager_supports_open_and_close(tmp_path: Path) -> None:
 
     try:
         _ = index.search("context")
-        assert False, "Expected sqlite3.ProgrammingError after connection close"
+        raise AssertionError("Expected sqlite3.ProgrammingError after connection close")
     except sqlite3.ProgrammingError:
         pass
 

@@ -69,7 +69,7 @@ def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: date | Non
         try:
             date_str = item.stem.split("_")[-1]
             if len(date_str) == 8:
-                stamp = datetime.strptime(date_str, "%Y%m%d").date()
+                stamp = datetime.strptime(date_str, "%Y%m%d").replace(tzinfo=UTC).date()
                 if stamp < cutoff:
                     item.unlink()
                     removed += 1
