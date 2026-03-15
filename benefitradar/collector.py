@@ -18,6 +18,7 @@ from radar_core import AdaptiveThrottler, CrawlHealthStore
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+from .bokjiro_collector import collect_bokjiro
 from .exceptions import NetworkError, ParseError, SourceError
 from .models import Article, Source
 from .resilience import get_circuit_breaker_manager
@@ -258,7 +259,17 @@ def _collect_single(
     timeout: int,
     session: requests.Session | None = None,
 ) -> list[Article]:
-    if source.type.lower() != "rss":
+    source_type = source.type.lower()
+
+    if source_type == "api":
+        return collect_bokjiro(
+            source,
+            category=category,
+            limit=limit,
+            timeout=timeout,
+        )
+
+    if source_type != "rss":
         raise SourceError(source.name, f"Unsupported source type '{source.type}'")
 
     try:
