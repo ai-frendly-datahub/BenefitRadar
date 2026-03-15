@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 env:
-  RADAR_CATEGORY: template  # Update per project
+  RADAR_CATEGORY: benefit  # Update per project
   TZ: Asia/Seoul
   PYTHON_VERSION: "3.11"
 
