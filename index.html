@@ -1,92 +1,92 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Radar Reports</title>
-  <style>
-    :root {
-      --bg-page: #f8fafc; --bg-card: #ffffff; --text-primary: #0f172a;
-      --text-muted: #64748b; --border-subtle: #e2e8f0;
-      --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
-      --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.12);
-      --accent-teal: #33d6c5; --radius-md: 12px;
-    }
-    * { box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      margin: 0; padding: 0; background: var(--bg-page); color: var(--text-primary); line-height: 1.5;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
-    .header {
-      margin-bottom: 28px; padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-    .header__title {
-      font-size: 28px; font-weight: 700; margin: 0 0 4px 0; letter-spacing: -0.02em;
-    }
-    .header__timestamp { font-size: 13px; color: var(--text-muted); }
-    .reports-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;
-    }
-    .report-card {
-      background: var(--bg-card); border-radius: var(--radius-md);
-      padding: 20px; box-shadow: var(--shadow-card);
-      border-left: 4px solid var(--accent-teal);
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .report-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-1px); }
-    .report-card a {
-      color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 15px;
-    }
-    .report-card a:hover { color: #0891b2; text-decoration: underline; }
-    .report-card__date { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
-    .empty-state {
-      text-align: center; padding: 48px 24px;
-      background: var(--bg-card); border-radius: var(--radius-md);
-      box-shadow: var(--shadow-card);
-    }
-    .empty-state__icon { font-size: 36px; margin-bottom: 12px; }
-    .empty-state__title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-    .empty-state__message { font-size: 13px; color: var(--text-muted); }
-    .footer {
-      margin-top: 40px; padding-top: 24px;
-      border-top: 1px solid var(--border-subtle);
-      text-align: center; font-size: 13px; color: var(--text-muted);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BenefitRadar - 리포트</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        .reports-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .latest-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: #28a745;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .report-link {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .report-link:hover {
+            background: #0056b3;
+        }
+        .report-meta {
+            color: #666;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .footer {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <h1 class="header__title">Radar Reports</h1>
-      <div class="header__timestamp">Generated 2026-03-16T02:49:46.757794+00:00 UTC</div>
-    </header>
+    <div class="header">
+        <h1>💰 BenefitRadar</h1>
+        <p class="subtitle">복지 혜택 정보 리포트</p>
+    </div>
 
-    
-    <div class="reports-grid">
-      
-      <div class="report-card">
-        <a href="benefit_20260316.html">Benefit</a>
-        <div class="report-card__date">2026-03-16</div>
-      </div>
-      
-      <div class="report-card">
-        <a href="benefit_report.html">Benefit</a>
-        
-      </div>
-      
-      <div class="report-card">
-        <a href="coffee_report.html">Coffee</a>
-        
-      </div>
-      
+    <div class="reports-container">
+        <div class="latest-badge">최신 리포트</div>
+        <h2>📊 일일 리포트</h2>
+        <p class="report-meta">최종 업데이트: 2026-03-05 | 파일 크기: 430K</p>
+        <p style="margin: 30px 0;">
+            <a href="benefit_report.html" class="report-link">리포트 보기</a>
+        </p>
     </div>
     
-
-    <footer class="footer">
-      Radar Reports Index — generated 2026-03-16T02:49:46.757794+00:00 UTC
-    </footer>
-  </div>
+    <div class="footer">
+        자동 생성됨 · 2026-03-09 23:19
+    </div>
 </body>
 </html>
