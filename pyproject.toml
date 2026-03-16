@@ -37,6 +37,7 @@ dependencies = [
     "structlog>=24.2.0",
     "mcp>=1.0.0",
     "pybreaker>=1.0.0",
+    "radar-core",
 ]
 
 [project.optional-dependencies]
