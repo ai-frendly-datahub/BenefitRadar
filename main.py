@@ -17,7 +17,7 @@ from benefitradar.notifier import (
     NotificationConfig as BenefitNotificationConfig,
 )
 from benefitradar.raw_logger import RawLogger
-from benefitradar.reporter import generate_report
+from benefitradar.reporter import generate_index_html, generate_report
 from benefitradar.search_index import SearchIndex
 from benefitradar.storage import RadarStorage
 
@@ -147,6 +147,7 @@ def run(
         stats=stats,
         errors=errors + validation_errors,
     )
+    _ = generate_index_html(settings.report_dir)
     date_storage = apply_date_storage_policy(
         database_path=settings.database_path,
         raw_data_dir=settings.raw_data_dir,
