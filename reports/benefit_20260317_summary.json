@@ -1,13 +1,13 @@
 {
   "date": "2026-03-17",
   "category": "benefit",
-  "article_count": 159,
+  "article_count": 155,
   "source_count": 8,
-  "matched_count": 105,
+  "matched_count": 102,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 56
+      "count": 52
     },
     {
       "name": "TaxBenefit",
@@ -54,11 +54,11 @@
     "Tax Foundation": 9,
     "NerdWallet": 17,
     "Federal News Network": 23,
-    "Government Executive": 25,
-    "Route Fifty": 20,
+    "Government Executive": 24,
+    "Route Fifty": 17,
     "Kiplinger": 36,
     "KFF Health News": 15,
     "Pew Research": 14
   },
-  "generated_at": "2026-03-17T11:32:51.827587+09:00"
+  "generated_at": "2026-03-17T17:28:00.861391+09:00"
 }
