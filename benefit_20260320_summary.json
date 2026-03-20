@@ -1,0 +1,64 @@
+{
+  "date": "2026-03-20",
+  "category": "benefit",
+  "article_count": 200,
+  "source_count": 8,
+  "matched_count": 118,
+  "top_entities": [
+    {
+      "name": "GovernmentPolicy",
+      "count": 67
+    },
+    {
+      "name": "TaxBenefit",
+      "count": 50
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 25
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 24
+    },
+    {
+      "name": "SocialSafety",
+      "count": 19
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 14
+    },
+    {
+      "name": "Eligibility",
+      "count": 12
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 11
+    },
+    {
+      "name": "FinancialReward",
+      "count": 10
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 9
+    },
+    {
+      "name": "FamilySupport",
+      "count": 4
+    }
+  ],
+  "sources": {
+    "Tax Foundation": 7,
+    "Federal News Network": 49,
+    "Government Executive": 23,
+    "NerdWallet": 27,
+    "Kiplinger": 52,
+    "KFF Health News": 19,
+    "Route Fifty": 17,
+    "Pew Research": 6
+  },
+  "generated_at": "2026-03-20T11:31:33.403897+09:00"
+}
