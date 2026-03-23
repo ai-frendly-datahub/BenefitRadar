@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <header>
+    <resultCode>00</resultCode>
+    <resultMsg>NORMAL SERVICE.</resultMsg>
+  </header>
+  <body>
+    <items>
+      <item>
+        <servNm>청년 월세 지원</servNm>
+        <servDgst>청년 월세 부담 경감 지원 사업</servDgst>
+        <servId>WLF00001234</servId>
+        <jurMnofNm>국토교통부</jurMnofNm>
+        <sprtCycNm>월 20만원</sprtCycNm>
+      </item>
+      <item>
+        <servNm>기초연금 수급자 지원</servNm>
+        <servDgst>노인 기초생활 안정 지원</servDgst>
+        <servId>WLF00005678</servId>
+        <jurMnofNm>보건복지부</jurMnofNm>
+        <sprtCycNm>월 30만원</sprtCycNm>
+      </item>
+    </items>
+  </body>
+</response>
