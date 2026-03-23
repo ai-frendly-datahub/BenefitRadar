@@ -74,6 +74,17 @@ def _save_cache(cache_file: Path, content: bytes) -> None:
         logger.warning("cache_write_error", error=str(exc))
 
 
+def _extract_total_count(content: bytes) -> int | None:
+    try:
+        root = ElementTree.fromstring(content)
+    except ElementTree.ParseError:
+        return None
+    total = root.findtext(".//totalCount") or root.findtext(".//totalCnt")
+    if total and total.strip().isdigit():
+        return int(total.strip())
+    return None
+
+
 def _validate_xml_response(content: bytes) -> bool:
     """Validate that the XML response has expected structure."""
     try:
@@ -121,13 +132,14 @@ def collect_bokjiro(
 
     effective_timeout = timeout if timeout is not None else _API_TIMEOUT
 
-    base_url = "http://apis.data.go.kr/B554287/LocalGovernmentWelfareInformations"
+    base_url = "https://apis.data.go.kr/B554287/LocalGovernmentWelfareInformations"
     endpoint = f"{base_url}/LcgvWelfarelist"
+    page_size = min(limit, 100)
 
     params = {
         "serviceKey": api_key,
         "pageNo": "1",
-        "numOfRows": str(min(limit, 100)),
+        "numOfRows": str(page_size),
     }
 
     key = _cache_key(endpoint, params)
@@ -139,29 +151,44 @@ def collect_bokjiro(
         logger.debug("using_cached_response", source=source.name, cache_file=str(cache_file))
         return _parse_bokjiro_xml(cached, source_name=source.name, category=category)
 
-    # Fetch from API with error handling
+    all_articles: list[Article] = []
+    all_content_parts: list[bytes] = []
+    page_no = 1
+    max_pages = max(1, (limit + page_size - 1) // page_size)
+
     try:
-        response = requests.get(endpoint, params=params, timeout=effective_timeout)
-        response.raise_for_status()
-        content = response.content
+        while page_no <= max_pages:
+            params["pageNo"] = str(page_no)
+            response = requests.get(endpoint, params=params, timeout=effective_timeout)
+            response.raise_for_status()
+            content = response.content
 
-        # Validate response schema before parsing
-        if not _validate_xml_response(content):
-            logger.warning(
-                "invalid_api_response_schema",
-                source=source.name,
-                status_code=response.status_code,
-            )
-            # Fall back to stale cache
-            stale = _load_stale_cache(cache_file)
-            if stale is not None:
-                logger.info("using_stale_cache_after_invalid_response", source=source.name)
-                return _parse_bokjiro_xml(stale, source_name=source.name, category=category)
-            return []
+            # Validate response schema before parsing
+            if not _validate_xml_response(content):
+                logger.warning(
+                    "invalid_api_response_schema",
+                    source=source.name,
+                    status_code=response.status_code,
+                    page=page_no,
+                )
+                break
 
-        # Cache the successful response
-        _save_cache(cache_file, content)
-        return _parse_bokjiro_xml(content, source_name=source.name, category=category)
+            all_content_parts.append(content)
+            page_articles = _parse_bokjiro_xml(content, source_name=source.name, category=category)
+            all_articles.extend(page_articles)
+
+            total_count = _extract_total_count(content)
+            if total_count is not None and len(all_articles) >= min(limit, total_count):
+                break
+            if len(page_articles) < page_size:
+                break
+
+            page_no += 1
+
+        if all_content_parts:
+            _save_cache(cache_file, all_content_parts[0])
+
+        return all_articles[:limit]
 
     except requests.exceptions.Timeout:
         logger.warning("bokjiro_api_timeout", source=source.name, timeout=effective_timeout)
@@ -175,6 +202,14 @@ def collect_bokjiro(
         )
     except requests.exceptions.RequestException as exc:
         logger.warning("bokjiro_api_request_error", source=source.name, error=str(exc))
+
+    if all_articles:
+        logger.info(
+            "returning_partial_results",
+            source=source.name,
+            collected=len(all_articles),
+        )
+        return all_articles[:limit]
 
     # API failed — try stale cache as fallback
     stale = _load_stale_cache(cache_file)
@@ -220,7 +255,9 @@ def _parse_bokjiro_xml(
         if amount:
             summary_parts.append(f"지원: {amount}")
 
-        dept = _text(item, "jurMnofNm") or _text(item, "charger") or ""
+        dept = (
+            _text(item, "bizChrDeptNm") or _text(item, "jurMnofNm") or _text(item, "charger") or ""
+        )
         if dept:
             summary_parts.append(f"담당: {dept}")
 
@@ -231,6 +268,7 @@ def _parse_bokjiro_xml(
                 link = f"https://www.bokjiro.go.kr/ssis-teu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId={serv_id}"
 
         summary = " | ".join(summary_parts) if summary_parts else title
+        published = _parse_last_mod_ymd(_text(item, "lastModYmd"))
 
         if title.strip():
             articles.append(
@@ -238,7 +276,7 @@ def _parse_bokjiro_xml(
                     title=title.strip(),
                     link=link.strip() if link else "",
                     summary=summary.strip(),
-                    published=datetime.now(UTC),
+                    published=published,
                     source=source_name,
                     category=category,
                 )
@@ -247,8 +285,20 @@ def _parse_bokjiro_xml(
     return articles
 
 
+def _parse_last_mod_ymd(raw: str) -> datetime | None:
+    if not raw:
+        return None
+    cleaned = raw.strip().replace(".", "-").replace("/", "-")
+    for fmt in ("%Y-%m-%d", "%Y%m%d", "%Y-%m-%d %H:%M:%S"):
+        try:
+            dt = datetime.strptime(cleaned, fmt)
+            return dt.replace(tzinfo=UTC)
+        except ValueError:
+            continue
+    return None
+
+
 def _text(element: ElementTree.Element, tag: str) -> str:
-    """Safely extract text from an XML element's child tag."""
     child = element.find(tag)
     if child is not None and child.text:
         return child.text.strip()

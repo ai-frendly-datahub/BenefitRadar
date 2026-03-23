@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import pathlib
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -20,15 +21,17 @@ _SAMPLE_XML = """<?xml version="1.0" encoding="UTF-8"?>
         <servNm>청년 월세 지원</servNm>
         <servDgst>청년 월세 부담 경감 지원 사업</servDgst>
         <servId>WLF00001234</servId>
-        <jurMnofNm>국토교통부</jurMnofNm>
+        <bizChrDeptNm>국토교통부</bizChrDeptNm>
         <sprtCycNm>월 20만원</sprtCycNm>
+        <lastModYmd>2026-03-15</lastModYmd>
       </item>
       <item>
         <servNm>기초연금 수급자 지원</servNm>
         <servDgst>노인 기초생활 안정 지원</servDgst>
         <servId>WLF00005678</servId>
-        <jurMnofNm>보건복지부</jurMnofNm>
+        <bizChrDeptNm>보건복지부</bizChrDeptNm>
         <sprtCycNm>월 30만원</sprtCycNm>
+        <lastModYmd>2026-03-10</lastModYmd>
       </item>
     </items>
   </body>
@@ -100,8 +103,10 @@ class TestCollectBokjiro:
         self,
         mock_get: MagicMock,
         monkeypatch: pytest.MonkeyPatch,
+        tmp_path: pathlib.Path,
     ) -> None:
         monkeypatch.setenv("BOKJIRO_API_KEY", "test-key-123")
+        monkeypatch.setattr("benefitradar.bokjiro_collector._CACHE_DIR", tmp_path / "api_cache")
 
         mock_response = MagicMock()
         mock_response.content = _SAMPLE_XML
