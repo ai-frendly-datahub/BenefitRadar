@@ -1,25 +1,25 @@
 {
   "date": "2026-03-24",
   "category": "benefit",
-  "article_count": 133,
+  "article_count": 147,
   "source_count": 8,
-  "matched_count": 33,
+  "matched_count": 42,
   "top_entities": [
     {
       "name": "SocialWelfare",
-      "count": 19
+      "count": 23
     },
     {
       "name": "Eligibility",
-      "count": 11
+      "count": 16
     },
     {
       "name": "SubsidyProgram",
-      "count": 9
+      "count": 10
     },
     {
       "name": "GovernmentPolicy",
-      "count": 7
+      "count": 8
     },
     {
       "name": "TaxBenefit",
@@ -43,8 +43,8 @@
     }
   ],
   "sources": {
-    "정책브리핑 보도자료": 41,
-    "정책브리핑": 31,
+    "정책브리핑 보도자료": 48,
+    "정책브리핑": 38,
     "국토교통부": 1,
     "Tax Foundation": 7,
     "Government Executive": 23,
@@ -52,5 +52,5 @@
     "Pew Research": 7,
     "KFF Health News": 10
   },
-  "generated_at": "2026-03-24T16:24:32.888624+09:00"
+  "generated_at": "2026-03-24T17:21:02.762831+09:00"
 }
