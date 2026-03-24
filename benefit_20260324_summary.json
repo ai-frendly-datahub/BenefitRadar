@@ -1,13 +1,13 @@
 {
   "date": "2026-03-24",
   "category": "benefit",
-  "article_count": 124,
+  "article_count": 133,
   "source_count": 8,
-  "matched_count": 32,
+  "matched_count": 33,
   "top_entities": [
     {
       "name": "SocialWelfare",
-      "count": 18
+      "count": 19
     },
     {
       "name": "Eligibility",
@@ -43,8 +43,8 @@
     }
   ],
   "sources": {
-    "정책브리핑 보도자료": 33,
-    "정책브리핑": 30,
+    "정책브리핑 보도자료": 41,
+    "정책브리핑": 31,
     "국토교통부": 1,
     "Tax Foundation": 7,
     "Government Executive": 23,
@@ -52,5 +52,5 @@
     "Pew Research": 7,
     "KFF Health News": 10
   },
-  "generated_at": "2026-03-24T15:23:36.215579+09:00"
+  "generated_at": "2026-03-24T16:24:32.888624+09:00"
 }
