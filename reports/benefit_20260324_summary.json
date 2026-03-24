@@ -1,67 +1,56 @@
 {
   "date": "2026-03-24",
   "category": "benefit",
-  "article_count": 200,
-  "source_count": 11,
-  "matched_count": 130,
+  "article_count": 124,
+  "source_count": 8,
+  "matched_count": 32,
   "top_entities": [
     {
-      "name": "GovernmentPolicy",
-      "count": 65
-    },
-    {
-      "name": "TaxBenefit",
-      "count": 42
-    },
-    {
-      "name": "SocialSafety",
-      "count": 33
-    },
-    {
-      "name": "EmploymentBenefit",
-      "count": 30
-    },
-    {
-      "name": "SubsidyProgram",
-      "count": 28
-    },
-    {
-      "name": "HealthBenefit",
-      "count": 17
-    },
-    {
       "name": "SocialWelfare",
-      "count": 13
+      "count": 18
     },
     {
       "name": "Eligibility",
-      "count": 12
+      "count": 11
     },
     {
-      "name": "FinancialReward",
-      "count": 12
+      "name": "SubsidyProgram",
+      "count": 9
     },
     {
-      "name": "FamilySupport",
-      "count": 10
+      "name": "GovernmentPolicy",
+      "count": 7
+    },
+    {
+      "name": "TaxBenefit",
+      "count": 5
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 3
     },
     {
       "name": "HousingAssistance",
-      "count": 8
+      "count": 2
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 1
+    },
+    {
+      "name": "FamilySupport",
+      "count": 1
     }
   ],
   "sources": {
+    "정책브리핑 보도자료": 33,
+    "정책브리핑": 30,
     "국토교통부": 1,
-    "Tax Foundation": 13,
-    "정책브리핑 보도자료": 3,
-    "정책브리핑": 3,
-    "Government Executive": 32,
-    "Federal News Network": 28,
-    "Pew Research": 17,
-    "KFF Health News": 15,
-    "Kiplinger": 50,
-    "NerdWallet": 14,
-    "Route Fifty": 24
+    "Tax Foundation": 7,
+    "Government Executive": 23,
+    "Federal News Network": 13,
+    "Pew Research": 7,
+    "KFF Health News": 10
   },
-  "generated_at": "2026-03-24T12:33:26.953497+09:00"
+  "generated_at": "2026-03-24T15:10:48.803606+09:00"
 }
