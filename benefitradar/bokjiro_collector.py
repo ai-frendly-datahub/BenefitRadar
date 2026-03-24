@@ -291,8 +291,8 @@ def _parse_last_mod_ymd(raw: str) -> datetime | None:
     cleaned = raw.strip().replace(".", "-").replace("/", "-")
     for fmt in ("%Y-%m-%d", "%Y%m%d", "%Y-%m-%d %H:%M:%S"):
         try:
-            dt = datetime.strptime(cleaned, fmt)
-            return dt.replace(tzinfo=UTC)
+            dt = datetime.strptime(cleaned, fmt).replace(tzinfo=UTC)
+            return dt
         except ValueError:
             continue
     return None
