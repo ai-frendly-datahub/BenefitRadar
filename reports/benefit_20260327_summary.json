@@ -1,0 +1,47 @@
+{
+  "date": "2026-03-27",
+  "category": "benefit",
+  "article_count": 200,
+  "source_count": 7,
+  "matched_count": 45,
+  "top_entities": [
+    {
+      "name": "SocialWelfare",
+      "count": 17
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 16
+    },
+    {
+      "name": "Eligibility",
+      "count": 14
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 11
+    },
+    {
+      "name": "TaxBenefit",
+      "count": 4
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 1
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 1
+    }
+  ],
+  "sources": {
+    "정책브리핑": 36,
+    "정책브리핑 보도자료": 91,
+    "Government Executive": 16,
+    "Federal News Network": 30,
+    "KFF Health News": 8,
+    "Pew Research": 17,
+    "Tax Foundation": 2
+  },
+  "generated_at": "2026-03-27T11:47:32.387178+09:00"
+}
