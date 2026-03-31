@@ -108,6 +108,69 @@ sources:
     type: "rss"
     url: "https://blogs.worldbank.org/rss.xml"
 
+  # === Reddit 혜택/지원 커뮤니티 ===
+  - name: "r/personalfinance"
+    type: "rss"
+    url: "https://www.reddit.com/r/personalfinance/.rss"
+
+  - name: "r/povertyfinance"
+    type: "rss"
+    url: "https://www.reddit.com/r/povertyfinance/.rss"
+
+  - name: "r/SNAP_EBT"
+    type: "rss"
+    url: "https://www.reddit.com/r/SNAP_EBT/.rss"
+
+  - name: "r/SocialSecurity"
+    type: "rss"
+    url: "https://www.reddit.com/r/SocialSecurity/.rss"
+
+  - name: "r/Unemployment"
+    type: "rss"
+    url: "https://www.reddit.com/r/Unemployment/.rss"
+
+  - name: "r/disability"
+    type: "rss"
+    url: "https://www.reddit.com/r/disability/.rss"
+
+  - name: "r/healthcare"
+    type: "rss"
+    url: "https://www.reddit.com/r/healthcare/.rss"
+
+  - name: "r/korea"
+    type: "rss"
+    url: "https://www.reddit.com/r/korea/.rss"
+
+  # === 국제 복지/정책 기관 ===
+  - name: "UK Gov Benefits"
+    type: "rss"
+    url: "https://www.gov.uk/government/topics/benefits.atom"
+
+  - name: "Canada Service Updates"
+    type: "rss"
+    url: "https://www.canada.ca/en/employment-social-development.atom"
+
+  - name: "Australia Services"
+    type: "rss"
+    url: "https://www.servicesaustralia.gov.au/rss"
+
+  - name: "EU Social Policy"
+    type: "rss"
+    url: "https://ec.europa.eu/social/main.jsp?langId=en&catId=89&format=rss"
+
+  - name: "ILO News"
+    type: "rss"
+    url: "https://www.ilo.org/global/about-the-ilo/newsroom/news/rss/lang--en/index.htm"
+
+  # === 복지 연구/싱크탱크 ===
+  - name: "Niskanen Center"
+    type: "rss"
+    url: "https://www.niskanencenter.org/feed/"
+
+  - name: "Economic Policy Institute"
+    type: "rss"
+    url: "https://www.epi.org/feed/"
+
 entities:
   - name: "SubsidyProgram"
     display_name: "보조금/지원 프로그램"
