@@ -2,44 +2,111 @@ category_name: "benefit"
 display_name: "정부 혜택/지원금 레이더"
 
 sources:
-  # ── Korean government ──────────────────────────────────────
+  # ── 한국 정부 공식 채널 ──────────────────────────────────────
   - name: "정책브리핑"
     type: "rss"
     url: "https://www.korea.kr/rss/policy.xml"
+
   - name: "정책브리핑 보도자료"
     type: "rss"
     url: "https://www.korea.kr/rss/pressrelease.xml"
+
   - name: "국토교통부"
     type: "rss"
     url: "https://www.molit.go.kr/dev/board/board_rss.jsp?rss_id=NEWS"
 
-  # ── Global government policy ───────────────────────────────
+  - name: "보건복지부"
+    type: "javascript"
+    url: "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027"
+    config:
+      wait_for: "table"
+
+  - name: "고용노동부"
+    type: "rss"
+    url: "https://www.moel.go.kr/rss/policy.xml"
+
+  - name: "중소벤처기업부"
+    type: "rss"
+    url: "https://www.mss.go.kr/site/smba/ex/bbs/rss.do?bbsId=BBSMSTR_000000000012"
+
+  - name: "기획재정부"
+    type: "rss"
+    url: "https://www.moef.go.kr/sas/sas/rss.do"
+
+  - name: "여성가족부"
+    type: "javascript"
+    url: "https://www.mogef.go.kr/nw/enw/nw_enw_s001.do"
+    config:
+      wait_for: ".board_list"
+
+  - name: "교육부"
+    type: "javascript"
+    url: "https://www.moe.go.kr/boardCnts/listRss.do?boardID=294"
+    config:
+      wait_for: "table"
+
+  # ── 지자체 지원사업 ──────────────────────────────────────
+  - name: "서울시 복지"
+    type: "javascript"
+    url: "https://wis.seoul.go.kr/welfare/main.do"
+    config:
+      wait_for: ".welfare_list"
+
+  - name: "경기도 일자리재단"
+    type: "javascript"
+    url: "https://www.jobaba.net/fntn/dtl.do?seq=3"
+    config:
+      wait_for: ".board_list"
+
+  # ── 정부 API ──────────────────────────────────────
+  - name: "보조금24"
+    type: "api"
+    url: "https://apis.data.go.kr/B554287/LocalGovernmentWelfareInformations/LcgvWelfarelist"
+
+  # ── 글로벌 정책 싱크탱크 ───────────────────────────────
   - name: "GovTech"
     type: "rss"
     url: "https://www.govtech.com/rss/"
+
   - name: "Government Executive"
     type: "rss"
     url: "https://www.govexec.com/rss/all/"
+
   - name: "Tax Foundation"
     type: "rss"
     url: "https://taxfoundation.org/feed/"
+
   - name: "Brookings Institution"
     type: "rss"
     url: "https://www.brookings.edu/feed/"
+
   - name: "KFF Health News"
     type: "rss"
     url: "https://kffhealthnews.org/feed/"
+
   - name: "Federal News Network"
     type: "rss"
     url: "https://federalnewsnetwork.com/feed/"
+
   - name: "Pew Research"
     type: "rss"
     url: "https://www.pewresearch.org/feed/"
 
-  # ── Korean government API ──────────────────────────────────
-  - name: "보조금24"
-    type: "api"
-    url: "https://apis.data.go.kr/B554287/LocalGovernmentWelfareInformations/LcgvWelfarelist"
+  - name: "Urban Institute"
+    type: "rss"
+    url: "https://www.urban.org/rss.xml"
+
+  - name: "CBPP"
+    type: "rss"
+    url: "https://www.cbpp.org/rss.xml"
+
+  - name: "OECD Social Policy"
+    type: "rss"
+    url: "https://www.oecd.org/social/rss.xml"
+
+  - name: "World Bank Blogs"
+    type: "rss"
+    url: "https://blogs.worldbank.org/rss.xml"
 
 entities:
   - name: "SubsidyProgram"
