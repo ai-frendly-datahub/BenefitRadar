@@ -1,0 +1,55 @@
+{
+  "date": "2026-04-01",
+  "category": "benefit",
+  "article_count": 200,
+  "source_count": 15,
+  "matched_count": 56,
+  "top_entities": [
+    {
+      "name": "SocialWelfare",
+      "count": 37
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 18
+    },
+    {
+      "name": "Eligibility",
+      "count": 17
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 3
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 2
+    },
+    {
+      "name": "TaxBenefit",
+      "count": 2
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 1
+    }
+  ],
+  "sources": {
+    "Tax Foundation": 3,
+    "r/personalfinance": 23,
+    "r/povertyfinance": 23,
+    "r/korea": 12,
+    "정책브리핑 보도자료": 60,
+    "r/disability": 2,
+    "r/SocialSecurity": 15,
+    "r/Unemployment": 3,
+    "Federal News Network": 19,
+    "r/healthcare": 8,
+    "Niskanen Center": 3,
+    "Government Executive": 9,
+    "Pew Research": 2,
+    "KFF Health News": 3,
+    "정책브리핑": 15
+  },
+  "generated_at": "2026-04-01T12:20:18.784587+09:00"
+}
