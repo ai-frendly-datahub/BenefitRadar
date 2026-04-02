@@ -109,37 +109,38 @@ sources:
     url: "https://blogs.worldbank.org/rss.xml"
 
   # === Reddit 혜택/지원 커뮤니티 ===
+  # NOTE: 2026-04-02 Reddit RSS 403 차단 → reddit type으로 변환
   - name: "r/personalfinance"
-    type: "rss"
-    url: "https://www.reddit.com/r/personalfinance/.rss"
+    type: reddit
+    url: "https://www.reddit.com/r/personalfinance/"
 
   - name: "r/povertyfinance"
-    type: "rss"
-    url: "https://www.reddit.com/r/povertyfinance/.rss"
+    type: reddit
+    url: "https://www.reddit.com/r/povertyfinance/"
 
   - name: "r/SNAP_EBT"
-    type: "rss"
-    url: "https://www.reddit.com/r/SNAP_EBT/.rss"
+    type: reddit
+    url: "https://www.reddit.com/r/SNAP_EBT/"
 
   - name: "r/SocialSecurity"
-    type: "rss"
-    url: "https://www.reddit.com/r/SocialSecurity/.rss"
+    type: reddit
+    url: "https://www.reddit.com/r/SocialSecurity/"
 
   - name: "r/Unemployment"
-    type: "rss"
-    url: "https://www.reddit.com/r/Unemployment/.rss"
+    type: reddit
+    url: "https://www.reddit.com/r/Unemployment/"
 
   - name: "r/disability"
-    type: "rss"
-    url: "https://www.reddit.com/r/disability/.rss"
+    type: reddit
+    url: "https://www.reddit.com/r/disability/"
 
   - name: "r/healthcare"
-    type: "rss"
-    url: "https://www.reddit.com/r/healthcare/.rss"
+    type: reddit
+    url: "https://www.reddit.com/r/healthcare/"
 
   - name: "r/korea"
-    type: "rss"
-    url: "https://www.reddit.com/r/korea/.rss"
+    type: reddit
+    url: "https://www.reddit.com/r/korea/"
 
   # === 국제 복지/정책 기관 ===
   - name: "UK Gov Benefits"
