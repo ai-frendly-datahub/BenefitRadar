@@ -21,17 +21,26 @@ sources:
     config:
       wait_for: "table"
 
+  # NOTE: 2026-04-03 RSS timeout/404 → JavaScript 변환하여 복구
   - name: "고용노동부"
-    type: "rss"
-    url: "https://www.moel.go.kr/rss/policy.xml"
+    type: "javascript"
+    url: "https://www.moel.go.kr/news/enews/report/enewsList.do"
+    config:
+      wait_for: ".board-list"
 
+  # NOTE: 2026-04-03 RSS 오류페이지 반환 → JavaScript 변환하여 복구
   - name: "중소벤처기업부"
-    type: "rss"
-    url: "https://www.mss.go.kr/site/smba/ex/bbs/rss.do?bbsId=BBSMSTR_000000000012"
+    type: "javascript"
+    url: "https://www.mss.go.kr/site/smba/ex/bbs/List.do?cbIdx=86"
+    config:
+      wait_for: "table.board"
 
+  # NOTE: 2026-04-03 RSS timeout → JavaScript 변환하여 복구 (도메인 moef→mofe 변경)
   - name: "기획재정부"
-    type: "rss"
-    url: "https://www.moef.go.kr/sas/sas/rss.do"
+    type: "javascript"
+    url: "https://mofe.go.kr/nw/nes/nesdta.do?bbsId=MOSFBBS_000000000028&menuNo=4010100"
+    config:
+      wait_for: "ul li h3"
 
   - name: "여성가족부"
     type: "javascript"
