@@ -3,19 +3,19 @@
   "category": "benefit",
   "article_count": 200,
   "source_count": 15,
-  "matched_count": 32,
+  "matched_count": 35,
   "top_entities": [
     {
       "name": "SocialWelfare",
-      "count": 15
+      "count": 16
     },
     {
       "name": "SubsidyProgram",
-      "count": 11
+      "count": 13
     },
     {
       "name": "Eligibility",
-      "count": 10
+      "count": 12
     },
     {
       "name": "GovernmentPolicy",
@@ -35,21 +35,21 @@
     }
   ],
   "sources": {
-    "정책브리핑 보도자료": 76,
-    "Federal News Network": 24,
-    "Government Executive": 10,
+    "정책브리핑 보도자료": 97,
+    "정책브리핑": 15,
+    "Federal News Network": 22,
+    "Government Executive": 9,
     "Tax Foundation": 4,
-    "KFF Health News": 4,
+    "KFF Health News": 3,
     "Niskanen Center": 4,
-    "정책브리핑": 13,
-    "r/personalfinance": 18,
-    "r/SocialSecurity": 9,
+    "r/personalfinance": 14,
+    "r/SocialSecurity": 6,
     "r/Unemployment": 4,
-    "r/korea": 10,
-    "r/povertyfinance": 16,
+    "r/korea": 3,
+    "r/povertyfinance": 11,
     "r/healthcare": 3,
     "r/disability": 4,
     "Pew Research": 1
   },
-  "generated_at": "2026-04-03T10:07:16.542870+09:00"
+  "generated_at": "2026-04-03T11:45:08.374836+09:00"
 }
