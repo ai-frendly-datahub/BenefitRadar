@@ -3,23 +3,31 @@
   "category": "benefit",
   "article_count": 200,
   "source_count": 7,
-  "matched_count": 106,
+  "matched_count": 107,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 206
+      "count": 210
     },
     {
       "name": "SubsidyProgram",
-      "count": 52
+      "count": 63
     },
     {
       "name": "Eligibility",
-      "count": 31
+      "count": 44
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 36
     },
     {
       "name": "SocialWelfare",
-      "count": 30
+      "count": 33
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 25
     },
     {
       "name": "EmploymentBenefit",
@@ -27,7 +35,7 @@
     },
     {
       "name": "FamilySupport",
-      "count": 8
+      "count": 10
     },
     {
       "name": "HealthBenefit",
@@ -36,6 +44,10 @@
     {
       "name": "TaxBenefit",
       "count": 3
+    },
+    {
+      "name": "EducationSupport",
+      "count": 1
     },
     {
       "name": "HousingAssistance",
@@ -51,5 +63,5 @@
     "Pew Research": 15,
     "KFF Health News": 11
   },
-  "generated_at": "2026-04-08T09:54:06.953175+09:00"
+  "generated_at": "2026-04-08T10:35:35.414823+09:00"
 }
