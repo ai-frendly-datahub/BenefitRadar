@@ -1,0 +1,68 @@
+{
+  "date": "2026-04-17",
+  "category": "benefit",
+  "article_count": 200,
+  "source_count": 8,
+  "matched_count": 134,
+  "top_entities": [
+    {
+      "name": "GovernmentPolicy",
+      "count": 389
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 119
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 73
+    },
+    {
+      "name": "Eligibility",
+      "count": 68
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 65
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 54
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 25
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 11
+    },
+    {
+      "name": "TaxBenefit",
+      "count": 9
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 9
+    },
+    {
+      "name": "EducationSupport",
+      "count": 7
+    },
+    {
+      "name": "FamilySupport",
+      "count": 5
+    }
+  ],
+  "sources": {
+    "Tax Foundation": 6,
+    "Federal News Network": 34,
+    "Government Executive": 15,
+    "Pew Research": 10,
+    "KFF Health News": 11,
+    "정책브리핑 보도자료": 94,
+    "Niskanen Center": 1,
+    "정책브리핑": 29
+  },
+  "generated_at": "2026-04-17T12:00:25.704046+09:00"
+}

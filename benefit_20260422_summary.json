@@ -1,53 +1,53 @@
 {
   "date": "2026-04-22",
   "category": "benefit",
-  "article_count": 133,
-  "source_count": 8,
-  "matched_count": 69,
+  "article_count": 200,
+  "source_count": 7,
+  "matched_count": 137,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 219
+      "count": 410
     },
     {
       "name": "SubsidyProgram",
-      "count": 88
+      "count": 133
     },
     {
       "name": "Eligibility",
-      "count": 57
-    },
-    {
-      "name": "EmploymentBenefit",
-      "count": 54
+      "count": 80
     },
     {
       "name": "TargetDemographic",
-      "count": 45
-    },
-    {
-      "name": "CultureLeisure",
-      "count": 30
+      "count": 72
     },
     {
       "name": "SocialWelfare",
-      "count": 28
+      "count": 48
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 46
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 45
     },
     {
       "name": "HealthBenefit",
-      "count": 9
+      "count": 17
     },
     {
       "name": "TaxBenefit",
-      "count": 7
+      "count": 8
+    },
+    {
+      "name": "FamilySupport",
+      "count": 8
     },
     {
       "name": "HousingAssistance",
       "count": 6
-    },
-    {
-      "name": "FamilySupport",
-      "count": 3
     },
     {
       "name": "EducationSupport",
@@ -55,14 +55,13 @@
     }
   ],
   "sources": {
-    "Tax Foundation": 14,
-    "정책브리핑 보도자료": 30,
-    "Federal News Network": 14,
-    "Government Executive": 24,
-    "Pew Research": 10,
+    "Tax Foundation": 8,
+    "정책브리핑 보도자료": 104,
+    "Federal News Network": 33,
+    "Government Executive": 12,
+    "Pew Research": 2,
     "KFF Health News": 10,
-    "정책브리핑": 30,
-    "Niskanen Center": 1
+    "정책브리핑": 31
   },
-  "generated_at": "2026-04-22T08:49:09.091203+09:00"
+  "generated_at": "2026-04-22T11:56:55.507992+09:00"
 }
