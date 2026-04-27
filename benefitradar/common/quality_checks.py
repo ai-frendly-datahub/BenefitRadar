@@ -25,6 +25,19 @@ def _fetchone_required(
     return row
 
 
+def _column_exists(
+    con: duckdb.DuckDBPyConnection,
+    *,
+    table_name: str,
+    column_name: str,
+) -> bool:
+    rows = cast(
+        list[tuple[object, ...]],
+        con.execute(f"DESCRIBE {_quote_identifier(table_name)}").fetchall(),
+    )
+    return any(str(row[0]) == column_name for row in rows)
+
+
 def _to_int(value: object) -> int:
     if isinstance(value, bool):
         return int(value)
@@ -248,10 +261,17 @@ def run_all_checks(
     check_missing_fields(con, table_name=table_name, null_conditions=null_conditions)
     check_duplicate_urls(con, table_name=table_name, url_column=url_column)
     check_text_lengths(con, table_name=table_name, text_columns=text_columns or [])
-    check_language_values(
-        con,
-        table_name=table_name,
-        language_column=language_column,
-        allowed_languages=allowed_languages,
-    )
-    check_dates(con, table_name=table_name, date_column=date_column)
+    if _column_exists(con, table_name=table_name, column_name=language_column):
+        check_language_values(
+            con,
+            table_name=table_name,
+            language_column=language_column,
+            allowed_languages=allowed_languages,
+        )
+    else:
+        print(f"\nSkipping language check: missing column {language_column!r}")
+
+    if _column_exists(con, table_name=table_name, column_name=date_column):
+        check_dates(con, table_name=table_name, date_column=date_column)
+    else:
+        print(f"\nSkipping date check: missing column {date_column!r}")

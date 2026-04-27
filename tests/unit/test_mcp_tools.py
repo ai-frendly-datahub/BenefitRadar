@@ -63,6 +63,76 @@ def _seed_article(
         conn.close()
 
 
+def _seed_quality_article(
+    *,
+    db_path: Path,
+    article_id: int,
+    title: str,
+    link: str,
+    source: str,
+    collected_at: datetime,
+    entities: dict[str, list[str]],
+) -> None:
+    conn = duckdb.connect(str(db_path))
+    try:
+        _ = conn.execute(
+            """
+            INSERT INTO articles (id, category, source, title, link, summary, published, collected_at, entities_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            [
+                article_id,
+                "benefit",
+                source,
+                title,
+                link,
+                "summary",
+                collected_at,
+                collected_at,
+                json.dumps(entities, ensure_ascii=False),
+            ],
+        )
+    finally:
+        conn.close()
+
+
+def _write_quality_category_config(categories_dir: Path) -> None:
+    categories_dir.mkdir(parents=True, exist_ok=True)
+    (categories_dir / "benefit.yaml").write_text(
+        """
+category_name: benefit
+display_name: Benefit Radar
+data_quality:
+  quality_outputs:
+    tracked_event_models: [application_deadline, eligibility_rule]
+  freshness_sla:
+    application_deadline:
+      max_age_days: 1
+    eligibility_rule:
+      max_age_days: 3
+source_backlog:
+  operational_candidates:
+    - id: bokjiro_detail
+      name: Bokjiro detail
+sources:
+  - name: Deadline Source
+    type: rss
+    url: https://example.com/deadline
+    config:
+      event_model: application_deadline
+      freshness_sla_days: 1
+  - name: Eligibility Source
+    type: api
+    url: https://example.com/eligibility
+    config:
+      event_model: eligibility_rule
+      freshness_sla_days: 3
+entities: []
+""",
+        encoding="utf-8",
+    )
+
+
 def test_handle_search(tmp_path: Path) -> None:
     from mcp_server.tools import handle_search
 
@@ -185,6 +255,41 @@ def test_handle_top_trends(tmp_path: Path) -> None:
     assert "3" in output
     assert "Roaster" in output
     assert "1" in output
+
+
+def test_handle_quality_report_returns_benefit_operational_json(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_quality_report
+
+    db_path = tmp_path / "radar.duckdb"
+    categories_dir = tmp_path / "categories"
+    _write_quality_category_config(categories_dir)
+    _init_articles_table(db_path)
+    _seed_quality_article(
+        db_path=db_path,
+        article_id=1,
+        title="청년 지원 신청 마감",
+        link="https://example.com/deadline",
+        source="Deadline Source",
+        collected_at=datetime.now(UTC),
+        entities={
+            "OperationalEvent": ["application_deadline"],
+            "ApplicationDeadline": ["2026-04-30"],
+        },
+    )
+
+    output = handle_quality_report(
+        db_path=db_path,
+        categories_dir=categories_dir,
+        days=30,
+        limit=10,
+    )
+    payload = json.loads(output)
+
+    assert payload["category"] == "benefit"
+    assert payload["summary"]["fresh_sources"] == 1
+    assert payload["summary"]["missing_sources"] == 1
+    assert payload["summary"]["application_deadline_events"] == 1
+    assert payload["source_backlog"]["operational_candidates"][0]["id"] == "bokjiro_detail"
 
 
 def test_handle_price_watch_stub() -> None:

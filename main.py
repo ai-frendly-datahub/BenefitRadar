@@ -8,7 +8,13 @@ from benefitradar.analyzer import apply_entity_rules
 from benefitradar.collector import collect_sources
 from benefitradar.common.date_storage import apply_date_storage_policy
 from benefitradar.common.validators import validate_article
-from benefitradar.config_loader import load_category_config, load_notification_config, load_settings
+from benefitradar.benefit_signals import enrich_benefit_operational_fields
+from benefitradar.config_loader import (
+    load_category_config,
+    load_category_quality_config,
+    load_notification_config,
+    load_settings,
+)
 from benefitradar.notifier import (
     BenefitNotifier,
     detect_benefit_notifications,
@@ -16,10 +22,14 @@ from benefitradar.notifier import (
 from benefitradar.notifier import (
     NotificationConfig as BenefitNotificationConfig,
 )
+from benefitradar.models import Article, Source
 from benefitradar.raw_logger import RawLogger
+from benefitradar.quality_report import build_quality_report, write_quality_report
+from benefitradar.relevance import apply_source_context_entities, filter_relevant_articles
 from benefitradar.reporter import generate_index_html, generate_report
 from benefitradar.search_index import SearchIndex
 from benefitradar.storage import RadarStorage
+from radar_core.ontology import annotate_articles_with_ontology
 
 
 def run(
@@ -39,15 +49,22 @@ def run(
     """Execute the lightweight collect -> analyze -> report pipeline."""
     settings = load_settings(config_path)
     category_cfg = load_category_config(category, categories_dir=categories_dir)
+    quality_cfg = load_category_quality_config(category, categories_dir=categories_dir)
 
-    print(
-        f"[Radar] Collecting '{category_cfg.display_name}' from {len(category_cfg.sources)} sources..."
-    )
+    source_count = len(category_cfg.sources)
+    print(f"[Radar] Collecting '{category_cfg.display_name}' from {source_count} sources...")
     collected, errors = collect_sources(
         category_cfg.sources,
         category=category_cfg.category_name,
         limit_per_source=per_source_limit,
         timeout=timeout,
+    )
+    collected = annotate_articles_with_ontology(
+        collected,
+        repo_name="BenefitRadar",
+        sources_by_name={source.name: source for source in category_cfg.sources},
+        category_name=category_cfg.category_name,
+        search_from=Path(__file__),
     )
 
     raw_logger = RawLogger(settings.raw_data_dir)
@@ -56,17 +73,23 @@ def run(
         if source_articles:
             _ = raw_logger.log(source_articles, source_name=source.name)
 
-    analyzed = apply_entity_rules(collected, category_cfg.entities)
+    analyzed = enrich_benefit_operational_fields(
+        apply_entity_rules(collected, category_cfg.entities)
+    )
+    classified = apply_source_context_entities(analyzed, category_cfg.sources)
+    scoped_articles = filter_relevant_articles(classified, category_cfg.sources)
 
     # Validate articles for data quality
     validated_articles = []
     validation_errors = []
-    for article in analyzed:
+    for article in scoped_articles:
         is_valid, validation_msgs = validate_article(article)
         if is_valid:
             validated_articles.append(article)
         else:
             validation_errors.append(f"{article.link}: {', '.join(validation_msgs)}")
+    if validation_errors:
+        errors.extend(validation_errors)
 
     storage = RadarStorage(settings.database_path)
 
@@ -129,23 +152,45 @@ def run(
         for article in validated_articles:
             search_idx.upsert(article.link, article.title, article.summary)
 
-    recent_articles = storage.recent_articles(category_cfg.category_name, days=recent_days)
+    recent_articles = _select_report_articles(
+        storage,
+        category_cfg.category_name,
+        recent_days=recent_days,
+        sources=category_cfg.sources,
+    )
     storage.close()
 
+    matched_count = sum(1 for article in recent_articles if article.matched_entities)
+    source_count = len({article.source for article in recent_articles if article.source})
     stats = {
         "sources": len(category_cfg.sources),
-        "collected": len(collected),
-        "matched": sum(1 for a in collected if a.matched_entities),
+        "collected": len(recent_articles),
+        "matched": matched_count,
         "window_days": recent_days,
+        "article_count": len(recent_articles),
+        "source_count": source_count,
+        "matched_count": matched_count,
     }
 
     output_path = settings.report_dir / f"{category_cfg.category_name}_report.html"
+    quality_report = build_quality_report(
+        category=category_cfg,
+        articles=recent_articles,
+        errors=errors,
+        quality_config=quality_cfg,
+    )
+    quality_report_paths = write_quality_report(
+        quality_report,
+        output_dir=settings.report_dir,
+        category_name=category_cfg.category_name,
+    )
     _ = generate_report(
         category=category_cfg,
         articles=recent_articles,
         output_path=output_path,
         stats=stats,
-        errors=errors + validation_errors,
+        errors=errors,
+        quality_report=quality_report,
     )
     # Generate index.html
     generate_index_html(settings.report_dir)
@@ -158,14 +203,46 @@ def run(
         snapshot_db=snapshot_db,
     )
     print(f"[Radar] Report generated at {output_path}")
+    print(f"[Radar] Quality report generated at {quality_report_paths['latest']}")
     snapshot_path = date_storage.get("snapshot_path")
     if isinstance(snapshot_path, str) and snapshot_path:
         print(f"[Radar] Snapshot saved at {snapshot_path}")
-    if errors or validation_errors:
-        print(
-            f"[Radar] {len(errors) + len(validation_errors)} issue(s) found. See report for details."
-        )
+    if errors:
+        print(f"[Radar] {len(errors)} issue(s) found. See report for details.")
     return output_path
+
+
+def _select_report_articles(
+    storage: RadarStorage,
+    category: str,
+    *,
+    recent_days: int,
+    sources: list[Source] | None = None,
+) -> list[Article]:
+    published_articles = storage.recent_articles(category, days=recent_days, limit=1000)
+    collected_articles = storage.recent_articles_by_collected_at(
+        category,
+        days=recent_days,
+        limit=1000,
+    )
+    articles = _dedupe_articles([*published_articles, *collected_articles])
+    if sources is None:
+        return articles
+
+    scoped_articles = filter_relevant_articles(
+        apply_source_context_entities(articles, sources),
+        sources,
+    )
+    return scoped_articles or articles
+
+
+def _dedupe_articles(articles: list[Article]) -> list[Article]:
+    deduped: dict[str, Article] = {}
+    for article in articles:
+        key = article.link or f"{article.source}:{article.title}"
+        if key not in deduped:
+            deduped[key] = article
+    return list(deduped.values())
 
 
 def parse_args() -> argparse.Namespace:

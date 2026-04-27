@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Protocol, cast
 
 from mcp_server.tools import (
+    handle_quality_report,
     handle_recent_updates,
     handle_search,
     handle_sql,
@@ -83,6 +84,18 @@ def _list_tool_specs() -> list[dict[str, object]]:
                 },
             },
         },
+        {
+            "name": "quality_report",
+            "description": "Return BenefitRadar deadline and eligibility quality report JSON.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "days": {"type": "integer", "minimum": 1},
+                    "limit": {"type": "integer", "minimum": 1},
+                    "category": {"type": "string"},
+                },
+            },
+        },
     ]
 
 
@@ -109,6 +122,13 @@ def _call_tool_handler(name: str, arguments: object) -> str:
             db_path=_db_path(),
             days=_as_int(args.get("days"), 7),
             limit=_as_int(args.get("limit"), 10),
+        )
+    if name == "quality_report":
+        return handle_quality_report(
+            db_path=_db_path(),
+            category=str(args.get("category", "benefit")),
+            days=_as_int(args.get("days"), 30),
+            limit=_as_int(args.get("limit"), 500),
         )
     return f"Unknown tool: {name}"
 

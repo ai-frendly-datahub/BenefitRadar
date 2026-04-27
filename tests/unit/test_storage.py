@@ -21,6 +21,7 @@ class _Article(Protocol):
     category: str
     matched_entities: dict[str, list[str]]
     collected_at: datetime | None
+    ontology: dict[str, object]
 
 
 class _ArticleCtor(Protocol):
@@ -35,6 +36,7 @@ class _ArticleCtor(Protocol):
         category: str,
         matched_entities: dict[str, list[str]] = ...,
         collected_at: datetime | None = ...,
+        ontology: dict[str, object] = ...,
     ) -> _Article: ...
 
 
@@ -42,6 +44,10 @@ class _RadarStorage(Protocol):
     def upsert_articles(self, articles: Iterable[_Article]) -> None: ...
 
     def recent_articles(
+        self, category: str, *, days: int = 7, limit: int = 200
+    ) -> list[_Article]: ...
+
+    def recent_articles_by_collected_at(
         self, category: str, *, days: int = 7, limit: int = 200
     ) -> list[_Article]: ...
 
@@ -67,6 +73,7 @@ def _make_article(
     source: str = "Example RSS",
     category: str = "tech",
     matched_entities: dict[str, list[str]] | None = None,
+    ontology: dict[str, object] | None = None,
 ) -> _Article:
     return Article(
         title=title,
@@ -76,6 +83,7 @@ def _make_article(
         source=source,
         category=category,
         matched_entities=matched_entities or {},
+        ontology=ontology or {},
     )
 
 
@@ -241,6 +249,29 @@ def test_recent_articles_filters_by_period(tmp_storage: object) -> None:
     assert results[0].link == recent_article.link
 
 
+def test_recent_articles_by_collected_at_includes_old_published_freshly_seen(
+    tmp_storage: object,
+) -> None:
+    storage = cast(_RadarStorage, tmp_storage)
+    article = _make_article(
+        title="Freshly collected old notice",
+        link="https://example.com/freshly-collected-old-notice",
+        summary="수집은 최신이지만 발행일은 오래된 지원금 공고",
+        published=datetime.now(UTC) - timedelta(days=20),
+        matched_entities={"SubsidyProgram": ["지원금"]},
+    )
+
+    storage.upsert_articles([article])
+
+    published_window = storage.recent_articles(category="tech", days=7)
+    collected_window = storage.recent_articles_by_collected_at(category="tech", days=7)
+
+    assert published_window == []
+    assert len(collected_window) == 1
+    assert collected_window[0].link == article.link
+    assert collected_window[0].matched_entities == {"SubsidyProgram": ["지원금"]}
+
+
 def test_recent_articles_filters_by_category(tmp_storage: object) -> None:
     storage = cast(_RadarStorage, tmp_storage)
     tech_article = _make_article(
@@ -318,3 +349,28 @@ def test_storage_close_then_reuse_raises_error(tmp_duckdb: Path) -> None:
                 )
             ]
         )
+
+
+def test_recent_articles_by_collected_at_rehydrates_ontology(tmp_storage: object) -> None:
+    storage = cast(_RadarStorage, tmp_storage)
+    article = _make_article(
+        title="Ontology",
+        link="https://example.com/ontology",
+        summary="ontology summary",
+        published=datetime.now(UTC) - timedelta(days=20),
+        ontology={
+            "repo": "BenefitRadar",
+            "event_model_id": "benefit.program_update",
+            "source_role_id": "primary_evidence",
+        },
+    )
+
+    storage.upsert_articles([article])
+    results = storage.recent_articles_by_collected_at(category="tech", days=1)
+
+    assert len(results) == 1
+    assert results[0].ontology == {
+        "repo": "BenefitRadar",
+        "event_model_id": "benefit.program_update",
+        "source_role_id": "primary_evidence",
+    }

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import pytest
@@ -12,6 +12,11 @@ def reset_structlog() -> object:
     structlog.reset_defaults()
     yield
     structlog.reset_defaults()
+
+
+@pytest.fixture(autouse=True)
+def isolate_crawl_health_db(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    monkeypatch.setenv("RADAR_CRAWL_HEALTH_DB_PATH", str(tmp_path / "crawl_health.duckdb"))
 
 
 @pytest.fixture
@@ -36,7 +41,7 @@ def sample_article() -> object:
         title="AI and cloud market update",
         link="https://example.com/article-1",
         summary="Python tooling and AI adoption continue to grow.",
-        published=datetime(2026, 3, 10, 9, 0, tzinfo=UTC),
+        published=datetime.now(UTC) - timedelta(days=1),
         source="Example RSS",
         category="tech",
         matched_entities={"topic": ["ai", "cloud", "python"]},

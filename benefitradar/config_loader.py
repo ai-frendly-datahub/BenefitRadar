@@ -41,6 +41,31 @@ def _string_value(raw: dict[str, object], key: str, default: str) -> str:
     return default
 
 
+def _bool_value(raw: dict[str, object], key: str, default: bool) -> bool:
+    value = raw.get(key)
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        lowered = value.strip().lower()
+        if lowered in {"true", "1", "yes", "y"}:
+            return True
+        if lowered in {"false", "0", "no", "n"}:
+            return False
+    return default
+
+
+def _float_value(raw: dict[str, object], key: str, default: float) -> float:
+    value = raw.get(key)
+    if isinstance(value, int | float):
+        return float(value)
+    if isinstance(value, str):
+        try:
+            return float(value.strip())
+        except ValueError:
+            return default
+    return default
+
+
 def _dict_items(value: object) -> list[dict[str, object]]:
     if not isinstance(value, list):
         return []
@@ -51,6 +76,27 @@ def _dict_items(value: object) -> list[dict[str, object]]:
             item_dict = cast(dict[object, object], item)
             items.append({str(k): v for k, v in item_dict.items()})
     return items
+
+
+def _string_list_value(raw: dict[str, object], key: str) -> list[str]:
+    value = raw.get(key)
+    if isinstance(value, list):
+        values = cast(list[object], value)
+    elif isinstance(value, tuple | set):
+        values = list(cast(tuple[object, ...] | set[object], value))
+    elif isinstance(value, str) and value.strip():
+        values = [value]
+    else:
+        values = []
+    return [str(item).strip() for item in values if str(item).strip()]
+
+
+def _dict_value(raw: dict[str, object], key: str) -> dict[str, object]:
+    value = raw.get(key)
+    if isinstance(value, dict):
+        value_dict = cast(dict[object, object], _resolve_env_refs(value))
+        return {str(k): cast(object, v) for k, v in value_dict.items()}
+    return {}
 
 
 _ENV_PATTERN = re.compile(r"\$\{([A-Z0-9_]+)\}")
@@ -110,6 +156,29 @@ def load_category_config(category_name: str, categories_dir: Path | None = None)
         sources=sources,
         entities=entities,
     )
+
+
+def _category_file(category_name: str, categories_dir: Path | None = None) -> Path:
+    project_root = Path(__file__).resolve().parent.parent
+    base_dir = categories_dir or project_root / "config" / "categories"
+    config_file = Path(base_dir) / f"{category_name}.yaml"
+
+    if not config_file.exists():
+        raise FileNotFoundError(f"Category config not found: {config_file}")
+    return config_file
+
+
+def load_category_quality_config(
+    category_name: str,
+    categories_dir: Path | None = None,
+) -> dict[str, object]:
+    """Load repo-local data quality overlay sections from category YAML."""
+    raw = _read_yaml_dict(_category_file(category_name, categories_dir))
+    quality_config: dict[str, object] = {}
+    for key in ("data_quality", "source_backlog", "integration_candidates"):
+        if key in raw:
+            quality_config[key] = _resolve_env_refs(raw[key])
+    return quality_config
 
 
 def load_notification_config(
@@ -210,10 +279,24 @@ def _resolve_env_refs(value: Any) -> Any:
 def _parse_source(entry: dict[str, object]) -> Source:
     if not entry:
         raise ValueError("Empty source entry in category config")
+    resolved = cast(dict[str, object], _resolve_env_refs(entry))
     return Source(
-        name=_string_value(entry, "name", "Unnamed Source"),
-        type=_string_value(entry, "type", "rss"),
-        url=_string_value(entry, "url", ""),
+        name=_string_value(resolved, "name", "Unnamed Source"),
+        type=_string_value(resolved, "type", "rss"),
+        url=_string_value(resolved, "url", ""),
+        id=_string_value(resolved, "id", ""),
+        enabled=_bool_value(resolved, "enabled", True),
+        language=_string_value(resolved, "language", ""),
+        country=_string_value(resolved, "country", ""),
+        region=_string_value(resolved, "region", ""),
+        trust_tier=_string_value(resolved, "trust_tier", "T3_professional"),
+        weight=_float_value(resolved, "weight", 1.0),
+        content_type=_string_value(resolved, "content_type", "news"),
+        collection_tier=_string_value(resolved, "collection_tier", "C1_rss"),
+        producer_role=_string_value(resolved, "producer_role", ""),
+        info_purpose=_string_list_value(resolved, "info_purpose"),
+        notes=_string_value(resolved, "notes", ""),
+        config=_dict_value(resolved, "config"),
     )
 
 

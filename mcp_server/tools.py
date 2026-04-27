@@ -9,11 +9,26 @@ from typing import cast
 
 import duckdb
 
+from benefitradar.config_loader import load_category_config, load_category_quality_config
+from benefitradar.models import Article
 from benefitradar.nl_query import parse_query
+from benefitradar.quality_report import build_quality_report
 from benefitradar.search_index import SearchIndex
 
 
 _ALLOWED_SQL = re.compile(r"^\s*(SELECT|WITH|EXPLAIN)\b", re.IGNORECASE)
+
+
+def _has_table(conn: duckdb.DuckDBPyConnection, table_name: str) -> bool:
+    row = conn.execute(
+        """
+        SELECT COUNT(*)
+        FROM information_schema.tables
+        WHERE table_name = ?
+        """,
+        [table_name],
+    ).fetchone()
+    return bool(row and row[0])
 
 
 def _format_rows(columns: list[str], rows: list[tuple[object, ...]]) -> str:
@@ -174,3 +189,91 @@ def handle_top_trends(*, db_path: Path, days: int = 7, limit: int = 10) -> str:
     for entity_name, count in counts.most_common(limit):
         lines.append(f"- {entity_name}: {count}")
     return "\n".join(lines)
+
+
+def handle_quality_report(
+    *,
+    db_path: Path,
+    category: str = "benefit",
+    categories_dir: Path | None = None,
+    days: int = 30,
+    limit: int = 500,
+) -> str:
+    try:
+        category_config = load_category_config(category, categories_dir=categories_dir)
+        quality_config = load_category_quality_config(category, categories_dir=categories_dir)
+        report = build_quality_report(
+            category=category_config,
+            articles=_load_recent_quality_articles(
+                db_path=db_path,
+                category=category_config.category_name,
+                days=days,
+                limit=limit,
+            ),
+            quality_config=quality_config,
+        )
+    except Exception as exc:  # noqa: BLE001
+        return f"Error: {exc}"
+    return json.dumps(report, ensure_ascii=False, indent=2, default=str)
+
+
+def _load_recent_quality_articles(
+    *,
+    db_path: Path,
+    category: str,
+    days: int,
+    limit: int,
+) -> list[Article]:
+    if not db_path.exists() or limit <= 0:
+        return []
+
+    cutoff = datetime.now(tz=UTC) - timedelta(days=max(days, 1))
+    conn = duckdb.connect(str(db_path), read_only=True)
+    try:
+        if not _has_table(conn, "articles"):
+            return []
+        rows = conn.execute(
+            """
+            SELECT title, link, summary, source, category, published, collected_at, entities_json
+            FROM articles
+            WHERE category = ? AND COALESCE(published, collected_at) >= ?
+            ORDER BY COALESCE(published, collected_at) DESC
+            LIMIT ?
+            """,
+            [category, cutoff, limit],
+        ).fetchall()
+    finally:
+        conn.close()
+
+    articles: list[Article] = []
+    for title, link, summary, source, category_value, published, collected_at, raw_entities in rows:
+        entities: dict[str, list[str]] = {}
+        if raw_entities:
+            try:
+                parsed = json.loads(str(raw_entities))
+                if isinstance(parsed, dict):
+                    entities = {
+                        str(key): [str(value) for value in values]
+                        for key, values in parsed.items()
+                        if isinstance(values, list)
+                    }
+            except json.JSONDecodeError:
+                entities = {}
+        articles.append(
+            Article(
+                title=str(title),
+                link=str(link),
+                summary=str(summary or ""),
+                published=published if isinstance(published, datetime) else None,
+                source=str(source),
+                category=str(category_value),
+                matched_entities=entities,
+                collected_at=collected_at if isinstance(collected_at, datetime) else None,
+            )
+        )
+    return articles
+
+
+def handle_price_watch(*, threshold: float = 0.0) -> str:
+    _ = threshold
+    return "Not available in template project"

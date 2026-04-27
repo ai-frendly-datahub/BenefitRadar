@@ -1,0 +1,107 @@
+{
+  "date": "2026-04-13",
+  "category": "benefit",
+  "article_count": 73,
+  "source_count": 15,
+  "matched_count": 73,
+  "top_entities": [
+    {
+      "name": "GovernmentPolicy",
+      "count": 398
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 287
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 260
+    },
+    {
+      "name": "Eligibility",
+      "count": 196
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 190
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 149
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 121
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 112
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 98
+    },
+    {
+      "name": "SourceSignal",
+      "count": 68
+    },
+    {
+      "name": "EligibilityIncomeCondition",
+      "count": 45
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 43
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 43
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 42
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 33
+    },
+    {
+      "name": "FamilySupport",
+      "count": 28
+    },
+    {
+      "name": "EligibilityLifeStage",
+      "count": 28
+    },
+    {
+      "name": "EligibilityHousehold",
+      "count": 16
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 15
+    },
+    {
+      "name": "EducationSupport",
+      "count": 6
+    }
+  ],
+  "sources": {
+    "경기도 일자리재단": 20,
+    "서울시 복지": 1,
+    "교육부": 1,
+    "여성가족부": 10,
+    "기획재정부": 11,
+    "중소벤처기업부": 10,
+    "고용노동부": 10,
+    "보건복지부": 1,
+    "r/povertyfinance": 1,
+    "r/SocialSecurity": 1,
+    "r/Unemployment": 1,
+    "정책브리핑 보도자료": 1,
+    "정책브리핑": 3,
+    "Government Executive": 1,
+    "KFF Health News": 1
+  },
+  "generated_at": "2026-04-13T19:46:31.119352+09:00"
+}

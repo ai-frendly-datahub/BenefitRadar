@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+from datetime import UTC, datetime, timedelta
+from email.utils import format_datetime
 from pathlib import Path
 from unittest.mock import patch
 
@@ -71,16 +74,17 @@ def test_full_pipeline_creates_all_outputs(tmp_path: Path) -> None:
         encoding="utf-8",
     )
 
-    rss_payload = b"""<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+    stale_pub_date = format_datetime(datetime.now(UTC) - timedelta(days=2), usegmt=True)
+    rss_payload = f"""<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <rss version=\"2.0\"><channel><title>Mock</title>
 <item>
   <title>Arabica market update</title>
   <link>https://example.com/article-1</link>
   <description>arabica demand is up</description>
-  <pubDate>Wed, 04 Mar 2026 10:00:00 GMT</pubDate>
+  <pubDate>{stale_pub_date}</pubDate>
 </item>
 </channel></rss>
-"""
+""".encode()
 
     with patch(
         "benefitradar.collector.requests.Session.get", return_value=_FakeResponse(rss_payload)
@@ -90,7 +94,7 @@ def test_full_pipeline_creates_all_outputs(tmp_path: Path) -> None:
             config_path=config_path,
             categories_dir=categories_dir,
             per_source_limit=5,
-            recent_days=7,
+            recent_days=1,
             timeout=5,
             keep_days=30,
         )
@@ -101,3 +105,10 @@ def test_full_pipeline_creates_all_outputs(tmp_path: Path) -> None:
     assert search_db_path.exists()
     assert output_path.exists()
     assert output_path.suffix == ".html"
+    assert all(line.rstrip() == line for line in output_path.read_text().splitlines())
+
+    summary_path = next(report_dir.glob("test_cat_*_summary.json"))
+    summary_payload = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert summary_payload["article_count"] == 1
+    assert summary_payload["matched_count"] == 1
+    assert summary_payload["sources"] == {"Mock RSS": 1}

@@ -1,76 +1,228 @@
 category_name: "benefit"
 display_name: "정부 혜택/지원금 레이더"
+data_quality:
+  priority: P1
+  primary_motion: conversion
+  weakest_dimension: operational_depth
+  quality_outputs:
+    freshness_report: reports/benefit_quality.json
+    dated_freshness_report_pattern: reports/benefit_YYYYMMDD_quality.json
+    tracked_event_models:
+      - support_program_notice
+      - application_deadline
+      - eligibility_rule
+      - selection_result
+  event_models:
+    support_program_notice:
+      fields: [program_id, program_title, agency, jurisdiction, support_type, support_amount, source_url, collected_at]
+      notes: "지원·복지 프로그램 원문 공고를 신청 가능성 판단의 primary evidence로 유지한다."
+    application_deadline:
+      fields: [program_id, application_start_date, application_deadline, result_announcement_date, application_channel, source_url, collected_at]
+      notes: "신청 시작일·마감일·결과 발표일을 분리하고 마감일 파싱 실패 시 임의 추정하지 않는다."
+    eligibility_rule:
+      fields: [program_id, target_group, income_condition, age_condition, household_condition, region, source_url, collected_at]
+      notes: "대상자·소득·연령·가구·지역 조건을 원문 URL로 추적 가능한 구조로 분리한다."
+    selection_result:
+      fields: [program_id, result_date, selected_count, execution_amount, execution_period, source_url, collected_at]
+      notes: "선정 결과와 집행 실적은 신청 가능 상태와 별도 후행 검증 이벤트로 유지한다."
+  canonical_keys:
+    program:
+      fields: [agency, jurisdiction, normalized_program_title, program_id, source_url]
+      notes: "보조금24·복지로·지자체 공고의 program id를 우선 key로 사용하고 없으면 기관/제목/source_url 조합으로 보조한다."
+    deadline:
+      fields: [program_id, application_deadline, application_channel, source_url]
+      notes: "마감 연장과 재공고를 별도 이벤트로 추적하기 위한 key."
+    eligibility:
+      fields: [program_id, target_group, income_condition, age_condition, household_condition, region]
+      notes: "신청 가능성 점수와 eligibility extractor 검증용 key."
+  freshness_sla:
+    support_program_notice:
+      max_age_days: 3
+      event_date_field: published
+      observed_date_field: collected_at
+    application_deadline:
+      max_age_days: 1
+      event_date_field: application_deadline
+      observed_date_field: collected_at
+    eligibility_rule:
+      max_age_days: 3
+      event_date_field: published
+      observed_date_field: collected_at
+    selection_result:
+      max_age_days: 7
+      event_date_field: result_date
+      observed_date_field: collected_at
+  quality_gates:
+    - "신청 시작일·마감일·결과 발표일을 별도 필드로 유지"
+    - "지원 금액과 eligibility 조건은 원문 URL로 trace 가능해야 함"
+    - "혜택 요약과 실제 신청 가능 상태를 분리"
+    - "API key 미설정 또는 브라우저 제한 시 skip 사유를 품질 리포트에 기록"
+source_backlog:
+  operational_candidates:
+    - id: bokjiro_detail_deadlines
+      name: "복지로 상세 신청 마감/대상 조건"
+      url: https://www.bokjiro.go.kr/
+      reason: "목록 API가 제공하지 않는 상세 신청 기간과 대상 조건을 program id로 연결할 후보."
+      required_before_enable: [api_key_scope_check, program_id_mapping, detail_parser_smoke]
+    - id: subsidy24_result_status
+      name: "보조금24 신청/선정 상태 후보"
+      url: https://www.gov.kr/portal/rcvfvrSvc/svcFind/svcSearchAll
+      reason: "신청 가능 상태와 선정/집행 후행 신호를 분리하기 위한 후보."
+      required_before_enable: [tos_review, result_status_taxonomy, evidence_url_check]
+    - id: local_gov_program_results
+      name: "지자체 지원사업 선정결과"
+      reason: "지자체 공고별 선정 결과와 집행 실적 후행 검증 후보."
+      required_before_enable: [browser_fixture_test, result_parser, duplicate_notice_check]
 
 sources:
   # ── 한국 정부 공식 채널 ──────────────────────────────────────
   - name: "정책브리핑"
     type: "rss"
     url: "https://www.korea.kr/rss/policy.xml"
+    config:
+      event_model: support_program_notice
+      freshness_sla_days: 3
 
   - name: "정책브리핑 보도자료"
     type: "rss"
     url: "https://www.korea.kr/rss/pressrelease.xml"
+    config:
+      event_model: support_program_notice
+      freshness_sla_days: 3
 
   - name: "국토교통부"
-    type: "rss"
-    url: "https://www.molit.go.kr/dev/board/board_rss.jsp?rss_id=NEWS"
+    type: "javascript"
+    url: "https://www.molit.go.kr/USR/NEWS/m_71/lst.jsp"
+    config:
+      bypass_crawl_health: true
+      wait_for: "body"
+      link_selector: "table tbody tr a"
+      fetch_detail: true
+      detail_wait_for: "body"
+      detail_content_selector: "body"
+      event_model: support_program_notice
+      freshness_sla_days: 3
 
   - name: "보건복지부"
     type: "javascript"
     url: "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027"
     config:
       wait_for: "table"
+      link_selector: "table tbody tr a"
+      fetch_detail: true
+      detail_wait_for: "body"
+      detail_content_selector: "body"
+      event_model: eligibility_rule
+      freshness_sla_days: 3
 
   # NOTE: 2026-04-03 RSS timeout/404 → JavaScript 변환하여 복구
   - name: "고용노동부"
     type: "javascript"
     url: "https://www.moel.go.kr/news/enews/report/enewsList.do"
     config:
-      wait_for: ".board-list"
+      wait_for: ".board_list"
+      link_selector: ".board_list a.ellipsis"
+      bypass_crawl_health: true
+      fetch_detail: true
+      detail_wait_for: "body"
+      detail_content_selector: "body"
+      event_model: support_program_notice
+      freshness_sla_days: 3
 
   # NOTE: 2026-04-03 RSS 오류페이지 반환 → JavaScript 변환하여 복구
   - name: "중소벤처기업부"
     type: "javascript"
     url: "https://www.mss.go.kr/site/smba/ex/bbs/List.do?cbIdx=86"
     config:
-      wait_for: "table.board"
+      wait_for: ".board_list"
+      link_selector: ".board_list td.subject a"
+      navigation_retries: 3
+      navigation_retry_delay_ms: 2000
+      javascript_link_templates:
+        doBbsFView: "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx={0}&bcIdx={1}&parentSeq={3}"
+      fetch_detail: true
+      detail_wait_for: "body"
+      detail_content_selector: "body"
+      event_model: support_program_notice
+      freshness_sla_days: 3
 
   # NOTE: 2026-04-03 RSS timeout → JavaScript 변환하여 복구 (도메인 moef→mofe 변경)
   - name: "기획재정부"
     type: "javascript"
     url: "https://mofe.go.kr/nw/nes/nesdta.do?bbsId=MOSFBBS_000000000028&menuNo=4010100"
+    notes: "Budget and support notices can be bursty; treat temporary zero-result runs as quiet unless a parser failure is observed."
     config:
       wait_for: "ul li h3"
+      link_selector: ".boardType3 h3 a"
+      bypass_crawl_health: true
+      quiet_when_no_items: true
+      javascript_link_templates:
+        fn_egov_select: "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1={0}&menuNo=4010100"
+      fetch_detail: true
+      detail_wait_for: "body"
+      detail_content_selector: "body"
+      event_model: support_program_notice
+      freshness_sla_days: 3
 
   - name: "여성가족부"
     type: "javascript"
     url: "https://www.mogef.go.kr/nw/enw/nw_enw_s001.do"
     config:
-      wait_for: ".board_list"
+      wait_for: "table.brdList02"
+      link_selector: "table.brdList02 a[title]"
+      fetch_detail: true
+      detail_wait_for: "body"
+      detail_content_selector: "body"
+      event_model: eligibility_rule
+      freshness_sla_days: 3
 
   - name: "교육부"
     type: "javascript"
-    url: "https://www.moe.go.kr/boardCnts/listRss.do?boardID=294"
+    url: "https://www.moe.go.kr/boardCnts/listRenew.do?boardID=294&m=020402&s=moe&type=default"
     config:
       wait_for: "table"
+      link_selector: "table tbody tr a"
+      javascript_link_templates:
+        goView: "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID={0}&boardSeq={1}&lev=0&searchType=null&statusYN={4}&page={5}&s=moe&m=020402&opType={6}"
+      fetch_detail: true
+      detail_wait_for: "body"
+      detail_content_selector: "body"
+      event_model: support_program_notice
+      freshness_sla_days: 3
 
   # ── 지자체 지원사업 ──────────────────────────────────────
   - name: "서울시 복지"
     type: "javascript"
-    url: "https://wis.seoul.go.kr/welfare/main.do"
+    url: "https://wis.seoul.go.kr/"
     config:
-      wait_for: ".welfare_list"
+      wait_for: "body"
+      event_model: eligibility_rule
+      freshness_sla_days: 3
 
   - name: "경기도 일자리재단"
     type: "javascript"
-    url: "https://www.jobaba.net/fntn/dtl.do?seq=3"
+    url: "https://job.gg.go.kr/jobSprt/list.do"
     config:
-      wait_for: ".board_list"
+      wait_for: ".cont_list_area"
+      link_selector: ".cont_list_area a[onclick^='fn_Detail']"
+      javascript_link_templates:
+        fn_Detail: "https://job.gg.go.kr/jobSprt/detail.do?seq={0}"
+      event_model: application_deadline
+      freshness_sla_days: 1
 
   # ── 정부 API ──────────────────────────────────────
   - name: "보조금24"
     type: "api"
     url: "https://apis.data.go.kr/B554287/LocalGovernmentWelfareInformations/LcgvWelfarelist"
+    enabled: false
+    config:
+      event_model: eligibility_rule
+      event_date_field: published
+      observed_date_field: collected_at
+      canonical_key_fields: [program_id, agency, normalized_program_title, source_url]
+      freshness_sla_days: 3
+      skip_reason: "Unauthenticated probe returned 401; public data API collection requires a configured service key."
+      reenable_gate: "Configure the required service key, add a contract test, and confirm program_id mapping before re-enabling."
 
   # ── 글로벌 정책 싱크탱크 ───────────────────────────────
   - name: "GovTech"
@@ -104,18 +256,26 @@ sources:
   - name: "Urban Institute"
     type: "rss"
     url: "https://www.urban.org/rss.xml"
+    enabled: false
+    notes: "2026-04-13 audit: Cloudflare 403 challenge; skip until a stable feed endpoint is confirmed."
 
   - name: "CBPP"
     type: "rss"
     url: "https://www.cbpp.org/rss.xml"
+    enabled: false
+    notes: "2026-04-13 audit: Cloudflare 403 challenge; skip until a stable feed endpoint is confirmed."
 
   - name: "OECD Social Policy"
     type: "rss"
     url: "https://www.oecd.org/social/rss.xml"
+    enabled: false
+    notes: "2026-04-13 audit: Cloudflare 403 challenge; skip until a stable feed endpoint is confirmed."
 
   - name: "World Bank Blogs"
     type: "rss"
     url: "https://blogs.worldbank.org/rss.xml"
+    enabled: false
+    notes: "2026-04-13 audit: RSS endpoint returned 404; skip until a replacement feed is confirmed."
 
   # === Reddit 혜택/지원 커뮤니티 ===
   # NOTE: 2026-04-02 Reddit RSS 403 차단 → reddit type으로 변환
@@ -155,6 +315,8 @@ sources:
   - name: "UK Gov Benefits"
     type: "rss"
     url: "https://www.gov.uk/government/topics/benefits.atom"
+    enabled: false
+    notes: "2026-04-13 audit: RSS endpoint returned 404; skip until a replacement feed is confirmed."
 
   - name: "Canada Service Updates"
     type: "rss"
@@ -163,6 +325,8 @@ sources:
   - name: "Australia Services"
     type: "rss"
     url: "https://www.servicesaustralia.gov.au/rss"
+    enabled: false
+    notes: "2026-04-13 audit: RSS endpoint timed out; skip until a stable feed endpoint is confirmed."
 
   - name: "EU Social Policy"
     type: "rss"
@@ -171,6 +335,8 @@ sources:
   - name: "ILO News"
     type: "rss"
     url: "https://www.ilo.org/global/about-the-ilo/newsroom/news/rss/lang--en/index.htm"
+    enabled: false
+    notes: "2026-04-13 audit: RSS endpoint returned 404; skip until a replacement feed is confirmed."
 
   # === 복지 연구/싱크탱크 ===
   - name: "Niskanen Center"
