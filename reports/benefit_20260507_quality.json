@@ -1,0 +1,3206 @@
+{
+  "category": "benefit",
+  "generated_at": "2026-05-07T02:06:08.669752+00:00",
+  "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
+  "summary": {
+    "total_sources": 38,
+    "tracked_sources": 7,
+    "fresh_sources": 7,
+    "quiet_sources": 0,
+    "stale_sources": 0,
+    "missing_sources": 0,
+    "missing_event_sources": 0,
+    "unknown_event_date_sources": 0,
+    "not_tracked_sources": 19,
+    "skipped_disabled_sources": 12,
+    "collection_error_count": 0,
+    "unique_program_key_count": 46,
+    "deadline_with_program_key_events": 26,
+    "support_program_notice_events": 22,
+    "application_deadline_events": 26,
+    "eligibility_rule_events": 33,
+    "selection_result_events": 0
+  },
+  "sources": [
+    {
+      "source": "정책브리핑",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": true,
+      "event_model": "support_program_notice",
+      "freshness_sla_days": 3,
+      "status": "fresh",
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-05-06T00:07:00+00:00",
+      "age_days": 1.08,
+      "latest_title": "독립유공자 후손, 최소 2대까지 보상…2300여 명 추가 혜택",
+      "latest_url": "https://www.korea.kr/news/policyNewsView.do?newsId=148963914&call_from=rsslink",
+      "latest_program_id": "",
+      "latest_program_key": "title:정책브리핑:독립유공자-후손-최소-2대까지-보상-2300여-명-추가-혜택",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {
+        "IncomeCondition": [
+          "재산"
+        ],
+        "Region": [
+          "서울"
+        ]
+      },
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": true,
+      "event_model": "support_program_notice",
+      "freshness_sla_days": 3,
+      "status": "fresh",
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-05-06T16:30:00+00:00",
+      "age_days": 0.4,
+      "latest_title": "[질병관리청][5.7.행사시작(10시30분)이후] 대한민국 말라리아 재퇴치를 위해 질병관리청장 말라리아 위험지역 현장방문!",
+      "latest_url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760177&call_from=rsslink",
+      "latest_program_id": "",
+      "latest_program_key": "title:정책브리핑-보도자료:질병관리청-5-7-행사시작-10시30분-이후-대한민국-말라리아-재퇴치를-위해-질병관리청장-말라리아-위험지역-현장방문",
+      "latest_application_deadline": "",
+      "latest_application_channels": [
+        "visit"
+      ],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {
+        "Region": [
+          "서울",
+          "경기",
+          "인천",
+          "강원"
+        ]
+      },
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "국토교통부",
+      "source_type": "javascript",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "support_program_notice",
+      "freshness_sla_days": 3,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": "Official browser endpoint resets connections in the current collection runtime.",
+      "reenable_gate": "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets.",
+      "errors": []
+    },
+    {
+      "source": "보건복지부",
+      "source_type": "javascript",
+      "enabled": true,
+      "tracked": true,
+      "event_model": "eligibility_rule",
+      "freshness_sla_days": 3,
+      "status": "fresh",
+      "article_count": 15,
+      "event_count": 7,
+      "latest_event_at": "2026-05-07T02:04:56.784483+00:00",
+      "age_days": 0.0,
+      "latest_title": "새글 월 10만 원씩 3년 모으면 1,440만 원 받는다 ‘청년내일저축계좌’ 신규 모집",
+      "latest_url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490402&tag=&nPage=1",
+      "latest_program_id": "",
+      "latest_program_key": "title:보건복지부:새글-월-10만-원씩-3년-모으면-1-440만-원-받는다-청년내일저축계좌-신규-모집",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [
+        "10만원"
+      ],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ]
+      },
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "고용노동부",
+      "source_type": "javascript",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "support_program_notice",
+      "freshness_sla_days": 3,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": "Official browser endpoint resets connections in the current collection runtime.",
+      "reenable_gate": "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets.",
+      "errors": []
+    },
+    {
+      "source": "중소벤처기업부",
+      "source_type": "javascript",
+      "enabled": true,
+      "tracked": true,
+      "event_model": "support_program_notice",
+      "freshness_sla_days": 3,
+      "status": "fresh",
+      "article_count": 10,
+      "event_count": 10,
+      "latest_event_at": "2026-05-07T02:05:15.431595+00:00",
+      "age_days": 0.0,
+      "latest_title": "’26년 1분기 중소기업 수출, 역대 최고치 달성",
+      "latest_url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067862&parentSeq=1067862",
+      "latest_program_id": "",
+      "latest_program_key": "title:중소벤처기업부:26년-1분기-중소기업-수출-역대-최고치-달성",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ]
+      },
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "기획재정부",
+      "source_type": "javascript",
+      "enabled": true,
+      "tracked": true,
+      "event_model": "support_program_notice",
+      "freshness_sla_days": 3,
+      "status": "fresh",
+      "article_count": 10,
+      "event_count": 10,
+      "latest_event_at": "2026-05-07T02:05:21.934249+00:00",
+      "age_days": 0.0,
+      "latest_title": "재경부·산업부, K-푸드 수출 영토 넓힌다",
+      "latest_url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077731&menuNo=4010100",
+      "latest_program_id": "",
+      "latest_program_key": "title:기획재정부:재경부-산업부-k-푸드-수출-영토-넓힌다",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "여성가족부",
+      "source_type": "javascript",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "eligibility_rule",
+      "freshness_sla_days": 3,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": "Official browser endpoint resets connections in the current collection runtime.",
+      "reenable_gate": "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets.",
+      "errors": []
+    },
+    {
+      "source": "교육부",
+      "source_type": "javascript",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "support_program_notice",
+      "freshness_sla_days": 3,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": "Official browser endpoint resets connections in the current collection runtime.",
+      "reenable_gate": "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets.",
+      "errors": []
+    },
+    {
+      "source": "서울시 복지",
+      "source_type": "javascript",
+      "enabled": true,
+      "tracked": true,
+      "event_model": "eligibility_rule",
+      "freshness_sla_days": 3,
+      "status": "fresh",
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-05-07T02:05:32.396444+00:00",
+      "age_days": 0.0,
+      "latest_title": "서울복지포털",
+      "latest_url": "https://wis.seoul.go.kr/",
+      "latest_program_id": "",
+      "latest_program_key": "title:서울시-복지:서울복지포털",
+      "latest_application_deadline": "",
+      "latest_application_channels": [
+        "visit"
+      ],
+      "latest_benefit_amounts": [
+        "1000만원"
+      ],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {
+        "TargetGroup": [
+          "자영업자",
+          "한부모",
+          "장애인",
+          "어르신",
+          "저소득",
+          "청년"
+        ],
+        "LifeStage": [
+          "영유아",
+          "청소년",
+          "임신",
+          "출산",
+          "아동"
+        ],
+        "Household": [
+          "다자녀",
+          "맞벌이",
+          "가구"
+        ],
+        "IncomeCondition": [
+          "기준중위소득"
+        ],
+        "Region": [
+          "서울"
+        ],
+        "AgeCondition": [
+          "3-64"
+        ]
+      },
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "경기도 일자리재단",
+      "source_type": "javascript",
+      "enabled": true,
+      "tracked": true,
+      "event_model": "application_deadline",
+      "freshness_sla_days": 1,
+      "status": "fresh",
+      "article_count": 20,
+      "event_count": 20,
+      "latest_event_at": "2026-05-19T00:00:00+00:00",
+      "age_days": 0.0,
+      "latest_title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tEMI/EMC 저감을 위한 회로 설계 대책(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 12\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-19(화) 17:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#중소기업재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#회로설계대책 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#EMI \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#EMC",
+      "latest_url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2512",
+      "latest_program_id": "",
+      "latest_program_key": "title:경기도-일자리재단:2026-05-19-화-17-00",
+      "latest_application_deadline": "2026-05-19",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      },
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "보조금24",
+      "source_type": "api",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "eligibility_rule",
+      "freshness_sla_days": 3,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": "Unauthenticated probe returned 401; public data API collection requires a configured service key.",
+      "reenable_gate": "Configure the required service key, add a contract test, and confirm program_id mapping before re-enabling.",
+      "errors": []
+    },
+    {
+      "source": "GovTech",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Government Executive",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Tax Foundation",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Brookings Institution",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "KFF Health News",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Federal News Network",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Pew Research",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Urban Institute",
+      "source_type": "rss",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "CBPP",
+      "source_type": "rss",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "OECD Social Policy",
+      "source_type": "rss",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "World Bank Blogs",
+      "source_type": "rss",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "r/personalfinance",
+      "source_type": "reddit",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "r/povertyfinance",
+      "source_type": "reddit",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "r/SNAP_EBT",
+      "source_type": "reddit",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "r/SocialSecurity",
+      "source_type": "reddit",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "r/Unemployment",
+      "source_type": "reddit",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "r/disability",
+      "source_type": "reddit",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 2,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "r/healthcare",
+      "source_type": "reddit",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "r/korea",
+      "source_type": "reddit",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "UK Gov Benefits",
+      "source_type": "rss",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Canada Service Updates",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Australia Services",
+      "source_type": "rss",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "EU Social Policy",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "ILO News",
+      "source_type": "rss",
+      "enabled": false,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Niskanen Center",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    },
+    {
+      "source": "Economic Policy Institute",
+      "source_type": "rss",
+      "enabled": true,
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_program_id": "",
+      "latest_program_key": "",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
+      "latest_benefit_amounts": [],
+      "latest_selection_result_date": "",
+      "latest_selected_count": "",
+      "latest_execution_amount": "",
+      "latest_eligibility_fields": {},
+      "skip_reason": null,
+      "reenable_gate": null,
+      "errors": []
+    }
+  ],
+  "events": [
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tEMI/EMC 저감을 위한 회로 설계 대책(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 12\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-19(화) 17:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#중소기업재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#회로설계대책 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#EMI \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#EMC",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2512",
+      "event_at": "2026-05-19T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-19-화-17-00",
+      "application_deadline": "2026-05-19",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tEMI/EMC 저감을 위한 회로 설계 대책(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 12\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-19(화) 17:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#중소기업재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#회로설계대책 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#EMI \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#EMC",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2512",
+      "event_at": "2026-05-07T02:05:37.455153+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-19-화-17-00",
+      "application_deadline": "2026-05-19",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSolidworks 활용 기초 모델링 및 조립 입문(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 12\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-19(화) 17:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#기초모델링 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#모델링작업",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2513",
+      "event_at": "2026-05-19T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-19-화-17-00",
+      "application_deadline": "2026-05-19",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSolidworks 활용 기초 모델링 및 조립 입문(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 12\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-19(화) 17:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#기초모델링 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#모델링작업",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2513",
+      "event_at": "2026-05-07T02:05:37.455147+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-19-화-17-00",
+      "application_deadline": "2026-05-19",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t품질개선 QC기법 활용 실무(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 11\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-18(월) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#기업지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#중소기업재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#품질개선 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#현장개선",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2514",
+      "event_at": "2026-05-18T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-18-월-18-00",
+      "application_deadline": "2026-05-18",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t품질개선 QC기법 활용 실무(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 11\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-18(월) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#기업지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#중소기업재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#품질개선 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#현장개선",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2514",
+      "event_at": "2026-05-07T02:05:37.455140+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-18-월-18-00",
+      "application_deadline": "2026-05-18",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t품질경영 문제해결 능력 향상(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 8\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-15(금) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#품질경영 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#문제해결 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#리스크평가 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#인력양성사업",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2479",
+      "event_at": "2026-05-15T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-15-금",
+      "application_deadline": "2026-05-15",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t품질경영 문제해결 능력 향상(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 8\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-15(금) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#품질경영 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#문제해결 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#리스크평가 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#인력양성사업",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2479",
+      "event_at": "2026-05-07T02:05:37.455134+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-15-금",
+      "application_deadline": "2026-05-15",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "한국무역협회\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t제28기 글로벌무역인턴십 모집\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 8\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-27(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-15(금) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t무역에 관심있는 대한민국 국적자로서 4년제 대학 재휴학생(지원시점 기준)\n자세한 사항은 상세페이지 참고\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#글로벌인턴십 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#무역인턴십 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한국무역협회",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2832",
+      "event_at": "2026-05-15T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:무역에-관심있는-대한민국-국적자로서-4년제-대학-재휴학생-지원시점-기준",
+      "application_deadline": "2026-05-15",
+      "application_start_date": "2026-04-27",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "부천시청\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[부천시] 2026년 소비자식품위생감시원 신규위촉자 모집 공고\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 8\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-06(수) 9:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-15(금) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t현재 부천시에 주민등록이 되어 있는 자\n향후 4시간 이상 소비자식품위생감시원 \n직무교육 과정 이수 가능한 자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소비자식품위생감시원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#과대광고 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#행정관청 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#식품검사 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#식품위생 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#합동단속",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2841",
+      "event_at": "2026-05-15T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:부천시-2026년-소비자식품위생감시원-신규위촉자-모집-공고",
+      "application_deadline": "2026-05-15",
+      "application_start_date": "2026-05-06",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAI활용 텍스타일 디자인 개발(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 7\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-14(목) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#중소기업 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#기업지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#디자인개발",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2511",
+      "event_at": "2026-05-14T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-14-목-18-00",
+      "application_deadline": "2026-05-14",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAI활용 텍스타일 디자인 개발(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 7\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-14(목) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업 재직자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#중소기업 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#기업지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실무자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#디자인개발",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2511",
+      "event_at": "2026-05-07T02:05:37.455115+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-14-목-18-00",
+      "application_deadline": "2026-05-14",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기관광공사\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026년 경기도 노동자 휴가비 지원사업\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 7\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-04(월) 10:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-14(목) 16:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t경기도 거주 만 19세(공고일 기준) 이상 연소득 4,200만원 이하\n\n1. 비정규직,특수형태근로종사자 \n2. 초단시간 노동자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#경기도노동자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#휴가비 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#휴가지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#경기관광공사",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2816",
+      "event_at": "2026-05-14T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:경기관광공사-2026년-경기도-노동자-휴가비-지원사업",
+      "application_deadline": "2026-05-14",
+      "application_start_date": "2026-05-04",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기관광공사\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026년 경기도 노동자 휴가비 지원사업\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 7\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-04(월) 10:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-14(목) 16:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t경기도 거주 만 19세(공고일 기준) 이상 연소득 4,200만원 이하\n\n1. 비정규직,특수형태근로종사자 \n2. 초단시간 노동자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#경기도노동자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#휴가비 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#휴가지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#경기관광공사",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2816",
+      "event_at": "2026-05-07T02:05:37.455108+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:경기관광공사-2026년-경기도-노동자-휴가비-지원사업",
+      "application_deadline": "2026-05-14",
+      "application_start_date": "2026-05-04",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAI 에이전트 및 RPA 업무 자동화 구축(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 6\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-13(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#업무자동화교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#AI에이전트 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#RPA \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#업무자동화구축",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2476",
+      "event_at": "2026-05-13T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-13-수",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAI 에이전트 및 RPA 업무 자동화 구축(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 6\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-13(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#업무자동화교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#AI에이전트 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#RPA \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#업무자동화구축",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2476",
+      "event_at": "2026-05-07T02:05:37.455102+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-13-수",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAutoCAD 활용 도면작성 입문(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 6\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-13(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#AutoCAD \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#도면작성 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실습교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#캐드도면",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2477",
+      "event_at": "2026-05-13T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-13-수",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAutoCAD 활용 도면작성 입문(2차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 6\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-13(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#AutoCAD \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#도면작성 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#실습교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#캐드도면",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2477",
+      "event_at": "2026-05-07T02:05:37.455095+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-13-수",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMZ와 함께하는 임파워링 리더십\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 6\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-13(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#리더십 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소통 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#이파워링 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2481",
+      "event_at": "2026-05-13T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-13-수",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMZ와 함께하는 임파워링 리더십\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 6\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-13(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#리더십 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소통 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#이파워링 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2481",
+      "event_at": "2026-05-07T02:05:37.455087+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-13-수",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tVOC분석 및 불만고객 대응 스킬\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 6\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-13(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#VOC분석 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#불만고객대응 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#직무교육",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2484",
+      "event_at": "2026-05-13T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-13-수",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tVOC분석 및 불만고객 대응 스킬\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 6\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-13(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#VOC분석 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#불만고객대응 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#직무교육",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2484",
+      "event_at": "2026-05-07T02:05:37.455070+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-13-수",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "한국장애인고용공단 경기남부직업능력개발원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026년 장애인 청년인턴 직원 채용공고\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 5\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-22(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-12(화) 16:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t19세 이상 39세 이하, 「장애인복지법 시행령」제2조에 따른 장애인, 「국가유공자 등 예우 및 지원에 관한 법률 시행령」제14조제3항에 따른 상이등급기준에 해당하는 자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한국장애인고용공단 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#장애인 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#청년인턴 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#행정지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#공공고용서비스",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2829",
+      "event_at": "2026-05-12T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026년-장애인-청년인턴-직원-채용공고",
+      "application_deadline": "2026-05-12",
+      "application_start_date": "2026-04-22",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인",
+          "청년"
+        ],
+        "Region": [
+          "경기"
+        ],
+        "AgeCondition": [
+          "19-39"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "한국장애인고용공단 경기남부직업능력개발원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026년 장애인 청년인턴 직원 채용공고\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 5\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-22(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-12(화) 16:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t19세 이상 39세 이하, 「장애인복지법 시행령」제2조에 따른 장애인, 「국가유공자 등 예우 및 지원에 관한 법률 시행령」제14조제3항에 따른 상이등급기준에 해당하는 자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한국장애인고용공단 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#장애인 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#청년인턴 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#행정지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#공공고용서비스",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2829",
+      "event_at": "2026-05-07T02:05:37.455057+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026년-장애인-청년인턴-직원-채용공고",
+      "application_deadline": "2026-05-12",
+      "application_start_date": "2026-04-22",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인",
+          "청년"
+        ],
+        "Region": [
+          "경기"
+        ],
+        "AgeCondition": [
+          "19-39"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "한국장애인고용공단 경기남부직업능력개발원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026년 경기도 공공기관 장애인 청년 인턴 채용 공고\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 5\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-22(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-12(화) 16:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t19세 이상 39세 이하의 미취업 장애인 청년으로, 각 기관별 결격사유에 해당되지 않는 자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한국장애인고용공단 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#일반행정 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#공공기관 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#장애인 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#청년인턴",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2830",
+      "event_at": "2026-05-12T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026년-경기도-공공기관-장애인-청년-인턴-채용-공고",
+      "application_deadline": "2026-05-12",
+      "application_start_date": "2026-04-22",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인",
+          "청년"
+        ],
+        "Region": [
+          "경기"
+        ],
+        "AgeCondition": [
+          "19-39"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "한국장애인고용공단 경기남부직업능력개발원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026년 경기도 공공기관 장애인 청년 인턴 채용 공고\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 5\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-22(수) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-12(화) 16:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t19세 이상 39세 이하의 미취업 장애인 청년으로, 각 기관별 결격사유에 해당되지 않는 자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한국장애인고용공단 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#일반행정 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#공공기관 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#장애인 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#청년인턴",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2830",
+      "event_at": "2026-05-07T02:05:37.455050+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026년-경기도-공공기관-장애인-청년-인턴-채용-공고",
+      "application_deadline": "2026-05-12",
+      "application_start_date": "2026-04-22",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인",
+          "청년"
+        ],
+        "Region": [
+          "경기"
+        ],
+        "AgeCondition": [
+          "19-39"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t가구조달 실무완성(등록부터 인증까지) (1차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 4\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-11(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#가구조달 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#조달등록 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#MAS등록 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#KC인증 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2478",
+      "event_at": "2026-05-11T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-11-월",
+      "application_deadline": "2026-05-11",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Household": [
+          "가구"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t가구조달 실무완성(등록부터 인증까지) (1차)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 4\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-11(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t고용보험에 가입 된 중소기업 재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#가구조달 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#조달등록 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#MAS등록 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#KC인증 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직자교육",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2478",
+      "event_at": "2026-05-07T02:05:37.455044+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-11-월",
+      "application_deadline": "2026-05-11",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Household": [
+          "가구"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도경제과학진흥원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t사례중심의 재무회계 기본\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 4\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-11(월) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t회계의 기본을 알고자 하는 재경부서 담당자, 재경업무처리 실무능력을 향상시키고자 하는 실무자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재무회계 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#사례중심 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재경업무 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#감가상각비 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재무제표",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2510",
+      "event_at": "2026-05-11T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-11-월-18-00",
+      "application_deadline": "2026-05-11",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도경제과학진흥원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t사례중심의 재무회계 기본\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 4\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-02-05(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-11(월) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t회계의 기본을 알고자 하는 재경부서 담당자, 재경업무처리 실무능력을 향상시키고자 하는 실무자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#경기도경제과학진흥원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재무회계 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#사례중심 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재경업무 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#감가상각비 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재무제표",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2510",
+      "event_at": "2026-05-07T02:05:37.455037+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:2026-05-11-월-18-00",
+      "application_deadline": "2026-05-11",
+      "application_start_date": "2026-02-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "경기도청\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026년 경기도 체육인 기회소득 사업 안내\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 4\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-03-30(월) 9:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-11(월) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 19세 이상 경기도 체육인\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#경기도체육인 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#기회소득 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#체육행정종사자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#체육인지원금 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#체육활동",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2762",
+      "event_at": "2026-05-11T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:체육인지원금",
+      "application_deadline": "2026-05-11",
+      "application_start_date": "2026-03-30",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ],
+        "Region": [
+          "경기"
+        ],
+        "AgeCondition": [
+          "19+"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "경기도청\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026년 경기도 체육인 기회소득 사업 안내\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 4\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-03-30(월) 9:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-11(월) 18:00\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 19세 이상 경기도 체육인\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#경기도체육인 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#기회소득 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#체육행정종사자 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#체육인지원금 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#체육활동",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2762",
+      "event_at": "2026-05-07T02:05:37.455030+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:체육인지원금",
+      "application_deadline": "2026-05-11",
+      "application_start_date": "2026-03-30",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ],
+        "Region": [
+          "경기"
+        ],
+        "AgeCondition": [
+          "19+"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "한국산업기술협회\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 5월 직무향상교육(전기/신사업/열처리/AI/생산)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 4\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-04(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-11(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업(고용보험가입)재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#직무향상 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한국산업기술협회",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2838",
+      "event_at": "2026-05-11T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:5월-직무향상교육-전기-신사업-열처리-ai-생산",
+      "application_deadline": "2026-05-11",
+      "application_start_date": "2026-05-04",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "한국산업기술협회\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t 5월 직무향상교육(전기/신사업/열처리/AI/생산)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 4\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-04(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-11(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t중소기업(고용보험가입)재직자\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#재직교육 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#직무향상 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한국산업기술협회",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2838",
+      "event_at": "2026-05-07T02:05:37.455023+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:5월-직무향상교육-전기-신사업-열처리-ai-생산",
+      "application_deadline": "2026-05-11",
+      "application_start_date": "2026-05-04",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "한국장애인고용공단 경기남부직업능력개발원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[안양시] 한림대성심병원 채용 연계 맞춤훈련생 모집\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 3\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-23(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-10(일) 23:59\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t장애인복지법에 의한 등록 장애인 또는 국가유공자 등 예우 및 지원에 관한 법률에 의한 상이등급에 해당되는 자 외\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한림대학교성심병원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#스마트평원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#케어매니저 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#구직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#맞춤훈련",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2828",
+      "event_at": "2026-05-10T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:장애인복지법에-의한-등록-장애인-또는-국가유공자-등-예우-및-지원에-관한-법률에-의한-상이등급에-해당되는-자-외",
+      "application_deadline": "2026-05-10",
+      "application_start_date": "2026-04-23",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "한국장애인고용공단 경기남부직업능력개발원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[안양시] 한림대성심병원 채용 연계 맞춤훈련생 모집\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 3\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-23(목) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-10(일) 23:59\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t장애인복지법에 의한 등록 장애인 또는 국가유공자 등 예우 및 지원에 관한 법률에 의한 상이등급에 해당되는 자 외\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#한림대학교성심병원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#스마트평원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#케어매니저 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#구직지원 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#맞춤훈련",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2828",
+      "event_at": "2026-05-07T02:05:37.455013+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:장애인복지법에-의한-등록-장애인-또는-국가유공자-등-예우-및-지원에-관한-법률에-의한-상이등급에-해당되는-자-외",
+      "application_deadline": "2026-05-10",
+      "application_start_date": "2026-04-23",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "경기"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "application_deadline",
+      "title": "한국장애인고용공단 경기남부직업능력개발원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t소방설비(전기) 산업기사 자격증 취득과정 훈련생 모집\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 1\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-20(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-08(금) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t만 15세 이상의 '장애인복지법'에 따른 등록 장애인이거나 '국가유공자 등 예우 및 지원에 관한 법률'에 의한 상이등급 기준 해당자\n성별, 학력, 연령, 경력 무관\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소방설비 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#산업기사 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소방시설설계감리 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소방시설공사 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소방안전관리",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2814",
+      "event_at": "2026-05-08T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:만-15세-이상의-장애인복지법-에-따른-등록-장애인이거나-국가유공자-등-예우-및-지원에-관한-법률-에-의한-상이등급-기준-해당자",
+      "application_deadline": "2026-05-08",
+      "application_start_date": "2026-04-20",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "경기"
+        ],
+        "AgeCondition": [
+          "15+"
+        ]
+      }
+    },
+    {
+      "source": "경기도 일자리재단",
+      "event_model": "eligibility_rule",
+      "title": "한국장애인고용공단 경기남부직업능력개발원\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t소방설비(전기) 산업기사 자격증 취득과정 훈련생 모집\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tD - 1\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t모집일정 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-04-20(월) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ~\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t2026-05-08(금) \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t지원대상 :\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t만 15세 이상의 '장애인복지법'에 따른 등록 장애인이거나 '국가유공자 등 예우 및 지원에 관한 법률'에 의한 상이등급 기준 해당자\n성별, 학력, 연령, 경력 무관\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소방설비 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#산업기사 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소방시설설계감리 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소방시설공사 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t#소방안전관리",
+      "url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2814",
+      "event_at": "2026-05-07T02:05:37.454994+00:00",
+      "program_id": "",
+      "program_key": "title:경기도-일자리재단:만-15세-이상의-장애인복지법-에-따른-등록-장애인이거나-국가유공자-등-예우-및-지원에-관한-법률-에-의한-상이등급-기준-해당자",
+      "application_deadline": "2026-05-08",
+      "application_start_date": "2026-04-20",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "경기"
+        ],
+        "AgeCondition": [
+          "15+"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "서울복지포털",
+      "url": "https://wis.seoul.go.kr/",
+      "event_at": "2026-05-07T02:05:32.396444+00:00",
+      "program_id": "",
+      "program_key": "title:서울시-복지:서울복지포털",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [
+        "1000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "자영업자",
+          "한부모",
+          "장애인",
+          "어르신",
+          "저소득",
+          "청년"
+        ],
+        "LifeStage": [
+          "영유아",
+          "청소년",
+          "임신",
+          "출산",
+          "아동"
+        ],
+        "Household": [
+          "다자녀",
+          "맞벌이",
+          "가구"
+        ],
+        "IncomeCondition": [
+          "기준중위소득"
+        ],
+        "Region": [
+          "서울"
+        ],
+        "AgeCondition": [
+          "3-64"
+        ]
+      }
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "민생물가 특별관리 관계장관 TF 8차 회의 개최",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077742&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:18.341669+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:민생물가-특별관리-관계장관-tf-8차-회의-개최",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "eligibility_rule",
+      "title": "동행축제 현장 찾은 중기부·농식품부 장관,  “소상공인 매출 확대·지역상권 활성화 지원 강화”",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067949&parentSeq=1067949",
+      "event_at": "2026-05-07T02:05:13.576834+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:동행축제-현장-찾은-중기부-농식품부-장관-소상공인-매출-확대-지역상권-활성화-지원-강화",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "소상공인",
+          "중소기업",
+          "청년"
+        ],
+        "Region": [
+          "대구",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "동행축제 현장 찾은 중기부·농식품부 장관,  “소상공인 매출 확대·지역상권 활성화 지원 강화”",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067949&parentSeq=1067949",
+      "event_at": "2026-05-07T02:05:13.576834+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:동행축제-현장-찾은-중기부-농식품부-장관-소상공인-매출-확대-지역상권-활성화-지원-강화",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "소상공인",
+          "중소기업",
+          "청년"
+        ],
+        "Region": [
+          "대구",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "eligibility_rule",
+      "title": "중소기업 기술탈취 근절 신문고,  한 달 만에 연간 신고 수준 접수",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067950&parentSeq=1067950",
+      "event_at": "2026-05-07T02:05:11.840104+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:중소기업-기술탈취-근절-신문고-한-달-만에-연간-신고-수준-접수",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "소상공인",
+          "중소기업"
+        ],
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "중소기업 기술탈취 근절 신문고,  한 달 만에 연간 신고 수준 접수",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067950&parentSeq=1067950",
+      "event_at": "2026-05-07T02:05:11.840104+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:중소기업-기술탈취-근절-신문고-한-달-만에-연간-신고-수준-접수",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "소상공인",
+          "중소기업"
+        ],
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "eligibility_rule",
+      "title": "중기부, 플라스틱 용기 위탁기업납품대금 연동제 직권 현장조사 착수",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067961&parentSeq=1067961",
+      "event_at": "2026-05-07T02:05:10.086997+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:중기부-플라스틱-용기-위탁기업납품대금-연동제-직권-현장조사-착수",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "중기부, 플라스틱 용기 위탁기업납품대금 연동제 직권 현장조사 착수",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067961&parentSeq=1067961",
+      "event_at": "2026-05-07T02:05:10.086997+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:중기부-플라스틱-용기-위탁기업납품대금-연동제-직권-현장조사-착수",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "application_deadline",
+      "title": "지역경제 성장동력 본격 가동... 연구개발 306개 과제, 2,800억 원 투입",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067987&parentSeq=1067987",
+      "event_at": "2026-05-06T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:지역경제-성장동력-본격-가동-연구개발-306개-과제-2-800억-원-투입",
+      "application_deadline": "2026-05-06",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "eligibility_rule",
+      "title": "지역경제 성장동력 본격 가동... 연구개발 306개 과제, 2,800억 원 투입",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067987&parentSeq=1067987",
+      "event_at": "2026-05-07T02:05:07.734343+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:지역경제-성장동력-본격-가동-연구개발-306개-과제-2-800억-원-투입",
+      "application_deadline": "2026-05-06",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "지역경제 성장동력 본격 가동... 연구개발 306개 과제, 2,800억 원 투입",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067987&parentSeq=1067987",
+      "event_at": "2026-05-07T02:05:07.734343+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:지역경제-성장동력-본격-가동-연구개발-306개-과제-2-800억-원-투입",
+      "application_deadline": "2026-05-06",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "application_deadline",
+      "title": "아이디어에서 창업까지, ｢모두의 창업｣ 공고마감까지 캠퍼스 현장 방문 이어져",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068012&parentSeq=1068012",
+      "event_at": "2026-05-06T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:아이디어에서-창업까지-모두의-창업-공고마감까지-캠퍼스-현장-방문-이어져",
+      "application_deadline": "2026-05-06",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "LifeStage": [
+          "대학생"
+        ],
+        "Region": [
+          "대구",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "eligibility_rule",
+      "title": "아이디어에서 창업까지, ｢모두의 창업｣ 공고마감까지 캠퍼스 현장 방문 이어져",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068012&parentSeq=1068012",
+      "event_at": "2026-05-07T02:05:05.913452+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:아이디어에서-창업까지-모두의-창업-공고마감까지-캠퍼스-현장-방문-이어져",
+      "application_deadline": "2026-05-06",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "LifeStage": [
+          "대학생"
+        ],
+        "Region": [
+          "대구",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "아이디어에서 창업까지, ｢모두의 창업｣ 공고마감까지 캠퍼스 현장 방문 이어져",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068012&parentSeq=1068012",
+      "event_at": "2026-05-07T02:05:05.913452+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:아이디어에서-창업까지-모두의-창업-공고마감까지-캠퍼스-현장-방문-이어져",
+      "application_deadline": "2026-05-06",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "LifeStage": [
+          "대학생"
+        ],
+        "Region": [
+          "대구",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "eligibility_rule",
+      "title": "새글 월 10만 원씩 3년 모으면 1,440만 원 받는다 ‘청년내일저축계좌’ 신규 모집",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490402&tag=&nPage=1",
+      "event_at": "2026-05-07T02:04:56.784483+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-월-10만-원씩-3년-모으면-1-440만-원-받는다-청년내일저축계좌-신규-모집",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "10만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "eligibility_rule",
+      "title": "새글 이스란 제1차관, 사회보장 전문가 정책 간담회 개최 “소득·고용·건강 격차 함께 풀..",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490425&tag=&nPage=1",
+      "event_at": "2026-05-07T02:04:56.784123+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-이스란-제1차관-사회보장-전문가-정책-간담회-개최-소득-고용-건강-격차-함께-풀",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "eligibility_rule",
+      "title": "새글 “아동의 이익이 최우선” 민관이 머리맞대 공적입양체계 안착시킨다",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490428&tag=&nPage=1",
+      "event_at": "2026-05-07T02:04:55.957484+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-아동의-이익이-최우선-민관이-머리맞대-공적입양체계-안착시킨다",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "LifeStage": [
+          "아동"
+        ],
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "application_deadline",
+      "title": "새글 보건복지 분야 불합리한 관행·구조 바로잡는다",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490432&tag=&nPage=1",
+      "event_at": "2026-05-07T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-보건복지-분야-불합리한-관행-구조-바로잡는다",
+      "application_deadline": "2026-05-07",
+      "application_start_date": "2026-05-06",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "LifeStage": [
+          "출산",
+          "아동"
+        ],
+        "Region": [
+          "서울",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "eligibility_rule",
+      "title": "새글 보건복지 분야 불합리한 관행·구조 바로잡는다",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490432&tag=&nPage=1",
+      "event_at": "2026-05-07T02:04:55.061925+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-보건복지-분야-불합리한-관행-구조-바로잡는다",
+      "application_deadline": "2026-05-07",
+      "application_start_date": "2026-05-06",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "LifeStage": [
+          "출산",
+          "아동"
+        ],
+        "Region": [
+          "서울",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "application_deadline",
+      "title": "새글 인공지능·사물인터넷 기술,돌봄 현장 실증 거쳐 빠르게 확산한다",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490433&tag=&nPage=1",
+      "event_at": "2026-05-07T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-인공지능-사물인터넷-기술-돌봄-현장-실증-거쳐-빠르게-확산한다",
+      "application_deadline": "2026-05-07",
+      "application_start_date": "2026-05-06",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "노인"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "eligibility_rule",
+      "title": "새글 인공지능·사물인터넷 기술,돌봄 현장 실증 거쳐 빠르게 확산한다",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490433&tag=&nPage=1",
+      "event_at": "2026-05-07T02:04:54.143102+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-인공지능-사물인터넷-기술-돌봄-현장-실증-거쳐-빠르게-확산한다",
+      "application_deadline": "2026-05-07",
+      "application_start_date": "2026-05-06",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "노인"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "application_deadline",
+      "title": "새글 외국인 계절근로자 장기요양보험 의무가입 제외, 고용주·근로자 부담 줄인다",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490434&tag=&nPage=1",
+      "event_at": "2026-05-13T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-외국인-계절근로자-장기요양보험-의무가입-제외-고용주-근로자-부담-줄인다",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-05-06",
+      "application_channels": [
+        "online",
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "노인"
+        ],
+        "IncomeCondition": [
+          "보험료"
+        ],
+        "Region": [
+          "세종"
+        ],
+        "AgeCondition": [
+          "65+",
+          "19-55"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "eligibility_rule",
+      "title": "새글 외국인 계절근로자 장기요양보험 의무가입 제외, 고용주·근로자 부담 줄인다",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490434&tag=&nPage=1",
+      "event_at": "2026-05-07T02:04:53.204945+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-외국인-계절근로자-장기요양보험-의무가입-제외-고용주-근로자-부담-줄인다",
+      "application_deadline": "2026-05-13",
+      "application_start_date": "2026-05-06",
+      "application_channels": [
+        "online",
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "노인"
+        ],
+        "IncomeCondition": [
+          "보험료"
+        ],
+        "Region": [
+          "세종"
+        ],
+        "AgeCondition": [
+          "65+",
+          "19-55"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "application_deadline",
+      "title": "새글 한국생명존중희망재단 제2대 정윤순 신임 이사장 임명",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490435&tag=&nPage=1",
+      "event_at": "2029-05-05T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-한국생명존중희망재단-제2대-정윤순-신임-이사장-임명",
+      "application_deadline": "2029-05-05",
+      "application_start_date": "2026-05-06",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "보건복지부",
+      "event_model": "eligibility_rule",
+      "title": "새글 한국생명존중희망재단 제2대 정윤순 신임 이사장 임명",
+      "url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490435&tag=&nPage=1",
+      "event_at": "2026-05-07T02:04:52.192224+00:00",
+      "program_id": "",
+      "program_key": "title:보건복지부:새글-한국생명존중희망재단-제2대-정윤순-신임-이사장-임명",
+      "application_deadline": "2029-05-05",
+      "application_start_date": "2026-05-06",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[질병관리청][5.7.행사시작(10시30분)이후] 대한민국 말라리아 재퇴치를 위해 질병관리청장 말라리아 위험지역 현장방문!",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760177&call_from=rsslink",
+      "event_at": "2026-05-06T16:30:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:질병관리청-5-7-행사시작-10시30분-이후-대한민국-말라리아-재퇴치를-위해-질병관리청장-말라리아-위험지역-현장방문",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울",
+          "경기",
+          "인천",
+          "강원"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[질병관리청][5.7.행사시작(10시30분)이후] 대한민국 말라리아 재퇴치를 위해 질병관리청장 말라리아 위험지역 현장방문!",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156760177&call_from=rsslink",
+      "event_at": "2026-05-06T16:30:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:질병관리청-5-7-행사시작-10시30분-이후-대한민국-말라리아-재퇴치를-위해-질병관리청장-말라리아-위험지역-현장방문",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울",
+          "경기",
+          "인천",
+          "강원"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "독립유공자 후손, 최소 2대까지 보상…2300여 명 추가 혜택",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148963914&call_from=rsslink",
+      "event_at": "2026-05-06T00:07:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:독립유공자-후손-최소-2대까지-보상-2300여-명-추가-혜택",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "재산"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "독립유공자 후손, 최소 2대까지 보상…2300여 명 추가 혜택",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148963914&call_from=rsslink",
+      "event_at": "2026-05-06T00:07:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:독립유공자-후손-최소-2대까지-보상-2300여-명-추가-혜택",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "재산"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "중기부, 원자재 가격 상승 대응... ‘납품대금 연동제’로 뿌리산업 보호 강화",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067941&parentSeq=1067941",
+      "event_at": "2026-05-07T02:05:15.431315+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:중기부-원자재-가격-상승-대응-납품대금-연동제-로-뿌리산업-보호-강화",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "5대 금융그룹, 투‧융자 자금 1조원 공급 등 벤처‧스타트업 성장 지원에 동참",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067924&parentSeq=1067924",
+      "event_at": "2026-05-07T02:05:15.431382+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:5대-금융그룹-투-융자-자금-1조원-공급-등-벤처-스타트업-성장-지원에-동참",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "정부가 첫 고객이 되어  신산업 창업기업의 성장 가속화!",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067865&parentSeq=1067865",
+      "event_at": "2026-05-07T02:05:15.431483+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:정부가-첫-고객이-되어-신산업-창업기업의-성장-가속화",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "모태펀드, 1.8조원 규모 벤처펀드 최종 선정,벤처투자 활력 이어나간다",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067863&parentSeq=1067863",
+      "event_at": "2026-05-07T02:05:15.431521+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:모태펀드-1-8조원-규모-벤처펀드-최종-선정-벤처투자-활력-이어나간다",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "중소벤처기업부",
+      "event_model": "support_program_notice",
+      "title": "’26년 1분기 중소기업 수출, 역대 최고치 달성",
+      "url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1067862&parentSeq=1067862",
+      "event_at": "2026-05-07T02:05:15.431595+00:00",
+      "program_id": "",
+      "program_key": "title:중소벤처기업부:26년-1분기-중소기업-수출-역대-최고치-달성",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ]
+      }
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "'26.4월 소비자물가 동향",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077727&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:19.108229+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:26-4월-소비자물가-동향",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "국가계약법 시행령 일부개정령안 국무회의 심의의결",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077736&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:19.803730+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:국가계약법-시행령-일부개정령안-국무회의-심의의결",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "2025년도 공공기관 안전관리등급 확정",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077732&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:20.462786+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:2025년도-공공기관-안전관리등급-확정",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "2025년도 공공기관 통합공시 점검결과 및 후속조치",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077726&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:21.195292+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:2025년도-공공기관-통합공시-점검결과-및-후속조치",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "구윤철 부총리, 우즈베키스탄 미르지요예프 대통령 예방 및 부총리 회담 등 경협 확대 논의",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077750&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:21.934142+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:구윤철-부총리-우즈베키스탄-미르지요예프-대통령-예방-및-부총리-회담-등-경협-확대-논의",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "[보도참고] 고농도 니코틴 용액 온라인 판매 사례 관련 담배사업법 위반 수사의뢰",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077724&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:21.934172+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:보도참고-고농도-니코틴-용액-온라인-판매-사례-관련-담배사업법-위반-수사의뢰",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "[보도참고] 세계은행 고위직에 한국인 진출",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077709&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:21.934209+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:보도참고-세계은행-고위직에-한국인-진출",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "불법 외환거래 대응반 중간 진행상황 점검",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077702&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:21.934233+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:불법-외환거래-대응반-중간-진행상황-점검",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "기획재정부",
+      "event_model": "support_program_notice",
+      "title": "재경부·산업부, K-푸드 수출 영토 넓힌다",
+      "url": "https://mofe.go.kr/nw/nes/detailNesDtaView.do?searchBbsId1=MOSFBBS_000000000028&searchNttId1=MOSF_000000000077731&menuNo=4010100",
+      "event_at": "2026-05-07T02:05:21.934249+00:00",
+      "program_id": "",
+      "program_key": "title:기획재정부:재경부-산업부-k-푸드-수출-영토-넓힌다",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    }
+  ],
+  "source_backlog": {
+    "operational_candidates": [
+      {
+        "id": "bokjiro_detail_deadlines",
+        "name": "복지로 상세 신청 마감/대상 조건",
+        "url": "https://www.bokjiro.go.kr/",
+        "reason": "목록 API가 제공하지 않는 상세 신청 기간과 대상 조건을 program id로 연결할 후보.",
+        "required_before_enable": [
+          "api_key_scope_check",
+          "program_id_mapping",
+          "detail_parser_smoke"
+        ]
+      },
+      {
+        "id": "subsidy24_result_status",
+        "name": "보조금24 신청/선정 상태 후보",
+        "url": "https://www.gov.kr/portal/rcvfvrSvc/svcFind/svcSearchAll",
+        "reason": "신청 가능 상태와 선정/집행 후행 신호를 분리하기 위한 후보.",
+        "required_before_enable": [
+          "tos_review",
+          "result_status_taxonomy",
+          "evidence_url_check"
+        ]
+      },
+      {
+        "id": "local_gov_program_results",
+        "name": "지자체 지원사업 선정결과",
+        "reason": "지자체 공고별 선정 결과와 집행 실적 후행 검증 후보.",
+        "required_before_enable": [
+          "browser_fixture_test",
+          "result_parser",
+          "duplicate_notice_check"
+        ]
+      }
+    ]
+  },
+  "errors": []
+}

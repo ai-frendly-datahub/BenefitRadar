@@ -160,6 +160,7 @@ def run(
         sources=category_cfg.sources,
     )
     storage.close()
+    quality_articles = _dedupe_articles([*classified, *recent_articles])
 
     matched_count = sum(1 for article in recent_articles if article.matched_entities)
     source_count = len({article.source for article in recent_articles if article.source})
@@ -176,7 +177,7 @@ def run(
     output_path = settings.report_dir / f"{category_cfg.category_name}_report.html"
     quality_report = build_quality_report(
         category=category_cfg,
-        articles=recent_articles,
+        articles=quality_articles,
         errors=errors,
         quality_config=quality_cfg,
     )

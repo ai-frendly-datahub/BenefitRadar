@@ -93,6 +93,8 @@ sources:
   - name: "국토교통부"
     type: "javascript"
     url: "https://www.molit.go.kr/USR/NEWS/m_71/lst.jsp"
+    enabled: false
+    notes: "2026-05-07 verification: direct and browser probes reset the connection in the current runtime; keep cataloged until a stable RSS/API endpoint is confirmed."
     config:
       bypass_crawl_health: true
       wait_for: "body"
@@ -102,6 +104,8 @@ sources:
       detail_content_selector: "body"
       event_model: support_program_notice
       freshness_sla_days: 3
+      skip_reason: "Official browser endpoint resets connections in the current collection runtime."
+      reenable_gate: "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets."
 
   - name: "보건복지부"
     type: "javascript"
@@ -119,6 +123,8 @@ sources:
   - name: "고용노동부"
     type: "javascript"
     url: "https://www.moel.go.kr/news/enews/report/enewsList.do"
+    enabled: false
+    notes: "2026-04-30 verification: browser and direct HTTP probes returned connection reset from the official site in this runtime."
     config:
       wait_for: ".board_list"
       link_selector: ".board_list a.ellipsis"
@@ -128,6 +134,8 @@ sources:
       detail_content_selector: "body"
       event_model: support_program_notice
       freshness_sla_days: 3
+      skip_reason: "Official browser endpoint resets connections in the current collection runtime."
+      reenable_gate: "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets."
 
   # NOTE: 2026-04-03 RSS 오류페이지 반환 → JavaScript 변환하여 복구
   - name: "중소벤처기업부"
@@ -167,6 +175,8 @@ sources:
   - name: "여성가족부"
     type: "javascript"
     url: "https://www.mogef.go.kr/nw/enw/nw_enw_s001.do"
+    enabled: false
+    notes: "2026-04-30 verification: browser and direct HTTP probes returned connection reset from the official site in this runtime."
     config:
       wait_for: "table.brdList02"
       link_selector: "table.brdList02 a[title]"
@@ -175,10 +185,14 @@ sources:
       detail_content_selector: "body"
       event_model: eligibility_rule
       freshness_sla_days: 3
+      skip_reason: "Official browser endpoint resets connections in the current collection runtime."
+      reenable_gate: "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets."
 
   - name: "교육부"
     type: "javascript"
     url: "https://www.moe.go.kr/boardCnts/listRenew.do?boardID=294&m=020402&s=moe&type=default"
+    enabled: false
+    notes: "2026-04-30 verification: browser and direct HTTP probes returned connection reset from the official site in this runtime."
     config:
       wait_for: "table"
       link_selector: "table tbody tr a"
@@ -189,6 +203,8 @@ sources:
       detail_content_selector: "body"
       event_model: support_program_notice
       freshness_sla_days: 3
+      skip_reason: "Official browser endpoint resets connections in the current collection runtime."
+      reenable_gate: "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets."
 
   # ── 지자체 지원사업 ──────────────────────────────────────
   - name: "서울시 복지"
@@ -196,6 +212,10 @@ sources:
     url: "https://wis.seoul.go.kr/"
     config:
       wait_for: "body"
+      timeout: 20000
+      navigation_retries: 3
+      navigation_retry_delay_ms: 2000
+      bypass_crawl_health: true
       event_model: eligibility_rule
       freshness_sla_days: 3
 
