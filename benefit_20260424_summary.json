@@ -1,69 +1,155 @@
 {
   "date": "2026-04-24",
   "category": "benefit",
-  "article_count": 200,
-  "source_count": 9,
-  "matched_count": 139,
+  "article_count": 273,
+  "source_count": 22,
+  "matched_count": 273,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 408
+      "count": 712
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 273
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 244
     },
     {
       "name": "SubsidyProgram",
-      "count": 101
-    },
-    {
-      "name": "Eligibility",
-      "count": 82
+      "count": 235
     },
     {
       "name": "TargetDemographic",
-      "count": 76
+      "count": 231
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 229
+    },
+    {
+      "name": "Eligibility",
+      "count": 226
     },
     {
       "name": "SocialWelfare",
-      "count": 58
+      "count": 220
     },
     {
-      "name": "CultureLeisure",
-      "count": 40
+      "name": "SourceSignal",
+      "count": 192
     },
     {
       "name": "EmploymentBenefit",
-      "count": 27
+      "count": 133
     },
     {
-      "name": "HealthBenefit",
-      "count": 26
+      "name": "EligibilityTargetGroup",
+      "count": 114
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 96
     },
     {
       "name": "FamilySupport",
-      "count": 22
+      "count": 89
     },
     {
-      "name": "TaxBenefit",
-      "count": 7
+      "name": "ApplicationChannel",
+      "count": 85
     },
     {
-      "name": "EducationSupport",
-      "count": 4
+      "name": "EligibilityLifeStage",
+      "count": 80
     },
     {
-      "name": "HousingAssistance",
-      "count": 2
+      "name": "ApplicationDeadline",
+      "count": 70
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 59
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 57
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 47
+    },
+    {
+      "name": "BenefitAmount",
+      "count": 44
     }
   ],
   "sources": {
-    "정책브리핑 보도자료": 90,
-    "정책브리핑": 34,
-    "Federal News Network": 35,
-    "Government Executive": 15,
+    "경기도 일자리재단": 22,
+    "서울시 복지": 1,
+    "교육부": 12,
+    "여성가족부": 14,
+    "기획재정부": 1,
+    "중소벤처기업부": 10,
+    "보건복지부": 20,
+    "국토교통부": 12,
+    "r/personalfinance": 8,
+    "r/SocialSecurity": 28,
+    "r/povertyfinance": 13,
+    "정책브리핑 보도자료": 43,
+    "정책브리핑": 49,
+    "r/disability": 6,
+    "r/Unemployment": 9,
+    "KFF Health News": 5,
+    "고용노동부": 7,
+    "r/healthcare": 5,
+    "Federal News Network": 2,
     "Niskanen Center": 3,
-    "KFF Health News": 14,
-    "Pew Research": 6,
-    "국토교통부": 1,
+    "r/korea": 1,
     "Tax Foundation": 2
   },
-  "generated_at": "2026-04-24T12:21:03.804283+09:00"
+  "generated_at": "2026-04-24T22:52:51.959233+09:00",
+  "ontology": {
+    "repo": "BenefitRadar",
+    "category": "benefit",
+    "ontology_version": "0.1.0",
+    "event_model_ids": [
+      "govsupport.application_deadline",
+      "govsupport.eligibility_rule",
+      "govsupport.selection_result",
+      "govsupport.support_program_notice"
+    ],
+    "event_model_mappings": {
+      "support_program_notice": "govsupport.support_program_notice",
+      "application_deadline": "govsupport.application_deadline",
+      "eligibility_rule": "govsupport.eligibility_rule",
+      "selection_result": "govsupport.selection_result"
+    },
+    "entity_type_hints": [
+      "program.support_program",
+      "organization.agency"
+    ],
+    "source_role_ids": [
+      "community_signal",
+      "context_only",
+      "operational_evidence",
+      "primary_evidence"
+    ],
+    "source_role_mappings": {
+      "정책브리핑": "primary_evidence",
+      "국토교통부": "primary_evidence",
+      "보건복지부": "primary_evidence",
+      "서울시 복지": "operational_evidence",
+      "경기도 일자리재단": "operational_evidence",
+      "GovTech": "context_only",
+      "r/personalfinance": "community_signal"
+    },
+    "evidence_policy_ids": [
+      "traceable_url_required",
+      "official_confirmation_required",
+      "cross_reference_required"
+    ]
+  }
 }

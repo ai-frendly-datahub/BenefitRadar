@@ -1,68 +1,104 @@
 {
   "date": "2026-04-14",
   "category": "benefit",
-  "article_count": 200,
-  "source_count": 8,
-  "matched_count": 156,
+  "article_count": 77,
+  "source_count": 12,
+  "matched_count": 77,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 433
-    },
-    {
-      "name": "SubsidyProgram",
-      "count": 164
-    },
-    {
-      "name": "TargetDemographic",
-      "count": 88
-    },
-    {
-      "name": "Eligibility",
-      "count": 83
-    },
-    {
-      "name": "SocialWelfare",
-      "count": 72
+      "count": 409
     },
     {
       "name": "EmploymentBenefit",
-      "count": 58
+      "count": 317
     },
     {
-      "name": "CultureLeisure",
-      "count": 48
+      "name": "SubsidyProgram",
+      "count": 290
     },
     {
-      "name": "TaxBenefit",
-      "count": 12
+      "name": "TargetDemographic",
+      "count": 214
     },
     {
-      "name": "HealthBenefit",
-      "count": 11
+      "name": "Eligibility",
+      "count": 183
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 159
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 100
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 76
+    },
+    {
+      "name": "SourceSignal",
+      "count": 75
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 73
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 66
     },
     {
       "name": "FamilySupport",
-      "count": 9
+      "count": 48
     },
     {
-      "name": "EducationSupport",
-      "count": 8
+      "name": "EligibilityLifeStage",
+      "count": 43
     },
     {
-      "name": "HousingAssistance",
-      "count": 6
+      "name": "ApplicationDeadline",
+      "count": 39
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 37
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 36
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 33
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 18
+    },
+    {
+      "name": "EligibilityHousehold",
+      "count": 17
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 13
     }
   ],
   "sources": {
-    "정책브리핑 보도자료": 118,
-    "정책브리핑": 37,
-    "KFF Health News": 6,
-    "Tax Foundation": 4,
-    "Federal News Network": 22,
-    "Government Executive": 10,
-    "Pew Research": 1,
-    "Niskanen Center": 2
+    "경기도 일자리재단": 21,
+    "서울시 복지": 1,
+    "여성가족부": 11,
+    "기획재정부": 12,
+    "중소벤처기업부": 13,
+    "보건복지부": 1,
+    "r/SocialSecurity": 1,
+    "r/Unemployment": 1,
+    "교육부": 1,
+    "고용노동부": 10,
+    "정책브리핑": 3,
+    "정책브리핑 보도자료": 2
   },
-  "generated_at": "2026-04-14T21:18:30.084004+09:00"
+  "generated_at": "2026-04-14T20:19:42.948762+09:00"
 }
