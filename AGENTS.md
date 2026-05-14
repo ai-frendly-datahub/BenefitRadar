@@ -22,7 +22,7 @@ BenefitRadar/
 │   └── mcp_server/               # MCP 서버 (server.py + tools.py)
 ├── config/
 │   ├── config.yaml               # database_path, report_dir, raw_data_dir, search_db_path
-│   └── categories/{domain}.yaml  # 소스 + 엔티티 정의
+│   └── categories/benefit.yaml  # 소스 + 엔티티 정의
 ├── data/                         # DuckDB, search_index.db, raw/ JSONL
 ├── reports/                      # 생성된 HTML 리포트
 ├── tests/unit/                   # pytest 단위 테스트
@@ -34,14 +34,16 @@ BenefitRadar/
 
 | Entity | Examples |
 |--------|----------|
-| 주요 엔티티 1 | 예시 1, 예시 2, 예시 3 |
-| 주요 엔티티 2 | 예시 4, 예시 5, 예시 6 |
-| 주요 엔티티 3 | 예시 7, 예시 8, 예시 9 |
+| SubsidyProgram | 보조금, 지원금, grant, funding |
+| TargetDemographic | 청년, 노인, 장애인, 자영업자 |
+| Eligibility | 자격 요건, 소득 기준, 신청 조건 |
+| TaxBenefit | 세액공제, 소득공제, tax credit |
 
 ## DEVIATIONS FROM TEMPLATE
 
-- 표준 템플릿 대비 특화 기능 1
-- 표준 템플릿 대비 특화 기능 2
+- 복지로/보조금24/정부 공식 채널을 우선 evidence로 취급한다.
+- `support_program_notice`, `application_deadline`, `eligibility_rule`, `selection_result` 이벤트 모델을 분리한다.
+- API key 또는 브라우저 제한 source는 임의 활성화하지 않고 skip 사유와 재활성화 gate를 유지한다.
 
 ## COMMANDS
 

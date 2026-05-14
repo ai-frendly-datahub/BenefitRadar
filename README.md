@@ -9,7 +9,7 @@
 
 - **데이터 수집**: 복지로 API (bokjiro.go.kr)
 - **엔티티 분석**: 복지 카테고리별 키워드 매칭 (주거, 교육, 의료, 일자리 등)
-- **트렌드 리포트**: DuckDB 저장 + HTML 리포트로 {domain} 동향 시각화
+- **트렌드 리포트**: DuckDB 저장 + HTML 리포트로 복지/지원금 동향 시각화
 - **자동화**: GitHub Actions 일일 수집 + GitHub Pages 리포트 자동 배포
 
 ## 기술적 우수성
@@ -39,14 +39,14 @@
 
 - 워크플로: `.github/workflows/radar-crawler.yml`
   - 스케줄: 매일 00:00 UTC (KST 09:00), 수동 실행도 지원.
-  - 환경 변수 `RADAR_CATEGORY`를 프로젝트에 맞게 수정하세요.
+  - 환경 변수 `RADAR_CATEGORY` 값은 `benefit`입니다.
   - 리포트 배포 디렉터리: `reports` → `gh-pages` 브랜치로 배포.
   - DuckDB 경로: `data/radar_data.duckdb` (Pages에 올라가지 않음). 아티팩트로 7일 보관.
 
 - 설정 방법:
   1) 저장소 Settings → Pages에서 `gh-pages` 브랜치를 선택해 활성화
   2) Actions 권한을 기본값으로 두거나 외부 PR에서도 실행되도록 설정
-  3) 워크플로 파일의 `RADAR_CATEGORY`를 원하는 YAML 이름으로 변경
+  3) 워크플로 파일의 `RADAR_CATEGORY`가 `benefit`인지 확인
 
 ## 동작 방식
 
