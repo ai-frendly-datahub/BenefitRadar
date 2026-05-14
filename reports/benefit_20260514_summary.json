@@ -1,94 +1,94 @@
 {
   "date": "2026-05-14",
   "category": "benefit",
-  "article_count": 175,
+  "article_count": 202,
   "source_count": 13,
-  "matched_count": 175,
+  "matched_count": 202,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 581
+      "count": 669
     },
     {
       "name": "EligibilityRegion",
-      "count": 210
+      "count": 243
     },
     {
       "name": "TargetDemographic",
-      "count": 205
+      "count": 223
     },
     {
       "name": "SubsidyProgram",
-      "count": 196
+      "count": 220
     },
     {
       "name": "OperationalEvent",
-      "count": 190
-    },
-    {
-      "name": "SocialWelfare",
-      "count": 183
+      "count": 215
     },
     {
       "name": "Eligibility",
-      "count": 180
+      "count": 204
     },
     {
       "name": "BenefitProgramKey",
-      "count": 175
+      "count": 202
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 191
     },
     {
       "name": "SourceSignal",
-      "count": 161
+      "count": 188
     },
     {
       "name": "EmploymentBenefit",
-      "count": 160
+      "count": 186
     },
     {
       "name": "EligibilityTargetGroup",
-      "count": 142
+      "count": 152
     },
     {
       "name": "ApplicationChannel",
-      "count": 57
+      "count": 72
     },
     {
       "name": "ApplicationDeadline",
-      "count": 55
+      "count": 58
     },
     {
       "name": "FamilySupport",
-      "count": 54
+      "count": 56
     },
     {
       "name": "ApplicationStartDate",
-      "count": 48
+      "count": 51
     },
     {
       "name": "CultureLeisure",
-      "count": 43
-    },
-    {
-      "name": "EligibilityHousehold",
-      "count": 41
+      "count": 47
     },
     {
       "name": "EligibilityLifeStage",
-      "count": 38
+      "count": 45
+    },
+    {
+      "name": "EligibilityHousehold",
+      "count": 43
     },
     {
       "name": "BenefitAmount",
-      "count": 35
+      "count": 39
     },
     {
-      "name": "HealthBenefit",
-      "count": 35
+      "name": "EligibilityIncomeCondition",
+      "count": 38
     }
   ],
   "sources": {
-    "정책브리핑 보도자료": 69,
-    "정책브리핑": 55,
+    "정책브리핑 보도자료": 89,
+    "정책브리핑": 62,
     "경기도 일자리재단": 20,
     "서울시 복지": 1,
     "기획재정부": 1,
@@ -101,7 +101,7 @@
     "Government Executive": 4,
     "KFF Health News": 4
   },
-  "generated_at": "2026-05-14T12:48:02.632806+09:00",
+  "generated_at": "2026-05-14T16:46:19.634535+09:00",
   "articles": [
     {
       "event_model_payload": {
