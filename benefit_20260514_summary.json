@@ -1,93 +1,93 @@
 {
   "date": "2026-05-14",
   "category": "benefit",
-  "article_count": 159,
+  "article_count": 175,
   "source_count": 13,
-  "matched_count": 159,
+  "matched_count": 175,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 528
-    },
-    {
-      "name": "TargetDemographic",
-      "count": 195
-    },
-    {
-      "name": "SubsidyProgram",
-      "count": 185
+      "count": 581
     },
     {
       "name": "EligibilityRegion",
-      "count": 182
+      "count": 210
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 205
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 196
     },
     {
       "name": "OperationalEvent",
-      "count": 176
+      "count": 190
     },
     {
       "name": "SocialWelfare",
-      "count": 176
+      "count": 183
     },
     {
       "name": "Eligibility",
-      "count": 168
+      "count": 180
     },
     {
       "name": "BenefitProgramKey",
-      "count": 159
-    },
-    {
-      "name": "EmploymentBenefit",
-      "count": 158
+      "count": 175
     },
     {
       "name": "SourceSignal",
-      "count": 145
+      "count": 161
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 160
     },
     {
       "name": "EligibilityTargetGroup",
-      "count": 136
+      "count": 142
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 57
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 55
     },
     {
       "name": "FamilySupport",
       "count": 54
     },
     {
-      "name": "ApplicationDeadline",
-      "count": 53
-    },
-    {
-      "name": "ApplicationChannel",
-      "count": 50
-    },
-    {
       "name": "ApplicationStartDate",
-      "count": 46
+      "count": 48
     },
     {
       "name": "CultureLeisure",
-      "count": 41
+      "count": 43
     },
     {
       "name": "EligibilityHousehold",
-      "count": 39
+      "count": 41
     },
     {
       "name": "EligibilityLifeStage",
-      "count": 36
+      "count": 38
     },
     {
       "name": "BenefitAmount",
-      "count": 32
+      "count": 35
     },
     {
-      "name": "EligibilityIncomeCondition",
-      "count": 31
+      "name": "HealthBenefit",
+      "count": 35
     }
   ],
   "sources": {
-    "정책브리핑 보도자료": 53,
+    "정책브리핑 보도자료": 69,
     "정책브리핑": 55,
     "경기도 일자리재단": 20,
     "서울시 복지": 1,
@@ -101,7 +101,7 @@
     "Government Executive": 4,
     "KFF Health News": 4
   },
-  "generated_at": "2026-05-14T11:28:36.810205+09:00",
+  "generated_at": "2026-05-14T12:48:02.632806+09:00",
   "articles": [
     {
       "event_model_payload": {
