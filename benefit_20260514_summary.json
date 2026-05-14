@@ -1,92 +1,94 @@
 {
-  "date": "2026-05-13",
+  "date": "2026-05-14",
   "category": "benefit",
-  "article_count": 111,
+  "article_count": 159,
   "source_count": 13,
-  "matched_count": 111,
+  "matched_count": 159,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 347
+      "count": 528
     },
     {
       "name": "TargetDemographic",
-      "count": 135
-    },
-    {
-      "name": "SocialWelfare",
-      "count": 124
-    },
-    {
-      "name": "OperationalEvent",
-      "count": 124
-    },
-    {
-      "name": "Eligibility",
-      "count": 122
-    },
-    {
-      "name": "EligibilityRegion",
-      "count": 120
-    },
-    {
-      "name": "EmploymentBenefit",
-      "count": 119
+      "count": 195
     },
     {
       "name": "SubsidyProgram",
-      "count": 118
+      "count": 185
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 182
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 176
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 176
+    },
+    {
+      "name": "Eligibility",
+      "count": 168
     },
     {
       "name": "BenefitProgramKey",
-      "count": 111
+      "count": 159
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 158
     },
     {
       "name": "SourceSignal",
-      "count": 102
+      "count": 145
     },
     {
       "name": "EligibilityTargetGroup",
-      "count": 98
+      "count": 136
     },
     {
       "name": "FamilySupport",
-      "count": 42
+      "count": 54
     },
     {
       "name": "ApplicationDeadline",
-      "count": 40
+      "count": 53
     },
     {
       "name": "ApplicationChannel",
-      "count": 36
+      "count": 50
     },
     {
       "name": "ApplicationStartDate",
-      "count": 34
-    },
-    {
-      "name": "EligibilityLifeStage",
-      "count": 26
-    },
-    {
-      "name": "EligibilityHousehold",
-      "count": 26
+      "count": 46
     },
     {
       "name": "CultureLeisure",
-      "count": 25
+      "count": 41
     },
     {
-      "name": "HealthBenefit",
-      "count": 22
+      "name": "EligibilityHousehold",
+      "count": 39
+    },
+    {
+      "name": "EligibilityLifeStage",
+      "count": 36
+    },
+    {
+      "name": "BenefitAmount",
+      "count": 32
     },
     {
       "name": "EligibilityIncomeCondition",
-      "count": 21
+      "count": 31
     }
   ],
   "sources": {
+    "정책브리핑 보도자료": 53,
+    "정책브리핑": 55,
     "경기도 일자리재단": 20,
     "서울시 복지": 1,
     "기획재정부": 1,
@@ -95,13 +97,11 @@
     "r/SocialSecurity": 1,
     "r/healthcare": 1,
     "r/Unemployment": 1,
-    "정책브리핑": 28,
-    "정책브리핑 보도자료": 37,
-    "Federal News Network": 2,
-    "Government Executive": 2,
-    "KFF Health News": 2
+    "Federal News Network": 3,
+    "Government Executive": 4,
+    "KFF Health News": 4
   },
-  "generated_at": "2026-05-13T21:19:10.203374+09:00",
+  "generated_at": "2026-05-14T11:28:36.810205+09:00",
   "articles": [
     {
       "event_model_payload": {
@@ -290,56 +290,8 @@
     },
     {
       "event_model_payload": {
-        "source_url": "https://www.korea.kr/news/policyNewsView.do?newsId=148964313&call_from=rsslink"
-      }
-    },
-    {
-      "event_model_payload": {
         "source_url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156761393&call_from=rsslink"
       }
     }
-  ],
-  "ontology": {
-    "repo": "BenefitRadar",
-    "category": "benefit",
-    "ontology_version": "0.1.0",
-    "event_model_ids": [
-      "govsupport.application_deadline",
-      "govsupport.editorial_coverage",
-      "govsupport.eligibility_rule",
-      "govsupport.selection_result",
-      "govsupport.support_program_notice"
-    ],
-    "event_model_mappings": {
-      "support_program_notice": "govsupport.support_program_notice",
-      "application_deadline": "govsupport.application_deadline",
-      "eligibility_rule": "govsupport.eligibility_rule",
-      "selection_result": "govsupport.selection_result",
-      "editorial_coverage": "govsupport.editorial_coverage"
-    },
-    "entity_type_hints": [
-      "program.support_program",
-      "organization.agency"
-    ],
-    "source_role_ids": [
-      "community_signal",
-      "context_only",
-      "operational_evidence",
-      "primary_evidence"
-    ],
-    "source_role_mappings": {
-      "정책브리핑": "primary_evidence",
-      "국토교통부": "primary_evidence",
-      "보건복지부": "primary_evidence",
-      "서울시 복지": "operational_evidence",
-      "경기도 일자리재단": "operational_evidence",
-      "GovTech": "context_only",
-      "r/personalfinance": "community_signal"
-    },
-    "evidence_policy_ids": [
-      "traceable_url_required",
-      "official_confirmation_required",
-      "cross_reference_required"
-    ]
-  }
+  ]
 }
