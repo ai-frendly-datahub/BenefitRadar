@@ -8,7 +8,6 @@ import pytest
 from benefitradar.models import Article, CategoryConfig, Source
 from benefitradar.quality_report import build_quality_report, write_quality_report
 
-
 pytestmark = pytest.mark.unit
 
 
@@ -190,9 +189,7 @@ def test_disabled_benefit_source_is_skipped_not_active_tracked() -> None:
             )
         ],
         quality_config={
-            "data_quality": {
-                "quality_outputs": {"tracked_event_models": ["eligibility_rule"]}
-            }
+            "data_quality": {"quality_outputs": {"tracked_event_models": ["eligibility_rule"]}}
         },
         generated_at=now,
     )

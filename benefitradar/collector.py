@@ -23,7 +23,6 @@ from .exceptions import NetworkError, ParseError, SourceError
 from .models import Article, Source
 from .resilience import get_circuit_breaker_manager
 
-
 _DEFAULT_HEADERS: dict[str, str] = {
     "User-Agent": "Mozilla/5.0 (compatible; RadarTemplateBot/1.0; +https://github.com/zzragida/ai-frendly-datahub)",
 }
@@ -272,9 +271,8 @@ def collect_sources(
     session = _create_session()
 
     def _collect_for_source(source: Source) -> tuple[list[Article], list[str]]:
-        if (
-            not _source_bool(source, "bypass_crawl_health")
-            and health_store.is_disabled(source.name)
+        if not _source_bool(source, "bypass_crawl_health") and health_store.is_disabled(
+            source.name
         ):
             return [], [f"{source.name}: Source disabled (crawl health threshold reached)"]
 

@@ -8,7 +8,6 @@ from typing import Protocol, cast
 
 import pytest
 
-
 StorageError = cast(type[Exception], import_module("radar.exceptions").StorageError)
 
 

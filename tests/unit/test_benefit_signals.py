@@ -13,7 +13,6 @@ from benefitradar.benefit_signals import (
 )
 from benefitradar.models import Article
 
-
 pytestmark = pytest.mark.unit
 
 
@@ -99,9 +98,9 @@ def test_extract_application_channels_amounts_and_program_key() -> None:
 
     assert extract_application_channels(text) == ["online", "visit"]
     assert extract_benefit_amounts(text) == ["50만원"]
-    assert build_program_key(program_id="", title="서울 청년 월세 지원 신청", source="서울시 복지") == (
-        "title:서울시-복지:서울-청년-월세-지원"
-    )
+    assert build_program_key(
+        program_id="", title="서울 청년 월세 지원 신청", source="서울시 복지"
+    ) == ("title:서울시-복지:서울-청년-월세-지원")
 
 
 def test_enrich_benefit_operational_fields_prefers_embedded_card_text_over_page_summary() -> None:

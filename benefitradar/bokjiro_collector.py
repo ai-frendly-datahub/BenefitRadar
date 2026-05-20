@@ -13,7 +13,6 @@ import structlog
 
 from .models import Article, Source
 
-
 logger = structlog.get_logger(__name__)
 
 # Cache configuration

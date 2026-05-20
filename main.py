@@ -4,17 +4,21 @@ import argparse
 from pathlib import Path
 from typing import cast
 
+from radar_core.config_loader import filter_sources
+from radar_core.ontology import annotate_articles_with_ontology
+
 from benefitradar.analyzer import apply_entity_rules
+from benefitradar.benefit_signals import enrich_benefit_operational_fields
 from benefitradar.collector import collect_sources
 from benefitradar.common.date_storage import apply_date_storage_policy
 from benefitradar.common.validators import validate_article
-from benefitradar.benefit_signals import enrich_benefit_operational_fields
 from benefitradar.config_loader import (
     load_category_config,
     load_category_quality_config,
     load_notification_config,
     load_settings,
 )
+from benefitradar.models import Article, Source
 from benefitradar.notifier import (
     BenefitNotifier,
     detect_benefit_notifications,
@@ -22,15 +26,12 @@ from benefitradar.notifier import (
 from benefitradar.notifier import (
     NotificationConfig as BenefitNotificationConfig,
 )
-from benefitradar.models import Article, Source
-from benefitradar.raw_logger import RawLogger
 from benefitradar.quality_report import build_quality_report, write_quality_report
+from benefitradar.raw_logger import RawLogger
 from benefitradar.relevance import apply_source_context_entities, filter_relevant_articles
 from benefitradar.reporter import generate_index_html, generate_report
 from benefitradar.search_index import SearchIndex
 from benefitradar.storage import RadarStorage
-from radar_core.ontology import annotate_articles_with_ontology
-from radar_core.config_loader import filter_sources
 
 
 def run(
@@ -121,23 +122,27 @@ def run(
         BenefitNotificationConfig(
             enabled=notification_config.enabled,
             channels=notification_config.channels,
-            email_settings={
-                "smtp_host": notification_config.email.smtp_host,
-                "smtp_port": notification_config.email.smtp_port,
-                "username": notification_config.email.username,
-                "password": notification_config.email.password,
-                "from_address": notification_config.email.from_address,
-                "to_addresses": notification_config.email.to_addresses,
-            }
-            if notification_config.email is not None
-            else {},
+            email_settings=(
+                {
+                    "smtp_host": notification_config.email.smtp_host,
+                    "smtp_port": notification_config.email.smtp_port,
+                    "username": notification_config.email.username,
+                    "password": notification_config.email.password,
+                    "from_address": notification_config.email.from_address,
+                    "to_addresses": notification_config.email.to_addresses,
+                }
+                if notification_config.email is not None
+                else {}
+            ),
             webhook_url=notification_config.webhook_url or "",
-            telegram_config={
-                "bot_token": notification_config.telegram.bot_token,
-                "chat_id": notification_config.telegram.chat_id,
-            }
-            if notification_config.telegram is not None
-            else {},
+            telegram_config=(
+                {
+                    "bot_token": notification_config.telegram.bot_token,
+                    "chat_id": notification_config.telegram.chat_id,
+                }
+                if notification_config.telegram is not None
+                else {}
+            ),
             rules=notification_config.rules,
         )
     )
@@ -301,7 +306,7 @@ def parse_args() -> argparse.Namespace:
         "--generate-report",
         action="store_true",
         default=False,
-        help="Generate HTML report after collection",
+        help="Compatibility option; reports are generated on every run",
     )
     _ = parser.add_argument(
         "--max-sources",
@@ -338,8 +343,6 @@ def _to_int(value: object, default: int) -> int:
     return default
 
 
-
-
 def _to_optional_int(value: object) -> int | None:
     if value is None:
         return None
@@ -359,6 +362,8 @@ def _to_str_list(value: object) -> list[str]:
     if isinstance(value, list):
         return [str(item) for item in cast(list[object], value) if isinstance(item, str)]
     return []
+
+
 if __name__ == "__main__":
     args = cast(dict[str, object], vars(parse_args()))
     _ = run(

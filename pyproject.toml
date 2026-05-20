@@ -37,7 +37,7 @@ dependencies = [
     "structlog>=24.2.0",
     "mcp>=1.0.0",
     "pybreaker>=1.0.0",
-    "radar-core",
+    "radar-core @ git+https://github.com/ai-frendly-datahub/radar-core.git@81108dd689b7966d613b32a48ec3a1c60d1cd542",
 ]
 
 [project.optional-dependencies]
@@ -115,7 +115,6 @@ ignore = [
 [tool.ruff.lint.isort]
 known-first-party = ["benefitradar"]
 force-single-line = false
-lines-after-imports = 2
 
 # Pytest configuration
 [tool.pytest.ini_options]
@@ -173,11 +172,13 @@ disallow_untyped_defs = true
 ignore_missing_imports = true
 show_error_codes = true
 show_error_context = true
+exclude = [
+    "^tests/",
+]
 
 [[tool.mypy.overrides]]
 module = [
     "feedparser.*",
-    "bs4.*",
     "duckdb.*",
 ]
 ignore_missing_imports = true

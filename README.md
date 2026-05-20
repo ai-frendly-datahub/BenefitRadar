@@ -3,11 +3,11 @@
 **🌐 Live Report**: https://ai-frendly-datahub.github.io/BenefitRadar/
 
 
-복지로 API를 통해 정부 복지 정보를 실시간으로 수집하고, 키워드 기반 엔티티 분석으로 복지 동향을 추적합니다.
+정부 공식 RSS/웹 공고와 API 후보를 통해 복지 정보를 수집하고, 키워드 기반 엔티티 분석으로 복지 동향을 추적합니다.
 
 ## 프로젝트 목표
 
-- **데이터 수집**: 복지로 API (bokjiro.go.kr)
+- **데이터 수집**: 정책브리핑, 정부·지자체 공고, 보조금24/복지 API 후보
 - **엔티티 분석**: 복지 카테고리별 키워드 매칭 (주거, 교육, 의료, 일자리 등)
 - **트렌드 리포트**: DuckDB 저장 + HTML 리포트로 복지/지원금 동향 시각화
 - **자동화**: GitHub Actions 일일 수집 + GitHub Pages 리포트 자동 배포
@@ -22,10 +22,12 @@
 
 ## 빠른 시작
 
-1. 가상환경을 만들고 의존성을 설치합니다.
+1. 가상환경을 만들고 런타임 의존성을 설치합니다.
    ```bash
    pip install -r requirements.txt
    ```
+
+   개발/테스트 의존성까지 설치하려면 `pip install -r requirements-dev.txt`를 사용합니다.
 
 2. 실행:
    ```bash

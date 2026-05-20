@@ -43,8 +43,7 @@ class SearchIndex:
 
     def _create_schema(self) -> None:
         conn = self._connection()
-        _ = conn.executescript(
-            """
+        _ = conn.executescript("""
             CREATE TABLE IF NOT EXISTS documents (
                 link TEXT PRIMARY KEY,
                 title TEXT NOT NULL,
@@ -71,8 +70,7 @@ class SearchIndex:
                 INSERT INTO documents_fts(rowid, title, body)
                 VALUES (new.rowid, new.title, new.body);
             END;
-            """
-        )
+            """)
         conn.commit()
 
     def upsert(self, link: str, title: str, body: str) -> None:

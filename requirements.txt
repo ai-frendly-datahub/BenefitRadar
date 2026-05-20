@@ -1,3 +1,2 @@
--e .[dev]
+-e .
 plotly>=5.14.0
-radar-core>=0.2.0

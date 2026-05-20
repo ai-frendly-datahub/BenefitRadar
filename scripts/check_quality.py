@@ -3,25 +3,26 @@
 
 from __future__ import annotations
 
-from datetime import UTC, date, datetime
 import sys
+from collections.abc import Callable
+from datetime import UTC, date, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import duckdb
 import yaml
-
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT.parent / "radar-core"))
 
+from benefitradar.benefit_signals import enrich_benefit_operational_fields  # noqa: E402
 from benefitradar.common.quality_checks import run_all_checks  # noqa: E402
 from benefitradar.config_loader import (  # noqa: E402
     load_category_config,
     load_category_quality_config,
 )
-from benefitradar.benefit_signals import enrich_benefit_operational_fields  # noqa: E402
+from benefitradar.models import Article  # noqa: E402
 from benefitradar.quality_report import build_quality_report, write_quality_report  # noqa: E402
 from benefitradar.relevance import (  # noqa: E402
     apply_source_context_entities,
@@ -36,7 +37,9 @@ def _project_path(project_root: Path, raw_path: str | Path) -> Path:
 
 
 def _load_runtime_config(project_root: Path) -> dict[str, Any]:
-    raw = yaml.safe_load((project_root / "config" / "config.yaml").read_text(encoding="utf-8")) or {}
+    raw = (
+        yaml.safe_load((project_root / "config" / "config.yaml").read_text(encoding="utf-8")) or {}
+    )
     return raw if isinstance(raw, dict) else {}
 
 
@@ -86,10 +89,10 @@ def _lookback_days(target_date: date | None, *, minimum_days: int = 7) -> int:
     return max(minimum_days, age_days)
 
 
-def _dedupe_articles(articles: list[object]) -> list[object]:
-    deduped: dict[str, object] = {}
+def _dedupe_articles(articles: list[Article]) -> list[Article]:
+    deduped: dict[str, Article] = {}
     for article in articles:
-        key = getattr(article, "link", None) or f"{getattr(article, 'source', '')}:{getattr(article, 'title', '')}"
+        key = article.link or f"{article.source}:{article.title}"
         deduped.setdefault(str(key), article)
     return list(deduped.values())
 
@@ -114,10 +117,16 @@ def generate_quality_artifacts(
     lookback_days = _lookback_days(_latest_article_date(db_path, category_cfg.category_name))
 
     with RadarStorage(db_path) as storage:
+        recent_by_collected_at = cast(
+            Callable[..., list[Article]],
+            storage.recent_articles_by_collected_at,  # type: ignore[attr-defined]
+        )
         articles = _dedupe_articles(
             [
-                *storage.recent_articles(category_cfg.category_name, days=lookback_days, limit=1000),
-                *storage.recent_articles_by_collected_at(
+                *storage.recent_articles(
+                    category_cfg.category_name, days=lookback_days, limit=1000
+                ),
+                *recent_by_collected_at(
                     category_cfg.category_name,
                     days=lookback_days,
                     limit=1000,

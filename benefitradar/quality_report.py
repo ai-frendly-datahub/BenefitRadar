@@ -9,7 +9,6 @@ from typing import Any
 
 from .models import Article, CategoryConfig, Source
 
-
 TRACKED_EVENT_MODEL_ORDER = [
     "support_program_notice",
     "application_deadline",
@@ -51,9 +50,7 @@ def build_quality_report(
     status_counts = Counter(str(row["status"]) for row in source_rows)
     event_counts = Counter(str(row["event_model"]) for row in event_rows)
     program_keys = {
-        str(row["program_key"])
-        for row in event_rows
-        if str(row.get("program_key") or "")
+        str(row["program_key"]) for row in event_rows if str(row.get("program_key") or "")
     }
     deadline_with_program_key = sum(
         1
@@ -155,7 +152,9 @@ def _build_event_rows(
                     "program_key": _first_match(article, "BenefitProgramKey"),
                     "application_deadline": _first_match(article, "ApplicationDeadline"),
                     "application_start_date": _first_match(article, "ApplicationStartDate"),
-                    "application_channels": _list(article.matched_entities.get("ApplicationChannel")),
+                    "application_channels": _list(
+                        article.matched_entities.get("ApplicationChannel")
+                    ),
                     "benefit_amounts": _list(article.matched_entities.get("BenefitAmount")),
                     "selection_result_date": _first_match(article, "SelectionResultDate"),
                     "selected_count": _first_match(article, "SelectionSelectedCount"),
@@ -225,9 +224,7 @@ def _build_source_row(
         "latest_application_channels": (
             latest_event.get("application_channels", []) if latest_event else []
         ),
-        "latest_benefit_amounts": (
-            latest_event.get("benefit_amounts", []) if latest_event else []
-        ),
+        "latest_benefit_amounts": (latest_event.get("benefit_amounts", []) if latest_event else []),
         "latest_selection_result_date": (
             str(latest_event.get("selection_result_date", "")) if latest_event else ""
         ),
@@ -330,11 +327,8 @@ def _latest_event(event_rows: list[dict[str, Any]]) -> dict[str, Any] | None:
 
 def _event_datetime(article: Article, event_model: str) -> datetime | None:
     if event_model == "support_program_notice":
-        return (
-            _as_utc(article.published or article.collected_at)
-            if (article.published or article.collected_at)
-            else None
-        )
+        event_time = article.published or article.collected_at
+        return _as_utc(event_time) if event_time is not None else None
     if event_model == "application_deadline":
         deadline = _first_match(article, "ApplicationDeadline")
         if deadline:
@@ -343,11 +337,8 @@ def _event_datetime(article: Article, event_model: str) -> datetime | None:
         result_date = _first_match(article, "SelectionResultDate")
         if result_date:
             return _parse_datetime(result_date)
-    return (
-        _as_utc(article.published or article.collected_at)
-        if (article.published or article.collected_at)
-        else None
-    )
+    event_time = article.published or article.collected_at
+    return _as_utc(event_time) if event_time is not None else None
 
 
 def _first_match(article: Article, key: str) -> str:

@@ -12,8 +12,7 @@ from benefitradar.search_index import SearchIndex
 def _init_articles_table(db_path: Path) -> None:
     conn = duckdb.connect(str(db_path))
     try:
-        _ = conn.execute(
-            """
+        _ = conn.execute("""
             CREATE TABLE articles (
                 id BIGINT PRIMARY KEY,
                 category TEXT NOT NULL,
@@ -25,8 +24,7 @@ def _init_articles_table(db_path: Path) -> None:
                 collected_at TIMESTAMP NOT NULL,
                 entities_json TEXT
             )
-            """
-        )
+            """)
     finally:
         conn.close()
 
@@ -174,6 +172,23 @@ def test_handle_search(tmp_path: Path) -> None:
     assert "Old coffee demand" not in output
 
 
+def test_handle_search_empty_query_and_non_positive_limit(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_search
+
+    db_path = tmp_path / "radar.duckdb"
+    search_db_path = tmp_path / "search.db"
+    _init_articles_table(db_path)
+
+    assert (
+        handle_search(search_db_path=search_db_path, db_path=db_path, query="   ", limit=10)
+        == "No results found."
+    )
+    assert (
+        handle_search(search_db_path=search_db_path, db_path=db_path, query="coffee", limit=0)
+        == "No results found."
+    )
+
+
 def test_handle_recent_updates(tmp_path: Path) -> None:
     from mcp_server.tools import handle_recent_updates
 
@@ -202,6 +217,16 @@ def test_handle_recent_updates(tmp_path: Path) -> None:
     assert "Older" not in output
 
 
+def test_handle_recent_updates_empty_and_non_positive_limit(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_recent_updates
+
+    db_path = tmp_path / "radar.duckdb"
+    _init_articles_table(db_path)
+
+    assert handle_recent_updates(db_path=db_path, limit=0) == "No recent updates found."
+    assert handle_recent_updates(db_path=db_path, days=7, limit=10) == "No recent updates found."
+
+
 def test_handle_sql_select(tmp_path: Path) -> None:
     from mcp_server.tools import handle_sql
 
@@ -212,6 +237,18 @@ def test_handle_sql_select(tmp_path: Path) -> None:
 
     assert "total" in output
     assert "0" in output
+
+
+def test_handle_sql_empty_rows_and_database_errors(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_sql
+
+    db_path = tmp_path / "radar.duckdb"
+    _init_articles_table(db_path)
+
+    assert handle_sql(db_path=db_path, query="SELECT title FROM articles WHERE 1=0") == (
+        "No rows returned."
+    )
+    assert "Error:" in handle_sql(db_path=db_path, query="SELECT missing_column FROM articles")
 
 
 def test_handle_sql_blocked(tmp_path: Path) -> None:
@@ -257,11 +294,166 @@ def test_handle_top_trends(tmp_path: Path) -> None:
     assert "1" in output
 
 
+def test_handle_top_trends_empty_invalid_json_and_non_list_entities(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_top_trends
+
+    db_path = tmp_path / "radar.duckdb"
+    _init_articles_table(db_path)
+    now = datetime.now(UTC)
+    _seed_article(
+        db_path=db_path,
+        article_id=1,
+        title="bad json",
+        link="https://example.com/bad-json",
+        collected_at=now,
+    )
+    conn = duckdb.connect(str(db_path))
+    try:
+        _ = conn.execute(
+            "UPDATE articles SET entities_json = ? WHERE link = ?",
+            ["{not-json", "https://example.com/bad-json"],
+        )
+        _ = conn.execute(
+            """
+            INSERT INTO articles (id, category, source, title, link, summary, published, collected_at, entities_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            [
+                2,
+                "coffee",
+                "Test Source",
+                "non-list",
+                "https://example.com/non-list",
+                "summary",
+                None,
+                now,
+                json.dumps({"Region": "not-list"}),
+            ],
+        )
+    finally:
+        conn.close()
+
+    assert handle_top_trends(db_path=db_path, limit=0) == "No trend data available."
+    assert handle_top_trends(db_path=db_path, days=7, limit=10) == "No trend data available."
+
+
+def test_handle_benefit_match_query_no_query_tags_and_empty(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_benefit_match
+
+    db_path = tmp_path / "radar.duckdb"
+    _init_articles_table(db_path)
+    now = datetime.now(UTC)
+    _seed_article(
+        db_path=db_path,
+        article_id=1,
+        title="청년 주거 지원금",
+        link="https://example.com/youth",
+        collected_at=now,
+        entities={"SubsidyProgram": ["지원금"]},
+    )
+    _seed_article(
+        db_path=db_path,
+        article_id=2,
+        title="노인 의료비 지원",
+        link="https://example.com/health",
+        collected_at=now,
+    )
+
+    matched = handle_benefit_match(db_path=db_path, query="청년", days=7, limit=10)
+    all_recent = handle_benefit_match(db_path=db_path, query="", days=7, limit=10)
+    empty = handle_benefit_match(db_path=db_path, query="없는검색어", days=7, limit=10)
+
+    assert "청년 주거 지원금 [SubsidyProgram]" in matched
+    assert "노인 의료비 지원" not in matched
+    assert "청년 주거 지원금" in all_recent
+    assert "노인 의료비 지원" in all_recent
+    assert empty == "No matching benefits found."
+
+
+def test_filter_links_by_days_and_load_recent_quality_articles_edge_cases(tmp_path: Path) -> None:
+    from benefitradar.mcp_server import tools
+
+    missing_db = tmp_path / "missing.duckdb"
+    db_without_articles = tmp_path / "empty.duckdb"
+    conn = duckdb.connect(str(db_without_articles))
+    conn.close()
+
+    assert tools._filter_links_by_days(db_path=missing_db, links=[], days=7) == set()
+    assert (
+        tools._load_recent_quality_articles(
+            db_path=missing_db,
+            category="benefit",
+            days=7,
+            limit=10,
+        )
+        == []
+    )
+    assert (
+        tools._load_recent_quality_articles(
+            db_path=db_without_articles,
+            category="benefit",
+            days=7,
+            limit=10,
+        )
+        == []
+    )
+    assert (
+        tools._load_recent_quality_articles(
+            db_path=db_without_articles,
+            category="benefit",
+            days=7,
+            limit=0,
+        )
+        == []
+    )
+
+
+def test_load_recent_quality_articles_parses_entities_and_dates(tmp_path: Path) -> None:
+    from benefitradar.mcp_server import tools
+
+    db_path = tmp_path / "radar.duckdb"
+    _init_articles_table(db_path)
+    now = datetime.now(UTC)
+    _seed_quality_article(
+        db_path=db_path,
+        article_id=1,
+        title="청년 지원금 신청",
+        link="https://example.com/benefit",
+        source="Deadline Source",
+        collected_at=now,
+        entities={"SubsidyProgram": ["지원금"], "Bad": ["ok"]},
+    )
+    conn = duckdb.connect(str(db_path))
+    try:
+        _ = conn.execute(
+            "UPDATE articles SET entities_json = ? WHERE link = ?",
+            [
+                json.dumps({"SubsidyProgram": ["지원금"], "Ignored": "not-list"}),
+                "https://example.com/benefit",
+            ],
+        )
+    finally:
+        conn.close()
+
+    articles = tools._load_recent_quality_articles(
+        db_path=db_path,
+        category="benefit",
+        days=0,
+        limit=10,
+    )
+
+    assert len(articles) == 1
+    assert articles[0].matched_entities == {"SubsidyProgram": ["지원금"]}
+    assert articles[0].published is not None
+    assert articles[0].collected_at is not None
+
+
 def test_handle_quality_report_returns_benefit_operational_json(tmp_path: Path) -> None:
     from mcp_server.tools import handle_quality_report
 
     db_path = tmp_path / "radar.duckdb"
     categories_dir = tmp_path / "categories"
+    deadline = (datetime.now(UTC) + timedelta(days=1)).date().isoformat()
     _write_quality_category_config(categories_dir)
     _init_articles_table(db_path)
     _seed_quality_article(
@@ -273,7 +465,7 @@ def test_handle_quality_report_returns_benefit_operational_json(tmp_path: Path) 
         collected_at=datetime.now(UTC),
         entities={
             "OperationalEvent": ["application_deadline"],
-            "ApplicationDeadline": ["2026-04-30"],
+            "ApplicationDeadline": [deadline],
         },
     )
 

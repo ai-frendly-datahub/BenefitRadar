@@ -8,7 +8,6 @@ import pytest
 from benefitradar.models import Article, CategoryConfig
 from benefitradar.reporter import generate_report
 
-
 pytestmark = pytest.mark.unit
 
 
@@ -55,7 +54,7 @@ def test_generate_report_injects_benefit_quality_panel_into_latest_and_dated_rep
                 "selected_count": "120",
                 "execution_amount": "3억원",
                 "program_key": "title:selection-source:청년-월세-지원",
-            }
+            },
         ],
     }
 
@@ -93,16 +92,15 @@ def test_generate_report_injects_benefit_quality_panel_into_latest_and_dated_rep
     assert "selected 120" in latest_html
 
     dated_report = next(
-        path
-        for path in tmp_path.glob(
-            "benefit_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].html"
-        )
+        path for path in tmp_path.glob("benefit_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].html")
     )
     dated_html = dated_report.read_text(encoding="utf-8")
     assert 'id="benefit-quality"' in dated_html
     assert "Eligibility Source" in dated_html
 
-    summaries = sorted(tmp_path.glob("benefit_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_summary.json"))
+    summaries = sorted(
+        tmp_path.glob("benefit_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_summary.json")
+    )
     assert len(summaries) == 1
     summary = summaries[0].read_text(encoding="utf-8")
     assert '"repo": "BenefitRadar"' in summary

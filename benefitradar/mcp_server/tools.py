@@ -15,7 +15,6 @@ from benefitradar.nl_query import parse_query
 from benefitradar.quality_report import build_quality_report
 from benefitradar.search_index import SearchIndex
 
-
 _ALLOWED_SQL = re.compile(r"^\s*(SELECT|WITH|EXPLAIN)\b", re.IGNORECASE)
 
 
@@ -240,6 +239,12 @@ def handle_benefit_match(*, db_path: Path, query: str = "", days: int = 30, limi
         lines.append(f"  Source: {source} | {collected_at}")
         lines.append(f"  Link: {link}")
     return "\n".join(lines)
+
+
+def handle_price_watch(*, threshold: float = 0.0) -> str:
+    """Compatibility stub for template MCP clients that still call price_watch."""
+    _ = threshold
+    return "Not available in template project"
 
 
 def handle_quality_report(

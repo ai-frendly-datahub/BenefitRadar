@@ -8,7 +8,6 @@ from .validators import (
     validate_url_format,
 )
 
-
 __all__ = [
     "detect_duplicate_articles",
     "is_similar_url",

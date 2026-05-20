@@ -95,7 +95,7 @@ def _dict_value(raw: dict[str, object], key: str) -> dict[str, object]:
     value = raw.get(key)
     if isinstance(value, dict):
         value_dict = cast(dict[object, object], _resolve_env_refs(value))
-        return {str(k): cast(object, v) for k, v in value_dict.items()}
+        return {str(k): v for k, v in value_dict.items()}
     return {}
 
 

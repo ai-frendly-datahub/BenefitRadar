@@ -12,7 +12,6 @@ from radar_core.models import (
     TelegramSettings,
 )
 
-
 __all__ = [
     "Article",
     "CategoryConfig",

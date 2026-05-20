@@ -170,14 +170,12 @@ def check_language_values(
 
     raw_rows = cast(
         list[tuple[object, object]],
-        con.execute(
-            f"""
+        con.execute(f"""
         SELECT {_quote_identifier(language_column)} AS language_value, COUNT(*) AS cnt
         FROM {_quote_identifier(table_name)}
         GROUP BY {_quote_identifier(language_column)}
         ORDER BY cnt DESC, language_value
-        """
-        ).fetchall(),
+        """).fetchall(),
     )
     rows: list[tuple[str | None, int]] = [
         (None if row[0] is None else str(row[0]), _to_int(row[1])) for row in raw_rows

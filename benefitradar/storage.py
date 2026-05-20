@@ -72,9 +72,7 @@ class RadarStorage(CoreRadarStorage):
         today: date | None = None,
     ) -> int:
         snapshot_root = (
-            Path(snapshot_dir)
-            if snapshot_dir is not None
-            else self.db_path.parent / "daily"
+            Path(snapshot_dir) if snapshot_dir is not None else self.db_path.parent / "daily"
         )
         return cleanup_date_directories(
             snapshot_root,

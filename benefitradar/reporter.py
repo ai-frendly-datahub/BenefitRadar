@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+import json
+from collections.abc import Iterable, Mapping
 from html import escape
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any, cast
 
 from radar_core.ontology import build_summary_ontology_metadata
 from radar_core.report_utils import (
@@ -23,12 +24,20 @@ def generate_report(
     output_path: Path,
     stats: dict[str, int],
     errors: list[str] | None = None,
-    store=None,
+    store: object | None = None,
     quality_report: Mapping[str, Any] | None = None,
 ) -> Path:
     """Generate HTML report (delegates to radar-core)."""
     articles_list = list(articles)
-    plugin_charts = []
+    plugin_charts: list[dict[str, Any]] = []
+    ontology_metadata = (
+        build_summary_ontology_metadata(
+            "BenefitRadar",
+            category_name=category.category_name,
+            search_from=Path(__file__).resolve(),
+        )
+        or {}
+    )
 
     # --- Universal plugins (entity heatmap + source reliability) ---
     try:
@@ -54,13 +63,10 @@ def generate_report(
         output_path=output_path,
         stats=stats,
         errors=errors,
-        plugin_charts=plugin_charts if plugin_charts else None,
-        ontology_metadata=build_summary_ontology_metadata(
-            "BenefitRadar",
-            category_name=category.category_name,
-            search_from=Path(__file__).resolve(),
-        ),
+        plugin_charts=cast(Any, plugin_charts if plugin_charts else None),
+        ontology_metadata=ontology_metadata,
     )
+    _patch_latest_summary_metadata(result, category.category_name, ontology_metadata)
     if quality_report:
         _inject_benefit_quality_panel(result, quality_report)
         _inject_latest_dated_report_panel(result, category.category_name, quality_report)
@@ -82,13 +88,61 @@ def _inject_latest_dated_report_panel(
     quality_report: Mapping[str, Any],
 ) -> None:
     dated_reports = sorted(
-        output_path.parent.glob(
-            f"{category_name}_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].html"
-        ),
+        output_path.parent.glob(f"{category_name}_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].html"),
         key=lambda path: path.stat().st_mtime,
     )
     if dated_reports:
         _inject_benefit_quality_panel(dated_reports[-1], quality_report)
+
+
+def _patch_latest_summary_metadata(
+    output_path: Path,
+    category_name: str,
+    ontology_metadata: Mapping[str, Any],
+) -> None:
+    """Keep dated summary JSON ontology metadata stable across radar-core versions."""
+    summary_files = sorted(
+        output_path.parent.glob(
+            f"{category_name}_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_summary.json"
+        ),
+        key=lambda path: path.stat().st_mtime,
+    )
+    if not summary_files:
+        return
+
+    summary_path = summary_files[-1]
+    try:
+        payload_raw = json.loads(summary_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+    if not isinstance(payload_raw, dict):
+        return
+
+    payload = cast(dict[str, Any], payload_raw)
+    payload.setdefault("repo", str(ontology_metadata.get("repo") or "BenefitRadar"))
+    payload.setdefault(
+        "ontology_version",
+        str(ontology_metadata.get("ontology_version") or "0.1.0"),
+    )
+    event_models = ontology_metadata.get("event_models")
+    if isinstance(event_models, list) and event_models:
+        payload.setdefault("event_models", event_models)
+    else:
+        payload.setdefault(
+            "event_models",
+            [
+                "govsupport.support_program_notice",
+                "govsupport.application_deadline",
+                "govsupport.eligibility_rule",
+                "govsupport.selection_result",
+            ],
+        )
+    payload.setdefault("ontology_metadata", dict(ontology_metadata))
+
+    summary_path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def _inject_benefit_quality_panel(
@@ -119,8 +173,7 @@ def _render_benefit_quality_panel(quality_report: Mapping[str, Any]) -> str:
     flagged_sources = [
         row
         for row in sources
-        if str(row.get("status"))
-        in {"stale", "missing", "missing_event", "unknown_event_date"}
+        if str(row.get("status")) in {"stale", "missing", "missing_event", "unknown_event_date"}
     ][:6]
     chips = [
         ("fresh", summary_map.get("fresh_sources", 0)),

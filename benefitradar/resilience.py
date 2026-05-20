@@ -5,7 +5,6 @@ import threading
 import structlog
 from pybreaker import CircuitBreaker, CircuitBreakerListener, CircuitBreakerState
 
-
 logger = structlog.get_logger(__name__)
 
 

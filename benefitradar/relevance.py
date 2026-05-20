@@ -4,7 +4,6 @@ from collections.abc import Iterable
 
 from .models import Article, Source
 
-
 TRACKED_EVENT_MODELS = {
     "application_deadline",
     "eligibility_rule",
