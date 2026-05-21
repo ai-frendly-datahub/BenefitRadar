@@ -1,41 +1,41 @@
 {
   "date": "2026-05-21",
   "category": "benefit",
-  "article_count": 261,
+  "article_count": 251,
   "source_count": 16,
-  "matched_count": 261,
+  "matched_count": 251,
   "top_entities": [
     {
       "name": "GovernmentPolicy",
-      "count": 722
+      "count": 677
     },
     {
       "name": "EligibilityRegion",
-      "count": 291
+      "count": 271
     },
     {
       "name": "BenefitProgramKey",
-      "count": 261
-    },
-    {
-      "name": "OperationalEvent",
-      "count": 249
+      "count": 251
     },
     {
       "name": "SubsidyProgram",
-      "count": 240
+      "count": 236
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 235
     },
     {
       "name": "Eligibility",
-      "count": 228
+      "count": 208
     },
     {
       "name": "SourceSignal",
-      "count": 210
+      "count": 200
     },
     {
       "name": "TargetDemographic",
-      "count": 204
+      "count": 190
     },
     {
       "name": "EmploymentBenefit",
@@ -43,50 +43,51 @@
     },
     {
       "name": "SocialWelfare",
-      "count": 189
+      "count": 179
     },
     {
       "name": "EligibilityTargetGroup",
-      "count": 133
+      "count": 123
     },
     {
       "name": "ApplicationChannel",
-      "count": 77
+      "count": 70
     },
     {
       "name": "ApplicationDeadline",
-      "count": 69
+      "count": 67
     },
     {
       "name": "ApplicationStartDate",
-      "count": 62
-    },
-    {
-      "name": "FamilySupport",
-      "count": 51
+      "count": 60
     },
     {
       "name": "CultureLeisure",
-      "count": 51
+      "count": 52
+    },
+    {
+      "name": "FamilySupport",
+      "count": 50
     },
     {
       "name": "BenefitProgramId",
       "count": 50
     },
     {
-      "name": "EligibilityHousehold",
-      "count": 47
-    },
-    {
       "name": "EligibilityIncomeCondition",
       "count": 45
     },
     {
-      "name": "EligibilityLifeStage",
+      "name": "EligibilityHousehold",
       "count": 43
+    },
+    {
+      "name": "EligibilityLifeStage",
+      "count": 42
     }
   ],
   "sources": {
+    "정책브리핑 보도자료": 84,
     "경기도 일자리재단": 24,
     "서울시 복지": 1,
     "기획재정부": 1,
@@ -95,8 +96,7 @@
     "r/personalfinance": 3,
     "r/SocialSecurity": 11,
     "r/povertyfinance": 10,
-    "정책브리핑 보도자료": 87,
-    "정책브리핑": 76,
+    "정책브리핑": 69,
     "r/disability": 5,
     "r/healthcare": 6,
     "r/Unemployment": 7,
@@ -104,7 +104,7 @@
     "Government Executive": 5,
     "Federal News Network": 1
   },
-  "generated_at": "2026-05-21T11:30:08.752071+09:00",
+  "generated_at": "2026-05-21T13:08:25.688281+09:00",
   "articles": [
     {
       "event_model_payload": {
