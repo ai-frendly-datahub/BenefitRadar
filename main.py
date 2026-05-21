@@ -11,7 +11,7 @@ from benefitradar.analyzer import apply_entity_rules
 from benefitradar.benefit_signals import enrich_benefit_operational_fields
 from benefitradar.collector import collect_sources
 from benefitradar.common.date_storage import apply_date_storage_policy
-from benefitradar.common.validators import validate_article
+from benefitradar.common.validators import clean_article_text_fields, validate_article
 from benefitradar.config_loader import (
     load_category_config,
     load_category_quality_config,
@@ -30,7 +30,7 @@ from benefitradar.quality_report import build_quality_report, write_quality_repo
 from benefitradar.raw_logger import RawLogger
 from benefitradar.relevance import apply_source_context_entities, filter_relevant_articles
 from benefitradar.reporter import generate_index_html, generate_report
-from benefitradar.search_index import SearchIndex
+from benefitradar.search_index import sync_search_index_from_connection
 from benefitradar.storage import RadarStorage
 
 
@@ -84,6 +84,7 @@ def run(
         if source_articles:
             _ = raw_logger.log(source_articles, source_name=source.name)
 
+    collected = [clean_article_text_fields(article) for article in collected]
     analyzed = enrich_benefit_operational_fields(
         apply_entity_rules(collected, category_cfg.entities)
     )
@@ -163,9 +164,11 @@ def run(
     storage.upsert_articles(validated_articles)
     _ = storage.delete_older_than(keep_days)
 
-    with SearchIndex(settings.search_db_path) as search_idx:
-        for article in validated_articles:
-            search_idx.upsert(article.link, article.title, article.summary)
+    _ = sync_search_index_from_connection(
+        settings.search_db_path,
+        storage.conn,
+        category=category_cfg.category_name,
+    )
 
     recent_articles = _select_report_articles(
         storage,
@@ -216,6 +219,7 @@ def run(
         report_dir=settings.report_dir,
         keep_raw_days=keep_raw_days,
         keep_report_days=keep_report_days,
+        keep_snapshot_days=keep_days,
         snapshot_db=snapshot_db,
     )
     print(f"[Radar] Report generated at {output_path}")

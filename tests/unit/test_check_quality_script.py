@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from unittest.mock import Mock, patch
@@ -91,6 +92,20 @@ def test_generate_quality_artifacts_uses_latest_stored_checkpoint(
             ]
         )
 
+    report_dir = project_root / "reports"
+    report_dir.mkdir()
+    existing_error = "Deadline Feed: transient collection timeout"
+    (report_dir / "benefit_quality.json").write_text(
+        json.dumps(
+            {
+                "generated_at": datetime.now(UTC).isoformat(),
+                "errors": [existing_error],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
     module = _load_script_module()
     paths, report = module.generate_quality_artifacts(project_root)
 
@@ -99,6 +114,8 @@ def test_generate_quality_artifacts_uses_latest_stored_checkpoint(
     assert report["summary"]["tracked_sources"] == 1
     assert report["summary"]["application_deadline_events"] == 1
     assert report["summary"]["unique_program_key_count"] == 1
+    assert report["summary"]["collection_error_count"] == 1
+    assert report["errors"] == [existing_error]
 
     module.PROJECT_ROOT = project_root
     module.main()
@@ -162,6 +179,43 @@ def test_check_quality_helper_branches(tmp_path: Path) -> None:
         category="benefit",
     )
     assert module._dedupe_articles([first, duplicate, fallback]) == [first, fallback]
+
+    report_dir = tmp_path / "reports"
+    report_dir.mkdir()
+    assert module._load_recent_quality_errors(report_dir, category_name="benefit") == []
+    (report_dir / "benefit_quality.json").write_text("{not-json", encoding="utf-8")
+    assert module._load_recent_quality_errors(report_dir, category_name="benefit") == []
+    (report_dir / "benefit_quality.json").write_text(
+        json.dumps(
+            {
+                "generated_at": "2026-05-20T00:00:00+00:00",
+                "errors": ["stale"],
+            }
+        ),
+        encoding="utf-8",
+    )
+    assert (
+        module._load_recent_quality_errors(
+            report_dir,
+            category_name="benefit",
+            today=date(2026, 5, 21),
+        )
+        == []
+    )
+    (report_dir / "benefit_quality.json").write_text(
+        json.dumps(
+            {
+                "generated_at": "2026-05-21T00:00:00+00:00",
+                "errors": ["current", ""],
+            }
+        ),
+        encoding="utf-8",
+    )
+    assert module._load_recent_quality_errors(
+        report_dir,
+        category_name="benefit",
+        today=date(2026, 5, 21),
+    ) == ["current"]
 
 
 def test_latest_article_date_handles_duckdb_errors_and_empty_rows(tmp_path: Path) -> None:

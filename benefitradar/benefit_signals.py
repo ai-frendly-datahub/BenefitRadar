@@ -4,6 +4,7 @@ import re
 from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import UTC, date, datetime
+from html import unescape
 from urllib.parse import parse_qs, urlparse
 
 from .models import Article
@@ -25,8 +26,10 @@ _SELECTION_RESULT_MARKERS = (
     "선정결과",
     "선정 결과",
     "선정자",
+    "선정평가 결과",
     "최종선정",
     "최종 선정",
+    "신규 선정",
     "예비선정",
     "예비 선정",
     "합격자",
@@ -49,13 +52,31 @@ _AGE_RANGE_RE = re.compile(
     r"(?<!\d)(?:만\s*)?(?P<start>\d{1,3})\s*(?:세)?\s*(?:~|-|부터|이상)\s*"
     r"(?:만\s*)?(?P<end>\d{1,3})?\s*(?:세)?\s*(?:까지|이하)?(?!\d)"
 )
+_SELECTION_COUNT_UNIT_RE = (
+    r"(?:명|가구|세대|팀|개사|개\s*사|개교|개소|개처|개|건|곳|기관|기업|상품|사례)"
+)
+_SELECTION_ACTION_RE = r"(?:선정|선발|합격|지정)"
 _SELECTION_COUNT_RE = re.compile(
-    r"(?P<count>\d{1,5}(?:,\d{3})*)\s*(?:명|가구|세대|팀|개사|개\s*사|건|곳)\s*"
-    r"(?:을|를|이|가)?\s*(?:최종\s*)?(?:선정|선발|합격)"
+    rf"(?P<count>\d{{1,5}}(?:,\d{{3}})*)\s*{_SELECTION_COUNT_UNIT_RE}\s*"
+    rf"(?:을|를|이|가|의)?[^\d]{{0,40}}?{_SELECTION_ACTION_RE}"
 )
 _SELECTION_COUNT_REVERSED_RE = re.compile(
-    r"(?:선정|선발|합격)(?:자|대상|가구|기업|팀)?\s*"
-    r"(?P<count>\d{1,5}(?:,\d{3})*)\s*(?:명|가구|세대|팀|개사|개\s*사|건|곳)"
+    rf"{_SELECTION_ACTION_RE}(?:자|대상|가구|기업|팀)?\s*"
+    rf"(?P<count>\d{{1,5}}(?:,\d{{3}})*)\s*{_SELECTION_COUNT_UNIT_RE}"
+)
+_SELECTION_RESULT_EVIDENCE_RE = re.compile(
+    rf"(?:선정\s*결과|선정평가\s*결과|결과\s*발표|공모\s*결과)\s*"
+    rf"[\w가-힣\s·'\"“”‘’()「」-]{{0,45}}?{_SELECTION_ACTION_RE}|"
+    rf"(?:최종|신규|예비)\s*[\w가-힣\s·'\"“”‘’()「」-]{{0,30}}?{_SELECTION_ACTION_RE}|"
+    rf"(?:우수|대상(?:지|자)?)\s*[\w가-힣\s·'\"“”‘’()「」-]{{0,35}}?"
+    rf"\d{{1,5}}(?:,\d{{3}})*\s*{_SELECTION_COUNT_UNIT_RE}\s*{_SELECTION_ACTION_RE}|"
+    rf"{_SELECTION_ACTION_RE}(?:됐|되었|했다|하였다|했다고\s*밝)"
+)
+_SELECTION_PROGRAM_TITLE_RE = re.compile(
+    rf"(?P<title>[가-힣A-Za-z0-9][가-힣A-Za-z0-9·ㆍ\s'\"“”‘’()「」,-]{{2,90}}?)"
+    rf"(?:\s+\d{{1,5}}(?:,\d{{3}})*\s*{_SELECTION_COUNT_UNIT_RE})?\s*"
+    rf"(?:(?:최종|신규|우수|대상(?:지|자)?|후보(?:지)?|지원|사업|과제)\s*){{0,3}}"
+    rf"{_SELECTION_ACTION_RE}"
 )
 _PROGRAM_TITLE_RE = re.compile(
     r"(?P<title>[가-힣A-Za-z0-9·\-\s]{2,80}?"
@@ -119,6 +140,13 @@ def enrich_benefit_operational_fields(articles: Iterable[Article]) -> list[Artic
             article.title,
             reference_date=article.published,
         )
+        if not selection_result and _has_explicit_selection_result_summary(article.summary):
+            selection_result = extract_selection_result_fields(
+                article.summary,
+                reference_date=article.published,
+            )
+            if selection_result and article.title.strip():
+                selection_result["program_title"] = [article.title.strip()]
 
         matches = dict(article.matched_entities)
         event_models: list[str] = []
@@ -187,9 +215,9 @@ def _has_embedded_operational_sections(text: str) -> bool:
 
 
 def extract_selection_result_date(text: str, *, reference_date: datetime | None = None) -> str:
-    haystack = text.strip()
+    haystack = _plain_operational_text(text)
     haystack_lower = haystack.lower()
-    if not haystack or not any(marker in haystack_lower for marker in _SELECTION_RESULT_MARKERS):
+    if not haystack or "발표" not in haystack_lower or not _has_selection_result_evidence(haystack):
         return ""
     dates = _extract_dates(haystack, reference_date=reference_date)
     return dates[-1] if dates else ""
@@ -198,35 +226,45 @@ def extract_selection_result_date(text: str, *, reference_date: datetime | None 
 def extract_selection_result_fields(
     text: str, *, reference_date: datetime | None = None
 ) -> dict[str, list[str]]:
-    haystack = text.strip()
-    haystack_lower = haystack.lower()
-    if not haystack or not any(marker in haystack_lower for marker in _SELECTION_RESULT_MARKERS):
+    haystack = _plain_operational_text(text)
+    if not haystack or not _has_selection_result_evidence(haystack):
         return {}
+    evidence_text = " ".join(_selection_candidate_sentences(haystack)) or haystack
 
     fields: dict[str, list[str]] = {}
-    result_date = extract_selection_result_date(haystack, reference_date=reference_date)
+    result_date = extract_selection_result_date(evidence_text, reference_date=reference_date)
     if result_date:
         fields["result_date"] = [result_date]
 
-    selected_count = _first_group_match(
-        haystack,
-        (_SELECTION_COUNT_RE, _SELECTION_COUNT_REVERSED_RE),
-        "count",
-    )
+    selected_count = _best_selection_count(evidence_text)
     if selected_count:
         fields["selected_count"] = [selected_count.replace(",", "")]
 
-    amounts = extract_benefit_amounts(haystack)
+    amounts = extract_benefit_amounts(evidence_text)
     if amounts:
         fields["execution_amount"] = amounts[:1]
 
-    program_title = extract_program_title(haystack)
+    program_title = extract_program_title(evidence_text) or extract_selection_program_title(
+        evidence_text
+    )
     if program_title:
         fields["program_title"] = [program_title]
 
     if not any(key in fields for key in ("selected_count", "execution_amount", "program_title")):
         return {}
     return fields
+
+
+def extract_selection_program_title(text: str) -> str:
+    haystack = _plain_operational_text(text)
+    for sentence in _selection_candidate_sentences(haystack):
+        match = _SELECTION_PROGRAM_TITLE_RE.search(sentence)
+        if not match:
+            continue
+        title = _clean_selection_program_title(match.group("title"))
+        if title:
+            return title
+    return ""
 
 
 def extract_eligibility_fields(text: str) -> dict[str, list[str]]:
@@ -329,6 +367,68 @@ def extract_program_title(text: str) -> str:
     if not match:
         return ""
     return re.sub(r"\s+", " ", match.group("title")).strip()
+
+
+def _plain_operational_text(text: str) -> str:
+    without_tags = re.sub(r"<[^>]+>", " ", text)
+    return re.sub(r"\s+", " ", unescape(without_tags)).strip()
+
+
+def _has_selection_result_evidence(text: str) -> bool:
+    haystack = _plain_operational_text(text)
+    haystack_lower = haystack.lower()
+    if _is_future_selection_statement(haystack):
+        return False
+    if any(marker in haystack_lower for marker in _SELECTION_RESULT_MARKERS):
+        return True
+    return bool(_SELECTION_RESULT_EVIDENCE_RE.search(haystack))
+
+
+def _has_explicit_selection_result_summary(text: str) -> bool:
+    haystack = _plain_operational_text(text).lower()
+    if _is_future_selection_statement(haystack):
+        return False
+    return any(
+        marker in haystack
+        for marker in (
+            "선정 결과",
+            "선정결과",
+            "선정평가 결과",
+            "결과를 발표",
+            "결과 발표",
+        )
+    )
+
+
+def _is_future_selection_statement(text: str) -> bool:
+    haystack = _plain_operational_text(text)
+    return any(
+        marker in haystack
+        for marker in (
+            "발표할 계획",
+            "발표할 예정",
+            "선정할 계획",
+            "선정할 예정",
+        )
+    )
+
+
+def _selection_candidate_sentences(text: str) -> list[str]:
+    normalized = re.sub(r"\[[^\]]{2,30}\]", " ", text)
+    parts = re.split(r"[!?\n]|…| - ", normalized)
+    candidates = [re.sub(r"\s+", " ", part).strip() for part in parts]
+    return [candidate for candidate in candidates if _has_selection_result_evidence(candidate)]
+
+
+def _clean_selection_program_title(title: str) -> str:
+    cleaned = re.sub(r"\s+", " ", title).strip(" ,-'\"“”‘’")
+    cleaned = re.sub(r"^(?:새글\s*)+", "", cleaned)
+    cleaned = re.sub(r"^[가-힣A-Za-z0-9·ㆍ\s]{2,30}부는\s+", "", cleaned)
+    cleaned = re.sub(r"^[가-힣A-Za-z0-9·ㆍ\s]{2,30}청은\s+", "", cleaned)
+    cleaned = re.sub(r"^[가-힣A-Za-z0-9·ㆍ\s]{2,30}는\s+", "", cleaned)
+    if not cleaned or cleaned in {"선정 결과", "선정결과", "결과 발표"}:
+        return ""
+    return cleaned[:120].strip()
 
 
 def extract_program_id(url: str) -> str:
@@ -468,6 +568,16 @@ def _first_group_match(text: str, patterns: Iterable[re.Pattern[str]], group: st
         if match:
             return str(match.group(group))
     return ""
+
+
+def _best_selection_count(text: str) -> str:
+    matches: list[tuple[int, int, str]] = []
+    for pattern in (_SELECTION_COUNT_RE, _SELECTION_COUNT_REVERSED_RE):
+        for match in pattern.finditer(text):
+            matches.append((match.end() - match.start(), match.start(), str(match.group("count"))))
+    if not matches:
+        return ""
+    return min(matches)[2]
 
 
 def _selection_entity_key(field_name: str) -> str:

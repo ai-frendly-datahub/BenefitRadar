@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import sys
 import time
+from datetime import UTC, datetime
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
@@ -178,7 +179,6 @@ def test_collect_sources_disabled_circuit_and_optional_collector_import_errors()
         patch("radar.collector._collect_reddit_pass", side_effect=ImportError),
         patch("radar.collector._create_session") as mock_create_session,
     ):
-        session = mock_create_session.return_value
         articles, errors = collect_sources(
             [disabled, breaker_open, browser, reddit],
             category="benefit",
@@ -191,7 +191,7 @@ def test_collect_sources_disabled_circuit_and_optional_collector_import_errors()
     assert any("Browser collection unavailable" in error for error in errors)
     assert any("Reddit collection unavailable" in error for error in errors)
     assert health_store.closed is True
-    session.close.assert_called_once_with()
+    mock_create_session.assert_not_called()
 
     health_store.disabled = False
     with (
@@ -261,7 +261,11 @@ def test_collect_single_rss_content_summary_skip_and_date_fallbacks(monkeypatch)
     assert articles[0].published.tzinfo is not None
 
     parsed_time = time.strptime("2026-05-21 12:00:00", "%Y-%m-%d %H:%M:%S")
-    assert _extract_datetime({"published_parsed": parsed_time}) is not None
-    assert _extract_datetime({"updated_parsed": parsed_time}) is not None
+    assert _extract_datetime({"published_parsed": parsed_time}) == datetime(
+        2026, 5, 21, 12, 0, tzinfo=UTC
+    )
+    assert _extract_datetime({"updated_parsed": parsed_time}) == datetime(
+        2026, 5, 21, 12, 0, tzinfo=UTC
+    )
     assert _extract_datetime({"date": "bad date"}) is None
     assert _entry_text({"value": 3}, "value") == ""

@@ -16,6 +16,9 @@ from datetime import UTC, datetime
 import pytest
 
 from benefitradar.common.validators import (
+    clean_article_text_fields,
+    clean_display_title,
+    clean_summary_text,
     detect_duplicate_articles,
     is_similar_url,
     normalize_title,
@@ -67,6 +70,56 @@ class TestNormalizeTitle:
     def test_normalize_korean_characters(self) -> None:
         result = normalize_title("속보 뉴스")
         assert result == "속보 뉴스"
+
+
+class TestCleanArticleTextFields:
+    def test_clean_display_title_keeps_normal_title(self) -> None:
+        assert clean_display_title("  청년 지원금 신청 안내  ") == "청년 지원금 신청 안내"
+
+    def test_clean_display_title_selects_program_line_from_browser_blob(self) -> None:
+        noisy = """
+        광주시정신건강복지센터
+        [광주시] 청년 마인드 톡톡
+        D - 1
+        모집일정 :
+        2026-04-01 ~ 2026-04-15
+        지원대상 :
+        광주시 거주 청년 만 19세-34세
+        #청년마인드
+        """
+
+        assert clean_display_title(noisy) == "[광주시] 청년 마인드 톡톡"
+
+    def test_clean_display_title_truncates_when_no_good_line_exists(self) -> None:
+        noisy = ("x" * 400) + "\n#tag\nD - 1"
+
+        cleaned = clean_display_title(noisy)
+
+        assert len(cleaned) <= 220
+        assert cleaned.endswith("...")
+
+    def test_clean_summary_text_collapses_and_truncates(self) -> None:
+        cleaned = clean_summary_text("a\n\n b\t" + ("c" * 9000))
+
+        assert "\n" not in cleaned
+        assert len(cleaned) <= 8000
+        assert cleaned.endswith("...")
+
+    def test_clean_article_text_fields_mutates_article_for_storage(self) -> None:
+        article = Article(
+            title="기관\n2026 청년미래플러스 참여자 모집\nD - 5",
+            link="https://example.com/article",
+            summary="summary\n" + ("x" * 9000),
+            published=datetime.now(UTC),
+            source="source",
+            category="benefit",
+        )
+
+        result = clean_article_text_fields(article)
+
+        assert result is article
+        assert article.title == "2026 청년미래플러스 참여자 모집"
+        assert len(article.summary) <= 8000
 
 
 class TestValidateUrlFormat:

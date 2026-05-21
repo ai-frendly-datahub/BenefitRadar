@@ -8,7 +8,7 @@ from typing import cast
 from radar_core.exceptions import StorageError
 from radar_core.storage import RadarStorage as CoreRadarStorage
 
-from .date_storage import cleanup_date_directories, snapshot_database
+from .date_storage import cleanup_date_directories, cleanup_dated_snapshot_files, snapshot_database
 from .models import Article
 
 
@@ -74,11 +74,17 @@ class RadarStorage(CoreRadarStorage):
         snapshot_root = (
             Path(snapshot_dir) if snapshot_dir is not None else self.db_path.parent / "daily"
         )
-        return cleanup_date_directories(
+        removed_directories = cleanup_date_directories(
             snapshot_root,
             keep_days=keep_days,
             today=today,
         )
+        removed_files = cleanup_dated_snapshot_files(
+            snapshot_root,
+            keep_days=keep_days,
+            today=today,
+        )
+        return removed_directories + removed_files
 
 
 __all__ = ["RadarStorage", "StorageError"]

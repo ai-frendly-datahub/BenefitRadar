@@ -4,6 +4,7 @@ import html
 import os
 import threading
 import time
+from calendar import timegm
 from collections.abc import Mapping
 from concurrent.futures import Future, ThreadPoolExecutor
 from datetime import UTC, datetime
@@ -268,7 +269,6 @@ def collect_sources(
     throttler = AdaptiveThrottler(min_delay=max(0.001, min_interval_per_host))
     health_store = CrawlHealthStore(resolved_health_db_path)
     _set_collection_controls(throttler, health_store)
-    session = _create_session()
 
     def _collect_for_source(source: Source) -> tuple[list[Article], list[str]]:
         if not _source_bool(source, "bypass_crawl_health") and health_store.is_disabled(
@@ -279,6 +279,7 @@ def collect_sources(
         host = source_hosts[source.name]
         rate_limiters[host].acquire()
 
+        session = _create_session()
         try:
             breaker = manager.get_breaker(source.name)
             result = breaker.call(
@@ -298,6 +299,8 @@ def collect_sources(
             return [], [f"{source.name}: {exc}"]
         except Exception as exc:
             return [], [f"{source.name}: Unexpected error - {type(exc).__name__}: {exc}"]
+        finally:
+            session.close()
 
     try:
         if workers == 1:
@@ -355,7 +358,6 @@ def collect_sources(
                 f"{source.name}: Source type '{source.type}' is cataloged but not collected by the benefit pipeline"
             )
     finally:
-        session.close()
         health_store.close()
         _clear_collection_controls()
 
@@ -437,11 +439,11 @@ def _extract_datetime(entry: Mapping[str, Any]) -> datetime | None:
     """Parse a feed entry date into a timezone-aware datetime."""
     published_parsed = entry.get("published_parsed")
     if isinstance(published_parsed, time.struct_time):
-        return datetime.fromtimestamp(time.mktime(published_parsed), tz=UTC)
+        return datetime.fromtimestamp(timegm(published_parsed), tz=UTC)
 
     updated_parsed = entry.get("updated_parsed")
     if isinstance(updated_parsed, time.struct_time):
-        return datetime.fromtimestamp(time.mktime(updated_parsed), tz=UTC)
+        return datetime.fromtimestamp(timegm(updated_parsed), tz=UTC)
 
     for key in ("published", "updated", "date"):
         raw = entry.get(key)

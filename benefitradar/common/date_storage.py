@@ -12,6 +12,7 @@ from typing import Any
 from benefitradar.date_storage import (
     cleanup_date_directories,
     cleanup_dated_reports,
+    cleanup_dated_snapshot_files,
     snapshot_database,
 )
 
@@ -23,6 +24,7 @@ def apply_date_storage_policy(
     report_dir: Path,
     keep_raw_days: int = 180,
     keep_report_days: int = 90,
+    keep_snapshot_days: int = 90,
     snapshot_db: bool = False,
 ) -> dict[str, Any]:
     """Run all date-based storage maintenance in one call.
@@ -39,6 +41,8 @@ def apply_date_storage_policy(
         Number of days of raw-data directories to retain.
     keep_report_days:
         Number of days of report files to retain.
+    keep_snapshot_days:
+        Number of days of dated DuckDB snapshot files to retain.
     snapshot_db:
         If *True*, create a daily snapshot copy of the database.
 
@@ -57,5 +61,6 @@ def apply_date_storage_policy(
 
     cleanup_date_directories(raw_data_dir, keep_days=keep_raw_days)
     cleanup_dated_reports(report_dir, keep_days=keep_report_days)
+    cleanup_dated_snapshot_files(database_path.parent / "daily", keep_days=keep_snapshot_days)
 
     return {"snapshot_path": snapshot_path}

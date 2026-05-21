@@ -77,3 +77,31 @@ def cleanup_dated_reports(report_dir: Path, *, keep_days: int, today: date | Non
             continue
 
     return removed
+
+
+def cleanup_dated_snapshot_files(
+    snapshot_dir: Path,
+    *,
+    keep_days: int,
+    today: date | None = None,
+) -> int:
+    if today is None:
+        today = datetime.now(UTC).date()
+
+    cutoff = today - timedelta(days=keep_days)
+    removed = 0
+
+    if not snapshot_dir.exists():
+        return 0
+
+    for item in snapshot_dir.glob("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].duckdb"):
+        try:
+            stamp = date.fromisoformat(item.stem)
+        except ValueError:
+            continue
+
+        if stamp < cutoff:
+            item.unlink()
+            removed += 1
+
+    return removed

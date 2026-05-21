@@ -13,7 +13,7 @@ from benefitradar.config_loader import load_category_config, load_category_quali
 from benefitradar.models import Article
 from benefitradar.nl_query import parse_query
 from benefitradar.quality_report import build_quality_report
-from benefitradar.search_index import SearchIndex
+from benefitradar.search_index import SearchIndex, sync_search_index_from_duckdb
 
 _ALLOWED_SQL = re.compile(r"^\s*(SELECT|WITH|EXPLAIN)\b", re.IGNORECASE)
 
@@ -50,10 +50,14 @@ def _format_rows(columns: list[str], rows: list[tuple[object, ...]]) -> str:
 def _filter_links_by_days(*, db_path: Path, links: list[str], days: int) -> set[str]:
     if not links:
         return set()
+    if not db_path.exists():
+        return set()
     cutoff = datetime.now(tz=UTC) - timedelta(days=days)
     placeholders = ", ".join("?" for _ in links)
     conn = duckdb.connect(str(db_path), read_only=True)
     try:
+        if not _has_table(conn, "articles"):
+            return set()
         cursor = conn.execute(
             f"""
             SELECT link
@@ -68,6 +72,14 @@ def _filter_links_by_days(*, db_path: Path, links: list[str], days: int) -> set[
     return {str(row[0]) for row in rows}
 
 
+def _ensure_search_index_ready(*, search_db_path: Path, db_path: Path) -> None:
+    with SearchIndex(search_db_path) as idx:
+        if idx.count_documents() > 0:
+            return
+
+    _ = sync_search_index_from_duckdb(search_db_path, db_path)
+
+
 def handle_search(*, search_db_path: Path, db_path: Path, query: str, limit: int = 20) -> str:
     parsed = parse_query(query)
     effective_limit = parsed.limit if parsed.limit is not None else limit
@@ -77,6 +89,7 @@ def handle_search(*, search_db_path: Path, db_path: Path, query: str, limit: int
     if not search_text:
         return "No results found."
 
+    _ensure_search_index_ready(search_db_path=search_db_path, db_path=db_path)
     with SearchIndex(search_db_path) as idx:
         results = idx.search(search_text, limit=effective_limit)
 

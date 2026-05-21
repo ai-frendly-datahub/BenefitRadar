@@ -9,7 +9,7 @@ _MODULE_ALIASES = {
     "exceptions": "radar_core.exceptions",
     "models": "radar_core.models",
     "nl_query": "radar_core.nl_query",
-    "search_index": "radar_core.search_index",
+    "search_index": "benefitradar.search_index",
     "storage": "benefitradar.storage",
 }
 

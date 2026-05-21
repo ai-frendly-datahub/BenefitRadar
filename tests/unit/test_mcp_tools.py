@@ -189,6 +189,47 @@ def test_handle_search_empty_query_and_non_positive_limit(tmp_path: Path) -> Non
     )
 
 
+def test_handle_search_backfills_empty_index_from_duckdb(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_search
+
+    db_path = tmp_path / "radar.duckdb"
+    search_db_path = tmp_path / "search.db"
+    _init_articles_table(db_path)
+    _seed_article(
+        db_path=db_path,
+        article_id=1,
+        title="청년 주거 지원금",
+        link="https://example.com/youth-housing",
+        collected_at=datetime.now(UTC),
+    )
+
+    output = handle_search(
+        search_db_path=search_db_path,
+        db_path=db_path,
+        query="주거",
+        limit=10,
+    )
+
+    assert "청년 주거 지원금" in output
+
+
+def test_handle_search_invalid_fts_query_returns_no_results(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_search
+
+    db_path = tmp_path / "radar.duckdb"
+    search_db_path = tmp_path / "search.db"
+    _init_articles_table(db_path)
+
+    output = handle_search(
+        search_db_path=search_db_path,
+        db_path=db_path,
+        query='"',
+        limit=10,
+    )
+
+    assert output == "No results found."
+
+
 def test_handle_recent_updates(tmp_path: Path) -> None:
     from mcp_server.tools import handle_recent_updates
 
@@ -370,6 +411,33 @@ def test_handle_benefit_match_query_no_query_tags_and_empty(tmp_path: Path) -> N
     assert empty == "No matching benefits found."
 
 
+def test_handle_benefit_match_ignores_invalid_entity_json(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_benefit_match
+
+    db_path = tmp_path / "radar.duckdb"
+    _init_articles_table(db_path)
+    _seed_article(
+        db_path=db_path,
+        article_id=1,
+        title="청년 지원 안내",
+        link="https://example.com/invalid-entities",
+        collected_at=datetime.now(UTC),
+    )
+    conn = duckdb.connect(str(db_path))
+    try:
+        _ = conn.execute(
+            "UPDATE articles SET entities_json = ? WHERE link = ?",
+            ["{not-json", "https://example.com/invalid-entities"],
+        )
+    finally:
+        conn.close()
+
+    output = handle_benefit_match(db_path=db_path, query="청년", days=7, limit=10)
+
+    assert "청년 지원 안내" in output
+    assert "[" not in output.splitlines()[1]
+
+
 def test_filter_links_by_days_and_load_recent_quality_articles_edge_cases(tmp_path: Path) -> None:
     from benefitradar.mcp_server import tools
 
@@ -482,6 +550,18 @@ def test_handle_quality_report_returns_benefit_operational_json(tmp_path: Path) 
     assert payload["summary"]["missing_sources"] == 1
     assert payload["summary"]["application_deadline_events"] == 1
     assert payload["source_backlog"]["operational_candidates"][0]["id"] == "bokjiro_detail"
+
+
+def test_handle_quality_report_returns_error_for_missing_category(tmp_path: Path) -> None:
+    from mcp_server.tools import handle_quality_report
+
+    output = handle_quality_report(
+        db_path=tmp_path / "missing.duckdb",
+        categories_dir=tmp_path / "categories",
+        category="missing",
+    )
+
+    assert output.startswith("Error:")
 
 
 def test_handle_price_watch_stub() -> None:

@@ -140,6 +140,93 @@ def test_cleanup_dated_reports_missing_dir(tmp_path: Path) -> None:
     assert removed == 0
 
 
+def test_cleanup_dated_reports_ignores_invalid_date_stamp(tmp_path: Path) -> None:
+    from benefitradar.date_storage import cleanup_dated_reports
+
+    invalid_report = tmp_path / "benefit_20269999.html"
+    invalid_report.write_text("<html>invalid date</html>")
+
+    removed = cleanup_dated_reports(tmp_path, keep_days=1, today=date(2026, 3, 13))
+
+    assert removed == 0
+    assert invalid_report.exists()
+
+
+def test_cleanup_dated_snapshot_files_removes_old_files(tmp_path: Path) -> None:
+    from benefitradar.date_storage import cleanup_dated_snapshot_files
+
+    today = date(2026, 3, 13)
+    old_snapshot = tmp_path / "2025-12-03.duckdb"
+    old_snapshot.write_text("old")
+    recent_snapshot = tmp_path / "2026-03-11.duckdb"
+    recent_snapshot.write_text("recent")
+    non_snapshot = tmp_path / "not-a-date.duckdb"
+    non_snapshot.write_text("keep")
+
+    removed = cleanup_dated_snapshot_files(tmp_path, keep_days=30, today=today)
+
+    assert removed == 1
+    assert not old_snapshot.exists()
+    assert recent_snapshot.exists()
+    assert non_snapshot.exists()
+
+
+def test_cleanup_dated_snapshot_files_missing_dir_and_invalid_date(tmp_path: Path) -> None:
+    from benefitradar.date_storage import cleanup_dated_snapshot_files
+
+    missing = tmp_path / "missing"
+    assert cleanup_dated_snapshot_files(missing, keep_days=7) == 0
+
+    invalid_snapshot = tmp_path / "2026-99-99.duckdb"
+    invalid_snapshot.write_text("invalid date")
+
+    removed = cleanup_dated_snapshot_files(tmp_path, keep_days=1, today=date(2026, 3, 13))
+
+    assert removed == 0
+    assert invalid_snapshot.exists()
+
+
+def test_apply_date_storage_policy_snapshots_and_cleans_all_dated_outputs(
+    tmp_path: Path,
+) -> None:
+    from benefitradar.common.date_storage import apply_date_storage_policy
+
+    database_path = tmp_path / "data" / "radar_data.duckdb"
+    raw_data_dir = tmp_path / "data" / "raw"
+    report_dir = tmp_path / "reports"
+    snapshot_dir = database_path.parent / "daily"
+    database_path.parent.mkdir(parents=True)
+    raw_data_dir.mkdir(parents=True)
+    report_dir.mkdir()
+    snapshot_dir.mkdir()
+    database_path.write_text("db")
+
+    old_raw = raw_data_dir / "2025-01-01"
+    old_raw.mkdir()
+    (old_raw / "source.jsonl").write_text("{}\n")
+    old_report = report_dir / "benefit_20250101.html"
+    old_report.write_text("<html>old</html>")
+    old_snapshot = snapshot_dir / "2025-01-01.duckdb"
+    old_snapshot.write_text("old")
+
+    result = apply_date_storage_policy(
+        database_path=database_path,
+        raw_data_dir=raw_data_dir,
+        report_dir=report_dir,
+        keep_raw_days=1,
+        keep_report_days=1,
+        keep_snapshot_days=1,
+        snapshot_db=True,
+    )
+
+    snapshot_path = result["snapshot_path"]
+    assert isinstance(snapshot_path, str)
+    assert Path(snapshot_path).exists()
+    assert not old_raw.exists()
+    assert not old_report.exists()
+    assert not old_snapshot.exists()
+
+
 def test_storage_create_daily_snapshot(tmp_path: Path) -> None:
     from benefitradar.storage import RadarStorage
 
@@ -178,16 +265,21 @@ def test_storage_cleanup_old_snapshots(tmp_path: Path) -> None:
     db_path = tmp_path / "data" / "radar_data.duckdb"
     storage = RadarStorage(db_path)
 
-    # given: old snapshot directory beyond keep_days
     snapshot_root = db_path.parent / "daily"
     snapshot_root.mkdir(parents=True, exist_ok=True)
     old_dir = snapshot_root / "2025-01-01"
     old_dir.mkdir()
     (old_dir / "data.txt").write_text("old")
+    old_file = snapshot_root / "2025-01-02.duckdb"
+    old_file.write_text("old")
+    recent_file = snapshot_root / "2026-03-12.duckdb"
+    recent_file.write_text("recent")
 
     try:
-        removed = storage.cleanup_old_snapshots(keep_days=30)
-        assert removed == 1
+        removed = storage.cleanup_old_snapshots(keep_days=30, today=date(2026, 3, 13))
+        assert removed == 2
         assert not old_dir.exists()
+        assert not old_file.exists()
+        assert recent_file.exists()
     finally:
         storage.close()

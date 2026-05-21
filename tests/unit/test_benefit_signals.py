@@ -9,6 +9,7 @@ from benefitradar.benefit_signals import (
     enrich_benefit_operational_fields,
     extract_application_channels,
     extract_benefit_amounts,
+    extract_selection_program_title,
     extract_selection_result_fields,
 )
 from benefitradar.models import Article
@@ -91,6 +92,65 @@ def test_enrich_benefit_operational_fields_extracts_selection_result() -> None:
     assert enriched.matched_entities["SelectionSelectedCount"] == ["120"]
     assert enriched.matched_entities["SelectionProgramTitle"] == ["청년 월세 지원"]
     assert enriched.matched_entities["OperationalEvent"] == ["selection_result"]
+
+
+def test_selection_result_fields_extracts_public_outcome_notices() -> None:
+    fields = extract_selection_result_fields(
+        "[해양수산부]숙박부터 해양레저까지... 우수 해양관광상품 7개 선정 "
+        "제10회 우수 해양관광상품 공모전 결과 총 7개의 상품을 선정했다고 밝혔다."
+    )
+
+    assert fields["selected_count"] == ["7"]
+    assert fields["program_title"] == ["우수 해양관광상품"]
+
+
+def test_selection_result_fields_uses_summary_when_title_has_no_count() -> None:
+    article = Article(
+        title="새글 인공지능·사물인터넷 기술,돌봄 현장 실증 거쳐 빠르게 확산한다",
+        link="https://example.com/mohw",
+        summary=(
+            "AX Sprint 사업 스마트홈, 스마트 사회복지시설 분야 협력단 선정 결과를 발표했다. "
+            "이번 공모에는 스마트홈 분야 10개 컨소시엄, 스마트 사회복지시설 분야 "
+            "8개 컨소시엄이 참여했으며 과업별 평가를 거쳐 각 1개 컨소시엄이 최종 선정됐다."
+        ),
+        published=datetime(2026, 5, 7, tzinfo=UTC),
+        source="보건복지부",
+        category="benefit",
+        matched_entities={},
+    )
+
+    enriched = enrich_benefit_operational_fields([article])[0]
+
+    assert enriched.matched_entities["SelectionSelectedCount"] == ["1"]
+    assert enriched.matched_entities["SelectionProgramTitle"] == [article.title]
+    assert "selection_result" in enriched.matched_entities["OperationalEvent"]
+
+
+def test_enrich_benefit_operational_fields_ignores_future_selection_plan() -> None:
+    article = Article(
+        title="'서울 도심 공공주택 복합사업' 후보지 공모, 주민 제안 44곳 접수",
+        link="https://example.com/future-selection",
+        summary="후보지선정위원회에서 심사해 오는 7월 중에 최종 선정 결과를 발표할 계획이다.",
+        published=datetime(2026, 5, 17, tzinfo=UTC),
+        source="정책브리핑",
+        category="benefit",
+        matched_entities={},
+    )
+
+    enriched = enrich_benefit_operational_fields([article])[0]
+
+    assert "SelectionSelectedCount" not in enriched.matched_entities
+    assert "selection_result" not in enriched.matched_entities.get("OperationalEvent", [])
+
+
+def test_selection_program_title_handles_selection_specific_programs() -> None:
+    assert (
+        extract_selection_program_title(
+            "[농림축산식품부]농촌의 다양한 가능성 확인! "
+            "농촌창업 경진대회(어메니티 분야) 최종 선정"
+        )
+        == "농촌창업 경진대회(어메니티 분야)"
+    )
 
 
 def test_extract_application_channels_amounts_and_program_key() -> None:

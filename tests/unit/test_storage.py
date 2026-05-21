@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from collections.abc import Iterable
 from datetime import UTC, datetime, timedelta
 from importlib import import_module
@@ -373,3 +374,49 @@ def test_recent_articles_by_collected_at_rehydrates_ontology(tmp_storage: object
         "event_model_id": "benefit.program_update",
         "source_role_id": "primary_evidence",
     }
+
+
+def test_storage_internal_datetime_and_row_rehydration_edge_cases() -> None:
+    from benefitradar.storage import _article_from_row, _utc_naive
+
+    aware = datetime(2026, 5, 21, 12, 0, tzinfo=UTC)
+    naive = aware.replace(tzinfo=None)
+
+    assert _utc_naive(None) is None
+    assert _utc_naive(naive) == naive
+    assert _utc_naive(aware) == naive
+
+    invalid_json_article = _article_from_row(
+        (
+            "benefit",
+            "source",
+            "Invalid json",
+            "https://example.com/invalid-json",
+            None,
+            None,
+            None,
+            "{not-json",
+            "{not-json",
+        )
+    )
+    assert invalid_json_article.summary == ""
+    assert invalid_json_article.published is None
+    assert invalid_json_article.collected_at is None
+    assert invalid_json_article.matched_entities == {}
+    assert invalid_json_article.ontology == {}
+
+    mixed_json_article = _article_from_row(
+        (
+            "benefit",
+            "source",
+            "Mixed json",
+            "https://example.com/mixed-json",
+            "summary",
+            naive,
+            naive,
+            json.dumps({"Good": ["지원금", 3], "Ignored": "not-list"}),
+            json.dumps({"repo": "BenefitRadar", "": "ignored"}),
+        )
+    )
+    assert mixed_json_article.matched_entities == {"Good": ["지원금", "3"]}
+    assert mixed_json_article.ontology == {"repo": "BenefitRadar"}

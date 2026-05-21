@@ -15,6 +15,31 @@ from urllib.parse import urlparse
 
 from benefitradar.models import Article
 
+_TITLE_CLEANUP_THRESHOLD = 300
+_TITLE_MAX_CHARS = 220
+_SUMMARY_MAX_CHARS = 8000
+_TITLE_ACTION_TERMS = ("지원", "신청", "모집", "공고", "사업", "급여", "수당", "바우처", "장려금")
+_TITLE_AUDIENCE_TERMS = ("청년", "노인", "장애인", "자영업자", "아동", "가족", "소상공인")
+_TITLE_ORGANIZATION_SUFFIXES = (
+    "센터",
+    "복지관",
+    "재단",
+    "공단",
+    "협회",
+    "위원회",
+    "부",
+    "청",
+)
+_TITLE_NOISE_TERMS = {
+    "모집일정",
+    "모집일정 :",
+    "지원대상",
+    "지원대상 :",
+    "좋아요",
+    "알림",
+    "전체",
+}
+
 
 def normalize_title(title: str) -> str:
     """
@@ -44,6 +69,102 @@ def normalize_title(title: str) -> str:
     normalized = re.sub(r"\s+", " ", normalized).strip()
 
     return normalized
+
+
+def clean_article_text_fields(article: Article) -> Article:
+    """Normalize noisy browser-collected title/summary text in-place."""
+    article.title = clean_display_title(article.title)
+    article.summary = clean_summary_text(article.summary)
+    return article
+
+
+def clean_display_title(title: str) -> str:
+    stripped = title.strip()
+    if not stripped:
+        return ""
+
+    lines = [
+        _collapse_whitespace(line) for line in stripped.splitlines() if _collapse_whitespace(line)
+    ]
+    has_browser_noise = len(lines) > 1 and any(_is_noisy_title_line(line) for line in lines)
+    if (
+        len(stripped) <= _TITLE_CLEANUP_THRESHOLD
+        and stripped.count("\n") < 4
+        and not has_browser_noise
+    ):
+        return _collapse_whitespace(stripped)
+
+    best_line = _select_best_title_line(stripped)
+    if best_line:
+        return _truncate_text(best_line, _TITLE_MAX_CHARS)
+    return _truncate_text(_collapse_whitespace(stripped), _TITLE_MAX_CHARS)
+
+
+def clean_summary_text(summary: str) -> str:
+    collapsed = _collapse_whitespace(summary)
+    return _truncate_text(collapsed, _SUMMARY_MAX_CHARS)
+
+
+def _select_best_title_line(text: str) -> str:
+    candidates = [
+        _collapse_whitespace(line) for line in text.splitlines() if _collapse_whitespace(line)
+    ]
+    scored: list[tuple[int, int, str]] = []
+    for index, line in enumerate(candidates):
+        if _is_noisy_title_line(line):
+            continue
+        score = 0
+        lowered = line.lower()
+        has_action = any(term in lowered for term in _TITLE_ACTION_TERMS)
+        if has_action:
+            score += 8
+        if any(term in lowered for term in _TITLE_AUDIENCE_TERMS):
+            score += 5
+        if "복지" in lowered:
+            score += 2
+        if any(term in lowered for term in ("benefit", "grant", "subsidy")):
+            score += 8
+        if line.startswith("[") and "]" in line:
+            score += 4
+        if 8 <= len(line) <= _TITLE_MAX_CHARS:
+            score += 5
+        if len(line) > _TITLE_MAX_CHARS:
+            score -= 4
+        if re.search(r"20\d{2}", line):
+            score += 1
+        if not has_action and line.endswith(_TITLE_ORGANIZATION_SUFFIXES):
+            score -= 8
+        score -= min(index, 6)
+        scored.append((score, min(len(line), _TITLE_MAX_CHARS), line))
+    if not scored:
+        return ""
+    return max(scored)[2]
+
+
+def _is_noisy_title_line(line: str) -> bool:
+    stripped = line.strip()
+    label = stripped.removesuffix(":").strip()
+    if stripped in _TITLE_NOISE_TERMS or label in _TITLE_NOISE_TERMS:
+        return True
+    if stripped.startswith("#"):
+        return True
+    if re.fullmatch(r"D\s*-\s*\d+", stripped, flags=re.IGNORECASE):
+        return True
+    if re.fullmatch(r"20\d{2}[.-]\d{1,2}[.-]\d{1,2}\s*~\s*20\d{2}[.-]\d{1,2}[.-]\d{1,2}", stripped):
+        return True
+    if len(stripped) <= 2:
+        return True
+    return False
+
+
+def _collapse_whitespace(value: str) -> str:
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def _truncate_text(value: str, max_chars: int) -> str:
+    if len(value) <= max_chars:
+        return value
+    return value[: max_chars - 3].rstrip() + "..."
 
 
 def validate_url_format(url: str) -> bool:

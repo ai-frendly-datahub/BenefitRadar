@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import sys
 from collections.abc import Callable
 from datetime import UTC, date, datetime
@@ -97,6 +98,35 @@ def _dedupe_articles(articles: list[Article]) -> list[Article]:
     return list(deduped.values())
 
 
+def _load_recent_quality_errors(
+    report_dir: Path,
+    *,
+    category_name: str,
+    today: date | None = None,
+) -> list[str]:
+    report_path = report_dir / f"{category_name}_quality.json"
+    if not report_path.exists():
+        return []
+
+    try:
+        payload = json.loads(report_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    if not isinstance(payload, dict):
+        return []
+
+    generated_date = _coerce_date(payload.get("generated_at"))
+    if today is None:
+        today = datetime.now(UTC).date()
+    if generated_date != today:
+        return []
+
+    raw_errors = payload.get("errors")
+    if not isinstance(raw_errors, list):
+        return []
+    return [str(error) for error in raw_errors if str(error).strip()]
+
+
 def generate_quality_artifacts(
     project_root: Path = PROJECT_ROOT,
     *,
@@ -142,6 +172,10 @@ def generate_quality_artifacts(
     report = build_quality_report(
         category=category_cfg,
         articles=scoped_articles or articles,
+        errors=_load_recent_quality_errors(
+            report_dir,
+            category_name=category_cfg.category_name,
+        ),
         quality_config=quality_cfg,
     )
     paths = write_quality_report(
