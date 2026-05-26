@@ -1,0 +1,203 @@
+{
+  "date": "2026-05-26",
+  "category": "benefit",
+  "article_count": 290,
+  "source_count": 15,
+  "matched_count": 290,
+  "top_entities": [
+    {
+      "name": "GovernmentPolicy",
+      "count": 764
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 303
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 290
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 275
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 270
+    },
+    {
+      "name": "SourceSignal",
+      "count": 243
+    },
+    {
+      "name": "Eligibility",
+      "count": 211
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 192
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 160
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 152
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 116
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 82
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 74
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 66
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 63
+    },
+    {
+      "name": "EligibilityIncomeCondition",
+      "count": 53
+    },
+    {
+      "name": "FamilySupport",
+      "count": 53
+    },
+    {
+      "name": "EligibilityHousehold",
+      "count": 49
+    },
+    {
+      "name": "EligibilityLifeStage",
+      "count": 49
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 46
+    }
+  ],
+  "sources": {
+    "정책브리핑 보도자료": 131,
+    "정책브리핑": 65,
+    "Government Executive": 4,
+    "경기도 일자리재단": 24,
+    "서울시 복지": 1,
+    "기획재정부": 1,
+    "중소벤처기업부": 9,
+    "보건복지부": 12,
+    "r/personalfinance": 3,
+    "r/SocialSecurity": 11,
+    "r/povertyfinance": 10,
+    "r/disability": 5,
+    "r/healthcare": 6,
+    "r/Unemployment": 7,
+    "KFF Health News": 1
+  },
+  "generated_at": "2026-05-26T12:58:42.329969+09:00",
+  "articles": [
+    {
+      "event_model_payload": {
+        "source_url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2823"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2824"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2845"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://job.gg.go.kr/jobSprt/detail.do?seq=2847"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068323&parentSeq=1068323"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068354&parentSeq=1068354"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068355&parentSeq=1068355"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490533&tag=&nPage=1"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490545&tag=&nPage=1"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490547&tag=&nPage=1"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490560&tag=&nPage=1"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1490563&tag=&nPage=1"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762485&call_from=rsslink"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762483&call_from=rsslink"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762475&call_from=rsslink"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762474&call_from=rsslink"
+      }
+    },
+    {
+      "event_model_payload": {
+        "source_url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156762472&call_from=rsslink"
+      }
+    }
+  ],
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
