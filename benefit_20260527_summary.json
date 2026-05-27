@@ -1,0 +1,116 @@
+{
+  "date": "2026-05-27",
+  "category": "benefit",
+  "article_count": 257,
+  "source_count": 15,
+  "matched_count": 257,
+  "top_entities": [
+    {
+      "name": "GovernmentPolicy",
+      "count": 680
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 257
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 253
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 233
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 226
+    },
+    {
+      "name": "SourceSignal",
+      "count": 213
+    },
+    {
+      "name": "Eligibility",
+      "count": 183
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 173
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 133
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 123
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 98
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 69
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 66
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 53
+    },
+    {
+      "name": "FamilySupport",
+      "count": 51
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 49
+    },
+    {
+      "name": "EligibilityIncomeCondition",
+      "count": 47
+    },
+    {
+      "name": "EligibilityLifeStage",
+      "count": 44
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 43
+    },
+    {
+      "name": "EligibilityHousehold",
+      "count": 40
+    }
+  ],
+  "sources": {
+    "정책브리핑 보도자료": 113,
+    "정책브리핑": 65,
+    "KFF Health News": 2,
+    "Government Executive": 4,
+    "경기도 일자리재단": 20,
+    "서울시 복지": 1,
+    "기획재정부": 1,
+    "중소벤처기업부": 6,
+    "보건복지부": 7,
+    "r/personalfinance": 3,
+    "r/SocialSecurity": 11,
+    "r/povertyfinance": 6,
+    "r/disability": 5,
+    "r/healthcare": 6,
+    "r/Unemployment": 7
+  },
+  "generated_at": "2026-05-27T13:12:49.049764+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
