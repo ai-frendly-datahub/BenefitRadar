@@ -1,0 +1,106 @@
+{
+  "date": "2026-05-29",
+  "category": "benefit",
+  "article_count": 194,
+  "source_count": 5,
+  "matched_count": 194,
+  "top_entities": [
+    {
+      "name": "GovernmentPolicy",
+      "count": 681
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 253
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 204
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 194
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 194
+    },
+    {
+      "name": "SourceSignal",
+      "count": 189
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 143
+    },
+    {
+      "name": "Eligibility",
+      "count": 129
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 91
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 72
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 66
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 62
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 57
+    },
+    {
+      "name": "EligibilityIncomeCondition",
+      "count": 47
+    },
+    {
+      "name": "EligibilityLifeStage",
+      "count": 43
+    },
+    {
+      "name": "BenefitAmount",
+      "count": 41
+    },
+    {
+      "name": "FamilySupport",
+      "count": 37
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 35
+    },
+    {
+      "name": "EligibilityHousehold",
+      "count": 30
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 28
+    }
+  ],
+  "sources": {
+    "정책브리핑 보도자료": 116,
+    "정책브리핑": 73,
+    "Federal News Network": 1,
+    "KFF Health News": 3,
+    "Government Executive": 1
+  },
+  "generated_at": "2026-05-29T13:02:48.894584+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
