@@ -1,0 +1,106 @@
+{
+  "date": "2026-06-02",
+  "category": "benefit",
+  "article_count": 191,
+  "source_count": 5,
+  "matched_count": 191,
+  "top_entities": [
+    {
+      "name": "GovernmentPolicy",
+      "count": 727
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 258
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 214
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 191
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 188
+    },
+    {
+      "name": "SourceSignal",
+      "count": 185
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 135
+    },
+    {
+      "name": "Eligibility",
+      "count": 132
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 104
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 87
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 75
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 74
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 63
+    },
+    {
+      "name": "BenefitAmount",
+      "count": 49
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 39
+    },
+    {
+      "name": "EligibilityIncomeCondition",
+      "count": 37
+    },
+    {
+      "name": "EligibilityLifeStage",
+      "count": 36
+    },
+    {
+      "name": "FamilySupport",
+      "count": 32
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 31
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 28
+    }
+  ],
+  "sources": {
+    "정책브리핑 보도자료": 114,
+    "정책브리핑": 71,
+    "Federal News Network": 2,
+    "KFF Health News": 3,
+    "Government Executive": 1
+  },
+  "generated_at": "2026-06-02T13:22:15.496935+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
