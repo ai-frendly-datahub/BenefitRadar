@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-06-05T04:10:01.822886+00:00",
+  "generated_at": "2026-06-06T03:53:39.906477+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 38,
@@ -14,11 +14,11 @@
     "not_tracked_sources": 19,
     "skipped_disabled_sources": 12,
     "collection_error_count": 9,
-    "unique_program_key_count": 167,
-    "deadline_with_program_key_events": 29,
-    "support_program_notice_events": 167,
-    "application_deadline_events": 29,
-    "eligibility_rule_events": 135,
+    "unique_program_key_count": 182,
+    "deadline_with_program_key_events": 31,
+    "support_program_notice_events": 182,
+    "application_deadline_events": 31,
+    "eligibility_rule_events": 151,
     "selection_result_events": 0
   },
   "sources": [
@@ -30,14 +30,14 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 63,
-      "event_count": 63,
-      "latest_event_at": "2026-06-05T01:31:00+00:00",
-      "age_days": 0.11,
-      "latest_title": "MZ세대 83.8% \"주 4일제 원해요\"",
-      "latest_url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965392",
+      "article_count": 77,
+      "event_count": 77,
+      "latest_event_at": "2026-06-06T03:36:00+00:00",
+      "age_days": 0.01,
+      "latest_title": "이 대통령 \"선열에 합당한 예우 다해야…특별한 희생에 특별한 보상\"",
+      "latest_url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148966001",
       "latest_program_id": "",
-      "latest_program_key": "title:정책브리핑:mz세대-83-8-주-4일제-원해요",
+      "latest_program_key": "title:정책브리핑:이-대통령-선열에-합당한-예우-다해야-특별한-희생에-특별한-보상",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -45,8 +45,14 @@
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
-        "Household": [
-          "세대"
+        "IncomeCondition": [
+          "재산"
+        ],
+        "Region": [
+          "서울",
+          "인천",
+          "강원",
+          "제주"
         ]
       },
       "skip_reason": null,
@@ -61,14 +67,14 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 104,
-      "event_count": 104,
-      "latest_event_at": "2026-06-05T03:30:00+00:00",
-      "age_days": 0.03,
-      "latest_title": "[방송미디어통신위원회]2026년 제15차 위원회 결과",
-      "latest_url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765316",
+      "article_count": 105,
+      "event_count": 105,
+      "latest_event_at": "2026-06-05T21:59:00+00:00",
+      "age_days": 0.25,
+      "latest_title": "[외교부]한-세르비아 투자보장협정 발효(6.6.)",
+      "latest_url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765423",
       "latest_program_id": "",
-      "latest_program_key": "title:정책브리핑-보도자료:방송미디어통신위원회-2026년-제15차-위원회-결과",
+      "latest_program_key": "title:정책브리핑-보도자료:외교부-한-세르비아-투자보장협정-발효-6-6",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -77,7 +83,7 @@
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
         "Region": [
-          "경남"
+          "서울"
         ]
       },
       "skip_reason": null,
@@ -1075,6 +1081,1563 @@
   ],
   "events": [
     {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "이 대통령 \"선열에 합당한 예우 다해야…특별한 희생에 특별한 보상\"",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148966001",
+      "event_at": "2026-06-06T03:36:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:이-대통령-선열에-합당한-예우-다해야-특별한-희생에-특별한-보상",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "재산"
+        ],
+        "Region": [
+          "서울",
+          "인천",
+          "강원",
+          "제주"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "이 대통령 \"선열에 합당한 예우 다해야…특별한 희생에 특별한 보상\"",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148966001",
+      "event_at": "2026-06-06T03:36:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:이-대통령-선열에-합당한-예우-다해야-특별한-희생에-특별한-보상",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "재산"
+        ],
+        "Region": [
+          "서울",
+          "인천",
+          "강원",
+          "제주"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[외교부]한-세르비아 투자보장협정 발효(6.6.)",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765423",
+      "event_at": "2026-06-05T21:59:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:외교부-한-세르비아-투자보장협정-발효-6-6",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[외교부]한-세르비아 투자보장협정 발효(6.6.)",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765423",
+      "event_at": "2026-06-05T21:59:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:외교부-한-세르비아-투자보장협정-발효-6-6",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농촌진흥청]'무멀칭·깊이거름주기'로 마늘 재배 기계화 성큼",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765402",
+      "event_at": "2026-06-05T09:21:09+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-무멀칭-깊이거름주기-로-마늘-재배-기계화-성큼",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "전남",
+          "경남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농촌진흥청]'무멀칭·깊이거름주기'로 마늘 재배 기계화 성큼",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765402",
+      "event_at": "2026-06-05T09:21:09+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-무멀칭-깊이거름주기-로-마늘-재배-기계화-성큼",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "전남",
+          "경남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농촌진흥청]꽃향 가득 국산 아까시꿀, 초여름 별미로 무한변신",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765396",
+      "event_at": "2026-06-05T09:14:08+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-꽃향-가득-국산-아까시꿀-초여름-별미로-무한변신",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농촌진흥청]꽃향 가득 국산 아까시꿀, 초여름 별미로 무한변신",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765396",
+      "event_at": "2026-06-05T09:14:08+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-꽃향-가득-국산-아까시꿀-초여름-별미로-무한변신",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농림축산식품부]'2026 쌀가공식품산업대전(RICE SHOW)' 9일 개막! 맛·트렌드 다 잡은 국가대표 쌀가공식품 한자리에 모여...",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765385",
+      "event_at": "2026-06-05T09:12:58+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농림축산식품부-2026-쌀가공식품산업대전-rice-show-9일-개막-맛-트렌드-다-잡은-국가대표-쌀가공식품-한자리에-모여",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울",
+          "경기",
+          "대전"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농림축산식품부]'2026 쌀가공식품산업대전(RICE SHOW)' 9일 개막! 맛·트렌드 다 잡은 국가대표 쌀가공식품 한자리에 모여...",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765385",
+      "event_at": "2026-06-05T09:12:58+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농림축산식품부-2026-쌀가공식품산업대전-rice-show-9일-개막-맛-트렌드-다-잡은-국가대표-쌀가공식품-한자리에-모여",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울",
+          "경기",
+          "대전"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농촌진흥청]6월, 농촌에서 초록 쉼표 찍고 맛있는 산책 할까요?",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765394",
+      "event_at": "2026-06-05T09:10:21+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-6월-농촌에서-초록-쉼표-찍고-맛있는-산책-할까요",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농촌진흥청]가축분뇨 고체연료 연구 확대…발전 연료 넘어 비료 활용까지",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765392",
+      "event_at": "2026-06-05T09:09:34+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-가축분뇨-고체연료-연구-확대-발전-연료-넘어-비료-활용까지",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "부산"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농촌진흥청]가축분뇨 고체연료 연구 확대…발전 연료 넘어 비료 활용까지",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765392",
+      "event_at": "2026-06-05T09:09:34+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-가축분뇨-고체연료-연구-확대-발전-연료-넘어-비료-활용까지",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "부산"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "application_deadline",
+      "title": "[농촌진흥청]충남 홍성 사과 과수원 1곳 과수화상병 발생",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765390",
+      "event_at": "2026-05-08T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-충남-홍성-사과-과수원-1곳-과수화상병-발생",
+      "application_deadline": "2026-05-08",
+      "application_start_date": "2026-10-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "충남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농촌진흥청]충남 홍성 사과 과수원 1곳 과수화상병 발생",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765390",
+      "event_at": "2026-06-05T09:07:04+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-충남-홍성-사과-과수원-1곳-과수화상병-발생",
+      "application_deadline": "2026-05-08",
+      "application_start_date": "2026-10-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "충남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농촌진흥청]충남 홍성 사과 과수원 1곳 과수화상병 발생",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765390",
+      "event_at": "2026-06-05T09:07:04+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-충남-홍성-사과-과수원-1곳-과수화상병-발생",
+      "application_deadline": "2026-05-08",
+      "application_start_date": "2026-10-05",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "충남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농촌진흥청]'유자잎 식품원료로 등재' 차·음료·제과 활용 길 열려",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765388",
+      "event_at": "2026-06-05T09:05:35+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-유자잎-식품원료로-등재-차-음료-제과-활용-길-열려",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "전남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농촌진흥청]'유자잎 식품원료로 등재' 차·음료·제과 활용 길 열려",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765388",
+      "event_at": "2026-06-05T09:05:35+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-유자잎-식품원료로-등재-차-음료-제과-활용-길-열려",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "전남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농촌진흥청]봄배추 저장기술 적용 확대, 비축기지 실증 현장 점검",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765386",
+      "event_at": "2026-06-05T09:04:28+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-봄배추-저장기술-적용-확대-비축기지-실증-현장-점검",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "전북",
+          "전남",
+          "경북"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농촌진흥청]봄배추 저장기술 적용 확대, 비축기지 실증 현장 점검",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765386",
+      "event_at": "2026-06-05T09:04:28+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-봄배추-저장기술-적용-확대-비축기지-실증-현장-점검",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "전북",
+          "전남",
+          "경북"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농촌진흥청]농촌진흥청, 국산 품종·특화단지 육성해 국산 밀 경쟁력 높인다!",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765378",
+      "event_at": "2026-06-05T08:57:23+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-농촌진흥청-국산-품종-특화단지-육성해-국산-밀-경쟁력-높인다",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online",
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "전북",
+          "전남",
+          "경북",
+          "경남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농촌진흥청]농촌진흥청, 국산 품종·특화단지 육성해 국산 밀 경쟁력 높인다!",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765378",
+      "event_at": "2026-06-05T08:57:23+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농촌진흥청-농촌진흥청-국산-품종-특화단지-육성해-국산-밀-경쟁력-높인다",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online",
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "전북",
+          "전남",
+          "경북",
+          "경남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "자외선차단제, 제대로 발라야 효과↑…올바른 사용법은?",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965990",
+      "event_at": "2026-06-05T08:37:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:자외선차단제-제대로-발라야-효과-올바른-사용법은",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "자외선차단제, 제대로 발라야 효과↑…올바른 사용법은?",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965990",
+      "event_at": "2026-06-05T08:37:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:자외선차단제-제대로-발라야-효과-올바른-사용법은",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "유튜브 꿀팁만 믿으면 안돼요…'상속·증여세 오해 그리고 진실'",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965947",
+      "event_at": "2026-06-05T08:34:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:유튜브-꿀팁만-믿으면-안돼요-상속-증여세-오해-그리고-진실",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [
+        "1000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "LifeStage": [
+          "출산"
+        ],
+        "Household": [
+          "가구"
+        ],
+        "IncomeCondition": [
+          "소득",
+          "재산"
+        ],
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "유튜브 꿀팁만 믿으면 안돼요…'상속·증여세 오해 그리고 진실'",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965947",
+      "event_at": "2026-06-05T08:34:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:유튜브-꿀팁만-믿으면-안돼요-상속-증여세-오해-그리고-진실",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [
+        "1000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "LifeStage": [
+          "출산"
+        ],
+        "Household": [
+          "가구"
+        ],
+        "IncomeCondition": [
+          "소득",
+          "재산"
+        ],
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[농림축산식품부]농어촌 삶의 질 향상을 위한 범정부 협력 강화",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765363",
+      "event_at": "2026-06-05T08:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농림축산식품부-농어촌-삶의-질-향상을-위한-범정부-협력-강화",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[농림축산식품부]농어촌 삶의 질 향상을 위한 범정부 협력 강화",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765363",
+      "event_at": "2026-06-05T08:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:농림축산식품부-농어촌-삶의-질-향상을-위한-범정부-협력-강화",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "세종"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "세계유산 '한국의 갯벌' 추가 등재 유력…여수·고흥·무안·서산",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965977",
+      "event_at": "2026-06-05T07:26:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:세계유산-한국의-갯벌-추가-등재-유력-여수-고흥-무안-서산",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "부산"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "세계유산 '한국의 갯벌' 추가 등재 유력…여수·고흥·무안·서산",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965977",
+      "event_at": "2026-06-05T07:26:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:세계유산-한국의-갯벌-추가-등재-유력-여수-고흥-무안-서산",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "부산"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "application_deadline",
+      "title": "농기계 사고 119에 자동신고…농림분야 안전관리 종합대책 추진",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965974",
+      "event_at": "2026-06-06T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:농기계-사고-119에-자동신고-농림분야-안전관리-종합대책-추진",
+      "application_deadline": "2026-06-06",
+      "application_start_date": "2026-05-07",
+      "application_channels": [],
+      "benefit_amounts": [
+        "3000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "취약계층",
+          "청년"
+        ],
+        "Region": [
+          "부산",
+          "강원",
+          "전남",
+          "경북"
+        ],
+        "AgeCondition": [
+          "51-70",
+          "51-80"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "농기계 사고 119에 자동신고…농림분야 안전관리 종합대책 추진",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965974",
+      "event_at": "2026-06-05T07:24:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:농기계-사고-119에-자동신고-농림분야-안전관리-종합대책-추진",
+      "application_deadline": "2026-06-06",
+      "application_start_date": "2026-05-07",
+      "application_channels": [],
+      "benefit_amounts": [
+        "3000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "취약계층",
+          "청년"
+        ],
+        "Region": [
+          "부산",
+          "강원",
+          "전남",
+          "경북"
+        ],
+        "AgeCondition": [
+          "51-70",
+          "51-80"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "농기계 사고 119에 자동신고…농림분야 안전관리 종합대책 추진",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965974",
+      "event_at": "2026-06-05T07:24:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:농기계-사고-119에-자동신고-농림분야-안전관리-종합대책-추진",
+      "application_deadline": "2026-06-06",
+      "application_start_date": "2026-05-07",
+      "application_channels": [],
+      "benefit_amounts": [
+        "3000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "취약계층",
+          "청년"
+        ],
+        "Region": [
+          "부산",
+          "강원",
+          "전남",
+          "경북"
+        ],
+        "AgeCondition": [
+          "51-70",
+          "51-80"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "제71회 현충일 추념식 6일…'기억하고, 기록하고, 책임 다할 것'",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965973",
+      "event_at": "2026-06-05T07:17:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:제71회-현충일-추념식-6일-기억하고-기록하고-책임-다할-것",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Household": [
+          "세대"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "제71회 현충일 추념식 6일…'기억하고, 기록하고, 책임 다할 것'",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965973",
+      "event_at": "2026-06-05T07:17:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:제71회-현충일-추념식-6일-기억하고-기록하고-책임-다할-것",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Household": [
+          "세대"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "한·사우디, 안정적 원유·나프타 공급 및 플랜트 협력 강화 논의",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965972",
+      "event_at": "2026-06-05T07:15:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:한-사우디-안정적-원유-나프타-공급-및-플랜트-협력-강화-논의",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "한·사우디, 안정적 원유·나프타 공급 및 플랜트 협력 강화 논의",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965972",
+      "event_at": "2026-06-05T07:15:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:한-사우디-안정적-원유-나프타-공급-및-플랜트-협력-강화-논의",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[고용노동부]\"국민 신뢰가 최고의 가치\" 근로복지공단, 2026년 윤리경영대상 수상",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765356",
+      "event_at": "2026-06-05T06:27:30+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:고용노동부-국민-신뢰가-최고의-가치-근로복지공단-2026년-윤리경영대상-수상",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "보험료"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[고용노동부]\"국민 신뢰가 최고의 가치\" 근로복지공단, 2026년 윤리경영대상 수상",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765356",
+      "event_at": "2026-06-05T06:27:30+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:고용노동부-국민-신뢰가-최고의-가치-근로복지공단-2026년-윤리경영대상-수상",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "보험료"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[고용노동부]\"장애인, 노동을 통해 사회 통합까지\"노동부 장관 '이화여대 서울병원' 현장 방문",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765355",
+      "event_at": "2026-06-05T06:26:44+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:고용노동부-장애인-노동을-통해-사회-통합까지-노동부-장관-이화여대-서울병원-현장-방문",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [
+        "15억원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인",
+          "청년"
+        ],
+        "Region": [
+          "서울"
+        ],
+        "AgeCondition": [
+          "15-29"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[고용노동부]\"장애인, 노동을 통해 사회 통합까지\"노동부 장관 '이화여대 서울병원' 현장 방문",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765355",
+      "event_at": "2026-06-05T06:26:44+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:고용노동부-장애인-노동을-통해-사회-통합까지-노동부-장관-이화여대-서울병원-현장-방문",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [
+        "15억원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인",
+          "청년"
+        ],
+        "Region": [
+          "서울"
+        ],
+        "AgeCondition": [
+          "15-29"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "민생경제 회복·생명안전 강화…행안부, 국민체감 성과 공개",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965968",
+      "event_at": "2026-06-05T06:23:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:민생경제-회복-생명안전-강화-행안부-국민체감-성과-공개",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "3000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "소상공인"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "광주",
+          "전남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "민생경제 회복·생명안전 강화…행안부, 국민체감 성과 공개",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965968",
+      "event_at": "2026-06-05T06:23:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:민생경제-회복-생명안전-강화-행안부-국민체감-성과-공개",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "3000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "소상공인"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "광주",
+          "전남"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "'AI 민생 10대 프로젝트' 본격 가동…대국민 서비스 순차 개시",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965970",
+      "event_at": "2026-06-05T06:21:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:ai-민생-10대-프로젝트-본격-가동-대국민-서비스-순차-개시",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "소상공인"
+        ],
+        "LifeStage": [
+          "청소년",
+          "아동"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[국무조정실][보도자료] 김민석 국무총리 폭염·집중호우 대비 현장점검",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765357",
+      "event_at": "2026-06-05T06:17:42+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:국무조정실-보도자료-김민석-국무총리-폭염-집중호우-대비-현장점검",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "취약계층"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[보건복지부]\"국민 삶 중심으로\" 기초생활보장 급여 체계 전반 점검",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765352",
+      "event_at": "2026-06-05T06:04:16+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:기초생활보장-급여",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Household": [
+          "가구"
+        ],
+        "IncomeCondition": [
+          "중위소득"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[보건복지부]\"국민 삶 중심으로\" 기초생활보장 급여 체계 전반 점검",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765352",
+      "event_at": "2026-06-05T06:04:16+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:기초생활보장-급여",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Household": [
+          "가구"
+        ],
+        "IncomeCondition": [
+          "중위소득"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[산림청]\"국민 안전 위해 복구사업 총력\"",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765351",
+      "event_at": "2026-06-05T06:04:01+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:산림청-국민-안전-위해-복구사업-총력",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "경북"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[산림청]\"국민 안전 위해 복구사업 총력\"",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765351",
+      "event_at": "2026-06-05T06:04:01+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:산림청-국민-안전-위해-복구사업-총력",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "경북"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "\"군생활 고충 혼자 끙끙 앓지 마세요\"",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965395",
+      "event_at": "2026-06-05T05:49:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:군생활-고충-혼자-끙끙-앓지-마세요",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "대전"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "\"군생활 고충 혼자 끙끙 앓지 마세요\"",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965395",
+      "event_at": "2026-06-05T05:49:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:군생활-고충-혼자-끙끙-앓지-마세요",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "대전"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "위조된 사랑, 누군가에겐 그것마저 아름답다",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965397",
+      "event_at": "2026-06-05T05:48:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:위조된-사랑-누군가에겐-그것마저-아름답다",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Household": [
+          "가구"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "위조된 사랑, 누군가에겐 그것마저 아름답다",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965397",
+      "event_at": "2026-06-05T05:48:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:위조된-사랑-누군가에겐-그것마저-아름답다",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Household": [
+          "가구"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "application_deadline",
+      "title": "주민이 직접 키우는 지역관광…올해 '관광두레' 48곳 선정",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965964",
+      "event_at": "2026-02-04T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:주민이-직접-키우는-지역관광-올해-관광두레-48곳-선정",
+      "application_deadline": "2026-02-04",
+      "application_start_date": "2026-06-05",
+      "application_channels": [],
+      "benefit_amounts": [
+        "2600만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "충남",
+          "전남",
+          "경북",
+          "경남",
+          "제주"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "주민이 직접 키우는 지역관광…올해 '관광두레' 48곳 선정",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965964",
+      "event_at": "2026-06-05T05:46:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:주민이-직접-키우는-지역관광-올해-관광두레-48곳-선정",
+      "application_deadline": "2026-02-04",
+      "application_start_date": "2026-06-05",
+      "application_channels": [],
+      "benefit_amounts": [
+        "2600만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "충남",
+          "전남",
+          "경북",
+          "경남",
+          "제주"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "주민이 직접 키우는 지역관광…올해 '관광두레' 48곳 선정",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965964",
+      "event_at": "2026-06-05T05:46:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:주민이-직접-키우는-지역관광-올해-관광두레-48곳-선정",
+      "application_deadline": "2026-02-04",
+      "application_start_date": "2026-06-05",
+      "application_channels": [],
+      "benefit_amounts": [
+        "2600만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "충남",
+          "전남",
+          "경북",
+          "경남",
+          "제주"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "도수치료 회당 4만 원대 수가 적용…재택관리·상병수당도 손질",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965954",
+      "event_at": "2026-06-05T05:02:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:재택관리-상병수당",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "대구",
+          "강원",
+          "충북",
+          "충남",
+          "전북"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "도수치료 회당 4만 원대 수가 적용…재택관리·상병수당도 손질",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965954",
+      "event_at": "2026-06-05T05:02:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:재택관리-상병수당",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ],
+        "Region": [
+          "서울",
+          "경기",
+          "대구",
+          "강원",
+          "충북",
+          "충남",
+          "전북"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "eligibility_rule",
+      "title": "가짜 진료·가짜 환자 집중 단속…건보 거짓청구 기획조사 재개",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965944",
+      "event_at": "2026-06-05T04:56:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:가짜-진료-가짜-환자-집중-단속-건보-거짓청구-기획조사-재개",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "96억원",
+        "100억원",
+        "120억원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "보험료"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑",
+      "event_model": "support_program_notice",
+      "title": "가짜 진료·가짜 환자 집중 단속…건보 거짓청구 기획조사 재개",
+      "url": "https://www.korea.kr/news/policyNewsView.do?call_from=rsslink&newsId=148965944",
+      "event_at": "2026-06-05T04:56:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑:가짜-진료-가짜-환자-집중-단속-건보-거짓청구-기획조사-재개",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "96억원",
+        "100억원",
+        "120억원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "보험료"
+        ]
+      }
+    },
+    {
       "source": "정책브리핑 보도자료",
       "event_model": "eligibility_rule",
       "title": "[방송미디어통신위원회]2026년 제15차 위원회 결과",
@@ -1138,24 +2701,6 @@
     },
     {
       "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[인사혁신처]국가 위해 희생한 순직공무원 가족 지원, 의견 청취",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765309",
-      "event_at": "2026-06-05T03:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:인사혁신처-국가-위해-희생한-순직공무원-가족-지원-의견-청취",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
       "event_model": "eligibility_rule",
       "title": "[행정안전부]'기본사회 대전환' 위해 지방정부와 맞손, 권역별 공동연수(워크숍) 돌입",
       "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765313",
@@ -1201,6 +2746,24 @@
           "강원"
         ]
       }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[인사혁신처]국가 위해 희생한 순직공무원 가족 지원, 의견 청취",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156765309",
+      "event_at": "2026-06-05T03:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:인사혁신처-국가-위해-희생한-순직공무원-가족-지원-의견-청취",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
     },
     {
       "source": "정책브리핑 보도자료",
@@ -3742,6 +5305,33 @@
     },
     {
       "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[행정안전부]김민재 행정안전부 차관, 제9회 전국동시지방선거 준비상황 현장점검",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764939",
+      "event_at": "2026-06-02T08:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:행정안전부-김민재-행정안전부-차관-제9회-전국동시지방선거-준비상황-현장점검",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
       "event_model": "eligibility_rule",
       "title": "[농림축산식품부]함께하니 농작업 부담도, 기름값도 뚝... 고령화·고유가 시대의 대안, 공동영농",
       "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764936",
@@ -3797,33 +5387,6 @@
         ],
         "Region": [
           "충남"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[행정안전부]김민재 행정안전부 차관, 제9회 전국동시지방선거 준비상황 현장점검",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764939",
-      "event_at": "2026-06-02T08:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:행정안전부-김민재-행정안전부-차관-제9회-전국동시지방선거-준비상황-현장점검",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "visit"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "장애인"
-        ],
-        "Region": [
-          "서울"
         ]
       }
     },
@@ -5885,6 +7448,96 @@
     },
     {
       "source": "정책브리핑 보도자료",
+      "event_model": "application_deadline",
+      "title": "[인사혁신처]일 잘하는 공무원 조기 승진 등 공직 역량 강화",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764688",
+      "event_at": "2026-03-01T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:인사혁신처-일-잘하는-공무원-조기-승진-등-공직-역량-강화",
+      "application_deadline": "2026-03-01",
+      "application_start_date": "2026-05-01",
+      "application_channels": [],
+      "benefit_amounts": [
+        "3000만원",
+        "300만원",
+        "5만원",
+        "8만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[인사혁신처]일 잘하는 공무원 조기 승진 등 공직 역량 강화",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764688",
+      "event_at": "2026-06-01T03:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:인사혁신처-일-잘하는-공무원-조기-승진-등-공직-역량-강화",
+      "application_deadline": "2026-03-01",
+      "application_start_date": "2026-05-01",
+      "application_channels": [],
+      "benefit_amounts": [
+        "3000만원",
+        "300만원",
+        "5만원",
+        "8만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "application_deadline",
+      "title": "[공정거래위원회]트립닷컴 트래블 싱가포르 프라이빗 리미티드 및 (주)트립닷컴코리아의 전자상거래법 위반행위 제재",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764668",
+      "event_at": "2025-07-31T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:공정거래위원회-트립닷컴-트래블-싱가포르-프라이빗-리미티드-및-주-트립닷컴코리아의-전자상거래법-위반행위-제재",
+      "application_deadline": "2025-07-31",
+      "application_start_date": "2017-11-20",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [
+        "1000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[공정거래위원회]트립닷컴 트래블 싱가포르 프라이빗 리미티드 및 (주)트립닷컴코리아의 전자상거래법 위반행위 제재",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764668",
+      "event_at": "2026-06-01T03:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:공정거래위원회-트립닷컴-트래블-싱가포르-프라이빗-리미티드-및-주-트립닷컴코리아의-전자상거래법-위반행위-제재",
+      "application_deadline": "2025-07-31",
+      "application_start_date": "2017-11-20",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [
+        "1000만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
       "event_model": "eligibility_rule",
       "title": "[행정안전부]국가정보자원관리원 운영 대전환, 차세대 인공지능정부 인프라로 혁신 본격 착수",
       "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764701",
@@ -5935,93 +7588,47 @@
     },
     {
       "source": "정책브리핑 보도자료",
-      "event_model": "application_deadline",
-      "title": "[공정거래위원회]트립닷컴 트래블 싱가포르 프라이빗 리미티드 및 (주)트립닷컴코리아의 전자상거래법 위반행위 제재",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764668",
-      "event_at": "2025-07-31T00:00:00+00:00",
+      "event_model": "eligibility_rule",
+      "title": "[인사혁신처]국방부 국방전산정보원장 등 10개 개방형 직위 채용",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764690",
+      "event_at": "2026-06-01T03:00:00+00:00",
       "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:공정거래위원회-트립닷컴-트래블-싱가포르-프라이빗-리미티드-및-주-트립닷컴코리아의-전자상거래법-위반행위-제재",
-      "application_deadline": "2025-07-31",
-      "application_start_date": "2017-11-20",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [
-        "1000만원"
-      ],
+      "program_key": "title:정책브리핑-보도자료:인사혁신처-국방부-국방전산정보원장-등-10개-개방형-직위-채용",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
       "selection_result_date": "",
       "selected_count": "",
       "execution_amount": "",
       "selection_program_title": "",
-      "eligibility_fields": {}
+      "eligibility_fields": {
+        "Region": [
+          "대구"
+        ]
+      }
     },
     {
       "source": "정책브리핑 보도자료",
       "event_model": "support_program_notice",
-      "title": "[공정거래위원회]트립닷컴 트래블 싱가포르 프라이빗 리미티드 및 (주)트립닷컴코리아의 전자상거래법 위반행위 제재",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764668",
+      "title": "[인사혁신처]국방부 국방전산정보원장 등 10개 개방형 직위 채용",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764690",
       "event_at": "2026-06-01T03:00:00+00:00",
       "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:공정거래위원회-트립닷컴-트래블-싱가포르-프라이빗-리미티드-및-주-트립닷컴코리아의-전자상거래법-위반행위-제재",
-      "application_deadline": "2025-07-31",
-      "application_start_date": "2017-11-20",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [
-        "1000만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "application_deadline",
-      "title": "[인사혁신처]일 잘하는 공무원 조기 승진 등 공직 역량 강화",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764688",
-      "event_at": "2026-03-01T00:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:인사혁신처-일-잘하는-공무원-조기-승진-등-공직-역량-강화",
-      "application_deadline": "2026-03-01",
-      "application_start_date": "2026-05-01",
+      "program_key": "title:정책브리핑-보도자료:인사혁신처-국방부-국방전산정보원장-등-10개-개방형-직위-채용",
+      "application_deadline": "",
+      "application_start_date": "",
       "application_channels": [],
-      "benefit_amounts": [
-        "3000만원",
-        "300만원",
-        "5만원",
-        "8만원"
-      ],
+      "benefit_amounts": [],
       "selection_result_date": "",
       "selected_count": "",
       "execution_amount": "",
       "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[인사혁신처]일 잘하는 공무원 조기 승진 등 공직 역량 강화",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764688",
-      "event_at": "2026-06-01T03:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:인사혁신처-일-잘하는-공무원-조기-승진-등-공직-역량-강화",
-      "application_deadline": "2026-03-01",
-      "application_start_date": "2026-05-01",
-      "application_channels": [],
-      "benefit_amounts": [
-        "3000만원",
-        "300만원",
-        "5만원",
-        "8만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
+      "eligibility_fields": {
+        "Region": [
+          "대구"
+        ]
+      }
     },
     {
       "source": "정책브리핑 보도자료",
@@ -6086,50 +7693,6 @@
       "eligibility_fields": {
         "IncomeCondition": [
           "소득"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[인사혁신처]국방부 국방전산정보원장 등 10개 개방형 직위 채용",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764690",
-      "event_at": "2026-06-01T03:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:인사혁신처-국방부-국방전산정보원장-등-10개-개방형-직위-채용",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "대구"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[인사혁신처]국방부 국방전산정보원장 등 10개 개방형 직위 채용",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764690",
-      "event_at": "2026-06-01T03:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:인사혁신처-국방부-국방전산정보원장-등-10개-개방형-직위-채용",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "대구"
         ]
       }
     },
@@ -6565,26 +8128,6 @@
     },
     {
       "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[보건복지부]자살예방상담전화 109, 응대율 높이기 위해 전문 상담인력 2배로 증원",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764560",
-      "event_at": "2026-05-31T03:05:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:보건복지부-자살예방상담전화-109-응대율-높이기-위해-전문-상담인력-2배로-증원",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "visit"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
       "event_model": "eligibility_rule",
       "title": "[보건복지부]통합돌봄 시행, 그냥드림 전국 확대 등 더 따뜻한 복지! 의대정원 증원, 지역의사제 도입 등 더 가까운 의료! 제약·바이오, K-뷰티 역대 최고 수출 등 더 성장하는 K-바이오헬스",
       "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764559",
@@ -6661,6 +8204,132 @@
     },
     {
       "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[보건복지부]자살예방상담전화 109, 응대율 높이기 위해 전문 상담인력 2배로 증원",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764560",
+      "event_at": "2026-05-31T03:05:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:보건복지부-자살예방상담전화-109-응대율-높이기-위해-전문-상담인력-2배로-증원",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "application_deadline",
+      "title": "[재정경제부]세계은행그룹, 'AI·디지털 기술' 분야 한국인 우수 인재 유치를 위한 채용 미션 개최",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764566",
+      "event_at": "2026-07-03T00:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:재정경제부-세계은행그룹-ai-디지털-기술-분야-한국인-우수-인재-유치를-위한-채용-미션-개최",
+      "application_deadline": "2026-07-03",
+      "application_start_date": "2026-07-01",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[재정경제부]세계은행그룹, 'AI·디지털 기술' 분야 한국인 우수 인재 유치를 위한 채용 미션 개최",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764566",
+      "event_at": "2026-05-31T03:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:재정경제부-세계은행그룹-ai-디지털-기술-분야-한국인-우수-인재-유치를-위한-채용-미션-개최",
+      "application_deadline": "2026-07-03",
+      "application_start_date": "2026-07-01",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[기후에너지환경부]'컵라면 용기'를 나프타로 재생한다… 열분해 시범사업 확대",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764563",
+      "event_at": "2026-05-31T03:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:기후에너지환경부-컵라면-용기-를-나프타로-재생한다-열분해-시범사업-확대",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "제주"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[질병관리청][6.1.월.조간] 담배제품 다양화 속 전자담배 사용 증가 최근 7년간 궐련형 전자담배 사용 91%, 액상형 전자담배 사용 73% 늘어",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764558",
+      "event_at": "2026-05-31T03:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:질병관리청-6-1-월-조간-담배제품-다양화-속-전자담배-사용-증가-최근-7년간-궐련형-전자담배-사용-91-액상형-전자담배-사용-73-늘어",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Household": [
+          "가구"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[질병관리청][6.1.월.조간] 담배제품 다양화 속 전자담배 사용 증가 최근 7년간 궐련형 전자담배 사용 91%, 액상형 전자담배 사용 73% 늘어",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764558",
+      "event_at": "2026-05-31T03:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:질병관리청-6-1-월-조간-담배제품-다양화-속-전자담배-사용-증가-최근-7년간-궐련형-전자담배-사용-91-액상형-전자담배-사용-73-늘어",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Household": [
+          "가구"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
       "event_model": "application_deadline",
       "title": "[공정거래위원회](주)귀한사람들의 가맹사업법 및 표시광고법 위반행위 제재",
       "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764554",
@@ -6701,42 +8370,6 @@
         "174856천원",
         "87131천원"
       ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "application_deadline",
-      "title": "[재정경제부]세계은행그룹, 'AI·디지털 기술' 분야 한국인 우수 인재 유치를 위한 채용 미션 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764566",
-      "event_at": "2026-07-03T00:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:재정경제부-세계은행그룹-ai-디지털-기술-분야-한국인-우수-인재-유치를-위한-채용-미션-개최",
-      "application_deadline": "2026-07-03",
-      "application_start_date": "2026-07-01",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[재정경제부]세계은행그룹, 'AI·디지털 기술' 분야 한국인 우수 인재 유치를 위한 채용 미션 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764566",
-      "event_at": "2026-05-31T03:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:재정경제부-세계은행그룹-ai-디지털-기술-분야-한국인-우수-인재-유치를-위한-채용-미션-개최",
-      "application_deadline": "2026-07-03",
-      "application_start_date": "2026-07-01",
-      "application_channels": [],
-      "benefit_amounts": [],
       "selection_result_date": "",
       "selected_count": "",
       "execution_amount": "",
@@ -6861,76 +8494,6 @@
     },
     {
       "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[기후에너지환경부]'컵라면 용기'를 나프타로 재생한다… 열분해 시범사업 확대",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764563",
-      "event_at": "2026-05-31T03:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:기후에너지환경부-컵라면-용기-를-나프타로-재생한다-열분해-시범사업-확대",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "제주"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[질병관리청][6.1.월.조간] 담배제품 다양화 속 전자담배 사용 증가 최근 7년간 궐련형 전자담배 사용 91%, 액상형 전자담배 사용 73% 늘어",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764558",
-      "event_at": "2026-05-31T03:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:질병관리청-6-1-월-조간-담배제품-다양화-속-전자담배-사용-증가-최근-7년간-궐련형-전자담배-사용-91-액상형-전자담배-사용-73-늘어",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "visit"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Household": [
-          "가구"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[질병관리청][6.1.월.조간] 담배제품 다양화 속 전자담배 사용 증가 최근 7년간 궐련형 전자담배 사용 91%, 액상형 전자담배 사용 73% 늘어",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764558",
-      "event_at": "2026-05-31T03:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:질병관리청-6-1-월-조간-담배제품-다양화-속-전자담배-사용-증가-최근-7년간-궐련형-전자담배-사용-91-액상형-전자담배-사용-73-늘어",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "visit"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Household": [
-          "가구"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
       "event_model": "application_deadline",
       "title": "[재외동포청]\"글로벌 바이어 300명 대기 중\"…국내 중소기업 해외 진출, 한상 급행열차 뜬다",
       "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764552",
@@ -7015,166 +8578,6 @@
     },
     {
       "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[해양수산부]6월의 수산물, 어촌여행지, 해양생물, 등대, 무인도서 선정",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764547",
-      "event_at": "2026-05-31T02:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:해양수산부-6월의-수산물-어촌여행지-해양생물-등대-무인도서-선정",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "visit"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "부산",
-          "전남",
-          "경남",
-          "제주"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[해양수산부]6월의 수산물, 어촌여행지, 해양생물, 등대, 무인도서 선정",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764547",
-      "event_at": "2026-05-31T02:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:해양수산부-6월의-수산물-어촌여행지-해양생물-등대-무인도서-선정",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "visit"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "부산",
-          "전남",
-          "경남",
-          "제주"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[농림축산식품부]맛있는 딸기, 농업 인공지능(AI)이 키워봅니다",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764544",
-      "event_at": "2026-05-31T02:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농림축산식품부-맛있는-딸기-농업-인공지능-ai-이-키워봅니다",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Household": [
-          "세대"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농림축산식품부]맛있는 딸기, 농업 인공지능(AI)이 키워봅니다",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764544",
-      "event_at": "2026-05-31T02:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농림축산식품부-맛있는-딸기-농업-인공지능-ai-이-키워봅니다",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Household": [
-          "세대"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[해양수산부]'바다로' 떠나는 청춘 가득한 섬 여행, 6월부터 '바다로' 이용권 판매 시작",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764545",
-      "event_at": "2026-05-31T02:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:해양수산부-바다로-떠나는-청춘-가득한-섬-여행-6월부터-바다로-이용권-판매-시작",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "56만원",
-        "29만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "LifeStage": [
-          "청소년"
-        ],
-        "Region": [
-          "제주"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[해양수산부]'바다로' 떠나는 청춘 가득한 섬 여행, 6월부터 '바다로' 이용권 판매 시작",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764545",
-      "event_at": "2026-05-31T02:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:해양수산부-바다로-떠나는-청춘-가득한-섬-여행-6월부터-바다로-이용권-판매-시작",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "56만원",
-        "29만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "LifeStage": [
-          "청소년"
-        ],
-        "Region": [
-          "제주"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
       "event_model": "application_deadline",
       "title": "[해양수산부]\"해양사고를 막는 소중한 경험의 힘\" 준해양사고 사례를 찾습니다",
       "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764546",
@@ -7207,6 +8610,26 @@
         "mail"
       ],
       "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[해양수산부]작은 항만사업장까지 꼼꼼하게... 안전시설 지원 강화",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764549",
+      "event_at": "2026-05-31T02:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:해양수산부-작은-항만사업장까지-꼼꼼하게-안전시설-지원-강화",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "146억원"
+      ],
       "selection_result_date": "",
       "selected_count": "",
       "execution_amount": "",
@@ -7251,36 +8674,78 @@
     },
     {
       "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[해양수산부]작은 항만사업장까지 꼼꼼하게... 안전시설 지원 강화",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764549",
+      "event_model": "eligibility_rule",
+      "title": "[해양수산부]'바다로' 떠나는 청춘 가득한 섬 여행, 6월부터 '바다로' 이용권 판매 시작",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764545",
       "event_at": "2026-05-31T02:00:00+00:00",
       "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:해양수산부-작은-항만사업장까지-꼼꼼하게-안전시설-지원-강화",
+      "program_key": "title:정책브리핑-보도자료:해양수산부-바다로-떠나는-청춘-가득한-섬-여행-6월부터-바다로-이용권-판매-시작",
       "application_deadline": "",
       "application_start_date": "",
       "application_channels": [],
       "benefit_amounts": [
-        "146억원"
+        "56만원",
+        "29만원"
       ],
       "selection_result_date": "",
       "selected_count": "",
       "execution_amount": "",
       "selection_program_title": "",
-      "eligibility_fields": {}
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "LifeStage": [
+          "청소년"
+        ],
+        "Region": [
+          "제주"
+        ]
+      }
     },
     {
       "source": "정책브리핑 보도자료",
       "event_model": "support_program_notice",
-      "title": "[과학기술정보통신부]류제명 제2차관, 주요 7개국(G7) 디지털 기술 장관회의 참석",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764519",
-      "event_at": "2026-05-29T15:00:00+00:00",
+      "title": "[해양수산부]'바다로' 떠나는 청춘 가득한 섬 여행, 6월부터 '바다로' 이용권 판매 시작",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764545",
+      "event_at": "2026-05-31T02:00:00+00:00",
       "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:과학기술정보통신부-류제명-제2차관-주요-7개국-g7-디지털-기술-장관회의-참석",
+      "program_key": "title:정책브리핑-보도자료:해양수산부-바다로-떠나는-청춘-가득한-섬-여행-6월부터-바다로-이용권-판매-시작",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "56만원",
+        "29만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "LifeStage": [
+          "청소년"
+        ],
+        "Region": [
+          "제주"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[해양수산부]6월의 수산물, 어촌여행지, 해양생물, 등대, 무인도서 선정",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764547",
+      "event_at": "2026-05-31T02:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:해양수산부-6월의-수산물-어촌여행지-해양생물-등대-무인도서-선정",
       "application_deadline": "",
       "application_start_date": "",
       "application_channels": [
-        "online"
+        "visit"
       ],
       "benefit_amounts": [],
       "selection_result_date": "",
@@ -7288,72 +8753,49 @@
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {
-        "TargetGroup": [
-          "중소기업"
-        ],
-        "LifeStage": [
-          "아동"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[고용노동부]국경없는 취업시장, 직무정보와 기업이해는 필수",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764497",
-      "event_at": "2026-05-29T10:42:43+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-국경없는-취업시장-직무정보와-기업이해는-필수",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
         "Region": [
-          "서울"
+          "부산",
+          "전남",
+          "경남",
+          "제주"
         ]
       }
     },
     {
       "source": "정책브리핑 보도자료",
       "event_model": "support_program_notice",
-      "title": "[고용노동부]국경없는 취업시장, 직무정보와 기업이해는 필수",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764497",
-      "event_at": "2026-05-29T10:42:43+00:00",
+      "title": "[해양수산부]6월의 수산물, 어촌여행지, 해양생물, 등대, 무인도서 선정",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764547",
+      "event_at": "2026-05-31T02:00:00+00:00",
       "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-국경없는-취업시장-직무정보와-기업이해는-필수",
+      "program_key": "title:정책브리핑-보도자료:해양수산부-6월의-수산물-어촌여행지-해양생물-등대-무인도서-선정",
       "application_deadline": "",
       "application_start_date": "",
-      "application_channels": [],
+      "application_channels": [
+        "visit"
+      ],
       "benefit_amounts": [],
       "selection_result_date": "",
       "selected_count": "",
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
         "Region": [
-          "서울"
+          "부산",
+          "전남",
+          "경남",
+          "제주"
         ]
       }
     },
     {
       "source": "정책브리핑 보도자료",
       "event_model": "eligibility_rule",
-      "title": "[고용노동부]'2026년도 스타기술인 홍보대사 위촉식 및 기특한 기자단 발대식' 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764496",
-      "event_at": "2026-05-29T10:40:21+00:00",
+      "title": "[농림축산식품부]맛있는 딸기, 농업 인공지능(AI)이 키워봅니다",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764544",
+      "event_at": "2026-05-31T02:00:00+00:00",
       "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-2026년도-스타기술인-홍보대사-위촉식-및-기특한-기자단-발대식-개최",
+      "program_key": "title:정책브리핑-보도자료:농림축산식품부-맛있는-딸기-농업-인공지능-ai-이-키워봅니다",
       "application_deadline": "",
       "application_start_date": "",
       "application_channels": [],
@@ -7363,31 +8805,19 @@
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {
-        "LifeStage": [
-          "청소년",
-          "대학생"
-        ],
         "Household": [
           "세대"
-        ],
-        "IncomeCondition": [
-          "재산"
-        ],
-        "Region": [
-          "서울",
-          "인천",
-          "경북"
         ]
       }
     },
     {
       "source": "정책브리핑 보도자료",
       "event_model": "support_program_notice",
-      "title": "[고용노동부]'2026년도 스타기술인 홍보대사 위촉식 및 기특한 기자단 발대식' 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764496",
-      "event_at": "2026-05-29T10:40:21+00:00",
+      "title": "[농림축산식품부]맛있는 딸기, 농업 인공지능(AI)이 키워봅니다",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764544",
+      "event_at": "2026-05-31T02:00:00+00:00",
       "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-2026년도-스타기술인-홍보대사-위촉식-및-기특한-기자단-발대식-개최",
+      "program_key": "title:정책브리핑-보도자료:농림축산식품부-맛있는-딸기-농업-인공지능-ai-이-키워봅니다",
       "application_deadline": "",
       "application_start_date": "",
       "application_channels": [],
@@ -7397,613 +8827,8 @@
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {
-        "LifeStage": [
-          "청소년",
-          "대학생"
-        ],
         "Household": [
           "세대"
-        ],
-        "IncomeCondition": [
-          "재산"
-        ],
-        "Region": [
-          "서울",
-          "인천",
-          "경북"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[고용노동부]고용노동부 장관, 20대 건설사와 건설현장 폭염 대책 총력 대응 선언",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764494",
-      "event_at": "2026-05-29T10:34:51+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-고용노동부-장관-20대-건설사와-건설현장-폭염-대책-총력-대응-선언",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "취약계층"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "application_deadline",
-      "title": "[고용노동부]고용노동부, 산재예방심의위원회 개최... 산재 신속 처리 등 산재보험 혁신 가속화",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764493",
-      "event_at": "2026-01-01T00:00:00+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-고용노동부-산재예방심의위원회-개최-산재-신속-처리-등-산재보험-혁신-가속화",
-      "application_deadline": "2026-01-01",
-      "application_start_date": "2026-05-29",
-      "application_channels": [],
-      "benefit_amounts": [
-        "75억원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "취약계층"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[고용노동부]고용노동부, 산재예방심의위원회 개최... 산재 신속 처리 등 산재보험 혁신 가속화",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764493",
-      "event_at": "2026-05-29T10:32:12+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-고용노동부-산재예방심의위원회-개최-산재-신속-처리-등-산재보험-혁신-가속화",
-      "application_deadline": "2026-01-01",
-      "application_start_date": "2026-05-29",
-      "application_channels": [],
-      "benefit_amounts": [
-        "75억원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "취약계층"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[고용노동부]고용노동부, 산재예방심의위원회 개최... 산재 신속 처리 등 산재보험 혁신 가속화",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764493",
-      "event_at": "2026-05-29T10:32:12+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-고용노동부-산재예방심의위원회-개최-산재-신속-처리-등-산재보험-혁신-가속화",
-      "application_deadline": "2026-01-01",
-      "application_start_date": "2026-05-29",
-      "application_channels": [],
-      "benefit_amounts": [
-        "75억원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "취약계층"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[고용노동부]공공부문 비정규직 처우개선 대책 차질 없이 추진하고 있습니다.",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764492",
-      "event_at": "2026-05-29T10:28:52+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-공공부문-비정규직-처우개선-대책-차질-없이-추진하고-있습니다",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[고용노동부]대지급금 장기 미변제 사업주 2,057명 처음으로 신용제재 실시",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764491",
-      "event_at": "2026-05-29T10:25:53+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-대지급금-장기-미변제-사업주-2-057명-처음으로-신용제재-실시",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[고용노동부]재취업지원서비스 제도 관련 고령자고용법 시행령 입법예고",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764490",
-      "event_at": "2026-05-29T10:23:49+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-재취업지원서비스-제도-관련-고령자고용법-시행령-입법예고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "mail"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "중소기업"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[고용노동부]재취업지원서비스 제도 관련 고령자고용법 시행령 입법예고",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764490",
-      "event_at": "2026-05-29T10:23:49+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-재취업지원서비스-제도-관련-고령자고용법-시행령-입법예고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "mail"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "중소기업"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[고용노동부]노동자와 함께 지속성장하는 게임산업을 위한 현장 간담회 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764489",
-      "event_at": "2026-05-29T10:21:15+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-노동자와-함께-지속성장하는-게임산업을-위한-현장-간담회-개최",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[고용노동부]노동자와 함께 지속성장하는 게임산업을 위한 현장 간담회 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764489",
-      "event_at": "2026-05-29T10:21:15+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:고용노동부-노동자와-함께-지속성장하는-게임산업을-위한-현장-간담회-개최",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농촌진흥청]\"한국의 독창성을 과학혁신으로\" '우리의 과학(K-Science)' 정책협의회 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764485",
-      "event_at": "2026-05-29T09:53:29+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-한국의-독창성을-과학혁신으로-우리의-과학-k-science-정책협의회-개최",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[농촌진흥청]'이화명나방' 피해 최소화, 예찰과 제때 방제 중요",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764479",
-      "event_at": "2026-05-29T09:50:33+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-이화명나방-피해-최소화-예찰과-제때-방제-중요",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "충남",
-          "전북"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농촌진흥청]'이화명나방' 피해 최소화, 예찰과 제때 방제 중요",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764479",
-      "event_at": "2026-05-29T09:50:33+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-이화명나방-피해-최소화-예찰과-제때-방제-중요",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "충남",
-          "전북"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[농촌진흥청]농촌진흥청, 기후 변화 대응 '국산 밀 신규 우수 계통' 현장 평가회 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764473",
-      "event_at": "2026-05-29T09:45:20+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-농촌진흥청-기후-변화-대응-국산-밀-신규-우수-계통-현장-평가회-개최",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "IncomeCondition": [
-          "소득"
-        ],
-        "Region": [
-          "광주",
-          "전남"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농촌진흥청]농촌진흥청, 기후 변화 대응 '국산 밀 신규 우수 계통' 현장 평가회 개최",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764473",
-      "event_at": "2026-05-29T09:45:20+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-농촌진흥청-기후-변화-대응-국산-밀-신규-우수-계통-현장-평가회-개최",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "IncomeCondition": [
-          "소득"
-        ],
-        "Region": [
-          "광주",
-          "전남"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[농촌진흥청]경기 고양 사과 과수원, 과수화상병 신규 발생",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764471",
-      "event_at": "2026-05-29T09:44:18+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-경기-고양-사과-과수원-과수화상병-신규-발생",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "경기",
-          "세종",
-          "충북",
-          "충남"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농촌진흥청]경기 고양 사과 과수원, 과수화상병 신규 발생",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764471",
-      "event_at": "2026-05-29T09:44:18+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-경기-고양-사과-과수원-과수화상병-신규-발생",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "경기",
-          "세종",
-          "충북",
-          "충남"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[농촌진흥청]정신의료기관 실증, 치유농업 프로그램 '마음에 뿌린 씨앗' 확산",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764467",
-      "event_at": "2026-05-29T09:42:46+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-정신의료기관-실증-치유농업-프로그램-마음에-뿌린-씨앗-확산",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "전북"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농촌진흥청]정신의료기관 실증, 치유농업 프로그램 '마음에 뿌린 씨앗' 확산",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764467",
-      "event_at": "2026-05-29T09:42:46+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-정신의료기관-실증-치유농업-프로그램-마음에-뿌린-씨앗-확산",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "전북"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[농촌진흥청]농촌진흥청, 전북대·장수한우지방공사와 지역 상생 동반 관계(파트너십) 맺어",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764459",
-      "event_at": "2026-05-29T09:38:30+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-농촌진흥청-전북대-장수한우지방공사와-지역-상생-동반-관계-파트너십-맺어",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "IncomeCondition": [
-          "소득"
-        ],
-        "Region": [
-          "전북"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농촌진흥청]농촌진흥청, 전북대·장수한우지방공사와 지역 상생 동반 관계(파트너십) 맺어",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764459",
-      "event_at": "2026-05-29T09:38:30+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-농촌진흥청-전북대-장수한우지방공사와-지역-상생-동반-관계-파트너십-맺어",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "IncomeCondition": [
-          "소득"
-        ],
-        "Region": [
-          "전북"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[농촌진흥청]'대학-농업 현장 협업'으로 과수 기상재해 대응 기술 확산",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764457",
-      "event_at": "2026-05-29T09:37:31+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-대학-농업-현장-협업-으로-과수-기상재해-대응-기술-확산",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "강원",
-          "충북",
-          "전북",
-          "경북",
-          "경남"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농촌진흥청]'대학-농업 현장 협업'으로 과수 기상재해 대응 기술 확산",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764457",
-      "event_at": "2026-05-29T09:37:31+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-대학-농업-현장-협업-으로-과수-기상재해-대응-기술-확산",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "강원",
-          "충북",
-          "전북",
-          "경북",
-          "경남"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "eligibility_rule",
-      "title": "[농촌진흥청]충남 공주에서 과수화상병 신규 발생 확인",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764453",
-      "event_at": "2026-05-29T09:35:14+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-충남-공주에서-과수화상병-신규-발생-확인",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "충남"
-        ]
-      }
-    },
-    {
-      "source": "정책브리핑 보도자료",
-      "event_model": "support_program_notice",
-      "title": "[농촌진흥청]충남 공주에서 과수화상병 신규 발생 확인",
-      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764453",
-      "event_at": "2026-05-29T09:35:14+00:00",
-      "program_id": "",
-      "program_key": "title:정책브리핑-보도자료:농촌진흥청-충남-공주에서-과수화상병-신규-발생-확인",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "충남"
         ]
       }
     },
@@ -9445,6 +10270,83 @@
         "Region": [
           "서울",
           "경북"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[과학기술정보통신부]류제명 제2차관, 주요 7개국(G7) 디지털 기술 장관회의 참석",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764519",
+      "event_at": "2026-05-29T15:00:00+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:과학기술정보통신부-류제명-제2차관-주요-7개국-g7-디지털-기술-장관회의-참석",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "중소기업"
+        ],
+        "LifeStage": [
+          "아동"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "eligibility_rule",
+      "title": "[고용노동부]국경없는 취업시장, 직무정보와 기업이해는 필수",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764497",
+      "event_at": "2026-05-29T10:42:43+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:고용노동부-국경없는-취업시장-직무정보와-기업이해는-필수",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "정책브리핑 보도자료",
+      "event_model": "support_program_notice",
+      "title": "[고용노동부]국경없는 취업시장, 직무정보와 기업이해는 필수",
+      "url": "https://www.korea.kr/briefing/pressReleaseView.do?call_from=rsslink&newsId=156764497",
+      "event_at": "2026-05-29T10:42:43+00:00",
+      "program_id": "",
+      "program_key": "title:정책브리핑-보도자료:고용노동부-국경없는-취업시장-직무정보와-기업이해는-필수",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "Region": [
+          "서울"
         ]
       }
     },
