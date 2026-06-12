@@ -1,0 +1,107 @@
+{
+  "date": "2026-06-12",
+  "category": "benefit",
+  "article_count": 152,
+  "source_count": 6,
+  "matched_count": 152,
+  "top_entities": [
+    {
+      "name": "GovernmentPolicy",
+      "count": 501
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 218
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 152
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 150
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 142
+    },
+    {
+      "name": "SourceSignal",
+      "count": 140
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 108
+    },
+    {
+      "name": "Eligibility",
+      "count": 106
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 102
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 88
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 65
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 62
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 60
+    },
+    {
+      "name": "BenefitAmount",
+      "count": 33
+    },
+    {
+      "name": "EligibilityIncomeCondition",
+      "count": 29
+    },
+    {
+      "name": "TaxBenefit",
+      "count": 28
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 28
+    },
+    {
+      "name": "FamilySupport",
+      "count": 26
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 26
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 23
+    }
+  ],
+  "sources": {
+    "Government Executive": 4,
+    "정책브리핑 보도자료": 78,
+    "Federal News Network": 2,
+    "Pew Research": 1,
+    "정책브리핑": 62,
+    "KFF Health News": 5
+  },
+  "generated_at": "2026-06-12T13:26:26.850356+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
