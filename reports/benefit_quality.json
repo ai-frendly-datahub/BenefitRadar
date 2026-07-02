@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-07-01T04:16:24.026743+00:00",
+  "generated_at": "2026-07-02T03:56:44.918992+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 38,
@@ -466,7 +466,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 6,
+      "article_count": 7,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
