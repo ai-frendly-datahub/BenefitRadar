@@ -1,0 +1,1987 @@
+<!doctype html>
+<html lang="en" data-visual-system="radar-unified-v2" data-visual-surface="report" data-visual-page="daily-report">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>정부 혜택/지원금 레이더 - Report</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" />
+
+    <style>
+      :root{
+        --vs-bg-0:#0b0b0f;
+        --vs-bg-1:#121116;
+        --vs-surface-0:rgba(24, 22, 29, .74);
+        --vs-surface-1:rgba(28, 26, 34, .74);
+        --vs-surface-2:rgba(28, 26, 34, .92);
+        --vs-line:rgba(244, 244, 247, .14);
+        --vs-line-strong:rgba(244, 244, 247, .22);
+        --vs-shadow:0 18px 60px rgba(0,0,0,.44);
+        --vs-text:#e9eefb;
+        --vs-text-muted:rgba(233, 238, 251, .72);
+        --vs-text-faint:rgba(233, 238, 251, .52);
+        --vs-brand:#33d6c5;
+        --vs-brand-strong:#19b591;
+        --vs-accent:#f6c84c;
+        --vs-danger:#ff5b6e;
+        --vs-font-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --vs-font-sans:"Pretendard Variable","Pretendard", ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+        --vs-radius:8px;
+        --vs-max:1180px;
+
+        --bg0:var(--vs-bg-0);
+        --bg1:var(--vs-bg-1);
+        --panel0:var(--vs-surface-0);
+        --panel1:var(--vs-surface-1);
+        --panel2:var(--vs-surface-2);
+        --line:var(--vs-line);
+        --line2:var(--vs-line-strong);
+        --shadow:var(--vs-shadow);
+        --text:var(--vs-text);
+        --muted:var(--vs-text-muted);
+        --faint:var(--vs-text-faint);
+        --brand:var(--vs-brand);
+        --brand2:var(--vs-brand-strong);
+        --accent:var(--vs-accent);
+        --danger:var(--vs-danger);
+
+        --radius:var(--vs-radius);
+        --radius2:var(--vs-radius);
+        --max:var(--vs-max);
+
+        --mono:var(--vs-font-mono);
+        --sans:var(--vs-font-sans);
+
+        --focus: 0 0 0 3px rgba(51, 214, 197, .20), 0 0 0 1px rgba(51, 214, 197, .70);
+      }
+
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family:var(--sans);
+        color:var(--text);
+        background: linear-gradient(180deg, var(--bg0), var(--bg1) 58%, #08080b);
+        overflow-x:hidden;
+      }
+
+      a{color:inherit; text-decoration:none}
+      a:hover{text-decoration:none}
+      ::selection{background:rgba(51,214,197,.24)}
+      .skip{
+        position:absolute;
+        left:-999px;
+        top:12px;
+        padding:10px 12px;
+        border-radius:8px;
+        background:rgba(14, 22, 42, .98);
+        border:1px solid var(--line2);
+        color:var(--text);
+        z-index:9999;
+      }
+      .skip:focus{left:12px; box-shadow:var(--focus); outline:none}
+
+      .wrap{max-width:var(--max); margin:0 auto; padding:20px 16px 64px}
+      .topbar{
+        position:sticky; top:0; z-index:50;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        background: linear-gradient(180deg, rgba(5,7,12,.92), rgba(5,7,12,.55));
+        border-bottom:1px solid rgba(150,190,255,.10);
+      }
+      .topbar-inner{max-width:var(--max); margin:0 auto; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:14px}
+      .brand{
+        display:flex; align-items:center; gap:10px;
+        min-width:220px;
+      }
+      .mark{
+        width:34px; height:34px; border-radius:12px;
+        background:
+          radial-gradient(18px 18px at 32% 28%, rgba(255,255,255,.18), transparent 55%),
+          linear-gradient(145deg, rgba(51,214,197,.95), rgba(25,167,195,.78) 55%, rgba(246,200,76,.72));
+        box-shadow: 0 10px 30px rgba(0,0,0,.45);
+        border:1px solid rgba(255,255,255,.10);
+      }
+      .brand-title{
+        line-height:1.05;
+        font-weight:750;
+        letter-spacing:-.02em;
+      }
+      .brand-sub{
+        display:block;
+        font-family:var(--mono);
+        font-size:12px;
+        color:var(--faint);
+        margin-top:4px;
+      }
+      .nav{
+        display:flex; flex-wrap:wrap; gap:8px;
+        justify-content:flex-end;
+      }
+      .pill{
+        display:inline-flex; align-items:center; gap:8px;
+        padding:9px 12px;
+        border-radius:999px;
+        border:1px solid rgba(150,190,255,.14);
+        background:rgba(10,16,30,.45);
+        color:var(--muted);
+        font-size:13px;
+        transition: transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
+        user-select:none;
+      }
+      .pill:hover{
+        transform: translateY(-1px);
+        border-color: rgba(51,214,197,.34);
+        background: rgba(10,16,30,.70);
+        color: rgba(233,238,251,.88);
+      }
+      .pill:focus-visible{outline:none; box-shadow:var(--focus)}
+
+      /* Report Navigation */
+      .report-navigation{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        margin-left:auto;
+      }
+      .nav-button{
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        padding:8px 14px;
+        border-radius:999px;
+        border:1px solid rgba(150,190,255,.14);
+        background:rgba(10,16,30,.45);
+        color:var(--muted);
+        font-size:13px;
+        font-weight:500;
+        transition: all .18s ease;
+        cursor:pointer;
+        text-decoration:none;
+      }
+      .nav-button:hover:not([disabled]){
+        transform: translateY(-1px);
+        border-color: rgba(51,214,197,.34);
+        background: rgba(10,16,30,.70);
+        color: rgba(233,238,251,.88);
+      }
+      .nav-button[disabled]{
+        opacity:.4;
+        cursor:not-allowed;
+        pointer-events:none;
+      }
+      .nav-button:focus-visible{outline:none; box-shadow:var(--focus)}
+
+      .hero{
+        padding:24px 0 12px;
+        display:grid;
+        grid-template-columns: 1.25fr .75fr;
+        gap:18px;
+        align-items:stretch;
+      }
+      .hero-card{
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, var(--panel2), rgba(14,22,42,.58));
+        border: 1px solid rgba(150,190,255,.14);
+        box-shadow: var(--shadow);
+        padding:18px 18px 16px;
+        position:relative;
+        overflow:hidden;
+      }
+      .hero-card:before{content:none}
+      .hero-body{position:relative}
+      .kicker{
+        display:inline-flex; align-items:center; gap:10px;
+        font-family:var(--mono);
+        font-size:12px;
+        color:rgba(233,238,251,.72);
+        letter-spacing:.06em;
+        text-transform:uppercase;
+      }
+      .dot{
+        width:8px; height:8px; border-radius:999px;
+        background: var(--brand);
+        box-shadow:0 0 0 4px rgba(51,214,197,.12);
+      }
+      h1{
+        margin:10px 0 0;
+        font-weight:820;
+        letter-spacing:-.03em;
+        font-size: clamp(28px, 3.2vw, 40px);
+        line-height:1.08;
+      }
+      .lede{
+        margin:10px 0 0;
+        color: var(--muted);
+        font-size:15px;
+        line-height:1.55;
+        max-width: 72ch;
+      }
+      .meta{
+        margin:14px 0 0;
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px 12px;
+        color: rgba(233,238,251,.70);
+        font-size:13px;
+      }
+      .meta span{
+        display:inline-flex; align-items:center; gap:8px;
+        padding:6px 10px;
+        border-radius:999px;
+        border:1px solid rgba(150,190,255,.12);
+        background: rgba(10,16,30,.40);
+      }
+      .mono{font-family:var(--mono)}
+      .accent{color: rgba(246,200,76,.96)}
+      .ok{color: rgba(51,214,197,.92)}
+      .bad{color: rgba(255,91,110,.92)}
+
+      .stats{
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, rgba(10,16,30,.64), rgba(10,16,30,.36));
+        border: 1px solid rgba(150,190,255,.12);
+        box-shadow: 0 12px 40px rgba(0,0,0,.34);
+        padding:16px;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:12px;
+      }
+      .stat{
+        border-radius: 8px;
+        background: rgba(14,22,42,.45);
+        border: 1px solid rgba(150,190,255,.12);
+        padding:12px 12px 10px;
+        min-height: 76px;
+      }
+      .stat .label{
+        color: rgba(233,238,251,.66);
+        font-size:12px;
+        font-family: var(--mono);
+        letter-spacing:.03em;
+      }
+      .stat .value{
+        margin-top:8px;
+        font-weight:800;
+        letter-spacing:-.02em;
+        font-size: 20px;
+        line-height:1.1;
+      }
+      .stat .hint{
+        margin-top:6px;
+        color: rgba(233,238,251,.60);
+        font-size:12px;
+        line-height:1.35;
+      }
+
+      .grid{
+        margin-top:14px;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:14px;
+      }
+      .panel{
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, var(--panel0), var(--panel1));
+        border: 1px solid rgba(150,190,255,.12);
+        box-shadow: 0 16px 55px rgba(0,0,0,.38);
+        overflow:hidden;
+      }
+      .panel-hd{
+        padding:14px 16px;
+        display:flex;
+        justify-content:space-between;
+        align-items:flex-start;
+        gap:12px;
+        border-bottom:1px solid rgba(150,190,255,.10);
+        background: rgba(10,16,30,.20);
+      }
+      .panel-title{
+        margin:0;
+        font-weight:780;
+        letter-spacing:-.02em;
+        font-size:14px;
+      }
+      .panel-sub{
+        margin:6px 0 0;
+        color: rgba(233,238,251,.64);
+        font-size:12px;
+        line-height:1.35;
+        font-family: var(--mono);
+      }
+      .panel-bd{padding:14px 16px 16px}
+      .chart-wrap{position:relative; height: 290px}
+      .chart-wrap.tall{height: 320px}
+      canvas{max-width:100%}
+
+      /* Plugin Charts Container */
+      #plugin-charts{
+        margin-top:14px;
+      }
+      .plugin-chart{
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, var(--panel0), var(--panel1));
+        border: 1px solid rgba(150,190,255,.12);
+        box-shadow: 0 16px 55px rgba(0,0,0,.38);
+        overflow:hidden;
+        margin-bottom:14px;
+      }
+      .plugin-chart-header{
+        padding:14px 16px;
+        border-bottom:1px solid rgba(150,190,255,.10);
+        background: rgba(10,16,30,.20);
+      }
+      .plugin-chart h3{
+        margin:0;
+        font-weight:780;
+        letter-spacing:-.02em;
+        font-size:14px;
+        color: var(--text);
+      }
+      .plugin-chart .chart-container{
+        padding:14px 16px 16px;
+        min-height: 300px;
+      }
+
+      .extra-section-body{
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+      }
+      .extra-section-body p{
+        margin:0;
+        color: rgba(233,238,251,.76);
+        font-size:13px;
+        line-height:1.6;
+      }
+      .extra-section-body > div{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+      }
+      .extra-section-body h3{
+        margin:0;
+        font-size:13px;
+        font-weight:780;
+        letter-spacing:.02em;
+        text-transform:uppercase;
+        color: rgba(233,238,251,.74);
+        font-family: var(--mono);
+      }
+      .extra-section-body .metric-grid{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap:10px;
+      }
+      .extra-section-body .metric-card{
+        border-radius: 8px;
+        border: 1px solid rgba(150,190,255,.12);
+        background: rgba(10,16,30,.38);
+        padding: 12px;
+      }
+      .extra-section-body .metric-card span{
+        display:block;
+        color: rgba(233,238,251,.64);
+        font-size: 12px;
+      }
+      .extra-section-body .metric-card strong{
+        display:block;
+        margin-top:6px;
+        font-size: 20px;
+        line-height:1.1;
+        letter-spacing:-.02em;
+      }
+      .extra-section-body .inline-chips{
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+      }
+      .extra-section-body .data-table{
+        width:100%;
+        border-collapse: collapse;
+        font-size:13px;
+      }
+      .extra-section-body .data-table th,
+      .extra-section-body .data-table td{
+        padding:10px 8px;
+        border-top: 1px solid rgba(150,190,255,.12);
+        text-align:left;
+        vertical-align:top;
+      }
+      .extra-section-body .data-table th{
+        color: rgba(233,238,251,.64);
+        font-family: var(--mono);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+      }
+      .extra-section-body ul{
+        margin:0;
+        padding-left:18px;
+        color: rgba(233,238,251,.72);
+        font-size:13px;
+        line-height:1.55;
+      }
+      .extra-section-body li + li{
+        margin-top:6px;
+      }
+      .extra-section-body code{
+        font-family: var(--mono);
+        font-size:12px;
+        color: rgba(233,238,251,.86);
+      }
+
+      .notice{
+        margin-top:14px;
+        border-radius: var(--radius2);
+        border: 1px solid rgba(255,91,110,.28);
+        background: linear-gradient(180deg, rgba(255,91,110,.14), rgba(10,16,30,.56));
+        box-shadow: 0 18px 55px rgba(0,0,0,.34);
+        padding:14px 16px;
+      }
+      .notice h2{
+        margin:0;
+        font-size:14px;
+        font-weight:800;
+        letter-spacing:-.02em;
+      }
+      .notice p{
+        margin:8px 0 0;
+        color: rgba(233,238,251,.74);
+        font-size:13px;
+        line-height:1.5;
+      }
+      .notice ul{
+        margin:10px 0 0;
+        padding-left: 18px;
+        color: rgba(233,238,251,.72);
+        font-size:13px;
+        line-height:1.55;
+      }
+
+      .section{
+        margin-top:16px;
+      }
+      .section--extension .panel{
+        border-color: rgba(51,214,197,.18);
+      }
+      .section-hd{
+        display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+        margin: 20px 0 10px;
+      }
+      .section-hd h2{
+        margin:0;
+        font-size: 16px;
+        font-weight:820;
+        letter-spacing:-.02em;
+      }
+      .section-hd .right{
+        display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+      }
+      .muted{color: rgba(233,238,251,.68)}
+      .small{font-size:12px}
+      .kbd{
+        font-family: var(--mono);
+        font-size: 12px;
+        color: rgba(233,238,251,.72);
+        background: rgba(10,16,30,.52);
+        border:1px solid rgba(150,190,255,.14);
+        padding:6px 10px;
+        border-radius:999px;
+      }
+
+      /* Entity Pills Section */
+      .entity-section{
+        margin-top:14px;
+        padding:16px 18px;
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, var(--panel0), var(--panel1));
+        border: 1px solid rgba(150,190,255,.12);
+        box-shadow: 0 12px 40px rgba(0,0,0,.34);
+      }
+      .entity-pills{
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+      }
+      .entity-pill{
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        padding:6px 12px;
+        border-radius:999px;
+        border: 1px solid rgba(51,214,197,.18);
+        background: rgba(51,214,197,.10);
+        color: var(--text);
+        font-size:13px;
+        font-weight:500;
+        cursor:pointer;
+        transition: all .18s ease;
+      }
+      .entity-pill:hover{
+        transform: translateY(-1px);
+        border-color: rgba(51,214,197,.34);
+        background: rgba(51,214,197,.18);
+      }
+      .entity-pill .count{
+        font-family: var(--mono);
+        font-size:12px;
+        color: var(--accent);
+        font-weight:600;
+      }
+
+      .articles{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:10px;
+      }
+      .card{
+        border-radius: 8px;
+        background: rgba(14,22,42,.46);
+        border: 1px solid rgba(150,190,255,.12);
+        padding: 12px 12px 11px;
+        transition: transform .18s ease, border-color .18s ease, background .18s ease;
+        display:flex;
+        gap:10px;
+        align-items:flex-start;
+      }
+      .card:hover{
+        transform: translateY(-1px);
+        border-color: rgba(51,214,197,.22);
+        background: rgba(14,22,42,.62);
+      }
+      .card:focus-within{box-shadow: var(--focus)}
+      .card .left{flex:1; min-width:0}
+      .title{
+        margin:0;
+        font-weight:780;
+        letter-spacing:-.02em;
+        font-size: 14px;
+        line-height:1.35;
+      }
+      .title a{
+        display:inline-block;
+        outline:none;
+      }
+      .title a:focus-visible{outline:none}
+      .desc{
+        margin:8px 0 0;
+        color: rgba(233,238,251,.68);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      .row{
+        margin-top:10px;
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+        align-items:center;
+        color: rgba(233,238,251,.64);
+        font-size: 12px;
+      }
+      .chip{
+        display:inline-flex; align-items:center;
+        gap:8px;
+        padding:6px 10px;
+        border-radius:999px;
+        border: 1px solid rgba(150,190,255,.12);
+        background: rgba(10,16,30,.38);
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .chip strong{font-weight:800; color: rgba(233,238,251,.86)}
+      .chip.brand{
+        border-color: rgba(51,214,197,.18);
+        background: rgba(51,214,197,.10);
+      }
+      .actions{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        padding:10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(150,190,255,.14);
+        background: rgba(10,16,30,.46);
+        color: rgba(233,238,251,.86);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: -.01em;
+        transition: transform .18s ease, border-color .18s ease, background .18s ease;
+        cursor:pointer;
+        user-select:none;
+        min-width: 84px;
+      }
+      .btn:hover{
+        transform: translateY(-1px);
+        border-color: rgba(246,200,76,.30);
+        background: rgba(10,16,30,.68);
+      }
+      .btn:focus-visible{outline:none; box-shadow:var(--focus)}
+      .btn.primary{
+        border-color: rgba(51,214,197,.22);
+        background: linear-gradient(135deg, rgba(51,214,197,.22), rgba(25,167,195,.12));
+      }
+      .btn.primary:hover{border-color: rgba(51,214,197,.36)}
+      .btn[aria-disabled="true"]{opacity:.6; cursor:not-allowed}
+
+      .footer{
+        margin-top:24px;
+        padding-top:14px;
+        border-top: 1px solid rgba(150,190,255,.10);
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px 14px;
+        justify-content:space-between;
+        align-items:center;
+        color: rgba(233,238,251,.62);
+        font-size: 12px;
+      }
+      .footer a{color: rgba(233,238,251,.74)}
+      .footer a:hover{color: rgba(51,214,197,.90)}
+      .footer-actions{
+        display:flex;
+        gap:12px;
+        align-items:center;
+      }
+      .export-btn{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:8px 14px;
+        border-radius:999px;
+        border: 1px solid rgba(246,200,76,.22);
+        background: rgba(246,200,76,.12);
+        color: var(--accent);
+        font-size:13px;
+        font-weight:600;
+        cursor:pointer;
+        transition: all .18s ease;
+      }
+      .export-btn:hover{
+        transform: translateY(-1px);
+        border-color: rgba(246,200,76,.36);
+        background: rgba(246,200,76,.20);
+      }
+
+      @media (max-width: 980px){
+        .hero{grid-template-columns: 1fr; }
+        .stats{grid-template-columns: 1fr 1fr}
+        .grid{grid-template-columns: 1fr}
+        .report-navigation{margin-left:0; margin-top:8px; width:100%; justify-content:center}
+      }
+      @media (max-width: 560px){
+        .topbar-inner{align-items:flex-start; flex-wrap:wrap}
+        .brand{min-width: 0}
+        .nav{justify-content:flex-start}
+        .stats{grid-template-columns: 1fr}
+        .card{flex-direction:column}
+        .actions{justify-content:flex-start}
+        .btn{width:100%}
+        .chart-wrap{height: 260px}
+        .chart-wrap.tall{height: 300px}
+        .footer{flex-direction:column; text-align:center}
+        .footer-actions{width:100%; justify-content:center}
+      }
+      @media (prefers-reduced-motion: reduce){
+        *{scroll-behavior:auto !important}
+        .pill,.card,.btn,.entity-pill,.nav-button,.export-btn{transition:none !important}
+        .pill:hover,.card:hover,.btn:hover,.entity-pill:hover,.nav-button:hover,.export-btn:hover{transform:none !important}
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand" aria-label="Report identity">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">정부 혜택/지원금 레이더</div>
+            <span class="brand-sub">editorial report - charts + feed</span>
+          </div>
+        </div>
+
+        <nav class="report-navigation" aria-label="Day navigation">
+          <a href="benefit_20260718.html"
+             class="nav-button"
+
+             aria-label="Previous day report">
+            <span>&larr;</span> Previous Day
+          </a>
+          <a href="#"
+             class="nav-button"
+             disabled aria-disabled="true"
+             aria-label="Next day report">
+            Next Day <span>&rarr;</span>
+          </a>
+        </nav>
+
+        <nav class="nav" aria-label="Jump links">
+          <a class="pill" href="#charts">Charts</a>
+
+          <a class="pill" href="#entities">Entities</a>
+          <a class="pill" href="#articles">Articles</a>
+
+          <a class="pill" href="#errors" aria-label="Jump to errors (11)">Errors</a>
+
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="wrap" role="main">
+      <section class="hero" aria-label="Overview">
+        <div class="hero-card">
+          <div class="hero-body">
+            <div class="kicker">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="mono">RADAR</span>
+              <span class="mono muted">/</span>
+              <span class="mono accent">정부 혜택/지원금 레이더</span>
+            </div>
+
+            <h1>정부 혜택/지원금 레이더</h1>
+            <p class="lede">
+              A fast, reusable HTML report for lightweight Radar projects: entity distribution, article velocity,
+              and source mix, alongside a clean reading list.
+            </p>
+
+            <div class="meta" aria-label="Key facts">
+              <span><span class="mono muted">articles</span><span class="mono ok">16</span></span>
+              <span><span class="mono muted">entities</span><span class="mono accent">7</span></span>
+              <span><span class="mono muted">errors</span><span class="mono bad">11</span></span>
+              <span title="Generated time"><span class="mono muted">Generated at</span><span class="mono">2026-07-19 03:18 UTC</span></span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="stats" aria-label="Quick stats">
+          <div class="stat">
+            <div class="label">SOURCES</div>
+            <div class="value">38</div>
+            <div class="hint">Active data sources</div>
+          </div>
+          <div class="stat">
+            <div class="label">COLLECTED</div>
+            <div class="value">16</div>
+            <div class="hint">Total items collected</div>
+          </div>
+          <div class="stat">
+            <div class="label">MATCHED</div>
+            <div class="value">16</div>
+            <div class="hint">Entity matches found</div>
+          </div>
+          <div class="stat">
+            <div class="label">WINDOW</div>
+            <div class="value">7d</div>
+            <div class="hint">Collection window</div>
+          </div>
+        </aside>
+      </section>
+
+
+      <section id="errors" class="notice" role="alert" aria-label="Errors">
+        <h2>Errors detected (11)</h2>
+        <p>Some sources or steps reported errors. The report still renders with partial data.</p>
+        <ul>
+
+          <li><span class="mono">정책브리핑: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">정책브리핑 보도자료: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">Browser collection unavailable for 5 source(s). Install radar-core[browser].</span></li>
+
+          <li><span class="mono">r/personalfinance: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">r/povertyfinance: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">r/SNAP_EBT: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">r/SocialSecurity: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">r/Unemployment: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">r/disability: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">r/healthcare: Source disabled (crawl health threshold reached)</span></li>
+
+          <li><span class="mono">r/korea: Source disabled (crawl health threshold reached)</span></li>
+
+        </ul>
+      </section>
+
+
+      <section id="charts" class="section" aria-label="Charts">
+        <div class="section-hd">
+          <h2>Visuals</h2>
+          <div class="right">
+            <span class="kbd">Chart.js</span>
+            <span class="kbd">dark editorial</span>
+            <span class="kbd">responsive</span>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="panel" aria-label="Entity distribution">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Entity Distribution</p>
+                <p class="panel-sub">Top entities by frequency</p>
+              </div>
+              <div class="pill" aria-hidden="true">bar</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Bar chart showing entity frequency">
+                <canvas id="chartEntities"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see entity distribution.</p>
+              </noscript>
+            </div>
+          </article>
+
+          <article class="panel" aria-label="Article timeline">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Article Timeline</p>
+                <p class="panel-sub">Daily volume inferred from article dates</p>
+              </div>
+              <div class="pill" aria-hidden="true">line</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap tall" role="img" aria-label="Line chart showing article volume over time">
+                <canvas id="chartTimeline"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see the timeline.</p>
+              </noscript>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid" style="margin-top:14px">
+          <article class="panel" aria-label="Source distribution">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Source Distribution</p>
+                <p class="panel-sub">Share of articles by source</p>
+              </div>
+              <div class="pill" aria-hidden="true">doughnut</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Doughnut chart showing article share by source">
+                <canvas id="chartSources"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see source breakdown.</p>
+              </noscript>
+            </div>
+          </article>
+
+          <article class="panel" aria-label="Data freshness">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Data Freshness</p>
+                <p class="panel-sub">Collection lag distribution</p>
+              </div>
+              <div class="pill" aria-hidden="true">lag</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Bar chart showing collection lag in hours">
+                <canvas id="chartFreshness"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see freshness data.</p>
+              </noscript>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid" style="margin-top:14px">
+          <article class="panel" aria-label="Entity extraction rate">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Entity Extraction Rate</p>
+                <p class="panel-sub">Percentage with matched entities</p>
+              </div>
+              <div class="pill" aria-hidden="true">rate</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Doughnut chart showing entity extraction rate">
+                <canvas id="chartEntityRate"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see extraction rate.</p>
+              </noscript>
+            </div>
+          </article>
+
+          <article class="panel" aria-label="Source health">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Source Health</p>
+                <p class="panel-sub">Article count by source (sorted)</p>
+              </div>
+              <div class="pill" aria-hidden="true">health</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Horizontal bar chart showing source health">
+                <canvas id="chartSourceHealth"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see source health.</p>
+              </noscript>
+            </div>
+          </article>
+        </div>
+
+
+        <div id="plugin-charts">
+
+
+            <div class="plugin-chart" id="plugin-entity_heatmap" data-config="<div style="height:400px; width:100%;">                        <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.7.0.min.js" integrity="sha256-jvTGqxNp8AGWEcvNLVuKr+8j5dGe9Yw51LQkmDH+IYA=" crossorigin="anonymous"></script>                <div id="883454f4-8b56-42cf-b054-089a2994ccb0" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("883454f4-8b56-42cf-b054-089a2994ccb0")) {                    Plotly.newPlot(                        "883454f4-8b56-42cf-b054-089a2994ccb0",                        [{"colorscale":[[0.0,"rgb(247,251,255)"],[0.125,"rgb(222,235,247)"],[0.25,"rgb(198,219,239)"],[0.375,"rgb(158,202,225)"],[0.5,"rgb(107,174,214)"],[0.625,"rgb(66,146,198)"],[0.75,"rgb(33,113,181)"],[0.875,"rgb(8,81,156)"],[1.0,"rgb(8,48,107)"]],"hovertemplate":"\uc5d4\ud2f0\ud2f0: %{y}\u003cbr\u003e\ub0a0\uc9dc: %{x}\u003cbr\u003e\ube48\ub3c4: %{z}\uac74\u003cextra\u003e\u003c\u002fextra\u003e","showscale":true,"x":["07-06","07-07","07-08","07-09","07-10","07-11","07-12","07-13","07-14","07-15","07-16","07-17","07-18","07-19"],"y":["BenefitProgramId","BenefitProgramKey","SocialWelfare","HealthBenefit","GovernmentPolicy","Eligibility","SubsidyProgram"],"z":[[0,0,0,0,0,0,0,2,2,2,4,1,1,4],[0,0,0,0,0,0,0,2,2,2,4,1,1,4],[0,0,0,0,0,0,0,2,1,2,1,1,1,3],[0,0,0,0,0,0,0,0,1,0,3,0,0,1],[0,0,0,0,0,0,0,0,1,0,0,0,1,1],[0,0,0,0,0,0,0,1,1,0,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,1,1]],"type":"heatmap"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"margin":{"l":120,"r":20,"t":24,"b":40},"font":{"color":"#e9eefb"},"xaxis":{"title":{"text":"\ub0a0\uc9dc"},"color":"#e9eefb","gridcolor":"rgba(233,238,251,0.1)"},"yaxis":{"title":{"text":""},"color":"#e9eefb","gridcolor":"rgba(233,238,251,0.1)","autorange":"reversed"},"height":400,"paper_bgcolor":"rgba(10,14,23,0)","plot_bgcolor":"rgba(14,22,42,0.5)"},                        {"responsive": true}                    )                };            </script>        </div>">
+              <div class="plugin-chart-header">
+                <h3>엔티티 히트맵 (Top 15 × 14일)</h3>
+              </div>
+              <div class="chart-container"></div>
+            </div>
+
+
+        </div>
+      </section>
+
+
+
+
+      <section id="benefit-quality" class="section" aria-label="Benefit quality">
+        <div class="section-hd">
+          <h2>Benefit Quality</h2>
+          <div class="right">
+            <span class="kbd">benefit_quality.json</span>
+            <span class="kbd">deadline + eligibility</span>
+          </div>
+        </div>
+        <article class="panel">
+          <header class="panel-hd">
+            <div>
+              <p class="panel-title">Application Readiness Checks</p>
+              <p class="panel-sub">deadline, eligibility, and selection-result coverage</p>
+            </div>
+          </header>
+          <div class="panel-bd">
+            <div class="row" aria-label="Benefit quality summary">
+              <span class="chip"><strong>fresh</strong> 0</span>
+<span class="chip"><strong>stale</strong> 0</span>
+<span class="chip"><strong>missing</strong> 6</span>
+<span class="chip"><strong>missing event</strong> 0</span>
+<span class="chip"><strong>notice events</strong> 0</span>
+<span class="chip"><strong>deadline events</strong> 0</span>
+<span class="chip"><strong>eligibility events</strong> 0</span>
+<span class="chip"><strong>selection events</strong> 0</span>
+<span class="chip"><strong>program keys</strong> 0</span>
+            </div>
+            <p class="muted small">Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.</p>
+            <ul><li><strong>정책브리핑</strong>: missing (support_program_notice)</li>
+<li><strong>정책브리핑 보도자료</strong>: missing (support_program_notice)</li>
+<li><strong>보건복지부</strong>: missing (eligibility_rule)</li>
+<li><strong>중소벤처기업부</strong>: missing (support_program_notice)</li>
+<li><strong>서울시 복지</strong>: missing (eligibility_rule)</li>
+<li><strong>경기도 일자리재단</strong>: missing (application_deadline)</li></ul>
+            <p class="muted small">No deadline or eligibility events were extracted.</p>
+          </div>
+        </article>
+      </section>
+      <section id="entities" class="section" aria-label="Entity table">
+        <div class="section-hd">
+          <h2>Entities</h2>
+          <div class="right">
+            <span class="kbd">clickable pills</span>
+            <span class="kbd">top 24 shown</span>
+          </div>
+        </div>
+
+        <div class="entity-section">
+
+          <div class="entity-pills" aria-label="Entity count list">
+
+            <span class="entity-pill" data-entity="BenefitProgramId" role="button" tabindex="0">
+              BenefitProgramId
+              <span class="count">16</span>
+            </span>
+
+            <span class="entity-pill" data-entity="BenefitProgramKey" role="button" tabindex="0">
+              BenefitProgramKey
+              <span class="count">16</span>
+            </span>
+
+            <span class="entity-pill" data-entity="SocialWelfare" role="button" tabindex="0">
+              SocialWelfare
+              <span class="count">12</span>
+            </span>
+
+            <span class="entity-pill" data-entity="HealthBenefit" role="button" tabindex="0">
+              HealthBenefit
+              <span class="count">7</span>
+            </span>
+
+            <span class="entity-pill" data-entity="GovernmentPolicy" role="button" tabindex="0">
+              GovernmentPolicy
+              <span class="count">5</span>
+            </span>
+
+            <span class="entity-pill" data-entity="Eligibility" role="button" tabindex="0">
+              Eligibility
+              <span class="count">3</span>
+            </span>
+
+            <span class="entity-pill" data-entity="SubsidyProgram" role="button" tabindex="0">
+              SubsidyProgram
+              <span class="count">2</span>
+            </span>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section id="articles" class="section" aria-label="Articles">
+        <div class="section-hd">
+          <h2>Articles</h2>
+          <div class="right">
+            <span class="kbd">cards</span>
+            <span class="kbd">source + date</span>
+            <span class="kbd">fast scan</span>
+          </div>
+        </div>
+
+        <article class="panel">
+          <header class="panel-hd">
+            <div>
+              <p class="panel-title">Reading List</p>
+              <p class="panel-sub">Click through to the original source</p>
+            </div>
+            <div class="pill" aria-hidden="true">16</div>
+          </header>
+          <div class="panel-bd">
+
+            <div class="articles" id="articles-list" aria-label="Article list">
+
+              <div class="card" role="article" aria-label="Article: Journalists Dig Into HHS’ Covid Injury List, ACA Sign-Ups, and Telehealth" data-entities="["HealthBenefit", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/on-air/on-air-july-18-2026-covid-injuries-aca-telehealth" target="_blank" rel="noopener noreferrer">Journalists Dig Into HHS’ Covid Injury List, ACA Sign-Ups, and Telehealth</a>
+                  </p>
+
+
+                  <p class="desc">KFF Health News journalists made the rounds on national or local media recently to discuss topical stories. Here’s a collection of their appearances.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-18</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/on-air/on-air-july-18-2026-covid-injuries-aca-telehealth" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Why Social Security&#39;s uncertainty is becoming a federal workforce issue" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.govexec.com/pay-benefits/2026/07/why-social-securitys-uncertainty-becoming-federal-workforce-issue/414812" target="_blank" rel="noopener noreferrer">Why Social Security&#39;s uncertainty is becoming a federal workforce issue</a>
+                  </p>
+
+
+                  <p class="desc">A bipartisan proposal would force Congress to confront Social Security&#39;s long-term finances, with significant implications for retirement planning under FERS.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Government Executive</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-16</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.govexec.com/pay-benefits/2026/07/why-social-securitys-uncertainty-becoming-federal-workforce-issue/414812" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: FEMA overhaul proposal spotlighted by bipartisan lawmakers" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.govexec.com/management/2026/07/fema-overhaul-proposal-spotlighted-bipartisan-lawmakers/414795" target="_blank" rel="noopener noreferrer">FEMA overhaul proposal spotlighted by bipartisan lawmakers</a>
+                  </p>
+
+
+                  <p class="desc">Supporters testified that the FEMA Act would help disaster survivors and local governments more easily access assistance.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Government Executive</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-15</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.govexec.com/management/2026/07/fema-overhaul-proposal-spotlighted-bipartisan-lawmakers/414795" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Facing Funding Losses, States Call Out Big Businesses With Employees on Medicaid" data-entities="["SubsidyProgram", "SocialWelfare", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/medicaid/medicaid-work-requirement-big-business-employee-enrollees-states-name-shame" target="_blank" rel="noopener noreferrer">Facing Funding Losses, States Call Out Big Businesses With Employees on Medicaid</a>
+                  </p>
+
+
+                  <p class="desc">With the federal Medicaid work requirements looming in January, Democrats are considering state legislation to call out big companies that employ workers enrolled in the safety net health program. Business giants such as...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-15</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 5</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/medicaid/medicaid-work-requirement-big-business-employee-enrollees-states-name-shame" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Why Medicaid fraud enforcement alone cannot solve a $37B problem" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://federalnewsnetwork.com/commentary/2026/07/why-medicaid-fraud-enforcement-alone-cannot-solve-a-37b-problem" target="_blank" rel="noopener noreferrer">Why Medicaid fraud enforcement alone cannot solve a $37B problem</a>
+                  </p>
+
+
+                  <p class="desc">Peter Justen, founder and CEO at AmeriTrust Solutions, explains how data verification can have a bigger impact on stopping improper payments.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Federal News Network</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-13</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://federalnewsnetwork.com/commentary/2026/07/why-medicaid-fraud-enforcement-alone-cannot-solve-a-37b-problem" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: As GOP Cries Fraud, Newsom Backs Medicaid Spending on Housing and Food" data-entities="["SubsidyProgram", "SocialWelfare", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/medicaid/medicaid-social-services-gavin-newsom-california-republican-criticism" target="_blank" rel="noopener noreferrer">As GOP Cries Fraud, Newsom Backs Medicaid Spending on Housing and Food</a>
+                  </p>
+
+
+                  <p class="desc">Republicans say California’s use of Medicaid money for social services amounts to waste, fraud, and abuse. But even as Gov. Gavin Newsom voices concern about losing funding, he says he’s proud of the state’s holistic app...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-13</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 5</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/medicaid/medicaid-social-services-gavin-newsom-california-republican-criticism" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Uncapping the Payroll Tax Would Be the Largest Tax Increase in Decades—and Still Wouldn’t Save Social Security" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://taxfoundation.org/blog/save-social-security-payroll-tax-cap-proposal" target="_blank" rel="noopener noreferrer">Uncapping the Payroll Tax Would Be the Largest Tax Increase in Decades—and Still Wouldn’t Save Social Security</a>
+                  </p>
+
+
+                  <p class="desc">It is good to see senators talking about the Social Security crisis that is rapidly unfolding. But any serious proposal has to grapple with the trade-offs of different reforms and accept that the fix will come from both ...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Tax Foundation</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-06-24</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://taxfoundation.org/blog/save-social-security-payroll-tax-cap-proposal" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: They Harvest the Nation’s Food, but a New Rule May Strip Them of Health Insurance" data-entities="["SocialWelfare", "HealthBenefit", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/insurance/agricultural-workers-medicaid-eligibility-immigration-food-harvest" target="_blank" rel="noopener noreferrer">They Harvest the Nation’s Food, but a New Rule May Strip Them of Health Insurance</a>
+                  </p>
+
+
+                  <p class="desc">New Medicaid work requirements could make a complex system even harder for farmworkers to navigate.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-10</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 4</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/insurance/agricultural-workers-medicaid-eligibility-immigration-food-harvest" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Judges block Trump effort to narrow public service loan forgiveness" data-entities="["Eligibility", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.govexec.com/workforce/2026/07/judges-block-trump-effort-narrow-public-service-loan-forgiveness/414674" target="_blank" rel="noopener noreferrer">Judges block Trump effort to narrow public service loan forgiveness</a>
+                  </p>
+
+
+                  <p class="desc">The rulings preserve existing eligibility rules for now while testing how much authority the Education Department has to reshape a popular benefit for public service workers.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Government Executive</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-09</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.govexec.com/workforce/2026/07/judges-block-trump-effort-narrow-public-service-loan-forgiveness/414674" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Affordable Care Act Insurers Want More Premium Increases as Enrollment Sags" data-entities="["HealthBenefit", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/insurance/priced-out-obamacare-affordable-care-act-aca-premium-increases-peterson-kff" target="_blank" rel="noopener noreferrer">Affordable Care Act Insurers Want More Premium Increases as Enrollment Sags</a>
+                  </p>
+
+
+                  <p class="desc">Insurers that sell plans in Obamacare marketplaces across 16 states and the District of Columbia have asked regulators to approve a 14% median premium increase for 2027, according to a new Peterson-KFF analysis.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-08</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/insurance/priced-out-obamacare-affordable-care-act-aca-premium-increases-peterson-kff" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Patients Face a Thicket of Red Tape Trying To Maintain Consistent Health Coverage" data-entities="["HealthBenefit", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/health-care-costs/priced-out-red-tape-insurance-costs-health-system-plan-switching-disruptions" target="_blank" rel="noopener noreferrer">Patients Face a Thicket of Red Tape Trying To Maintain Consistent Health Coverage</a>
+                  </p>
+
+
+                  <p class="desc">Many Americans are shopping around for affordable options as the cost of health insurance soars. But some who hope to keep the same doctors and medications face a thicket of red tape and disruption after they switch plan...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-08</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/health-care-costs/priced-out-red-tape-insurance-costs-health-system-plan-switching-disruptions" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Copay Assistance Is Meant To Defray Patient Drug Costs. Some Insurers Keep It Instead." data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/health-care-costs/copay-accumulator-adjustment-programs-patient-assistance-insurance-pharma-drugs" target="_blank" rel="noopener noreferrer">Copay Assistance Is Meant To Defray Patient Drug Costs. Some Insurers Keep It Instead.</a>
+                  </p>
+
+
+                  <p class="desc">Drugmakers provide financial assistance to help patients afford increasingly expensive medications. But some insurers do not count those payments toward a plan’s deductible or out-of-pocket maximum and make patients pay ...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-07</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/health-care-costs/copay-accumulator-adjustment-programs-patient-assistance-insurance-pharma-drugs" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Thousands of Medicare Beneficiaries Thought Their Drug Plan Was Free. Then They Lost It." data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/medicare/medicare-drug-plans-part-d-small-premium-increases-disenrollments-wellcare" target="_blank" rel="noopener noreferrer">Thousands of Medicare Beneficiaries Thought Their Drug Plan Was Free. Then They Lost It.</a>
+                  </p>
+
+
+                  <p class="desc">Thousands of people who had a Medicare drug plan with zero-dollar premiums last year got small premium increases this year — and didn’t know it. They were dropped from their coverage for failing to pay amounts as little ...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-07</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/medicare/medicare-drug-plans-part-d-small-premium-increases-disenrollments-wellcare" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: In California Governor’s Race, Voters Face Stark Choice on Immigrant Healthcare" data-entities="["Eligibility", "HealthBenefit", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/elections/california-governor-becerra-hilton-immigrant-healthcare-medicaid-medi-cal" target="_blank" rel="noopener noreferrer">In California Governor’s Race, Voters Face Stark Choice on Immigrant Healthcare</a>
+                  </p>
+
+
+                  <p class="desc">California’s next governor will face tough decisions on a highly controversial piece of healthcare policy: what to do about health coverage for the more than 1.4 million low-income residents without legal status. Democra...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-06</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 5</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/elections/california-governor-becerra-hilton-immigrant-healthcare-medicaid-medi-cal" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: For pregnant Medicaid patients, finding care depends on an unreliable system" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://federalnewsnetwork.com/agency-oversight/2026/07/for-pregnant-medicaid-patients-finding-care-depends-on-an-unreliable-system" target="_blank" rel="noopener noreferrer">For pregnant Medicaid patients, finding care depends on an unreliable system</a>
+                  </p>
+
+
+                  <p class="desc">&#34;At the end of the day, with billions of public dollars invested, a Medicaid enrollee shouldn&#39;t have to guess where to find care,&#34; said Laura Kordish.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Federal News Network</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-10</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://federalnewsnetwork.com/agency-oversight/2026/07/for-pregnant-medicaid-patients-finding-care-depends-on-an-unreliable-system" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: New Medicaid Work Rule Means More Opportunities To Lose Coverage" data-entities="["Eligibility", "SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/medicaid/wamu-health-hub-audio-medicaid-work-rule-requirement-tips-coverage" target="_blank" rel="noopener noreferrer">New Medicaid Work Rule Means More Opportunities To Lose Coverage</a>
+                  </p>
+
+
+                  <p class="desc">A work requirement is coming to Medicaid. Sam Whitehead tells WAMU’s “Health Hub” how to keep your coverage — and who’s exempt from the new rule.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-07-06</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 4</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/medicaid/wamu-health-hub-audio-medicaid-work-rule-requirement-tips-coverage" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer" role="contentinfo">
+        <div>
+          <span class="mono">category</span>
+          <span class="muted">/</span>
+          <span>정부 혜택/지원금 레이더</span>
+          <span class="muted">·</span>
+          <span class="mono">2026-07-19 03:18 UTC</span>
+        </div>
+        <div class="footer-actions">
+          <a href="#content" class="mono" aria-label="Back to top">back to top</a>
+          <button id="export-csv" class="export-btn" aria-label="Export to CSV">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Export CSV
+          </button>
+        </div>
+      </footer>
+
+      <script id="articles-data" type="application/json">[{"collected_at": "2026-07-19T03:18:38.397830", "link": "https://kffhealthnews.org/on-air/on-air-july-18-2026-covid-injuries-aca-telehealth", "matched_entities": {"BenefitProgramId": ["on-air-july-18-2026-covid-injuries-aca-telehealth"], "BenefitProgramKey": ["id:on-air-july-18-2026-covid-injuries-aca-telehealth"], "HealthBenefit": ["aca"]}, "published_at": "2026-07-18T09:00:00", "source": "KFF Health News", "summary": "KFF Health News journalists made the rounds on national or local media recently to discuss topical stories. Here\u2019s a collection of their appearances.", "title": "Journalists Dig Into HHS\u2019 Covid Injury List, ACA Sign-Ups, and Telehealth"}, {"collected_at": "2026-07-19T03:18:38.397830", "link": "https://www.govexec.com/pay-benefits/2026/07/why-social-securitys-uncertainty-becoming-federal-workforce-issue/414812", "matched_entities": {"BenefitProgramId": ["414812"], "BenefitProgramKey": ["id:414812"], "SocialWelfare": ["social security"]}, "published_at": "2026-07-16T19:00:00", "source": "Government Executive", "summary": "A bipartisan proposal would force Congress to confront Social Security\u0027s long-term finances, with significant implications for retirement planning under FERS.", "title": "Why Social Security\u0027s uncertainty is becoming a federal workforce issue"}, {"collected_at": "2026-07-19T03:18:38.397830", "link": "https://www.govexec.com/management/2026/07/fema-overhaul-proposal-spotlighted-bipartisan-lawmakers/414795", "matched_entities": {"BenefitProgramId": ["414795"], "BenefitProgramKey": ["id:414795"], "SocialWelfare": ["assistance"]}, "published_at": "2026-07-15T20:58:55", "source": "Government Executive", "summary": "Supporters testified that the FEMA Act would help disaster survivors and local governments more easily access assistance.", "title": "FEMA overhaul proposal spotlighted by bipartisan lawmakers"}, {"collected_at": "2026-07-19T03:18:38.397830", "link": "https://kffhealthnews.org/medicaid/medicaid-work-requirement-big-business-employee-enrollees-states-name-shame", "matched_entities": {"BenefitProgramId": ["medicaid-work-requirement-big-business-employee-enrollees-states-name-shame"], "BenefitProgramKey": ["id:medicaid-work-requirement-big-business-employee-enrollees-states-name-shame"], "GovernmentPolicy": ["legislation", "program", "funding"], "SocialWelfare": ["medicaid", "safety net"], "SubsidyProgram": ["funding"]}, "published_at": "2026-07-15T09:00:00", "source": "KFF Health News", "summary": "With the federal Medicaid work requirements looming in January, Democrats are considering state legislation to call out big companies that employ workers enrolled in the safety net health program. Business giants such as Amazon and Walmart said the figures are misleading.", "title": "Facing Funding Losses, States Call Out Big Businesses With Employees on Medicaid"}, {"collected_at": "2026-07-15T02:47:02.224915", "link": "https://federalnewsnetwork.com/commentary/2026/07/why-medicaid-fraud-enforcement-alone-cannot-solve-a-37b-problem", "matched_entities": {"BenefitProgramId": ["why-medicaid-fraud-enforcement-alone-cannot-solve-a-37b-problem"], "BenefitProgramKey": ["id:why-medicaid-fraud-enforcement-alone-cannot-solve-a-37b-problem"], "SocialWelfare": ["medicaid"]}, "published_at": "2026-07-13T20:06:39", "source": "Federal News Network", "summary": "Peter Justen, founder and CEO at AmeriTrust Solutions, explains how data verification can have a bigger impact on stopping improper payments.", "title": "Why Medicaid fraud enforcement alone cannot solve a $37B problem"}, {"collected_at": "2026-07-18T02:48:10.576865", "link": "https://kffhealthnews.org/medicaid/medicaid-social-services-gavin-newsom-california-republican-criticism", "matched_entities": {"BenefitProgramId": ["medicaid-social-services-gavin-newsom-california-republican-criticism"], "BenefitProgramKey": ["id:medicaid-social-services-gavin-newsom-california-republican-criticism"], "GovernmentPolicy": ["funding"], "SocialWelfare": ["medicaid"], "SubsidyProgram": ["funding"]}, "published_at": "2026-07-13T09:00:00", "source": "KFF Health News", "summary": "Republicans say California\u2019s use of Medicaid money for social services amounts to waste, fraud, and abuse. But even as Gov. Gavin Newsom voices concern about losing funding, he says he\u2019s proud of the state\u2019s holistic approach to caring for its sickest and most expensive patients.", "title": "As GOP Cries Fraud, Newsom Backs Medicaid Spending on Housing and Food"}, {"collected_at": "2026-07-17T02:55:37.021482", "link": "https://taxfoundation.org/blog/save-social-security-payroll-tax-cap-proposal", "matched_entities": {"BenefitProgramId": ["save-social-security-payroll-tax-cap-proposal"], "BenefitProgramKey": ["id:save-social-security-payroll-tax-cap-proposal"], "SocialWelfare": ["social security"]}, "published_at": "2026-06-24T16:28:09", "source": "Tax Foundation", "summary": "It is good to see senators talking about the Social Security crisis that is rapidly unfolding. But any serious proposal has to grapple with the trade-offs of different reforms and accept that the fix will come from both sides of the ledger: taxes and expenditures.", "title": "Uncapping the Payroll Tax Would Be the Largest Tax Increase in Decades\u2014and Still Wouldn\u2019t Save Social Security"}, {"collected_at": "2026-07-16T02:53:19.257416", "link": "https://kffhealthnews.org/insurance/agricultural-workers-medicaid-eligibility-immigration-food-harvest", "matched_entities": {"BenefitProgramId": ["agricultural-workers-medicaid-eligibility-immigration-food-harvest"], "BenefitProgramKey": ["id:agricultural-workers-medicaid-eligibility-immigration-food-harvest"], "HealthBenefit": ["health insurance"], "SocialWelfare": ["medicaid"]}, "published_at": "2026-07-10T09:00:00", "source": "KFF Health News", "summary": "New Medicaid work requirements could make a complex system even harder for farmworkers to navigate.", "title": "They Harvest the Nation\u2019s Food, but a New Rule May Strip Them of Health Insurance"}, {"collected_at": "2026-07-16T02:53:19.257416", "link": "https://www.govexec.com/workforce/2026/07/judges-block-trump-effort-narrow-public-service-loan-forgiveness/414674", "matched_entities": {"BenefitProgramId": ["414674"], "BenefitProgramKey": ["id:414674"], "Eligibility": ["eligibility"]}, "published_at": "2026-07-09T16:08:46", "source": "Government Executive", "summary": "The rulings preserve existing eligibility rules for now while testing how much authority the Education Department has to reshape a popular benefit for public service workers.", "title": "Judges block Trump effort to narrow public service loan forgiveness"}, {"collected_at": "2026-07-16T02:53:19.257416", "link": "https://kffhealthnews.org/insurance/priced-out-obamacare-affordable-care-act-aca-premium-increases-peterson-kff", "matched_entities": {"BenefitProgramId": ["priced-out-obamacare-affordable-care-act-aca-premium-increases-peterson-kff"], "BenefitProgramKey": ["id:priced-out-obamacare-affordable-care-act-aca-premium-increases-peterson-kff"], "HealthBenefit": ["affordable care", "obamacare"]}, "published_at": "2026-07-08T09:01:00", "source": "KFF Health News", "summary": "Insurers that sell plans in Obamacare marketplaces across 16 states and the District of Columbia have asked regulators to approve a 14% median premium increase for 2027, according to a new Peterson-KFF analysis.", "title": "Affordable Care Act Insurers Want More Premium Increases as Enrollment Sags"}, {"collected_at": "2026-07-16T02:53:19.257416", "link": "https://kffhealthnews.org/health-care-costs/priced-out-red-tape-insurance-costs-health-system-plan-switching-disruptions", "matched_entities": {"BenefitProgramId": ["priced-out-red-tape-insurance-costs-health-system-plan-switching-disruptions"], "BenefitProgramKey": ["id:priced-out-red-tape-insurance-costs-health-system-plan-switching-disruptions"], "HealthBenefit": ["health insurance", "health coverage"]}, "published_at": "2026-07-08T09:00:00", "source": "KFF Health News", "summary": "Many Americans are shopping around for affordable options as the cost of health insurance soars. But some who hope to keep the same doctors and medications face a thicket of red tape and disruption after they switch plans.", "title": "Patients Face a Thicket of Red Tape Trying To Maintain Consistent Health Coverage"}, {"collected_at": "2026-07-15T02:47:02.224915", "link": "https://kffhealthnews.org/health-care-costs/copay-accumulator-adjustment-programs-patient-assistance-insurance-pharma-drugs", "matched_entities": {"BenefitProgramId": ["copay-accumulator-adjustment-programs-patient-assistance-insurance-pharma-drugs"], "BenefitProgramKey": ["id:copay-accumulator-adjustment-programs-patient-assistance-insurance-pharma-drugs"], "SocialWelfare": ["assistance"]}, "published_at": "2026-07-07T09:00:00", "source": "KFF Health News", "summary": "Drugmakers provide financial assistance to help patients afford increasingly expensive medications. But some insurers do not count those payments toward a plan\u2019s deductible or out-of-pocket maximum and make patients pay instead.", "title": "Copay Assistance Is Meant To Defray Patient Drug Costs. Some Insurers Keep It Instead."}, {"collected_at": "2026-07-14T02:48:02.231497", "link": "https://kffhealthnews.org/medicare/medicare-drug-plans-part-d-small-premium-increases-disenrollments-wellcare", "matched_entities": {"BenefitProgramId": ["medicare-drug-plans-part-d-small-premium-increases-disenrollments-wellcare"], "BenefitProgramKey": ["id:medicare-drug-plans-part-d-small-premium-increases-disenrollments-wellcare"], "SocialWelfare": ["medicare"]}, "published_at": "2026-07-07T09:00:00", "source": "KFF Health News", "summary": "Thousands of people who had a Medicare drug plan with zero-dollar premiums last year got small premium increases this year \u2014 and didn\u2019t know it. They were dropped from their coverage for failing to pay amounts as little as $8, and most can\u2019t get it again until 2027.", "title": "Thousands of Medicare Beneficiaries Thought Their Drug Plan Was Free. Then They Lost It."}, {"collected_at": "2026-07-14T02:48:02.231497", "link": "https://kffhealthnews.org/elections/california-governor-becerra-hilton-immigrant-healthcare-medicaid-medi-cal", "matched_entities": {"BenefitProgramId": ["california-governor-becerra-hilton-immigrant-healthcare-medicaid-medi-cal"], "BenefitProgramKey": ["id:california-governor-becerra-hilton-immigrant-healthcare-medicaid-medi-cal"], "Eligibility": ["low-income"], "GovernmentPolicy": ["policy"], "HealthBenefit": ["health coverage"]}, "published_at": "2026-07-06T09:00:00", "source": "KFF Health News", "summary": "California\u2019s next governor will face tough decisions on a highly controversial piece of healthcare policy: what to do about health coverage for the more than 1.4 million low-income residents without legal status. Democrat Xavier Becerra and Republican Steve Hilton present starkly different choices as public opinion wavers.", "title": "In California Governor\u2019s Race, Voters Face Stark Choice on Immigrant Healthcare"}, {"collected_at": "2026-07-13T03:24:53.929450", "link": "https://federalnewsnetwork.com/agency-oversight/2026/07/for-pregnant-medicaid-patients-finding-care-depends-on-an-unreliable-system", "matched_entities": {"BenefitProgramId": ["for-pregnant-medicaid-patients-finding-care-depends-on-an-unreliable-system"], "BenefitProgramKey": ["id:for-pregnant-medicaid-patients-finding-care-depends-on-an-unreliable-system"], "SocialWelfare": ["medicaid"]}, "published_at": "2026-07-10T17:54:00", "source": "Federal News Network", "summary": "\"At the end of the day, with billions of public dollars invested, a Medicaid enrollee shouldn\u0027t have to guess where to find care,\" said Laura Kordish.", "title": "For pregnant Medicaid patients, finding care depends on an unreliable system"}, {"collected_at": "2026-07-13T03:24:53.929450", "link": "https://kffhealthnews.org/medicaid/wamu-health-hub-audio-medicaid-work-rule-requirement-tips-coverage", "matched_entities": {"BenefitProgramId": ["wamu-health-hub-audio-medicaid-work-rule-requirement-tips-coverage"], "BenefitProgramKey": ["id:wamu-health-hub-audio-medicaid-work-rule-requirement-tips-coverage"], "Eligibility": ["requirement"], "SocialWelfare": ["medicaid"]}, "published_at": "2026-07-06T09:00:00", "source": "KFF Health News", "summary": "A work requirement is coming to Medicaid. Sam Whitehead tells WAMU\u2019s \u201cHealth Hub\u201d how to keep your coverage \u2014 and who\u2019s exempt from the new rule.", "title": "New Medicaid Work Rule Means More Opportunities To Lose Coverage"}]</script>
+      <script id="entities-data" type="application/json">{"BenefitProgramId": 16, "BenefitProgramKey": 16, "Eligibility": 3, "GovernmentPolicy": 5, "HealthBenefit": 7, "SocialWelfare": 12, "SubsidyProgram": 2}</script>
+
+
+      <script src="static/chart.min.js"></script>
+      <script>
+        if (typeof Chart === 'undefined') {
+          var s = document.createElement('script');
+          s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js';
+          document.head.appendChild(s);
+        }
+      </script>
+      <script>
+        (function () {
+          const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+          function readJson(id, fallback) {
+            const el = document.getElementById(id);
+            if (!el) return fallback;
+            const txt = (el.textContent || "").trim();
+            if (!txt) return fallback;
+            try { return JSON.parse(txt); } catch (e) { return fallback; }
+          }
+
+          const articles = readJson("articles-data", []);
+          const entityCountsRaw = readJson("entities-data", {});
+
+          function normalizeEntityPairs(raw) {
+            if (!raw) return [];
+            if (Array.isArray(raw)) {
+              if (raw.length && Array.isArray(raw[0]) && raw[0].length >= 2) {
+                return raw.map(p => [String(p[0]), Number(p[1]) || 0]);
+              }
+              if (raw.length && typeof raw[0] === "object") {
+                return raw.map(o => [String(o.name || o.entity || ""), Number(o.count || o.value || 0) || 0]).filter(p => p[0]);
+              }
+              return [];
+            }
+            if (typeof raw === "object") {
+              return Object.entries(raw).map(([k, v]) => [String(k), Number(v) || 0]);
+            }
+            return [];
+          }
+
+          function getArticleDate(a) {
+            const v = a && (a.published_at || a.published || a.date || a.datetime || a.publishedAt || a.publishedAtISO);
+            if (!v) return null;
+
+            const s = String(v);
+            const direct = new Date(s);
+            if (!isNaN(direct.getTime())) return direct;
+
+            const m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+            if (m) {
+              const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+              if (!isNaN(d.getTime())) return d;
+            }
+            return null;
+          }
+
+          function toDayKey(d) {
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, "0");
+            const day = String(d.getDate()).padStart(2, "0");
+            return y + "-" + m + "-" + day;
+          }
+
+          function buildTimeline(items) {
+            const map = new Map();
+            for (const a of items) {
+              const d = getArticleDate(a);
+              if (!d) continue;
+              const k = toDayKey(d);
+              map.set(k, (map.get(k) || 0) + 1);
+            }
+            const keys = Array.from(map.keys()).sort();
+            return { labels: keys, values: keys.map(k => map.get(k) || 0) };
+          }
+
+          function buildSources(items) {
+            const map = new Map();
+            for (const a of items) {
+              const s = (a && (a.source || a.source_name || a.publisher || a.feed || a.domain)) ? String(a.source || a.source_name || a.publisher || a.feed || a.domain) : "unknown";
+              const key = s.trim() || "unknown";
+              map.set(key, (map.get(key) || 0) + 1);
+            }
+            const pairs = Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+            const top = pairs.slice(0, 10);
+            const rest = pairs.slice(10).reduce((acc, p) => acc + p[1], 0);
+            const labels = top.map(p => p[0]);
+            const values = top.map(p => p[1]);
+            if (rest > 0) { labels.push("other"); values.push(rest); }
+            return { labels, values };
+          }
+
+          function palette(n) {
+            const base = [
+              "rgba(51,214,197,.86)",
+              "rgba(25,167,195,.78)",
+              "rgba(246,200,76,.86)",
+              "rgba(120,162,255,.78)",
+              "rgba(255,91,110,.74)",
+              "rgba(160,118,255,.70)",
+              "rgba(95,222,132,.70)",
+              "rgba(255,154,74,.70)",
+              "rgba(226,93,255,.62)",
+              "rgba(233,238,251,.46)"
+            ];
+            const out = [];
+            for (let i = 0; i < n; i++) out.push(base[i % base.length]);
+            return out;
+          }
+
+          function chartDefaults() {
+            return {
+              color: "rgba(233,238,251,.78)",
+              borderColor: "rgba(150,190,255,.14)",
+              font: { family: '"Pretendard Variable","Pretendard",system-ui,-apple-system,Segoe UI,sans-serif', size: 12 },
+              animation: reducedMotion ? false : { duration: 650, easing: "easeOutQuart" }
+            };
+          }
+
+          if (!window.Chart) return;
+
+          Chart.defaults.maintainAspectRatio = false;
+          Chart.defaults.responsive = true;
+          Chart.defaults.plugins.legend.labels.boxWidth = 10;
+          Chart.defaults.plugins.legend.labels.boxHeight = 10;
+          Chart.defaults.plugins.legend.labels.usePointStyle = true;
+
+          const defaults = chartDefaults();
+          Chart.defaults.color = defaults.color;
+          Chart.defaults.borderColor = defaults.borderColor;
+          Chart.defaults.font = defaults.font;
+          Chart.defaults.animation = defaults.animation;
+
+          const entityPairs = normalizeEntityPairs(entityCountsRaw)
+            .filter(p => p[0] && Number.isFinite(p[1]))
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 12);
+
+          const timeline = buildTimeline(articles);
+          const sources = buildSources(articles);
+
+          // 1. Entity Distribution
+          const entityCanvas = document.getElementById("chartEntities");
+          if (entityCanvas && entityPairs.length) {
+            const labels = entityPairs.map(p => p[0]);
+            const values = entityPairs.map(p => p[1]);
+            new Chart(entityCanvas.getContext("2d"), {
+              type: "bar",
+              data: {
+                labels,
+                datasets: [{
+                  label: "count",
+                  data: values,
+                  backgroundColor: "rgba(51,214,197,.35)",
+                  borderColor: "rgba(51,214,197,.72)",
+                  borderWidth: 1.2,
+                  borderRadius: 10,
+                  maxBarThickness: 44
+                }]
+              },
+              options: {
+                plugins: {
+                  legend: { display: false },
+                  tooltip: {
+                    backgroundColor: "rgba(10,16,30,.92)",
+                    borderColor: "rgba(150,190,255,.20)",
+                    borderWidth: 1,
+                    titleColor: "rgba(233,238,251,.92)",
+                    bodyColor: "rgba(233,238,251,.84)"
+                  }
+                },
+                scales: {
+                  x: { grid: { display: false }, ticks: { color: "rgba(233,238,251,.68)" } },
+                  y: { beginAtZero: true, grid: { color: "rgba(150,190,255,.10)" }, ticks: { color: "rgba(233,238,251,.64)" } }
+                }
+              }
+            });
+          }
+
+          // 2. Timeline
+          const timelineCanvas = document.getElementById("chartTimeline");
+          if (timelineCanvas && timeline.labels.length) {
+            new Chart(timelineCanvas.getContext("2d"), {
+              type: "line",
+              data: {
+                labels: timeline.labels,
+                datasets: [{
+                  label: "articles/day",
+                  data: timeline.values,
+                  tension: 0.28,
+                  fill: true,
+                  borderColor: "rgba(246,200,76,.84)",
+                  backgroundColor: "rgba(246,200,76,.12)",
+                  pointRadius: 2.8,
+                  pointHoverRadius: 4.2,
+                  pointBackgroundColor: "rgba(246,200,76,.84)",
+                  pointBorderColor: "rgba(10,16,30,.92)",
+                  pointBorderWidth: 1.2
+                }]
+              },
+              options: {
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                },
+                scales: {
+                  x: { grid: { display: false }, ticks: { color: "rgba(233,238,251,.68)", maxRotation: 0, autoSkip: true, maxTicksLimit: 9 } },
+                  y: { beginAtZero: true, grid: { color: "rgba(150,190,255,.10)" }, ticks: { color: "rgba(233,238,251,.64)" } }
+                }
+              }
+            });
+          }
+
+          // 3. Source Distribution
+          const sourcesCanvas = document.getElementById("chartSources");
+          if (sourcesCanvas && sources.labels.length) {
+            const colors = palette(sources.labels.length);
+            new Chart(sourcesCanvas.getContext("2d"), {
+              type: "doughnut",
+              data: {
+                labels: sources.labels,
+                datasets: [{
+                  label: "articles",
+                  data: sources.values,
+                  backgroundColor: colors.map(c => c.replace(")", ", .24)").replace("rgba", "rgba")),
+                  borderColor: colors.map(c => c.replace(")", ", .80)").replace("rgba", "rgba")),
+                  borderWidth: 1.1,
+                  hoverOffset: 6
+                }]
+              },
+              options: {
+                cutout: "62%",
+                plugins: {
+                  legend: { position: "bottom", labels: { color: "rgba(233,238,251,.72)", padding: 14 } },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                }
+              }
+            });
+          }
+
+          // 4. Data Freshness
+          function buildFreshness(items) {
+            const lagBuckets = { "0-1h": 0, "1-6h": 0, "6-24h": 0, "1-3d": 0, "3-7d": 0, "7d+": 0 };
+            for (const a of items) {
+              const pubStr = a && (a.published_at || a.published);
+              const collStr = a && a.collected_at;
+              if (!pubStr || !collStr) continue;
+              const pubDate = new Date(String(pubStr));
+              const collDate = new Date(String(collStr));
+              if (isNaN(pubDate.getTime()) || isNaN(collDate.getTime())) continue;
+              const lagMs = collDate.getTime() - pubDate.getTime();
+              const lagHours = lagMs / (1000 * 60 * 60);
+              if (lagHours < 1) lagBuckets["0-1h"]++;
+              else if (lagHours < 6) lagBuckets["1-6h"]++;
+              else if (lagHours < 24) lagBuckets["6-24h"]++;
+              else if (lagHours < 72) lagBuckets["1-3d"]++;
+              else if (lagHours < 168) lagBuckets["3-7d"]++;
+              else lagBuckets["7d+"]++;
+            }
+            return { labels: Object.keys(lagBuckets), values: Object.values(lagBuckets) };
+          }
+
+          const freshnessData = buildFreshness(articles);
+          const freshnessCanvas = document.getElementById("chartFreshness");
+          if (freshnessCanvas && freshnessData.labels.length) {
+            new Chart(freshnessCanvas.getContext("2d"), {
+              type: "bar",
+              data: {
+                labels: freshnessData.labels,
+                datasets: [{
+                  label: "articles",
+                  data: freshnessData.values,
+                  backgroundColor: "rgba(120,162,255,.35)",
+                  borderColor: "rgba(120,162,255,.72)",
+                  borderWidth: 1.2,
+                  borderRadius: 8,
+                  maxBarThickness: 44
+                }]
+              },
+              options: {
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                },
+                scales: {
+                  x: { grid: { display: false }, ticks: { color: "rgba(233,238,251,.68)" } },
+                  y: { beginAtZero: true, grid: { color: "rgba(150,190,255,.10)" }, ticks: { color: "rgba(233,238,251,.64)" } }
+                }
+              }
+            });
+          }
+
+          // 5. Entity Extraction Rate
+          function buildEntityRate(items) {
+            let withEntities = 0, withoutEntities = 0;
+            for (const a of items) {
+              const ents = a && a.matched_entities;
+              if (ents && Object.keys(ents).length > 0) withEntities++;
+              else withoutEntities++;
+            }
+            return { with: withEntities, without: withoutEntities };
+          }
+
+          const entityRateData = buildEntityRate(articles);
+          const entityRateCanvas = document.getElementById("chartEntityRate");
+          if (entityRateCanvas) {
+            const total = entityRateData.with + entityRateData.without;
+            const pct = total > 0 ? Math.round((entityRateData.with / total) * 100) : 0;
+            const plugin = {
+              id: "textCenter",
+              beforeDatasetsDraw(c) {
+                const { width, height } = c.chartArea;
+                const x = c.chartArea.left + width / 2;
+                const y = c.chartArea.top + height / 2;
+                c.ctx.save();
+                c.ctx.font = "bold 24px sans-serif";
+                c.ctx.fillStyle = "rgba(233,238,251,.8)";
+                c.ctx.textAlign = "center";
+                c.ctx.textBaseline = "middle";
+                c.ctx.fillText(pct + "%", x, y);
+                c.ctx.restore();
+              }
+            };
+            new Chart(entityRateCanvas.getContext("2d"), {
+              type: "doughnut",
+              data: {
+                labels: ["With entities", "Without entities"],
+                datasets: [{
+                  data: [entityRateData.with, entityRateData.without],
+                  backgroundColor: ["rgba(95,222,132,.35)", "rgba(255,91,110,.35)"],
+                  borderColor: ["rgba(95,222,132,.80)", "rgba(255,91,110,.80)"],
+                  borderWidth: 1.2
+                }]
+              },
+              options: {
+                cutout: "62%",
+                plugins: {
+                  legend: { position: "bottom", labels: { color: "rgba(233,238,251,.72)", padding: 14 } },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                }
+              },
+              plugins: [plugin]
+            });
+          }
+
+          // 6. Source Health
+          function buildSourceHealth(items) {
+            const map = new Map();
+            for (const a of items) {
+              const s = (a && (a.source || a.source_name || a.publisher || a.feed || a.domain)) ? String(a.source || a.source_name || a.publisher || a.feed || a.domain) : "unknown";
+              const key = s.trim() || "unknown";
+              map.set(key, (map.get(key) || 0) + 1);
+            }
+            const pairs = Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+            return { labels: pairs.map(p => p[0]), values: pairs.map(p => p[1]) };
+          }
+
+          const sourceHealthData = buildSourceHealth(articles);
+          const sourceHealthCanvas = document.getElementById("chartSourceHealth");
+          if (sourceHealthCanvas && sourceHealthData.labels.length) {
+            const colors = palette(sourceHealthData.labels.length);
+            new Chart(sourceHealthCanvas.getContext("2d"), {
+              type: "bar",
+              data: {
+                labels: sourceHealthData.labels,
+                datasets: [{
+                  label: "articles",
+                  data: sourceHealthData.values,
+                  backgroundColor: colors.map(c => c.replace(")", ", .35)").replace("rgba", "rgba")),
+                  borderColor: colors.map(c => c.replace(")", ", .80)").replace("rgba", "rgba")),
+                  borderWidth: 1.2,
+                  borderRadius: 8,
+                  maxBarThickness: 44
+                }]
+              },
+              options: {
+                indexAxis: "y",
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                },
+                scales: {
+                  x: { beginAtZero: true, grid: { color: "rgba(150,190,255,.10)" }, ticks: { color: "rgba(233,238,251,.64)" } },
+                  y: { grid: { display: false }, ticks: { color: "rgba(233,238,251,.68)" } }
+                }
+              }
+            });
+          }
+
+          // CSV Export
+          function exportCSV() {
+            const data = articles;
+            if (!data.length) { alert("No data to export"); return; }
+            const BOM = "\uFEFF";
+            const headers = ["Title","Source","Published","Summary","Entities","Link"];
+            const rows = [headers.join(",")];
+            for (const a of data) {
+              let ents = "";
+              if (a.matched_entities) {
+                ents = Object.entries(a.matched_entities).map(e => e[0] + ": " + (Array.isArray(e[1]) ? e[1].join(", ") : e[1])).join("; ");
+              }
+              let pub = a.published_at || a.published || "";
+              if (pub) { const d = new Date(String(pub)); if (!isNaN(d.getTime())) pub = d.toISOString().slice(0,10); }
+              rows.push([
+                csvEsc(a.title || ""), csvEsc(a.source || ""), csvEsc(String(pub)),
+                csvEsc(a.summary || ""), csvEsc(ents), csvEsc(a.link || "")
+              ].join(","));
+            }
+            const csv = BOM + rows.join("\n");
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const el = document.createElement("a");
+            const title = document.querySelector(".brand-title");
+            const catName = title ? title.textContent.trim().replace(/\s+/g, "_") : "report";
+            const dateStr = new Date().toISOString().slice(0,10);
+            el.href = url; el.download = catName + "_report_" + dateStr + ".csv";
+            document.body.appendChild(el); el.click(); document.body.removeChild(el);
+            URL.revokeObjectURL(url);
+          }
+
+          function csvEsc(s) {
+            if (s == null) return '""';
+            s = String(s);
+            if (s.indexOf(",") >= 0 || s.indexOf('"') >= 0 || s.indexOf("\n") >= 0)
+              return '"' + s.replace(/"/g, '""') + '"';
+            return s;
+          }
+
+          const exportBtn = document.getElementById("export-csv");
+          if (exportBtn) {
+            exportBtn.addEventListener("click", exportCSV);
+          }
+
+          // Entity pill click handler
+          document.querySelectorAll(".entity-pill").forEach(pill => {
+            pill.addEventListener("click", function() {
+              const entity = this.dataset.entity;
+              const cards = document.querySelectorAll("#articles-list .card");
+              cards.forEach(card => {
+                const cardEntities = JSON.parse(card.dataset.entities || "[]");
+                if (entity && !cardEntities.includes(entity)) {
+                  card.style.opacity = "0.3";
+                } else {
+                  card.style.opacity = "1";
+                }
+              });
+            });
+            pill.addEventListener("keydown", function(e) {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                this.click();
+              }
+            });
+          });
+        })();
+      </script>
+    </main>
+  </body>
+</html>
