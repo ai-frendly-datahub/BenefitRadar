@@ -1,0 +1,52 @@
+{
+  "date": "2026-07-22",
+  "category": "benefit",
+  "article_count": 13,
+  "source_count": 3,
+  "matched_count": 13,
+  "top_entities": [
+    {
+      "name": "BenefitProgramId",
+      "count": 13
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 13
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 9
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 6
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 6
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 3
+    },
+    {
+      "name": "Eligibility",
+      "count": 1
+    }
+  ],
+  "sources": {
+    "Government Executive": 4,
+    "KFF Health News": 8,
+    "Tax Foundation": 1
+  },
+  "generated_at": "2026-07-22T11:56:34.064930+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
