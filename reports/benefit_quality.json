@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-07-22T02:56:34.905621+00:00",
+  "generated_at": "2026-07-23T03:18:17.104975+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 38,
@@ -13,7 +13,7 @@
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 19,
     "skipped_disabled_sources": 12,
-    "collection_error_count": 11,
+    "collection_error_count": 12,
     "unique_program_key_count": 0,
     "deadline_with_program_key_events": 0,
     "support_program_notice_events": 0,
@@ -385,7 +385,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 4,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -466,7 +466,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 8,
+      "article_count": 5,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1109,6 +1109,7 @@
   "errors": [
     "정책브리핑: Source disabled (crawl health threshold reached)",
     "정책브리핑 보도자료: Source disabled (crawl health threshold reached)",
+    "[Brookings Institution] Request failed: 403 Client Error: Forbidden for url: https://www.brookings.edu/feed/",
     "Browser collection unavailable for 5 source(s). Install radar-core[browser].",
     "r/personalfinance: Source disabled (crawl health threshold reached)",
     "r/povertyfinance: Source disabled (crawl health threshold reached)",
