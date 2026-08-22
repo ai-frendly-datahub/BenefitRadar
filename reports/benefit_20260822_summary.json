@@ -1,0 +1,50 @@
+{
+  "date": "2026-08-22",
+  "category": "benefit",
+  "article_count": 12,
+  "source_count": 5,
+  "matched_count": 12,
+  "top_entities": [
+    {
+      "name": "BenefitProgramKey",
+      "count": 12
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 11
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 11
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 2
+    },
+    {
+      "name": "Eligibility",
+      "count": 2
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 1
+    }
+  ],
+  "sources": {
+    "Tax Foundation": 1,
+    "Niskanen Center": 3,
+    "Federal News Network": 2,
+    "KFF Health News": 4,
+    "Government Executive": 2
+  },
+  "generated_at": "2026-08-22T10:24:54.898321+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
