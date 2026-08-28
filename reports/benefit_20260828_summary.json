@@ -1,0 +1,54 @@
+{
+  "date": "2026-08-28",
+  "category": "benefit",
+  "article_count": 7,
+  "source_count": 5,
+  "matched_count": 7,
+  "top_entities": [
+    {
+      "name": "BenefitProgramKey",
+      "count": 7
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 6
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 6
+    },
+    {
+      "name": "Eligibility",
+      "count": 2
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 2
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 1
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 1
+    }
+  ],
+  "sources": {
+    "Federal News Network": 1,
+    "KFF Health News": 2,
+    "Tax Foundation": 1,
+    "Niskanen Center": 2,
+    "Government Executive": 1
+  },
+  "generated_at": "2026-08-28T19:25:32.173274+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
