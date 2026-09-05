@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-09-04T03:45:05.346679+00:00",
+  "generated_at": "2026-09-05T03:44:05.287611+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 38,
@@ -14,10 +14,10 @@
     "not_tracked_sources": 19,
     "skipped_disabled_sources": 12,
     "collection_error_count": 11,
-    "unique_program_key_count": 1,
-    "deadline_with_program_key_events": 1,
+    "unique_program_key_count": 0,
+    "deadline_with_program_key_events": 0,
     "support_program_notice_events": 0,
-    "application_deadline_events": 1,
+    "application_deadline_events": 0,
     "eligibility_rule_events": 0,
     "selection_result_events": 0
   },
@@ -493,7 +493,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1022,7 +1022,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 3,
+      "article_count": 4,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1069,26 +1069,7 @@
       "errors": []
     }
   ],
-  "events": [
-    {
-      "source": "Federal News Network",
-      "event_model": "application_deadline",
-      "title": "Army awards $2.2B in contracts for nuclear microreactors",
-      "url": "https://federalnewsnetwork.com/army/2026/08/army-awards-2-2b-in-contracts-for-nuclear-microreactors",
-      "event_at": "2026-02-02T00:00:00+00:00",
-      "program_id": "army-awards-2-2b-in-contracts-for-nuclear-microreactors",
-      "program_key": "id:army-awards-2-2b-in-contracts-for-nuclear-microreactors",
-      "application_deadline": "2026-02-02",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    }
-  ],
+  "events": [],
   "source_backlog": {
     "operational_candidates": [
       {
