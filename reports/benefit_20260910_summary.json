@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-10",
+  "category": "benefit",
+  "article_count": 9,
+  "source_count": 4,
+  "matched_count": 9,
+  "top_entities": [
+    {
+      "name": "BenefitProgramId",
+      "count": 9
+    },
+    {
+      "name": "BenefitProgramKey",
+      "count": 9
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 7
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 3
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 2
+    }
+  ],
+  "sources": {
+    "Federal News Network": 2,
+    "KFF Health News": 2,
+    "Niskanen Center": 3,
+    "Tax Foundation": 2
+  },
+  "generated_at": "2026-09-10T12:54:24.176812+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
