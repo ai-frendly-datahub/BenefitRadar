@@ -9,6 +9,13 @@ from radar_core.ontology import annotate_articles_with_ontology
 
 from benefitradar.analyzer import apply_entity_rules
 from benefitradar.benefit_signals import enrich_benefit_operational_fields
+from benefitradar.collection_contract import (
+    RSS_TIMEOUT_SECONDS,
+    apply_feed_client_contract,
+    drop_challenge_pages,
+    ensure_collection_not_empty,
+    partition_missing_secrets,
+)
 from benefitradar.collector import collect_sources
 from benefitradar.common.date_storage import apply_date_storage_policy
 from benefitradar.common.validators import clean_article_text_fields, validate_article
@@ -41,7 +48,7 @@ def run(
     categories_dir: Path | None = None,
     per_source_limit: int = 30,
     recent_days: int = 7,
-    timeout: int = 15,
+    timeout: int = RSS_TIMEOUT_SECONDS,
     keep_days: int = 90,
     keep_raw_days: int = 180,
     keep_report_days: int = 90,
@@ -61,14 +68,21 @@ def run(
         exclude_sources=tuple(exclude_sources or ()),
     )
 
-    source_count = len(effective_sources)
+    apply_feed_client_contract()
+    runnable_sources, secret_errors = partition_missing_secrets(
+        effective_sources,
+        raw_dir=settings.raw_data_dir,
+    )
+    source_count = sum(1 for source in runnable_sources if source.enabled)
     print(f"[Radar] Collecting '{category_cfg.display_name}' from {source_count} sources...")
     collected, errors = collect_sources(
-        effective_sources,
+        runnable_sources,
         category=category_cfg.category_name,
         limit_per_source=per_source_limit,
         timeout=timeout,
     )
+    collected, challenge_errors = drop_challenge_pages(collected)
+    errors = [*secret_errors, *errors, *challenge_errors]
     collected = annotate_articles_with_ontology(
         collected,
         repo_name="BenefitRadar",
@@ -227,8 +241,19 @@ def run(
     snapshot_path = date_storage.get("snapshot_path")
     if isinstance(snapshot_path, str) and snapshot_path:
         print(f"[Radar] Snapshot saved at {snapshot_path}")
+    print(
+        "[Radar] DuckDB compact "
+        f"reason={date_storage.get('db_reason')} "
+        f"before={date_storage.get('db_bytes_before')} "
+        f"after={date_storage.get('db_bytes')} "
+        f"rows_deleted={date_storage.get('db_rows_deleted')}"
+    )
     if errors:
         print(f"[Radar] {len(errors)} issue(s) found. See report for details.")
+    ensure_collection_not_empty(
+        collected_count=len(collected),
+        enabled_source_count=sum(1 for source in effective_sources if source.enabled),
+    )
     return output_path
 
 
@@ -283,7 +308,7 @@ def parse_args() -> argparse.Namespace:
         "--recent-days", type=int, default=7, help="Window (days) to show in the report"
     )
     _ = parser.add_argument(
-        "--timeout", type=int, default=15, help="HTTP timeout per request (seconds)"
+        "--timeout", type=int, default=45, help="HTTP timeout per request (seconds)"
     )
     _ = parser.add_argument(
         "--keep-days", type=int, default=90, help="Retention window for stored items"
@@ -376,7 +401,7 @@ if __name__ == "__main__":
         categories_dir=_to_path(args.get("categories_dir")),
         per_source_limit=_to_int(args.get("per_source_limit"), 30),
         recent_days=_to_int(args.get("recent_days"), 7),
-        timeout=_to_int(args.get("timeout"), 15),
+        timeout=_to_int(args.get("timeout"), 45),
         keep_days=_to_int(args.get("keep_days"), 90),
         keep_raw_days=_to_int(args.get("keep_raw_days"), 180),
         keep_report_days=_to_int(args.get("keep_report_days"), 90),

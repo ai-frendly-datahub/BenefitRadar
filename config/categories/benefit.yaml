@@ -79,16 +79,24 @@ sources:
   - name: "정책브리핑"
     type: "rss"
     url: "https://www.korea.kr/rss/policy.xml"
+    enabled: false
+    notes: "2026-10-14 probe: /rss/policy.xml returned 404. 공식 페이지가 RSS 서비스 중단을 안내한다."
     config:
       event_model: support_program_notice
       freshness_sla_days: 3
+      skip_reason: "정책브리핑 RSS(/rss/policy.xml)가 404이고, 공식 페이지가 RSS 서비스 중단을 안내한다."
+      reenable_gate: "키 없는 공개 RSS 또는 공고 피드가 항목을 돌려주면 다시 켠다. Cloudflare 우회는 하지 않는다."
 
   - name: "정책브리핑 보도자료"
     type: "rss"
     url: "https://www.korea.kr/rss/pressrelease.xml"
+    enabled: false
+    notes: "2026-10-14 probe: /rss/pressrelease.xml returned 404."
     config:
       event_model: support_program_notice
       freshness_sla_days: 3
+      skip_reason: "정책브리핑 보도자료 RSS가 404이다."
+      reenable_gate: "키 없는 공개 RSS가 항목을 돌려주면 다시 켠다."
 
   - name: "국토교통부"
     type: "javascript"
@@ -110,6 +118,8 @@ sources:
   - name: "보건복지부"
     type: "javascript"
     url: "https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027"
+    enabled: false
+    notes: "2026-10-14 probe: 게시판은 HTML이고 act=rss도 HTML이다. 키 없는 공개 RSS를 찾지 못했다. 브라우저 수집은 radar-core[browser] 미설치로 비어 있다."
     config:
       wait_for: "table"
       link_selector: "table tbody tr a"
@@ -118,13 +128,15 @@ sources:
       detail_content_selector: "body"
       event_model: eligibility_rule
       freshness_sla_days: 3
+      skip_reason: "키 없는 공개 RSS가 없고, 브라우저 수집은 이 런타임에서 사용할 수 없다."
+      reenable_gate: "공개 RSS가 항목을 돌려주거나, 승인된 브라우저 수집이 공고 링크를 반환한 뒤에만 다시 켠다. Cloudflare 우회는 하지 않는다."
 
   # NOTE: 2026-04-03 RSS timeout/404 → JavaScript 변환하여 복구
   - name: "고용노동부"
     type: "javascript"
     url: "https://www.moel.go.kr/news/enews/report/enewsList.do"
     enabled: false
-    notes: "2026-04-30 verification: browser and direct HTTP probes returned connection reset from the official site in this runtime."
+    notes: "브라우저 목록은 연결이 끊긴다. 2026-10-14에 키 없는 공개 RSS(공지/정책/입법예고)로 대체했다."
     config:
       wait_for: ".board_list"
       link_selector: ".board_list a.ellipsis"
@@ -134,14 +146,42 @@ sources:
       detail_content_selector: "body"
       event_model: support_program_notice
       freshness_sla_days: 3
-      skip_reason: "Official browser endpoint resets connections in the current collection runtime."
-      reenable_gate: "Re-enable after a stable RSS/API endpoint or approved browser flow returns notice links without connection resets."
+      skip_reason: "브라우저 목록 대신 고용노동부 공개 RSS를 사용한다."
+      reenable_gate: "이 브라우저 URL은 다시 켜지 않는다. RSS가 끊기면 새 공개 피드를 확인한 뒤에만 대체한다."
+
+  - name: "고용노동부 공지"
+    type: "rss"
+    url: "https://www.moel.go.kr/rss/notice.do"
+    notes: "고용노동부 공식 RSS(알려드립니다). 2026-10-14에 BenefitRadar/0.1 UA와 TLS 검증으로 XML 10건을 확인했다."
+    config:
+      event_model: support_program_notice
+      freshness_sla_days: 3
+
+  - name: "고용노동부 정책"
+    type: "rss"
+    url: "https://www.moel.go.kr/rss/policy.do"
+    notes: "고용노동부 정책자료 RSS. 키 없는 공개 피드. 2026-10-14 probe HTTP 200, 10건."
+    config:
+      event_model: support_program_notice
+      freshness_sla_days: 3
+
+  - name: "고용노동부 입법예고"
+    type: "rss"
+    url: "https://www.moel.go.kr/rss/lawinfo.do"
+    notes: "고용노동부 입법·행정예고 RSS. 키 없는 공개 피드. 2026-10-14 probe HTTP 200, 10건."
+    config:
+      event_model: eligibility_rule
+      freshness_sla_days: 3
 
   # NOTE: 2026-04-03 RSS 오류페이지 반환 → JavaScript 변환하여 복구
   - name: "중소벤처기업부"
     type: "javascript"
     url: "https://www.mss.go.kr/site/smba/ex/bbs/List.do?cbIdx=86"
+    enabled: false
+    notes: "2026-10-14 probe: rss.do?cbIdx=86 과 /rss/press.do 는 HTML이다. 브라우저 수집은 이 런타임에서 사용할 수 없다."
     config:
+      skip_reason: "키 없는 공개 RSS가 없고, 브라우저 수집은 이 런타임에서 사용할 수 없다."
+      reenable_gate: "공개 RSS가 항목을 돌려주거나, 승인된 브라우저 수집이 공고 링크를 반환한 뒤에만 다시 켠다."
       wait_for: ".board_list"
       link_selector: ".board_list td.subject a"
       navigation_retries: 3
@@ -158,8 +198,11 @@ sources:
   - name: "기획재정부"
     type: "javascript"
     url: "https://mofe.go.kr/nw/nes/nesdta.do?bbsId=MOSFBBS_000000000028&menuNo=4010100"
-    notes: "Budget and support notices can be bursty; treat temporary zero-result runs as quiet unless a parser failure is observed."
+    enabled: false
+    notes: "2026-10-14 probe: https://mofe.go.kr/nw/nes/rss.do 는 HTML이다. 브라우저 수집은 이 런타임에서 사용할 수 없다."
     config:
+      skip_reason: "키 없는 공개 RSS가 없고, 브라우저 수집은 이 런타임에서 사용할 수 없다."
+      reenable_gate: "공개 RSS가 항목을 돌려주거나, 승인된 브라우저 수집이 공고 링크를 반환한 뒤에만 다시 켠다."
       wait_for: "ul li h3"
       link_selector: ".boardType3 h3 a"
       bypass_crawl_health: true
@@ -208,21 +251,45 @@ sources:
 
   # ── 지자체 지원사업 ──────────────────────────────────────
   - name: "서울시 복지"
-    type: "javascript"
-    url: "https://wis.seoul.go.kr/"
+    type: "rss"
+    url: "https://news.seoul.go.kr/welfare/feed"
+    notes: "서울시 복지 정책뉴스 RSS. 2026-10-14에 BenefitRadar/0.1 UA와 TLS 검증으로 XML 10건을 확인했다. 이전 wis.seoul.go.kr 브라우저 수집을 대체한다."
     config:
-      wait_for: "body"
-      timeout: 20000
-      navigation_retries: 3
-      navigation_retry_delay_ms: 2000
-      bypass_crawl_health: true
       event_model: eligibility_rule
+      freshness_sla_days: 3
+
+  - name: "서울시 정책뉴스"
+    type: "rss"
+    url: "https://news.seoul.go.kr/gov/feed"
+    notes: "서울시 정책뉴스 RSS. 2026-10-14 probe HTTP 200, 10건. GovRadar에서 확인한 공개 피드."
+    config:
+      event_model: support_program_notice
+      freshness_sla_days: 3
+
+  - name: "서울시 경제"
+    type: "rss"
+    url: "https://news.seoul.go.kr/economy/feed"
+    notes: "서울시 경제 RSS. 2026-10-14 probe HTTP 200, 10건."
+    config:
+      event_model: support_program_notice
+      freshness_sla_days: 3
+
+  - name: "농림축산식품부"
+    type: "rss"
+    url: "https://www.mafra.go.kr/bbs/home/792/rssList.do?row=50"
+    notes: "농림축산식품부 공지 RSS. 2026-10-14 probe HTTP 200, 50건. 농업 분야 지원 공고를 포함한다."
+    config:
+      event_model: support_program_notice
       freshness_sla_days: 3
 
   - name: "경기도 일자리재단"
     type: "javascript"
     url: "https://job.gg.go.kr/jobSprt/list.do"
+    enabled: false
+    notes: "2026-10-14 probe: https://job.gg.go.kr/rss/jobSprt.do 는 HTML이다. 브라우저 수집은 이 런타임에서 사용할 수 없다."
     config:
+      skip_reason: "키 없는 공개 RSS가 없고, 브라우저 수집은 이 런타임에서 사용할 수 없다."
+      reenable_gate: "공개 RSS가 항목을 돌려주거나, 승인된 브라우저 수집이 공고 행을 반환한 뒤에만 다시 켠다."
       wait_for: ".cont_list_area"
       link_selector: ".cont_list_area a[onclick^='fn_Detail']"
       javascript_link_templates:
@@ -241,13 +308,19 @@ sources:
       observed_date_field: collected_at
       canonical_key_fields: [program_id, agency, normalized_program_title, source_url]
       freshness_sla_days: 3
-      skip_reason: "Unauthenticated probe returned 401; public data API collection requires a configured service key."
-      reenable_gate: "Configure the required service key, add a contract test, and confirm program_id mapping before re-enabling."
+      required_env: BOKJIRO_API_KEY
+      skip_reason: "2026-10-14 unauthenticated probe returned 401. Collector reads BOKJIRO_API_KEY and does not run while the source is disabled."
+      reenable_gate: "Set BOKJIRO_API_KEY from 복지로 OpenAPI or 공공데이터포털, add a contract test, and confirm program_id mapping before re-enabling."
 
   # ── 글로벌 정책 싱크탱크 ───────────────────────────────
   - name: "GovTech"
     type: "rss"
     url: "https://www.govtech.com/rss/"
+    enabled: false
+    notes: "2026-10-14 probe: URL returned an HTML section page, not an RSS document."
+    config:
+      skip_reason: "Feed URL returned HTML instead of RSS."
+      reenable_gate: "Re-enable after a keyless public RSS document returns items."
 
   - name: "Government Executive"
     type: "rss"
@@ -260,6 +333,11 @@ sources:
   - name: "Brookings Institution"
     type: "rss"
     url: "https://www.brookings.edu/feed/"
+    enabled: false
+    notes: "2026-10-14 probe: /feed/ redirected to the HTML homepage."
+    config:
+      skip_reason: "Feed URL redirected to an HTML homepage."
+      reenable_gate: "Re-enable after a keyless public RSS document returns items."
 
   - name: "KFF Health News"
     type: "rss"
@@ -298,38 +376,70 @@ sources:
     notes: "2026-04-13 audit: RSS endpoint returned 404; skip until a replacement feed is confirmed."
 
   # === Reddit 혜택/지원 커뮤니티 ===
-  # NOTE: 2026-04-02 Reddit RSS 403 차단 → reddit type으로 변환
+  # NOTE: 2026-10-14 JSON API 403. 우회하지 않고 끈다.
   - name: "r/personalfinance"
     type: reddit
     url: "https://www.reddit.com/r/personalfinance/"
+    enabled: false
+    config:
+      skip_reason: "Reddit JSON API returned 403."
+      reenable_gate: "Re-enable only with an official Reddit app credential. Do not bypass the block."
 
   - name: "r/povertyfinance"
     type: reddit
     url: "https://www.reddit.com/r/povertyfinance/"
+    enabled: false
+    config:
+      skip_reason: "Reddit JSON API returned 403."
+      reenable_gate: "Re-enable only with an official Reddit app credential. Do not bypass the block."
 
   - name: "r/SNAP_EBT"
     type: reddit
     url: "https://www.reddit.com/r/SNAP_EBT/"
+    enabled: false
+    config:
+      skip_reason: "Reddit JSON API returned 403."
+      reenable_gate: "Re-enable only with an official Reddit app credential. Do not bypass the block."
 
   - name: "r/SocialSecurity"
     type: reddit
     url: "https://www.reddit.com/r/SocialSecurity/"
+    enabled: false
+    config:
+      skip_reason: "Reddit JSON API returned 403."
+      reenable_gate: "Re-enable only with an official Reddit app credential. Do not bypass the block."
 
   - name: "r/Unemployment"
     type: reddit
     url: "https://www.reddit.com/r/Unemployment/"
+    enabled: false
+    config:
+      skip_reason: "Reddit JSON API returned 403."
+      reenable_gate: "Re-enable only with an official Reddit app credential. Do not bypass the block."
 
   - name: "r/disability"
     type: reddit
     url: "https://www.reddit.com/r/disability/"
+    enabled: false
+    config:
+      skip_reason: "Reddit JSON API returned 403."
+      reenable_gate: "Re-enable only with an official Reddit app credential. Do not bypass the block."
 
   - name: "r/healthcare"
     type: reddit
     url: "https://www.reddit.com/r/healthcare/"
+    enabled: false
+    config:
+      skip_reason: "Reddit JSON API returned 403."
+      reenable_gate: "Re-enable only with an official Reddit app credential. Do not bypass the block."
 
   - name: "r/korea"
     type: reddit
     url: "https://www.reddit.com/r/korea/"
+    enabled: false
+    config:
+      skip_reason: "Reddit JSON API returned 403."
+      reenable_gate: "Re-enable only with an official Reddit app credential. Do not bypass the block."
 
   # === 국제 복지/정책 기관 ===
   - name: "UK Gov Benefits"
@@ -341,6 +451,11 @@ sources:
   - name: "Canada Service Updates"
     type: "rss"
     url: "https://www.canada.ca/en/employment-social-development.atom"
+    enabled: false
+    notes: "2026-10-14 probe: atom URL redirected to a Canada.ca 404 HTML page."
+    config:
+      skip_reason: "Feed URL returned a 404 HTML page."
+      reenable_gate: "Re-enable after a keyless public RSS or Atom document returns items."
 
   - name: "Australia Services"
     type: "rss"
@@ -351,6 +466,11 @@ sources:
   - name: "EU Social Policy"
     type: "rss"
     url: "https://ec.europa.eu/social/main.jsp?langId=en&catId=89&format=rss"
+    enabled: false
+    notes: "2026-10-14 probe: RSS URL redirected to an HTML news page."
+    config:
+      skip_reason: "Feed URL redirected to an HTML page."
+      reenable_gate: "Re-enable after a keyless public RSS document returns items."
 
   - name: "ILO News"
     type: "rss"
@@ -362,6 +482,11 @@ sources:
   - name: "Niskanen Center"
     type: "rss"
     url: "https://www.niskanencenter.org/feed/"
+    enabled: false
+    notes: "2026-10-14 probe: HTTP 403. Cloudflare bypass is not used."
+    config:
+      skip_reason: "Feed returned 403."
+      reenable_gate: "Re-enable after a keyless public RSS document returns items. Do not bypass Cloudflare."
 
   - name: "Economic Policy Institute"
     type: "rss"

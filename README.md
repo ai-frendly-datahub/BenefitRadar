@@ -35,15 +35,30 @@
    # 리포트: reports/benefit_report.html
    ```
 
-   주요 옵션: `--per-source-limit 20`, `--recent-days 5`, `--keep-days 60`, `--timeout 20`.
+   주요 옵션: `--per-source-limit 20`, `--recent-days 5`, `--keep-days 60`, `--timeout 45`.
+
+## 운영 계약
+
+Radar-Template의 수집 계약을 BenefitRadar에 고정한다. 시크릿 값은 코드, YAML, 로그, skip 파일에 넣지 않는다.
+
+1. **radar-core 핀.** `requirements.txt`와 `pyproject.toml`은 `radar-core @ git+https://github.com/ai-frendly-datahub/radar-core.git@main` 이다.
+2. **스냅샷 전에 압축.** `apply_date_storage_policy()`와 `RadarStorage.create_daily_snapshot()`은 복사 전에 `radar_core.db_compact.compact_duckdb_file`를 호출한다. 압축이 실패해도 기존 파일을 스냅샷한다.
+3. **피드 클라이언트.** User-Agent는 `BenefitRadar/0.1`이다. RSS 타임아웃 기본값은 45초이고 TLS 검증은 항상 켠다. Cloudflare, 챌린지, 쿠키 월, 403/404 제목은 저장 전에 버린다.
+4. **없는 시크릿.** 소스마다 `::warning` 한 번과 `data/raw/<날짜>/<소스>.skip.json`(환경 변수 이름만)을 남긴다. 수집 실패는 빈 리스트이며 샘플 기사를 만들지 않는다.
+5. **실패해야 하는 실행.** 활성 소스 수집이 0건이거나, 출력이 0바이트이거나, DuckDB가 100MiB 이상이면 작업이 실패한다. 데이터 푸시에는 `continue-on-error`가 없다.
+6. **Pages는 푸시 성공 후에만.** `gh-pages` 배포는 auto-commit `outcome == success`일 때만 실행된다.
+7. **테스트.** 날짜 단정은 `tests/reference_dates.py`(2026-03-13 12:00 UTC)와 `tests/fixtures/`를 쓴다. 커버리지는 `relative_files = true`이다.
+
+API 키가 필요한 보조금24/복지로 소스는 켜지 않는다. 환경 변수 이름은 `BOKJIRO_API_KEY`이다.
 
 ## GitHub Actions & GitHub Pages
 
 - 워크플로: `.github/workflows/radar-crawler.yml`
   - 스케줄: 매일 00:00 UTC (KST 09:00), 수동 실행도 지원.
   - 환경 변수 `RADAR_CATEGORY` 값은 `benefit`입니다.
-  - 리포트 배포 디렉터리: `reports` → `gh-pages` 브랜치로 배포.
-  - DuckDB 경로: `data/radar_data.duckdb` (Pages에 올라가지 않음). 아티팩트로 7일 보관.
+  - 수집 타임아웃은 45초입니다.
+  - 리포트 배포 디렉터리: `reports` → `gh-pages` 브랜치. 데이터 푸시가 성공한 뒤에만 배포합니다.
+  - DuckDB 경로: `data/radar_data.duckdb` (Pages에 올라가지 않음). 커밋 전 90MiB 예산으로 압축하고, 100MiB 이상이면 작업을 실패시킵니다. 아티팩트로 30일 보관.
 
 - 설정 방법:
   1) 저장소 Settings → Pages에서 `gh-pages` 브랜치를 선택해 활성화

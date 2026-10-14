@@ -4,9 +4,11 @@ import json
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import cast
+from unittest.mock import patch
 
 from benefitradar.models import Article
 from benefitradar.raw_logger import RawLogger
+from tests.reference_dates import REFERENCE_DATE, REFERENCE_NOW
 
 
 def _make_article(*, title: str = "Sample title", summary: str = "요약") -> Article:
@@ -25,9 +27,11 @@ def test_log_creates_yyyy_mm_dd_directory_and_jsonl_file(tmp_path: Path) -> None
     logger = RawLogger(tmp_path)
     article = _make_article()
 
-    output_path = logger.log([article], source_name="MySource")
+    with patch("benefitradar.raw_logger.datetime") as clock:
+        clock.now.return_value = REFERENCE_NOW
+        output_path = logger.log([article], source_name="MySource")
 
-    assert output_path.parent.name == datetime.now(UTC).date().isoformat()
+    assert output_path.parent.name == REFERENCE_DATE.isoformat()
     assert output_path.name == "MySource.jsonl"
     assert output_path.exists()
 

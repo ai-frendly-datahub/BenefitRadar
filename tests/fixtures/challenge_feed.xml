@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>BenefitRadar fixture</title>
+    <item>
+      <title>Just a moment...</title>
+      <link>https://example.com/cdn-cgi/challenge</link>
+      <description>Checking your browser before accessing. Cloudflare security verification.</description>
+      <pubDate>Fri, 13 Mar 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Attention Required! | Cloudflare</title>
+      <link>https://example.com/blocked</link>
+      <description>Sorry, you have been blocked</description>
+      <pubDate>Fri, 13 Mar 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Enable JavaScript and cookies to continue</title>
+      <link>https://example.com/cookie-wall</link>
+      <description>slowAES.decrypt CUPID cookie wall</description>
+      <pubDate>Fri, 13 Mar 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>BenefitRadar release notes</title>
+      <link>https://example.com/notes</link>
+      <description>Fixed article body from the fixture.</description>
+      <pubDate>Fri, 13 Mar 2026 12:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

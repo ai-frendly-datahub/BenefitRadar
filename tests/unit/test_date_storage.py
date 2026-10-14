@@ -1,7 +1,9 @@
 from __future__ import annotations
 
-from datetime import UTC, date, datetime, timedelta
+from datetime import date, timedelta
 from pathlib import Path
+
+from tests.reference_dates import REFERENCE_DATE
 
 
 def test_snapshot_database_creates_file(tmp_path: Path) -> None:
@@ -10,12 +12,11 @@ def test_snapshot_database_creates_file(tmp_path: Path) -> None:
     db_file = tmp_path / "radar_data.duckdb"
     db_file.write_text("fake-db-content")
 
-    result = snapshot_database(db_file)
+    result = snapshot_database(db_file, snapshot_date=REFERENCE_DATE)
 
     assert result is not None
     assert result.exists()
-    today_iso = datetime.now(UTC).date().isoformat()
-    assert result.name == f"{today_iso}.duckdb"
+    assert result.name == f"{REFERENCE_DATE.isoformat()}.duckdb"
     assert result.parent == tmp_path / "daily"
     assert result.read_text() == "fake-db-content"
 
@@ -233,12 +234,11 @@ def test_storage_create_daily_snapshot(tmp_path: Path) -> None:
     db_path = tmp_path / "data" / "radar_data.duckdb"
     storage = RadarStorage(db_path)
     try:
-        result = storage.create_daily_snapshot()
+        result = storage.create_daily_snapshot(snapshot_date=REFERENCE_DATE)
 
         assert result is not None
         assert result.exists()
-        today_iso = datetime.now(UTC).date().isoformat()
-        assert result.name == f"{today_iso}.duckdb"
+        assert result.name == f"{REFERENCE_DATE.isoformat()}.duckdb"
         assert result.parent == db_path.parent / "daily"
     finally:
         storage.close()
@@ -257,6 +257,25 @@ def test_storage_create_daily_snapshot_custom_dir(tmp_path: Path) -> None:
         assert result.parent == Path(custom_dir)
     finally:
         storage.close()
+
+
+def test_compact_failure_leaves_existing_file(tmp_path: Path) -> None:
+    from unittest.mock import patch
+
+    from benefitradar.date_storage import compact_database
+
+    database_path = tmp_path / "radar_data.duckdb"
+    database_path.write_bytes(b"existing-db")
+
+    def _boom(_path: Path) -> dict[str, object]:
+        raise RuntimeError("compact failed")
+
+    with patch("radar_core.db_compact.compact_duckdb_file", side_effect=_boom):
+        result = compact_database(database_path)
+
+    assert result["reason"] == "failed"
+    assert result["compacted"] is False
+    assert database_path.read_bytes() == b"existing-db"
 
 
 def test_storage_cleanup_old_snapshots(tmp_path: Path) -> None:

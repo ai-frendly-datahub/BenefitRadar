@@ -24,8 +24,12 @@ from .exceptions import NetworkError, ParseError, SourceError
 from .models import Article, Source
 from .resilience import get_circuit_breaker_manager
 
+BENEFITRADAR_USER_AGENT = (
+    "BenefitRadar/0.1 (+https://github.com/ai-frendly-datahub/BenefitRadar; public-rss)"
+)
 _DEFAULT_HEADERS: dict[str, str] = {
-    "User-Agent": "Mozilla/5.0 (compatible; RadarTemplateBot/1.0; +https://github.com/zzragida/ai-frendly-datahub)",
+    "User-Agent": BENEFITRADAR_USER_AGENT,
+    "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
 }
 _DEFAULT_HEALTH_DB_PATH = "data/radar_data.duckdb"
 _COLLECTION_CONTROL_LOCK = threading.Lock()
@@ -82,7 +86,9 @@ def _resolve_max_workers(max_workers: int | None = None) -> int:
 
 def _create_session() -> requests.Session:
     session = requests.Session()
+    session.verify = True
     session.headers.update(_DEFAULT_HEADERS)
+    session.headers["User-Agent"] = BENEFITRADAR_USER_AGENT
 
     retry_strategy = Retry(
         total=3,
@@ -127,9 +133,10 @@ def _fetch_url_with_retry(
 
         try:
             if session is not None:
-                response = session.get(url, timeout=timeout, headers=merged)
+                session.verify = True
+                response = session.get(url, timeout=timeout, headers=merged, verify=True)
             else:
-                response = requests.get(url, timeout=timeout, headers=merged)
+                response = requests.get(url, timeout=timeout, headers=merged, verify=True)
             response.raise_for_status()
 
             if source_name is not None and throttler is not None:
@@ -222,7 +229,7 @@ def collect_sources(
     *,
     category: str,
     limit_per_source: int = 30,
-    timeout: int = 15,
+    timeout: int = 45,
     min_interval_per_host: float = 0.5,
     max_workers: int | None = None,
     health_db_path: str | None = None,

@@ -1,2 +1,3 @@
 -e .
+radar-core @ git+https://github.com/ai-frendly-datahub/radar-core.git@main
 plotly>=5.14.0

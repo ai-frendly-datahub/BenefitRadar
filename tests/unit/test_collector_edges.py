@@ -115,7 +115,8 @@ def test_retry_after_source_bool_and_session_helpers() -> None:
 
     session = _create_session()
     try:
-        assert session.headers["User-Agent"].startswith("Mozilla/5.0")
+        assert session.headers["User-Agent"].startswith("BenefitRadar/0.1")
+        assert session.verify is True
         assert "https://" in session.adapters
     finally:
         session.close()
