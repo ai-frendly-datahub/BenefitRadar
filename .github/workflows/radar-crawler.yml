@@ -45,11 +45,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install "radar-core @ git+https://github.com/ai-frendly-datahub/radar-core.git@main"
           pip install -r requirements.txt
 
       - name: Run Radar
         run: |
-          python main.py --category "${{ env.RADAR_CATEGORY }}" --recent-days 7 --keep-days 90 --keep-raw-days 180 --keep-report-days 90 --snapshot-db --generate-report
+          python main.py --category "${{ env.RADAR_CATEGORY }}" --recent-days 7 --keep-days 90 --keep-raw-days 180 --keep-report-days 90 --timeout 45 --snapshot-db --generate-report
 
       - name: Generate index.html
         run: |
@@ -78,18 +79,32 @@ jobs:
           dates="$(date -u +%F) $(TZ=Asia/Seoul date +%F)"
           found=0
           for d in $dates; do
-            if find "data/raw/$d" -type f ! -name ".gitkeep" -print -quit 2>/dev/null | grep -q .; then found=1; fi
-            if find "data/snapshots/$d" -type f ! -name ".gitkeep" -print -quit 2>/dev/null | grep -q .; then found=1; fi
-            if find "data/daily" -maxdepth 1 -type f -name "$d*" -print -quit 2>/dev/null | grep -q .; then found=1; fi
+            if find "data/raw/$d" -type f ! -name ".gitkeep" -size +0c -print -quit 2>/dev/null | grep -q .; then found=1; fi
+            if find "data/snapshots/$d" -type f ! -name ".gitkeep" -size +0c -print -quit 2>/dev/null | grep -q .; then found=1; fi
+            if find "data/daily" -maxdepth 1 -type f -name "$d*" -size +0c -print -quit 2>/dev/null | grep -q .; then found=1; fi
           done
           if [ "$found" -eq 0 ]; then
-            echo "::error::No dated data artifact found for UTC/KST dates: $dates"
+            echo "::error::No non-empty dated data artifact found for UTC/KST dates: $dates"
             find data -maxdepth 3 -type f \( -path "*/raw/*" -o -path "*/daily/*" -o -path "*/snapshots/*" \) | sort | tail -50 || true
             exit 1
           fi
+          while IFS= read -r -d '' f; do
+            if [ ! -s "$f" ]; then
+              echo "::error::${f} is 0 bytes"
+              exit 1
+            fi
+          done < <(find reports data/raw data/daily data/snapshots data -type f ! -name '.gitkeep' ! -name 'search_index.db*' \( -name '*.html' -o -name '*.json' -o -name '*.jsonl' -o -name '*.duckdb' \) -print0 2>/dev/null || true)
+          limit=$((100 * 1024 * 1024))
+          while IFS= read -r -d '' f; do
+            sz=$(stat -c%s "$f")
+            if [ "$sz" -ge "$limit" ]; then
+              echo "::error::${f} is ${sz} bytes, at or above GitHub's 100 MiB limit"
+              exit 1
+            fi
+          done < <(find data -type f -name '*.duckdb' -print0 2>/dev/null || true)
 
       - name: Auto-commit data updates
-        continue-on-error: true
+        id: auto-commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update radar data [skip ci]"
@@ -99,6 +114,7 @@ jobs:
           skip_checkout: false
 
       - name: Deploy to GitHub Pages
+        if: steps.auto-commit.outcome == 'success'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -145,10 +161,23 @@ jobs:
             echo "✅ Database backed up ($SIZE)" >> $GITHUB_STEP_SUMMARY
           fi
 
+      - name: Record missing secrets
+        if: always()
+        env:
+          NOTIFICATION_WEBHOOK_URL: ${{ secrets.NOTIFICATION_WEBHOOK_URL }}
+          BOKJIRO_API_KEY: ${{ secrets.BOKJIRO_API_KEY }}
+        run: python scripts/record_missing_secrets.py NOTIFICATION_WEBHOOK_URL BOKJIRO_API_KEY
+
       - name: Notify on failure
         if: failure()
+        env:
+          NOTIFICATION_WEBHOOK_URL: ${{ secrets.NOTIFICATION_WEBHOOK_URL }}
         run: |
-          curl -s -X POST "${{ secrets.NOTIFICATION_WEBHOOK_URL }}" \
+          if [ -z "${NOTIFICATION_WEBHOOK_URL:-}" ]; then
+            echo "failure notify skipped; required env NOTIFICATION_WEBHOOK_URL"
+            exit 0
+          fi
+          curl -s -X POST "${NOTIFICATION_WEBHOOK_URL}" \
             -H "Content-Type: application/json" \
             -d '{
               "repo": "${{ github.repository }}",

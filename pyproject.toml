@@ -37,7 +37,7 @@ dependencies = [
     "structlog>=24.2.0",
     "mcp>=1.0.0",
     "pybreaker>=1.0.0",
-    "radar-core @ git+https://github.com/ai-frendly-datahub/radar-core.git@81108dd689b7966d613b32a48ec3a1c60d1cd542",
+    "radar-core @ git+https://github.com/ai-frendly-datahub/radar-core.git@main",
 ]
 
 [project.optional-dependencies]

@@ -31,10 +31,17 @@ def test_load_category_config_preserves_source_operational_config() -> None:
     by_name = {source.name: source for source in category.sources}
 
     assert by_name["보조금24"].config["event_model"] == "eligibility_rule"
+    assert by_name["보조금24"].enabled is False
+    assert by_name["보조금24"].config["required_env"] == "BOKJIRO_API_KEY"
     assert by_name["국토교통부"].config["event_model"] == "support_program_notice"
+    assert by_name["서울시 복지"].type == "rss"
+    assert by_name["서울시 복지"].enabled is True
     assert by_name["서울시 복지"].config["event_model"] == "eligibility_rule"
     assert by_name["고용노동부"].enabled is False
-    assert "resets connections" in by_name["고용노동부"].config["skip_reason"]
+    assert by_name["고용노동부 공지"].enabled is True
+    assert by_name["고용노동부 공지"].url == "https://www.moel.go.kr/rss/notice.do"
+    assert by_name["정책브리핑"].enabled is False
+    assert by_name["r/korea"].enabled is False
     assert by_name["여성가족부"].enabled is False
     assert by_name["교육부"].enabled is False
 

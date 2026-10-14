@@ -6,6 +6,7 @@ single ``apply_date_storage_policy()`` call used by ``main.py``.
 
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 from typing import Any
 
@@ -13,8 +14,11 @@ from benefitradar.date_storage import (
     cleanup_date_directories,
     cleanup_dated_reports,
     cleanup_dated_snapshot_files,
+    compact_database,
     snapshot_database,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def apply_date_storage_policy(
@@ -53,6 +57,15 @@ def apply_date_storage_policy(
         created (if any).
     """
     snapshot_path: str | None = None
+    compact = compact_database(database_path)
+    logger.info(
+        "duckdb_compact path=%s reason=%s bytes_before=%s bytes=%s rows_deleted=%s",
+        database_path,
+        compact.get("reason"),
+        compact.get("bytes_before"),
+        compact.get("bytes"),
+        compact.get("rows_deleted"),
+    )
 
     if snapshot_db:
         result = snapshot_database(database_path)
@@ -63,4 +76,11 @@ def apply_date_storage_policy(
     cleanup_dated_reports(report_dir, keep_days=keep_report_days)
     cleanup_dated_snapshot_files(database_path.parent / "daily", keep_days=keep_snapshot_days)
 
-    return {"snapshot_path": snapshot_path}
+    return {
+        "snapshot_path": snapshot_path,
+        "db_bytes": compact.get("bytes"),
+        "db_bytes_before": compact.get("bytes_before"),
+        "db_compacted": compact.get("compacted"),
+        "db_rows_deleted": compact.get("rows_deleted"),
+        "db_reason": compact.get("reason"),
+    }

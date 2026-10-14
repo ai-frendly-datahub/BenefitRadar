@@ -1,8 +1,42 @@
 from __future__ import annotations
 
+import logging
 import shutil
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
+
+
+def compact_database(database_path: Path) -> dict[str, object]:
+    """Compact before a snapshot or git add. Failure leaves the existing file."""
+    bytes_now = database_path.stat().st_size if database_path.exists() else 0
+    fallback: dict[str, object] = {
+        "compacted": False,
+        "reason": "missing" if not database_path.exists() else "skipped",
+        "bytes": bytes_now,
+        "bytes_before": bytes_now,
+        "rows_deleted": 0,
+    }
+    if not database_path.exists():
+        return fallback
+    try:
+        from radar_core.db_compact import compact_duckdb_file
+    except ImportError as exc:
+        logger.warning("duckdb_compact_unavailable path=%s error=%s", database_path, exc)
+        fallback["reason"] = "unavailable"
+        return fallback
+    try:
+        result = compact_duckdb_file(database_path)
+    except Exception as exc:
+        logger.warning("duckdb_compact_failed path=%s error=%s", database_path, exc)
+        fallback["reason"] = "failed"
+        fallback["bytes"] = database_path.stat().st_size if database_path.exists() else 0
+        return fallback
+    if isinstance(result, dict):
+        return result
+    fallback["reason"] = "invalid_result"
+    return fallback
 
 
 def snapshot_database(
