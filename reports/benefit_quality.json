@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-10-15T03:55:37.289934+00:00",
+  "generated_at": "2026-10-16T03:52:01.348335+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
@@ -14,11 +14,11 @@
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 1,
-    "unique_program_key_count": 18,
+    "unique_program_key_count": 19,
     "deadline_with_program_key_events": 3,
-    "support_program_notice_events": 17,
+    "support_program_notice_events": 18,
     "application_deadline_events": 3,
-    "eligibility_rule_events": 10,
+    "eligibility_rule_events": 11,
     "selection_result_events": 4
   },
   "sources": [
@@ -168,7 +168,7 @@
       "article_count": 5,
       "event_count": 5,
       "latest_event_at": "2026-10-14T17:07:58+00:00",
-      "age_days": 0.45,
+      "age_days": 1.45,
       "latest_title": "산업재해 예방 분야 조사·연구위원 최종 합격자 공고",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000522",
       "latest_program_id": "",
@@ -195,7 +195,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-08-24T20:39:49+00:00",
-      "age_days": 51.3,
+      "age_days": 52.3,
       "latest_title": "사업주와 인사담당자를 위한 난임치료휴가 및 급여제도 활용가이드",
       "latest_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260800716",
       "latest_program_id": "",
@@ -354,10 +354,10 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 9,
+      "article_count": 10,
       "event_count": 1,
       "latest_event_at": "2026-10-14T08:24:51+00:00",
-      "age_days": 0.81,
+      "age_days": 1.81,
       "latest_title": "(세대수 변경)(#시흥)'엘리프 시흥 더 프라임' 서울시 장애인 특별공급 배정 세대수 변경 안내",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584015",
       "latest_program_id": "584015",
@@ -394,7 +394,7 @@
       "article_count": 7,
       "event_count": 7,
       "latest_event_at": "2026-10-15T12:00:31+00:00",
-      "age_days": 0.0,
+      "age_days": 0.66,
       "latest_title": "[괴산서울농장] '수확행(표고편)' 프로그램 (10.24) 추첨결과 안내",
       "latest_url": "https://news.seoul.go.kr/gov/archives/581498",
       "latest_program_id": "581498",
@@ -422,14 +422,14 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 4,
-      "event_count": 4,
-      "latest_event_at": "2026-10-14T14:49:24+00:00",
-      "age_days": 0.55,
-      "latest_title": "청계광장에서 만나는 인쇄의 매력…서울인쇄문화축제 10월 15일 개최",
-      "latest_url": "https://news.seoul.go.kr/economy/archives/574874",
-      "latest_program_id": "574874",
-      "latest_program_key": "id:574874",
+      "article_count": 5,
+      "event_count": 5,
+      "latest_event_at": "2026-10-16T10:09:29+00:00",
+      "age_days": 0.0,
+      "latest_title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
+      "latest_url": "https://news.seoul.go.kr/economy/archives/574894",
+      "latest_program_id": "574894",
+      "latest_program_key": "id:574894",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -561,7 +561,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 5,
+      "article_count": 6,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1231,6 +1231,50 @@
   ],
   "events": [
     {
+      "source": "서울시 경제",
+      "event_model": "eligibility_rule",
+      "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
+      "url": "https://news.seoul.go.kr/economy/archives/574894",
+      "event_at": "2026-10-16T10:09:29+00:00",
+      "program_id": "574894",
+      "program_key": "id:574894",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
+      "url": "https://news.seoul.go.kr/economy/archives/574894",
+      "event_at": "2026-10-16T10:09:29+00:00",
+      "program_id": "574894",
+      "program_key": "id:574894",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
       "source": "서울시 정책뉴스",
       "event_model": "eligibility_rule",
       "title": "[괴산서울농장] '수확행(표고편)' 프로그램 (10.24) 추첨결과 안내",
@@ -1799,50 +1843,6 @@
       }
     },
     {
-      "source": "서울시 경제",
-      "event_model": "eligibility_rule",
-      "title": "서울사랑상품권 선불충전금 잔액증명서(6월말 기준)",
-      "url": "https://news.seoul.go.kr/economy/archives/574769",
-      "event_at": "2026-10-02T12:29:29+00:00",
-      "program_id": "574769",
-      "program_key": "id:574769",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "서울사랑상품권 선불충전금 잔액증명서(6월말 기준)",
-      "url": "https://news.seoul.go.kr/economy/archives/574769",
-      "event_at": "2026-10-02T12:29:29+00:00",
-      "program_id": "574769",
-      "program_key": "id:574769",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
       "source": "고용노동부 공지",
       "event_model": "eligibility_rule",
       "title": "내일배움카드 청소년 참여자의 훈련 현황 분석 연구의 우선 협상대상자 선정결과 공고",
@@ -1961,6 +1961,50 @@
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {}
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "eligibility_rule",
+      "title": "서울사랑상품권 선불충전금 잔액증명서(6월말 기준)",
+      "url": "https://news.seoul.go.kr/economy/archives/574769",
+      "event_at": "2026-10-02T12:29:29+00:00",
+      "program_id": "574769",
+      "program_key": "id:574769",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "서울사랑상품권 선불충전금 잔액증명서(6월말 기준)",
+      "url": "https://news.seoul.go.kr/economy/archives/574769",
+      "event_at": "2026-10-02T12:29:29+00:00",
+      "program_id": "574769",
+      "program_key": "id:574769",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
     }
   ],
   "source_backlog": {
