@@ -1,24 +1,24 @@
 {
   "category": "benefit",
-  "generated_at": "2026-10-20T04:10:24.834959+00:00",
+  "generated_at": "2026-10-21T03:58:57.774425+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 1,
+    "fresh_sources": 2,
     "quiet_sources": 0,
-    "stale_sources": 4,
+    "stale_sources": 3,
     "missing_sources": 2,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 0,
-    "unique_program_key_count": 20,
-    "deadline_with_program_key_events": 3,
-    "support_program_notice_events": 19,
-    "application_deadline_events": 3,
-    "eligibility_rule_events": 11,
+    "unique_program_key_count": 21,
+    "deadline_with_program_key_events": 4,
+    "support_program_notice_events": 20,
+    "application_deadline_events": 4,
+    "eligibility_rule_events": 12,
     "selection_result_events": 5
   },
   "sources": [
@@ -168,7 +168,7 @@
       "article_count": 5,
       "event_count": 5,
       "latest_event_at": "2026-10-14T17:07:58+00:00",
-      "age_days": 5.46,
+      "age_days": 6.45,
       "latest_title": "산업재해 예방 분야 조사·연구위원 최종 합격자 공고",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000522",
       "latest_program_id": "",
@@ -195,7 +195,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-08-24T20:39:49+00:00",
-      "age_days": 56.31,
+      "age_days": 57.3,
       "latest_title": "사업주와 인사담당자를 위한 난임치료휴가 및 급여제도 활용가이드",
       "latest_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260800716",
       "latest_program_id": "",
@@ -357,7 +357,7 @@
       "article_count": 12,
       "event_count": 1,
       "latest_event_at": "2026-10-14T08:24:51+00:00",
-      "age_days": 5.82,
+      "age_days": 6.82,
       "latest_title": "(세대수 변경)(#시흥)'엘리프 시흥 더 프라임' 서울시 장애인 특별공급 배정 세대수 변경 안내",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584015",
       "latest_program_id": "584015",
@@ -390,22 +390,25 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 7,
-      "event_count": 7,
-      "latest_event_at": "2026-10-15T12:00:31+00:00",
-      "age_days": 4.67,
-      "latest_title": "[괴산서울농장] '수확행(표고편)' 프로그램 (10.24) 추첨결과 안내",
-      "latest_url": "https://news.seoul.go.kr/gov/archives/581498",
-      "latest_program_id": "581498",
-      "latest_program_key": "id:581498",
-      "latest_application_deadline": "",
+      "status": "fresh",
+      "article_count": 8,
+      "event_count": 8,
+      "latest_event_at": "2026-10-20T14:03:51+00:00",
+      "age_days": 0.58,
+      "latest_title": "[26년 하반기, 부여] 한부모가족 서울농장 프로그램 (261107)",
+      "latest_url": "https://news.seoul.go.kr/gov/archives/581571",
+      "latest_program_id": "581571",
+      "latest_program_key": "id:581571",
+      "latest_application_deadline": "2026-10-30",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
+        "TargetGroup": [
+          "한부모"
+        ],
         "Region": [
           "서울"
         ]
@@ -425,7 +428,7 @@
       "article_count": 6,
       "event_count": 6,
       "latest_event_at": "2026-10-19T16:30:19+00:00",
-      "age_days": 0.49,
+      "age_days": 1.48,
       "latest_title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
       "latest_url": "https://news.seoul.go.kr/economy/archives/574922",
       "latest_program_id": "574922",
@@ -566,7 +569,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 6,
+      "article_count": 5,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1235,6 +1238,81 @@
     }
   ],
   "events": [
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "application_deadline",
+      "title": "[26년 하반기, 부여] 한부모가족 서울농장 프로그램 (261107)",
+      "url": "https://news.seoul.go.kr/gov/archives/581571",
+      "event_at": "2026-10-30T00:00:00+00:00",
+      "program_id": "581571",
+      "program_key": "id:581571",
+      "application_deadline": "2026-10-30",
+      "application_start_date": "2026-11-07",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "한부모"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "eligibility_rule",
+      "title": "[26년 하반기, 부여] 한부모가족 서울농장 프로그램 (261107)",
+      "url": "https://news.seoul.go.kr/gov/archives/581571",
+      "event_at": "2026-10-20T14:03:51+00:00",
+      "program_id": "581571",
+      "program_key": "id:581571",
+      "application_deadline": "2026-10-30",
+      "application_start_date": "2026-11-07",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "한부모"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "[26년 하반기, 부여] 한부모가족 서울농장 프로그램 (261107)",
+      "url": "https://news.seoul.go.kr/gov/archives/581571",
+      "event_at": "2026-10-20T14:03:51+00:00",
+      "program_id": "581571",
+      "program_key": "id:581571",
+      "application_deadline": "2026-10-30",
+      "application_start_date": "2026-11-07",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "한부모"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
     {
       "source": "서울시 경제",
       "event_model": "selection_result",
