@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-22",
+  "category": "benefit",
+  "article_count": 45,
+  "source_count": 7,
+  "matched_count": 45,
+  "top_entities": [
+    {
+      "name": "BenefitProgramKey",
+      "count": 45
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 39
+    },
+    {
+      "name": "SourceSignal",
+      "count": 33
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 30
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 22
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 21
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 20
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 19
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 17
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 16
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 15
+    },
+    {
+      "name": "Eligibility",
+      "count": 7
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 7
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 6
+    },
+    {
+      "name": "SelectionProgramTitle",
+      "count": 5
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 4
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 4
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 3
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 3
+    },
+    {
+      "name": "FamilySupport",
+      "count": 2
+    }
+  ],
+  "sources": {
+    "서울시 복지": 14,
+    "KFF Health News": 7,
+    "서울시 정책뉴스": 8,
+    "서울시 경제": 5,
+    "Government Executive": 5,
+    "고용노동부 공지": 5,
+    "고용노동부 정책": 1
+  },
+  "generated_at": "2026-10-22T12:59:15.668151+09:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
