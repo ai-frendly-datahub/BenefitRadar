@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-10-24T03:56:35.899521+00:00",
+  "generated_at": "2026-10-25T03:56:19.111801+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
@@ -14,12 +14,12 @@
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 1,
-    "unique_program_key_count": 24,
+    "unique_program_key_count": 23,
     "deadline_with_program_key_events": 5,
-    "support_program_notice_events": 22,
+    "support_program_notice_events": 21,
     "application_deadline_events": 5,
     "eligibility_rule_events": 13,
-    "selection_result_events": 5
+    "selection_result_events": 4
   },
   "sources": [
     {
@@ -165,10 +165,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 6,
-      "event_count": 6,
+      "article_count": 5,
+      "event_count": 5,
       "latest_event_at": "2026-10-22T17:20:18+00:00",
-      "age_days": 1.44,
+      "age_days": 2.44,
       "latest_title": "2026년 「청년일자리도약장려금」 사업운영 지침 일부 개정 안내('26.10월)",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000802",
       "latest_program_id": "",
@@ -199,7 +199,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-08-24T20:39:49+00:00",
-      "age_days": 60.3,
+      "age_days": 61.3,
       "latest_title": "사업주와 인사담당자를 위한 난임치료휴가 및 급여제도 활용가이드",
       "latest_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260800716",
       "latest_program_id": "",
@@ -361,7 +361,7 @@
       "article_count": 14,
       "event_count": 2,
       "latest_event_at": "2026-10-22T13:43:46+00:00",
-      "age_days": 1.59,
+      "age_days": 2.59,
       "latest_title": "(일정·세대수 변경)(#시흥)'엘리프 시흥 더 프라임' 서울시 장애인 특별공급 기관추천 2차 변경 안내",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584117",
       "latest_program_id": "584117",
@@ -398,7 +398,7 @@
       "article_count": 10,
       "event_count": 10,
       "latest_event_at": "2026-10-24T11:05:43+00:00",
-      "age_days": 0.0,
+      "age_days": 0.7,
       "latest_title": "2026년 우수공무원 정부포상 추천 대상자 공개검증",
       "latest_url": "https://news.seoul.go.kr/gov/archives/581652",
       "latest_program_id": "581652",
@@ -425,7 +425,7 @@
       "article_count": 5,
       "event_count": 5,
       "latest_event_at": "2026-10-19T16:30:19+00:00",
-      "age_days": 4.48,
+      "age_days": 5.48,
       "latest_title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
       "latest_url": "https://news.seoul.go.kr/economy/archives/574922",
       "latest_program_id": "574922",
@@ -2189,42 +2189,6 @@
           "청소년"
         ]
       }
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "selection_result",
-      "title": "비수도권 훈련 활성화를 위한 내일배움카드 훈련기관 현황에 관한 연구 우선 협상대상자 선정결과 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000084",
-      "event_at": "2026-10-02T09:47:44+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:비수도권-훈련-활성화를-위한-내일배움카드-훈련기관-현황에-관한-연구-우선-협상대상자-선정결과-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "비수도권 훈련 활성화를 위한 내일배움카드 훈련기관 현황에 관한 연구 우선 협상",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "비수도권 훈련 활성화를 위한 내일배움카드 훈련기관 현황에 관한 연구 우선 협상대상자 선정결과 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000084",
-      "event_at": "2026-10-02T09:47:44+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:비수도권-훈련-활성화를-위한-내일배움카드-훈련기관-현황에-관한-연구-우선-협상대상자-선정결과-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "비수도권 훈련 활성화를 위한 내일배움카드 훈련기관 현황에 관한 연구 우선 협상",
-      "eligibility_fields": {}
     }
   ],
   "source_backlog": {
