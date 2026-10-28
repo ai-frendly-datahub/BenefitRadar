@@ -1,24 +1,24 @@
 {
   "category": "benefit",
-  "generated_at": "2026-10-27T04:21:21.718899+00:00",
+  "generated_at": "2026-10-28T04:52:04.946524+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 2,
+    "fresh_sources": 3,
     "quiet_sources": 0,
-    "stale_sources": 3,
+    "stale_sources": 2,
     "missing_sources": 2,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
-    "collection_error_count": 2,
-    "unique_program_key_count": 25,
+    "collection_error_count": 3,
+    "unique_program_key_count": 21,
     "deadline_with_program_key_events": 8,
-    "support_program_notice_events": 23,
+    "support_program_notice_events": 18,
     "application_deadline_events": 8,
-    "eligibility_rule_events": 13,
+    "eligibility_rule_events": 12,
     "selection_result_events": 3
   },
   "sources": [
@@ -165,10 +165,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "stale",
-      "article_count": 4,
-      "event_count": 4,
+      "article_count": 3,
+      "event_count": 3,
       "latest_event_at": "2026-10-22T17:20:18+00:00",
-      "age_days": 4.46,
+      "age_days": 5.48,
       "latest_title": "2026년 「청년일자리도약장려금」 사업운영 지침 일부 개정 안내('26.10월)",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000802",
       "latest_program_id": "",
@@ -199,7 +199,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-08-24T20:39:49+00:00",
-      "age_days": 63.32,
+      "age_days": 64.34,
       "latest_title": "사업주와 인사담당자를 위한 난임치료휴가 및 급여제도 활용가이드",
       "latest_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260800716",
       "latest_program_id": "",
@@ -357,17 +357,20 @@
       "tracked": true,
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 18,
-      "event_count": 2,
-      "latest_event_at": "2026-10-22T13:43:46+00:00",
-      "age_days": 4.61,
-      "latest_title": "(일정·세대수 변경)(#시흥)'엘리프 시흥 더 프라임' 서울시 장애인 특별공급 기관추천 2차 변경 안내",
-      "latest_url": "https://news.seoul.go.kr/welfare/archives/584117",
-      "latest_program_id": "584117",
-      "latest_program_key": "id:584117",
-      "latest_application_deadline": "",
-      "latest_application_channels": [],
+      "status": "fresh",
+      "article_count": 23,
+      "event_count": 3,
+      "latest_event_at": "2026-10-27T19:07:40+00:00",
+      "age_days": 0.41,
+      "latest_title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
+      "latest_url": "https://news.seoul.go.kr/welfare/archives/584184",
+      "latest_program_id": "584184",
+      "latest_program_key": "id:584184",
+      "latest_application_deadline": "2026-11-11",
+      "latest_application_channels": [
+        "mail",
+        "email"
+      ],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
@@ -375,9 +378,6 @@
       "latest_eligibility_fields": {
         "TargetGroup": [
           "장애인"
-        ],
-        "Household": [
-          "세대"
         ],
         "Region": [
           "서울"
@@ -395,10 +395,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 11,
-      "event_count": 11,
+      "article_count": 8,
+      "event_count": 8,
       "latest_event_at": "2026-10-26T15:55:30+00:00",
-      "age_days": 0.52,
+      "age_days": 1.54,
       "latest_title": "[괴산서울농장] 자연울림 맛의울림-총각김치편 (261114)",
       "latest_url": "https://news.seoul.go.kr/gov/archives/581668",
       "latest_program_id": "581668",
@@ -426,10 +426,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 7,
-      "event_count": 7,
+      "article_count": 6,
+      "event_count": 6,
       "latest_event_at": "2026-10-27T10:52:09+00:00",
-      "age_days": 0.0,
+      "age_days": 0.75,
       "latest_title": "6개 야장 상권에서 10% 할인! 달빛상품권 100억원 발행",
       "latest_url": "https://news.seoul.go.kr/economy/archives/574982",
       "latest_program_id": "574982",
@@ -563,7 +563,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 5,
+      "article_count": 4,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -671,7 +671,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 0,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1233,6 +1233,62 @@
   ],
   "events": [
     {
+      "source": "서울시 복지",
+      "event_model": "application_deadline",
+      "title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
+      "url": "https://news.seoul.go.kr/welfare/archives/584184",
+      "event_at": "2026-11-11T00:00:00+00:00",
+      "program_id": "584184",
+      "program_key": "id:584184",
+      "application_deadline": "2026-11-11",
+      "application_start_date": "2026-10-27",
+      "application_channels": [
+        "mail",
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
+      "url": "https://news.seoul.go.kr/welfare/archives/584184",
+      "event_at": "2026-10-27T19:07:40+00:00",
+      "program_id": "584184",
+      "program_key": "id:584184",
+      "application_deadline": "2026-11-11",
+      "application_start_date": "2026-10-27",
+      "application_channels": [
+        "mail",
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
       "source": "서울시 경제",
       "event_model": "support_program_notice",
       "title": "6개 야장 상권에서 10% 할인! 달빛상품권 100억원 발행",
@@ -1657,6 +1713,140 @@
       }
     },
     {
+      "source": "서울시 경제",
+      "event_model": "selection_result",
+      "title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
+      "url": "https://news.seoul.go.kr/economy/archives/574922",
+      "event_at": "2026-10-19T16:30:19+00:00",
+      "program_id": "574922",
+      "program_key": "id:574922",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "4500만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "42",
+      "execution_amount": "",
+      "selection_program_title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
+      "url": "https://news.seoul.go.kr/economy/archives/574922",
+      "event_at": "2026-10-19T16:30:19+00:00",
+      "program_id": "574922",
+      "program_key": "id:574922",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "4500만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "42",
+      "execution_amount": "",
+      "selection_program_title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "eligibility_rule",
+      "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
+      "url": "https://news.seoul.go.kr/economy/archives/574894",
+      "event_at": "2026-10-16T10:09:29+00:00",
+      "program_id": "574894",
+      "program_key": "id:574894",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
+      "url": "https://news.seoul.go.kr/economy/archives/574894",
+      "event_at": "2026-10-16T10:09:29+00:00",
+      "program_id": "574894",
+      "program_key": "id:574894",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "selection_result",
+      "title": "산업재해 예방 분야 조사·연구위원 최종 합격자 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000522",
+      "event_at": "2026-10-14T17:07:58+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:산업재해-예방-분야-조사-연구위원-최종-합격자-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "산업재해 예방 분야 조사·연구위원",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "산업재해 예방 분야 조사·연구위원 최종 합격자 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000522",
+      "event_at": "2026-10-14T17:07:58+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:산업재해-예방-분야-조사-연구위원-최종-합격자-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "산업재해 예방 분야 조사·연구위원",
+      "eligibility_fields": {}
+    },
+    {
       "source": "서울시 정책뉴스",
       "event_model": "application_deadline",
       "title": "[26년 하반기, 부여] 한부모가족 서울농장 프로그램 (261107)",
@@ -1730,140 +1920,6 @@
           "서울"
         ]
       }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "selection_result",
-      "title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
-      "url": "https://news.seoul.go.kr/economy/archives/574922",
-      "event_at": "2026-10-19T16:30:19+00:00",
-      "program_id": "574922",
-      "program_key": "id:574922",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "4500만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "42",
-      "execution_amount": "",
-      "selection_program_title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
-      "url": "https://news.seoul.go.kr/economy/archives/574922",
-      "event_at": "2026-10-19T16:30:19+00:00",
-      "program_id": "574922",
-      "program_key": "id:574922",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "4500만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "42",
-      "execution_amount": "",
-      "selection_program_title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "eligibility_rule",
-      "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
-      "url": "https://news.seoul.go.kr/economy/archives/574894",
-      "event_at": "2026-10-16T10:09:29+00:00",
-      "program_id": "574894",
-      "program_key": "id:574894",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
-      "url": "https://news.seoul.go.kr/economy/archives/574894",
-      "event_at": "2026-10-16T10:09:29+00:00",
-      "program_id": "574894",
-      "program_key": "id:574894",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "selection_result",
-      "title": "산업재해 예방 분야 조사·연구위원 최종 합격자 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000522",
-      "event_at": "2026-10-14T17:07:58+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:산업재해-예방-분야-조사-연구위원-최종-합격자-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "산업재해 예방 분야 조사·연구위원",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "산업재해 예방 분야 조사·연구위원 최종 합격자 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000522",
-      "event_at": "2026-10-14T17:07:58+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:산업재해-예방-분야-조사-연구위원-최종-합격자-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "산업재해 예방 분야 조사·연구위원",
-      "eligibility_fields": {}
     },
     {
       "source": "서울시 경제",
@@ -2104,184 +2160,6 @@
           "전남"
         ]
       }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "[괴산서울농장] 수확행-사과편 (261031)",
-      "url": "https://news.seoul.go.kr/gov/archives/581461",
-      "event_at": "2026-10-22T00:00:00+00:00",
-      "program_id": "581461",
-      "program_key": "id:581461",
-      "application_deadline": "2026-10-22",
-      "application_start_date": "2026-10-19",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "[괴산서울농장] 수확행-사과편 (261031)",
-      "url": "https://news.seoul.go.kr/gov/archives/581461",
-      "event_at": "2026-10-13T12:59:24+00:00",
-      "program_id": "581461",
-      "program_key": "id:581461",
-      "application_deadline": "2026-10-22",
-      "application_start_date": "2026-10-19",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "[괴산서울농장] 수확행-사과편 (261031)",
-      "url": "https://news.seoul.go.kr/gov/archives/581461",
-      "event_at": "2026-10-13T12:59:24+00:00",
-      "program_id": "581461",
-      "program_key": "id:581461",
-      "application_deadline": "2026-10-22",
-      "application_start_date": "2026-10-19",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "서울형 상가임대차 분쟁해결 체계, 임대인·임차인 간 갈등 해결을 지원합니다!",
-      "url": "https://news.seoul.go.kr/economy/archives/574839",
-      "event_at": "2026-10-12T14:00:04+00:00",
-      "program_id": "574839",
-      "program_key": "id:574839",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "online",
-        "visit"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "고용노동부 자산운용 전문위원 채용 재공고(연장)",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000410",
-      "event_at": "2026-10-12T13:55:03+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:고용노동부-자산운용-전문위원-채용-재공고-연장",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "“AI, 이렇게 지원해 주세요!” 청년 AI 사다리 설문 이벤트",
-      "url": "https://news.seoul.go.kr/gov/archives/581356",
-      "event_at": "2026-10-08T11:45:39+00:00",
-      "program_id": "581356",
-      "program_key": "id:581356",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "「제10회 서울특별시 명예의 전당」헌액후보자 추천공고",
-      "url": "https://news.seoul.go.kr/gov/archives/581325",
-      "event_at": "2026-10-08T09:00:36+00:00",
-      "program_id": "581325",
-      "program_key": "id:581325",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "「제10회 서울특별시 명예의 전당」헌액후보자 추천공고",
-      "url": "https://news.seoul.go.kr/gov/archives/581325",
-      "event_at": "2026-10-08T09:00:36+00:00",
-      "program_id": "581325",
-      "program_key": "id:581325",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
     }
   ],
   "source_backlog": {
@@ -2321,6 +2199,7 @@
     ]
   },
   "errors": [
+    "http://www.mafra.go.kr/bbs/home/792/582068/artclView.do: summary is missing or not a string",
     "http://www.mafra.go.kr/bbs/home/792/582072/artclView.do: summary is missing or not a string",
     "http://www.mafra.go.kr/bbs/home/792/582021/artclView.do: summary is missing or not a string"
   ]
