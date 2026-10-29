@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-29",
+  "category": "benefit",
+  "article_count": 59,
+  "source_count": 9,
+  "matched_count": 59,
+  "top_entities": [
+    {
+      "name": "BenefitProgramKey",
+      "count": 59
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 54
+    },
+    {
+      "name": "SourceSignal",
+      "count": 42
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 38
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 28
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 26
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 26
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 25
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 24
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 19
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 18
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 8
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 8
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 7
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 7
+    },
+    {
+      "name": "Eligibility",
+      "count": 5
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 5
+    },
+    {
+      "name": "FamilySupport",
+      "count": 4
+    },
+    {
+      "name": "BenefitAmount",
+      "count": 3
+    },
+    {
+      "name": "SelectionProgramTitle",
+      "count": 3
+    }
+  ],
+  "sources": {
+    "서울시 정책뉴스": 8,
+    "고용노동부 공지": 4,
+    "서울시 복지": 23,
+    "KFF Health News": 9,
+    "Federal News Network": 3,
+    "서울시 경제": 6,
+    "Government Executive": 3,
+    "Tax Foundation": 2,
+    "고용노동부 정책": 1
+  },
+  "generated_at": "2026-10-29T05:02:27.105306+00:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}

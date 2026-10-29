@@ -1,24 +1,24 @@
 {
   "category": "benefit",
-  "generated_at": "2026-10-28T04:52:04.946524+00:00",
+  "generated_at": "2026-10-29T05:02:28.133593+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 3,
+    "fresh_sources": 4,
     "quiet_sources": 0,
-    "stale_sources": 2,
+    "stale_sources": 1,
     "missing_sources": 2,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
-    "collection_error_count": 3,
-    "unique_program_key_count": 21,
+    "collection_error_count": 5,
+    "unique_program_key_count": 23,
     "deadline_with_program_key_events": 8,
-    "support_program_notice_events": 18,
+    "support_program_notice_events": 19,
     "application_deadline_events": 8,
-    "eligibility_rule_events": 12,
+    "eligibility_rule_events": 13,
     "selection_result_events": 3
   },
   "sources": [
@@ -164,15 +164,15 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 3,
-      "event_count": 3,
-      "latest_event_at": "2026-10-22T17:20:18+00:00",
-      "age_days": 5.48,
-      "latest_title": "2026년 「청년일자리도약장려금」 사업운영 지침 일부 개정 안내('26.10월)",
-      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000802",
+      "status": "fresh",
+      "article_count": 4,
+      "event_count": 4,
+      "latest_event_at": "2026-10-29T10:21:56+00:00",
+      "age_days": 0.0,
+      "latest_title": "2026년 장애인고용 우수사업주 선정 공고",
+      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000987",
       "latest_program_id": "",
-      "latest_program_key": "title:고용노동부-공지:청년일자리도약장려금",
+      "latest_program_key": "title:고용노동부-공지:2026년-장애인고용-우수사업주-선정-공고",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -181,7 +181,7 @@
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
         "TargetGroup": [
-          "청년"
+          "장애인"
         ]
       },
       "skip_reason": null,
@@ -199,7 +199,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-08-24T20:39:49+00:00",
-      "age_days": 64.34,
+      "age_days": 65.35,
       "latest_title": "사업주와 인사담당자를 위한 난임치료휴가 및 급여제도 활용가이드",
       "latest_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260800716",
       "latest_program_id": "",
@@ -359,18 +359,15 @@
       "freshness_sla_days": 3,
       "status": "fresh",
       "article_count": 23,
-      "event_count": 3,
-      "latest_event_at": "2026-10-27T19:07:40+00:00",
-      "age_days": 0.41,
-      "latest_title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
-      "latest_url": "https://news.seoul.go.kr/welfare/archives/584184",
-      "latest_program_id": "584184",
-      "latest_program_key": "id:584184",
-      "latest_application_deadline": "2026-11-11",
-      "latest_application_channels": [
-        "mail",
-        "email"
-      ],
+      "event_count": 4,
+      "latest_event_at": "2026-10-28T15:29:50+00:00",
+      "age_days": 0.56,
+      "latest_title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
+      "latest_url": "https://news.seoul.go.kr/welfare/archives/584214",
+      "latest_program_id": "584214",
+      "latest_program_key": "id:584214",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
@@ -378,9 +375,6 @@
       "latest_eligibility_fields": {
         "TargetGroup": [
           "장애인"
-        ],
-        "Region": [
-          "서울"
         ]
       },
       "skip_reason": null,
@@ -397,13 +391,13 @@
       "status": "fresh",
       "article_count": 8,
       "event_count": 8,
-      "latest_event_at": "2026-10-26T15:55:30+00:00",
-      "age_days": 1.54,
-      "latest_title": "[괴산서울농장] 자연울림 맛의울림-총각김치편 (261114)",
-      "latest_url": "https://news.seoul.go.kr/gov/archives/581668",
-      "latest_program_id": "581668",
-      "latest_program_key": "id:581668",
-      "latest_application_deadline": "2026-11-05",
+      "latest_event_at": "2026-10-29T14:00:44+00:00",
+      "age_days": 0.0,
+      "latest_title": "[괴산서울농장] '수확행(사과편)-2' 프로그램 (11.07) 추첨결과 안내",
+      "latest_url": "https://news.seoul.go.kr/gov/archives/581717",
+      "latest_program_id": "581717",
+      "latest_program_key": "id:581717",
+      "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
@@ -429,7 +423,7 @@
       "article_count": 6,
       "event_count": 6,
       "latest_event_at": "2026-10-27T10:52:09+00:00",
-      "age_days": 0.75,
+      "age_days": 1.76,
       "latest_title": "6개 야장 상권에서 10% 할인! 달빛상품권 100억원 발행",
       "latest_url": "https://news.seoul.go.kr/economy/archives/574982",
       "latest_program_id": "574982",
@@ -563,7 +557,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 4,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1232,6 +1226,94 @@
     }
   ],
   "events": [
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "eligibility_rule",
+      "title": "[괴산서울농장] '수확행(사과편)-2' 프로그램 (11.07) 추첨결과 안내",
+      "url": "https://news.seoul.go.kr/gov/archives/581717",
+      "event_at": "2026-10-29T14:00:44+00:00",
+      "program_id": "581717",
+      "program_key": "id:581717",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "[괴산서울농장] '수확행(사과편)-2' 프로그램 (11.07) 추첨결과 안내",
+      "url": "https://news.seoul.go.kr/gov/archives/581717",
+      "event_at": "2026-10-29T14:00:44+00:00",
+      "program_id": "581717",
+      "program_key": "id:581717",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "2026년 장애인고용 우수사업주 선정 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000987",
+      "event_at": "2026-10-29T10:21:56+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:2026년-장애인고용-우수사업주-선정-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
+      "url": "https://news.seoul.go.kr/welfare/archives/584214",
+      "event_at": "2026-10-28T15:29:50+00:00",
+      "program_id": "584214",
+      "program_key": "id:584214",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ]
+      }
+    },
     {
       "source": "서울시 복지",
       "event_model": "application_deadline",
@@ -2112,54 +2194,6 @@
       "execution_amount": "",
       "selection_program_title": "일반임기제 전산7급 공무원 경력경쟁채용시험",
       "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "맛의 고장 강진, 강진군 지역특화 밀키트 신규 출시 안내",
-      "url": "https://news.seoul.go.kr/gov/archives/581472",
-      "event_at": "2026-10-13T15:15:38+00:00",
-      "program_id": "581472",
-      "program_key": "id:581472",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "전남"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "맛의 고장 강진, 강진군 지역특화 밀키트 신규 출시 안내",
-      "url": "https://news.seoul.go.kr/gov/archives/581472",
-      "event_at": "2026-10-13T15:15:38+00:00",
-      "program_id": "581472",
-      "program_key": "id:581472",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "전남"
-        ]
-      }
     }
   ],
   "source_backlog": {
@@ -2199,6 +2233,8 @@
     ]
   },
   "errors": [
+    "http://www.mafra.go.kr/bbs/home/792/582085/artclView.do: summary is missing or not a string",
+    "http://www.mafra.go.kr/bbs/home/792/582086/artclView.do: summary is missing or not a string",
     "http://www.mafra.go.kr/bbs/home/792/582068/artclView.do: summary is missing or not a string",
     "http://www.mafra.go.kr/bbs/home/792/582072/artclView.do: summary is missing or not a string",
     "http://www.mafra.go.kr/bbs/home/792/582021/artclView.do: summary is missing or not a string"
