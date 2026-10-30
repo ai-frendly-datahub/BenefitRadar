@@ -1,11 +1,14 @@
 """Pew Research include_keywords gate.
 
-Fixtures use titles quoted in the 2026-10-29 off-topic filter spec.
-Ellipses in those quotations are kept as written; nothing past them is invented.
+Quoted titles come from the 2026-10-29 off-topic filter spec.
+The caregiving regression loads the title and summary stored in data/raw.
 """
 
 from __future__ import annotations
 
+import json
+import re
+from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import Mock
 
@@ -60,8 +63,7 @@ PEW_INCLUDE_KEYWORDS = [
     "prescription",
 ]
 
-# Quoted titles. The two useful items the gate keeps come first.
-# "Women, Work and Caregiving…" is the one useful mid item the spec says this list drops.
+# Quoted titles. The three useful mid items the gate keeps come first.
 QUOTED_TITLES = [
     "Many Americans can't afford basic necessities",
     "Men Are Experiencing More Job Growth Than Women in AI-Exposed Occupations",
@@ -76,7 +78,12 @@ QUOTED_TITLES = [
 KEPT_TITLES = {
     "Many Americans can't afford basic necessities",
     "Men Are Experiencing More Job Growth Than Women in AI-Exposed Occupations",
+    "Women, Work and Caregiving Through the Arc of Family Life",
 }
+
+CAREGIVING_TITLE = "Women, Work and Caregiving Through the Arc of Family Life"
+ELIGIBLE_VOTERS_TITLE = "What We Know About Eligible Voters Who Are Naturalized U.S. Citizens"
+DATA_RAW = Path(__file__).resolve().parents[2] / "data" / "raw"
 
 
 def _pew_source(**config_overrides: object) -> Source:
@@ -119,6 +126,29 @@ def _collect(source: Source, titles: list[str], monkeypatch: pytest.MonkeyPatch)
     return [article.title for article in articles]
 
 
+def _iter_source_records(source_name: str) -> list[dict[str, str]]:
+    records: list[dict[str, str]] = []
+    for path in sorted(DATA_RAW.glob(f"*/{source_name}.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            item = json.loads(line)
+            if isinstance(item, dict):
+                records.append(item)
+    return records
+
+
+def _record_text(record: dict[str, str]) -> str:
+    return f"{record.get('title', '')} {record.get('summary', '')}".lower()
+
+
+def _find_record(source_name: str, needle: str) -> dict[str, str]:
+    for record in _iter_source_records(source_name):
+        if needle in _record_text(record):
+            return record
+    raise AssertionError(f"{needle!r} was not found in collected {source_name} data")
+
+
 def test_pew_gate_keeps_quoted_benefit_titles_and_drops_the_rest(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -127,9 +157,71 @@ def test_pew_gate_keeps_quoted_benefit_titles_and_drops_the_rest(
     assert titles == [
         "Many Americans can't afford basic necessities",
         "Men Are Experiencing More Job Growth Than Women in AI-Exposed Occupations",
+        CAREGIVING_TITLE,
     ]
     assert "Methodology" not in titles
-    assert "Women, Work and Caregiving Through the Arc of Family Life" not in titles
+
+
+def test_real_caregiving_item_is_kept_and_trailing_boundary_misses_it() -> None:
+    """Collected Pew title. ``caregiv`` plus a trailing boundary does not match Caregiving."""
+    record = _find_record("Pew Research", CAREGIVING_TITLE.lower())
+    title = record["title"]
+    summary = record.get("summary") or ""
+    text = _record_text(record)
+
+    assert title == CAREGIVING_TITLE
+    assert re.search(r"(?<![a-z0-9])caregivs?(?![a-z0-9])", text) is None
+    assert _keyword_in_text("caregiv", text) is True
+    assert _passes_include_keywords(_pew_source(), title, summary) is True
+
+
+def test_other_stems_match_real_benefit_words_and_collected_noise_stays_out() -> None:
+    subsidies = _find_record("Tax Foundation", "healthcare subsidies")
+    eligibility = _find_record("KFF Health News", "medicaid eligibility")
+    retired = _find_record("Federal News Network", "retired federal employees")
+    subsidiary = _find_record("Pew Research", "subsidiary of the pew charitable trusts")
+    voters = _find_record("Pew Research", ELIGIBLE_VOTERS_TITLE.lower())
+
+    assert _keyword_in_text("subsid", _record_text(subsidies)) is True
+    assert _keyword_in_text("eligib", _record_text(eligibility)) is True
+    assert _keyword_in_text("retire", _record_text(retired)) is True
+    assert _keyword_in_text("subsid", _record_text(subsidiary)) is False
+    assert (
+        _passes_include_keywords(
+            _pew_source(),
+            voters["title"],
+            voters.get("summary") or "",
+        )
+        is False
+    )
+    assert voters["title"] == ELIGIBLE_VOTERS_TITLE
+
+
+def test_october_window_keeps_the_three_valid_mid_items() -> None:
+    records: dict[str, dict[str, str]] = {}
+    for path in sorted(DATA_RAW.glob("*/Pew Research.jsonl")):
+        day = path.parent.name
+        if not ("2026-10-22" <= day <= "2026-10-28"):
+            continue
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            item = json.loads(line)
+            link = str(item.get("link") or item.get("title"))
+            records[link] = item
+
+    source = _pew_source()
+    kept = [
+        item["title"]
+        for item in records.values()
+        if _passes_include_keywords(source, item["title"], item.get("summary") or "")
+    ]
+
+    assert CAREGIVING_TITLE in kept
+    assert ELIGIBLE_VOTERS_TITLE not in kept
+    assert len(records) == 43
+    assert len(kept) == 3
+    assert sum(1 for title in kept if title != CAREGIVING_TITLE) == 2
 
 
 def test_unconfigured_source_keeps_quoted_titles(monkeypatch: pytest.MonkeyPatch) -> None:

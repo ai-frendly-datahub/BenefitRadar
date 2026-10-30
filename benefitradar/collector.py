@@ -387,18 +387,41 @@ def _include_keywords(source: Source) -> list[str]:
     return keywords
 
 
-def _keyword_in_text(keyword: str, text: str) -> bool:
-    """Match English on word boundaries. Other keywords, including Korean, are substrings.
+# Incomplete tokens. A trailing word boundary misses "Caregiving" for "caregiv".
+# Closed words stay bounded so "job" does not match "jobless" and "snap" does not match "snapshot".
+_PREFIX_STEMS = frozenset({"caregiv", "retire", "subsid", "eligib"})
 
-    ASCII keywords also allow one optional trailing plural ``s`` on the last token,
-    so ``job`` matches ``jobs`` and ``snap`` does not match ``snapshot``.
+# Continuations seen in collected Pew text that are not benefit language.
+# "subsidiary" is Acknowledgments boilerplate. Bare "eligible" is voter and survey wording.
+# "eligibility" (eligib + ility) and subsidy/subsidies do not use these suffixes.
+_STEM_REJECT_SUFFIX = {
+    "subsid": r"iar",
+    "eligib": r"les?(?![a-z0-9])",
+}
+
+
+def _keyword_in_text(keyword: str, text: str) -> bool:
+    """Match English keywords. Other keywords, including Korean, are substrings.
+
+    Closed ASCII words use a leading and trailing boundary, plus one optional plural ``s``
+    on the last token, so ``job`` matches ``jobs`` and ``snap`` does not match ``snapshot``.
+    Prefix stems (``caregiv``, ``retire``, ``subsid``, ``eligib``) keep only the leading
+    boundary. A trailing boundary would reject ``Caregiving``.
     """
     if keyword.isascii():
-        parts = [re.escape(part) for part in keyword.split() if part]
+        raw_parts = [part for part in keyword.split() if part]
+        parts = [re.escape(part) for part in raw_parts]
         if not parts:
             return False
-        parts[-1] = parts[-1] + r"s?"
-        pattern = r"(?<![a-z0-9])" + r"\s+".join(parts) + r"(?![a-z0-9])"
+        last = raw_parts[-1]
+        if last in _PREFIX_STEMS:
+            pattern = r"(?<![a-z0-9])" + r"\s+".join(parts)
+            rejected = _STEM_REJECT_SUFFIX.get(last)
+            if rejected:
+                pattern += f"(?!{rejected})"
+        else:
+            parts[-1] = parts[-1] + r"s?"
+            pattern = r"(?<![a-z0-9])" + r"\s+".join(parts) + r"(?![a-z0-9])"
         return re.search(pattern, text) is not None
     return keyword in text
 
