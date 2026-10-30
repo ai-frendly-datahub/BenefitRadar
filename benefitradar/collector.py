@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import os
+import re
 import threading
 import time
 from calendar import timegm
@@ -371,6 +372,69 @@ def collect_sources(
     return articles, errors
 
 
+def _include_keywords(source: Source) -> list[str]:
+    """Return lowercase include_keywords. An empty list means no keyword gate."""
+    raw = source.config.get("include_keywords")
+    if not isinstance(raw, list):
+        return []
+    keywords: list[str] = []
+    for item in raw:
+        if not isinstance(item, str):
+            continue
+        text = item.strip().lower()
+        if text:
+            keywords.append(text)
+    return keywords
+
+
+# Incomplete tokens. A trailing word boundary misses "Caregiving" for "caregiv".
+# Closed words stay bounded so "job" does not match "jobless" and "snap" does not match "snapshot".
+_PREFIX_STEMS = frozenset({"caregiv", "retire", "subsid", "eligib"})
+
+# Continuations seen in collected Pew text that are not benefit language.
+# "subsidiary" is Acknowledgments boilerplate. Bare "eligible" is voter and survey wording.
+# "eligibility" (eligib + ility) and subsidy/subsidies do not use these suffixes.
+_STEM_REJECT_SUFFIX = {
+    "subsid": r"iar",
+    "eligib": r"les?(?![a-z0-9])",
+}
+
+
+def _keyword_in_text(keyword: str, text: str) -> bool:
+    """Match English keywords. Other keywords, including Korean, are substrings.
+
+    Closed ASCII words use a leading and trailing boundary, plus one optional plural ``s``
+    on the last token, so ``job`` matches ``jobs`` and ``snap`` does not match ``snapshot``.
+    Prefix stems (``caregiv``, ``retire``, ``subsid``, ``eligib``) keep only the leading
+    boundary. A trailing boundary would reject ``Caregiving``.
+    """
+    if keyword.isascii():
+        raw_parts = [part for part in keyword.split() if part]
+        parts = [re.escape(part) for part in raw_parts]
+        if not parts:
+            return False
+        last = raw_parts[-1]
+        if last in _PREFIX_STEMS:
+            pattern = r"(?<![a-z0-9])" + r"\s+".join(parts)
+            rejected = _STEM_REJECT_SUFFIX.get(last)
+            if rejected:
+                pattern += f"(?!{rejected})"
+        else:
+            parts[-1] = parts[-1] + r"s?"
+            pattern = r"(?<![a-z0-9])" + r"\s+".join(parts) + r"(?![a-z0-9])"
+        return re.search(pattern, text) is not None
+    return keyword in text
+
+
+def _passes_include_keywords(source: Source, title: str, summary: str) -> bool:
+    """Pass when no gate is configured, or title or summary contains a keyword."""
+    keywords = _include_keywords(source)
+    if not keywords:
+        return True
+    text = f"{title} {summary}".lower()
+    return any(_keyword_in_text(keyword, text) for keyword in keywords)
+
+
 def _collect_single(
     source: Source,
     *,
@@ -426,11 +490,15 @@ def _collect_single(
             if not title or title == "(no title)" or not link:
                 continue
 
+            summary_text = html.unescape(summary.strip())
+            if not _passes_include_keywords(source, title, summary_text):
+                continue
+
             items.append(
                 Article(
                     title=title,
                     link=link,
-                    summary=html.unescape(summary.strip()),
+                    summary=summary_text,
                     published=published,
                     source=source.name,
                     category=category,
