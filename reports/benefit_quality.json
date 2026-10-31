@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-10-30T05:02:07.223928+00:00",
+  "generated_at": "2026-10-31T04:49:33.496683+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
@@ -14,10 +14,10 @@
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 5,
-    "unique_program_key_count": 23,
-    "deadline_with_program_key_events": 7,
-    "support_program_notice_events": 19,
-    "application_deadline_events": 7,
+    "unique_program_key_count": 24,
+    "deadline_with_program_key_events": 8,
+    "support_program_notice_events": 20,
+    "application_deadline_events": 8,
     "eligibility_rule_events": 12,
     "selection_result_events": 4
   },
@@ -168,7 +168,7 @@
       "article_count": 5,
       "event_count": 5,
       "latest_event_at": "2026-10-30T09:36:13+00:00",
-      "age_days": 0.0,
+      "age_days": 0.8,
       "latest_title": "2026년 대학일자리플러스센터 등 사업 우수사례 선정결과",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261001030",
       "latest_program_id": "",
@@ -195,7 +195,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-08-24T20:39:49+00:00",
-      "age_days": 66.35,
+      "age_days": 67.34,
       "latest_title": "사업주와 인사담당자를 위한 난임치료휴가 및 급여제도 활용가이드",
       "latest_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260800716",
       "latest_program_id": "",
@@ -354,10 +354,10 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 28,
+      "article_count": 29,
       "event_count": 4,
       "latest_event_at": "2026-10-28T15:29:50+00:00",
-      "age_days": 1.56,
+      "age_days": 2.56,
       "latest_title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584214",
       "latest_program_id": "584214",
@@ -388,7 +388,7 @@
       "article_count": 7,
       "event_count": 7,
       "latest_event_at": "2026-10-29T14:00:44+00:00",
-      "age_days": 0.63,
+      "age_days": 1.62,
       "latest_title": "[괴산서울농장] '수확행(사과편)-2' 프로그램 (11.07) 추첨결과 안내",
       "latest_url": "https://news.seoul.go.kr/gov/archives/581717",
       "latest_program_id": "581717",
@@ -416,23 +416,27 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 6,
-      "event_count": 6,
-      "latest_event_at": "2026-10-27T10:52:09+00:00",
-      "age_days": 2.76,
-      "latest_title": "6개 야장 상권에서 10% 할인! 달빛상품권 100억원 발행",
-      "latest_url": "https://news.seoul.go.kr/economy/archives/574982",
-      "latest_program_id": "574982",
-      "latest_program_key": "id:574982",
-      "latest_application_deadline": "",
-      "latest_application_channels": [],
-      "latest_benefit_amounts": [
-        "50만원"
+      "article_count": 7,
+      "event_count": 7,
+      "latest_event_at": "2026-10-30T17:34:44+00:00",
+      "age_days": 0.47,
+      "latest_title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
+      "latest_url": "https://news.seoul.go.kr/economy/archives/575053",
+      "latest_program_id": "575053",
+      "latest_program_key": "id:575053",
+      "latest_application_deadline": "2026-11-02",
+      "latest_application_channels": [
+        "online"
       ],
+      "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
-      "latest_eligibility_fields": {},
+      "latest_eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      },
       "skip_reason": null,
       "reenable_gate": null,
       "errors": []
@@ -553,7 +557,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 3,
+      "article_count": 4,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -580,7 +584,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -634,7 +638,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 9,
+      "article_count": 10,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1222,6 +1226,54 @@
     }
   ],
   "events": [
+    {
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575053",
+      "event_at": "2026-11-02T00:00:00+00:00",
+      "program_id": "575053",
+      "program_key": "id:575053",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "2026-11-30",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575053",
+      "event_at": "2026-10-30T17:34:44+00:00",
+      "program_id": "575053",
+      "program_key": "id:575053",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "2026-11-30",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
     {
       "source": "고용노동부 공지",
       "event_model": "selection_result",
