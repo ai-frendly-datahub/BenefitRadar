@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-01",
+  "category": "benefit",
+  "article_count": 70,
+  "source_count": 9,
+  "matched_count": 70,
+  "top_entities": [
+    {
+      "name": "BenefitProgramKey",
+      "count": 70
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 64
+    },
+    {
+      "name": "SourceSignal",
+      "count": 50
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 49
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 35
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 33
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 33
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 29
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 25
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 24
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 17
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 8
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 8
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 7
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 7
+    },
+    {
+      "name": "TaxBenefit",
+      "count": 5
+    },
+    {
+      "name": "Eligibility",
+      "count": 5
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 4
+    },
+    {
+      "name": "SelectionProgramTitle",
+      "count": 4
+    },
+    {
+      "name": "FamilySupport",
+      "count": 4
+    }
+  ],
+  "sources": {
+    "서울시 정책뉴스": 8,
+    "Government Executive": 4,
+    "서울시 경제": 7,
+    "서울시 복지": 29,
+    "Tax Foundation": 3,
+    "고용노동부 공지": 5,
+    "KFF Health News": 9,
+    "Federal News Network": 4,
+    "고용노동부 정책": 1
+  },
+  "generated_at": "2026-11-01T05:12:59.717616+00:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
