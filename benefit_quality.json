@@ -1,24 +1,24 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-01T05:13:00.290303+00:00",
+  "generated_at": "2026-11-02T05:22:37.171957+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
     "fresh_sources": 3,
     "quiet_sources": 0,
-    "stale_sources": 2,
-    "missing_sources": 2,
+    "stale_sources": 1,
+    "missing_sources": 3,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
-    "collection_error_count": 5,
-    "unique_program_key_count": 25,
-    "deadline_with_program_key_events": 8,
-    "support_program_notice_events": 21,
-    "application_deadline_events": 8,
-    "eligibility_rule_events": 12,
+    "collection_error_count": 4,
+    "unique_program_key_count": 21,
+    "deadline_with_program_key_events": 7,
+    "support_program_notice_events": 18,
+    "application_deadline_events": 7,
+    "eligibility_rule_events": 9,
     "selection_result_events": 4
   },
   "sources": [
@@ -168,7 +168,7 @@
       "article_count": 5,
       "event_count": 5,
       "latest_event_at": "2026-10-30T09:36:13+00:00",
-      "age_days": 1.82,
+      "age_days": 2.82,
       "latest_title": "2026년 대학일자리플러스센터 등 사업 우수사례 선정결과",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261001030",
       "latest_program_id": "",
@@ -182,7 +182,9 @@
       "latest_eligibility_fields": {},
       "skip_reason": null,
       "reenable_gate": null,
-      "errors": []
+      "errors": [
+        "고용노동부 공지: Network error fetching 고용노동부 공지: HTTPSConnectionPool(host='www.moel.go.kr', port=443): Max retries exceeded with url: /rss/notice.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moel.go.kr', port=443) at 0x7f5934f01b50>, 'Connection to www.moel.go.kr timed out. (connect timeout=45)'))"
+      ]
     },
     {
       "source": "고용노동부 정책",
@@ -191,15 +193,15 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 1,
-      "event_count": 1,
-      "latest_event_at": "2026-08-24T20:39:49+00:00",
-      "age_days": 68.36,
-      "latest_title": "사업주와 인사담당자를 위한 난임치료휴가 및 급여제도 활용가이드",
-      "latest_url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260800716",
+      "status": "missing",
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
       "latest_program_id": "",
-      "latest_program_key": "title:고용노동부-정책:사업주와-인사담당자를-위한-난임치료휴가-및-급여",
+      "latest_program_key": "",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -209,7 +211,9 @@
       "latest_eligibility_fields": {},
       "skip_reason": null,
       "reenable_gate": null,
-      "errors": []
+      "errors": [
+        "고용노동부 정책: Network error fetching 고용노동부 정책: HTTPSConnectionPool(host='www.moel.go.kr', port=443): Max retries exceeded with url: /rss/policy.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moel.go.kr', port=443) at 0x7f5934f00dd0>, 'Connection to www.moel.go.kr timed out. (connect timeout=45)'))"
+      ]
     },
     {
       "source": "고용노동부 입법예고",
@@ -236,7 +240,9 @@
       "latest_eligibility_fields": {},
       "skip_reason": null,
       "reenable_gate": null,
-      "errors": []
+      "errors": [
+        "고용노동부 입법예고: Network error fetching 고용노동부 입법예고: HTTPSConnectionPool(host='www.moel.go.kr', port=443): Max retries exceeded with url: /rss/lawinfo.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moel.go.kr', port=443) at 0x7f5934f02550>, 'Connection to www.moel.go.kr timed out. (connect timeout=45)'))"
+      ]
     },
     {
       "source": "중소벤처기업부",
@@ -354,10 +360,10 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "stale",
-      "article_count": 29,
-      "event_count": 4,
+      "article_count": 24,
+      "event_count": 3,
       "latest_event_at": "2026-10-28T15:29:50+00:00",
-      "age_days": 3.57,
+      "age_days": 4.58,
       "latest_title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584214",
       "latest_program_id": "584214",
@@ -385,10 +391,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 8,
-      "event_count": 8,
+      "article_count": 7,
+      "event_count": 7,
       "latest_event_at": "2026-10-31T16:26:05+00:00",
-      "age_days": 0.53,
+      "age_days": 1.54,
       "latest_title": "잠자고 있는 '지방세 환급금' 찾아가세요",
       "latest_url": "https://news.seoul.go.kr/gov/archives/581709",
       "latest_program_id": "581709",
@@ -418,10 +424,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 7,
-      "event_count": 7,
+      "article_count": 6,
+      "event_count": 6,
       "latest_event_at": "2026-10-30T17:34:44+00:00",
-      "age_days": 1.48,
+      "age_days": 2.49,
       "latest_title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575053",
       "latest_program_id": "575053",
@@ -468,7 +474,9 @@
       "latest_eligibility_fields": {},
       "skip_reason": null,
       "reenable_gate": null,
-      "errors": []
+      "errors": [
+        "농림축산식품부: Network error fetching 농림축산식품부: HTTPSConnectionPool(host='www.mafra.go.kr', port=443): Max retries exceeded with url: /bbs/home/792/rssList.do?row=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.mafra.go.kr', port=443) at 0x7f5934d38110>, 'Connection to www.mafra.go.kr timed out. (connect timeout=45)'))"
+      ]
     },
     {
       "source": "경기도 일자리재단",
@@ -640,7 +648,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 9,
+      "article_count": 8,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1855,28 +1863,6 @@
       "eligibility_fields": {}
     },
     {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "2026년 「청년일자리도약장려금」 사업운영 지침 일부 개정 안내('26.10월)",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000802",
-      "event_at": "2026-10-22T17:20:18+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:청년일자리도약장려금",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
       "source": "서울시 경제",
       "event_model": "selection_result",
       "title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
@@ -1927,6 +1913,28 @@
         ],
         "Region": [
           "서울"
+        ]
+      }
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "2026년 「청년일자리도약장려금」 사업운영 지침 일부 개정 안내('26.10월)",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000802",
+      "event_at": "2026-10-22T17:20:18+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:청년일자리도약장려금",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
         ]
       }
     },
@@ -2081,171 +2089,6 @@
           "서울"
         ]
       }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "[26년 하반기, 부여] 한부모가족 서울농장 프로그램 (261107)",
-      "url": "https://news.seoul.go.kr/gov/archives/581571",
-      "event_at": "2026-10-30T00:00:00+00:00",
-      "program_id": "581571",
-      "program_key": "id:581571",
-      "application_deadline": "2026-10-30",
-      "application_start_date": "2026-11-07",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "한부모"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "[26년 하반기, 부여] 한부모가족 서울농장 프로그램 (261107)",
-      "url": "https://news.seoul.go.kr/gov/archives/581571",
-      "event_at": "2026-10-20T14:03:51+00:00",
-      "program_id": "581571",
-      "program_key": "id:581571",
-      "application_deadline": "2026-10-30",
-      "application_start_date": "2026-11-07",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "한부모"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "[26년 하반기, 부여] 한부모가족 서울농장 프로그램 (261107)",
-      "url": "https://news.seoul.go.kr/gov/archives/581571",
-      "event_at": "2026-10-20T14:03:51+00:00",
-      "program_id": "581571",
-      "program_key": "id:581571",
-      "application_deadline": "2026-10-30",
-      "application_start_date": "2026-11-07",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "한부모"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "eligibility_rule",
-      "title": "청계광장에서 만나는 인쇄의 매력…서울인쇄문화축제 10월 15일 개최",
-      "url": "https://news.seoul.go.kr/economy/archives/574874",
-      "event_at": "2026-10-14T14:49:24+00:00",
-      "program_id": "574874",
-      "program_key": "id:574874",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "청계광장에서 만나는 인쇄의 매력…서울인쇄문화축제 10월 15일 개최",
-      "url": "https://news.seoul.go.kr/economy/archives/574874",
-      "event_at": "2026-10-14T14:49:24+00:00",
-      "program_id": "574874",
-      "program_key": "id:574874",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 복지",
-      "event_model": "eligibility_rule",
-      "title": "(세대수 변경)(#시흥)'엘리프 시흥 더 프라임' 서울시 장애인 특별공급 배정 세대수 변경 안내",
-      "url": "https://news.seoul.go.kr/welfare/archives/584015",
-      "event_at": "2026-10-14T08:24:51+00:00",
-      "program_id": "584015",
-      "program_key": "id:584015",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "장애인"
-        ],
-        "Household": [
-          "세대"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "고용노동부 정책",
-      "event_model": "support_program_notice",
-      "title": "사업주와 인사담당자를 위한 난임치료휴가 및 급여제도 활용가이드",
-      "url": "https://www.moel.go.kr/policy/policydata/view.do?bbs_seq=20260800716",
-      "event_at": "2026-08-24T20:39:49+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-정책:사업주와-인사담당자를-위한-난임치료휴가-및-급여",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
     }
   ],
   "source_backlog": {
@@ -2285,10 +2128,9 @@
     ]
   },
   "errors": [
-    "http://www.mafra.go.kr/bbs/home/792/582085/artclView.do: summary is missing or not a string",
-    "http://www.mafra.go.kr/bbs/home/792/582086/artclView.do: summary is missing or not a string",
-    "http://www.mafra.go.kr/bbs/home/792/582068/artclView.do: summary is missing or not a string",
-    "http://www.mafra.go.kr/bbs/home/792/582072/artclView.do: summary is missing or not a string",
-    "http://www.mafra.go.kr/bbs/home/792/582021/artclView.do: summary is missing or not a string"
+    "고용노동부 공지: Network error fetching 고용노동부 공지: HTTPSConnectionPool(host='www.moel.go.kr', port=443): Max retries exceeded with url: /rss/notice.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moel.go.kr', port=443) at 0x7f5934f01b50>, 'Connection to www.moel.go.kr timed out. (connect timeout=45)'))",
+    "고용노동부 정책: Network error fetching 고용노동부 정책: HTTPSConnectionPool(host='www.moel.go.kr', port=443): Max retries exceeded with url: /rss/policy.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moel.go.kr', port=443) at 0x7f5934f00dd0>, 'Connection to www.moel.go.kr timed out. (connect timeout=45)'))",
+    "고용노동부 입법예고: Network error fetching 고용노동부 입법예고: HTTPSConnectionPool(host='www.moel.go.kr', port=443): Max retries exceeded with url: /rss/lawinfo.do (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moel.go.kr', port=443) at 0x7f5934f02550>, 'Connection to www.moel.go.kr timed out. (connect timeout=45)'))",
+    "농림축산식품부: Network error fetching 농림축산식품부: HTTPSConnectionPool(host='www.mafra.go.kr', port=443): Max retries exceeded with url: /bbs/home/792/rssList.do?row=50 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.mafra.go.kr', port=443) at 0x7f5934d38110>, 'Connection to www.mafra.go.kr timed out. (connect timeout=45)'))"
   ]
 }
