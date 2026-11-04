@@ -1,25 +1,25 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-03T05:57:08.544042+00:00",
+  "generated_at": "2026-11-04T05:33:14.331872+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 1,
+    "fresh_sources": 3,
     "quiet_sources": 0,
-    "stale_sources": 3,
+    "stale_sources": 1,
     "missing_sources": 2,
     "missing_event_sources": 1,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 5,
-    "unique_program_key_count": 22,
-    "deadline_with_program_key_events": 9,
-    "support_program_notice_events": 20,
-    "application_deadline_events": 9,
+    "unique_program_key_count": 23,
+    "deadline_with_program_key_events": 10,
+    "support_program_notice_events": 21,
+    "application_deadline_events": 10,
     "eligibility_rule_events": 10,
-    "selection_result_events": 4
+    "selection_result_events": 3
   },
   "sources": [
     {
@@ -164,22 +164,26 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "stale",
+      "status": "fresh",
       "article_count": 5,
       "event_count": 5,
-      "latest_event_at": "2026-10-30T09:36:13+00:00",
-      "age_days": 3.85,
-      "latest_title": "2026년 대학일자리플러스센터 등 사업 우수사례 선정결과",
-      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261001030",
+      "latest_event_at": "2026-11-04T10:31:08+00:00",
+      "age_days": 0.0,
+      "latest_title": "2027년 장애인고용촉진 유공 정부포상 공고",
+      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100120",
       "latest_program_id": "",
-      "latest_program_key": "title:고용노동부-공지:2026년-대학일자리플러스센터-등-사업-우수사례-선정결과",
+      "latest_program_key": "title:고용노동부-공지:2027년-장애인고용촉진-유공-정부포상-공고",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
-      "latest_eligibility_fields": {},
+      "latest_eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ]
+      },
       "skip_reason": null,
       "reenable_gate": null,
       "errors": []
@@ -354,10 +358,10 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "stale",
-      "article_count": 18,
+      "article_count": 22,
       "event_count": 2,
       "latest_event_at": "2026-10-28T15:29:50+00:00",
-      "age_days": 5.6,
+      "age_days": 6.59,
       "latest_title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584214",
       "latest_program_id": "584214",
@@ -387,12 +391,12 @@
       "status": "fresh",
       "article_count": 9,
       "event_count": 9,
-      "latest_event_at": "2026-11-02T18:07:59+00:00",
-      "age_days": 0.49,
-      "latest_title": "[부여서울농장] 겨울 여행도 부여가 맛집 (261120)",
-      "latest_url": "https://news.seoul.go.kr/gov/archives/581767",
-      "latest_program_id": "581767",
-      "latest_program_key": "id:581767",
+      "latest_event_at": "2026-11-04T10:12:31+00:00",
+      "age_days": 0.0,
+      "latest_title": "[상주서울농장] 제철먹거리체험-상주곶감여행 (261120)",
+      "latest_url": "https://news.seoul.go.kr/gov/archives/581800",
+      "latest_program_id": "581800",
+      "latest_program_key": "id:581800",
       "latest_application_deadline": "2026-11-12",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -415,24 +419,25 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 6,
-      "event_count": 6,
-      "latest_event_at": "2026-10-30T17:34:44+00:00",
-      "age_days": 3.52,
-      "latest_title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
-      "latest_url": "https://news.seoul.go.kr/economy/archives/575053",
-      "latest_program_id": "575053",
-      "latest_program_key": "id:575053",
-      "latest_application_deadline": "2026-11-02",
-      "latest_application_channels": [
-        "online"
-      ],
+      "status": "fresh",
+      "article_count": 7,
+      "event_count": 7,
+      "latest_event_at": "2026-11-04T11:29:27+00:00",
+      "age_days": 0.0,
+      "latest_title": "AI·바이오·로봇 등 미래산업 기업 100여 곳 한자리에…11월 9일 서울시 일자리박람회 개최",
+      "latest_url": "https://news.seoul.go.kr/economy/archives/575109",
+      "latest_program_id": "575109",
+      "latest_program_key": "id:575109",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
         "Region": [
           "서울"
         ]
@@ -584,7 +589,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 3,
+      "article_count": 4,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -665,7 +670,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 5,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1227,6 +1232,119 @@
   ],
   "events": [
     {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "AI·바이오·로봇 등 미래산업 기업 100여 곳 한자리에…11월 9일 서울시 일자리박람회 개최",
+      "url": "https://news.seoul.go.kr/economy/archives/575109",
+      "event_at": "2026-11-04T11:29:27+00:00",
+      "program_id": "575109",
+      "program_key": "id:575109",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "2027년 장애인고용촉진 유공 정부포상 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100120",
+      "event_at": "2026-11-04T10:31:08+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:2027년-장애인고용촉진-유공-정부포상-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "application_deadline",
+      "title": "[상주서울농장] 제철먹거리체험-상주곶감여행 (261120)",
+      "url": "https://news.seoul.go.kr/gov/archives/581800",
+      "event_at": "2026-11-12T00:00:00+00:00",
+      "program_id": "581800",
+      "program_key": "id:581800",
+      "application_deadline": "2026-11-12",
+      "application_start_date": "2026-11-09",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "eligibility_rule",
+      "title": "[상주서울농장] 제철먹거리체험-상주곶감여행 (261120)",
+      "url": "https://news.seoul.go.kr/gov/archives/581800",
+      "event_at": "2026-11-04T10:12:31+00:00",
+      "program_id": "581800",
+      "program_key": "id:581800",
+      "application_deadline": "2026-11-12",
+      "application_start_date": "2026-11-09",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "[상주서울농장] 제철먹거리체험-상주곶감여행 (261120)",
+      "url": "https://news.seoul.go.kr/gov/archives/581800",
+      "event_at": "2026-11-04T10:12:31+00:00",
+      "program_id": "581800",
+      "program_key": "id:581800",
+      "application_deadline": "2026-11-12",
+      "application_start_date": "2026-11-09",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
       "source": "서울시 정책뉴스",
       "event_model": "application_deadline",
       "title": "[부여서울농장] 겨울 여행도 부여가 맛집 (261120)",
@@ -1599,62 +1717,6 @@
       }
     },
     {
-      "source": "서울시 복지",
-      "event_model": "application_deadline",
-      "title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
-      "url": "https://news.seoul.go.kr/welfare/archives/584184",
-      "event_at": "2026-11-11T00:00:00+00:00",
-      "program_id": "584184",
-      "program_key": "id:584184",
-      "application_deadline": "2026-11-11",
-      "application_start_date": "2026-10-27",
-      "application_channels": [
-        "mail",
-        "email"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "장애인"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 복지",
-      "event_model": "eligibility_rule",
-      "title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
-      "url": "https://news.seoul.go.kr/welfare/archives/584184",
-      "event_at": "2026-10-27T19:07:40+00:00",
-      "program_id": "584184",
-      "program_key": "id:584184",
-      "application_deadline": "2026-11-11",
-      "application_start_date": "2026-10-27",
-      "application_channels": [
-        "mail",
-        "email"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "장애인"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
       "source": "서울시 경제",
       "event_model": "support_program_notice",
       "title": "6개 야장 상권에서 10% 할인! 달빛상품권 100억원 발행",
@@ -1673,6 +1735,98 @@
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {}
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "eligibility_rule",
+      "title": "[서울배달+땡겨요] 이용 후기를 들려주세요! (가맹점 대상)",
+      "url": "https://news.seoul.go.kr/economy/archives/574968",
+      "event_at": "2026-10-26T14:49:07+00:00",
+      "program_id": "574968",
+      "program_key": "id:574968",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "10만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "[서울배달+땡겨요] 이용 후기를 들려주세요! (가맹점 대상)",
+      "url": "https://news.seoul.go.kr/economy/archives/574968",
+      "event_at": "2026-10-26T14:49:07+00:00",
+      "program_id": "574968",
+      "program_key": "id:574968",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [
+        "10만원"
+      ],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "사무공간부터 투자연계까지…서울창업허브 공덕, 유망 스타트업 27곳 찾는다",
+      "url": "https://news.seoul.go.kr/economy/archives/574958",
+      "event_at": "2026-10-16T00:00:00+00:00",
+      "program_id": "574958",
+      "program_key": "id:574958",
+      "application_deadline": "2026-10-16",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "사무공간부터 투자연계까지…서울창업허브 공덕, 유망 스타트업 27곳 찾는다",
+      "url": "https://news.seoul.go.kr/economy/archives/574958",
+      "event_at": "2026-10-26T14:23:32+00:00",
+      "program_id": "574958",
+      "program_key": "id:574958",
+      "application_deadline": "2026-10-16",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
     },
     {
       "source": "서울시 정책뉴스",
@@ -1794,98 +1948,6 @@
       "program_key": "id:581577",
       "application_deadline": "2026-10-22",
       "application_start_date": "2026-10-19",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "eligibility_rule",
-      "title": "[서울배달+땡겨요] 이용 후기를 들려주세요! (가맹점 대상)",
-      "url": "https://news.seoul.go.kr/economy/archives/574968",
-      "event_at": "2026-10-26T14:49:07+00:00",
-      "program_id": "574968",
-      "program_key": "id:574968",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "10만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "[서울배달+땡겨요] 이용 후기를 들려주세요! (가맹점 대상)",
-      "url": "https://news.seoul.go.kr/economy/archives/574968",
-      "event_at": "2026-10-26T14:49:07+00:00",
-      "program_id": "574968",
-      "program_key": "id:574968",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "10만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "application_deadline",
-      "title": "사무공간부터 투자연계까지…서울창업허브 공덕, 유망 스타트업 27곳 찾는다",
-      "url": "https://news.seoul.go.kr/economy/archives/574958",
-      "event_at": "2026-10-16T00:00:00+00:00",
-      "program_id": "574958",
-      "program_key": "id:574958",
-      "application_deadline": "2026-10-16",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "사무공간부터 투자연계까지…서울창업허브 공덕, 유망 스타트업 27곳 찾는다",
-      "url": "https://news.seoul.go.kr/economy/archives/574958",
-      "event_at": "2026-10-26T14:23:32+00:00",
-      "program_id": "574958",
-      "program_key": "id:574958",
-      "application_deadline": "2026-10-16",
-      "application_start_date": "",
       "application_channels": [],
       "benefit_amounts": [],
       "selection_result_date": "",
@@ -2061,6 +2123,62 @@
       }
     },
     {
+      "source": "서울시 복지",
+      "event_model": "application_deadline",
+      "title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
+      "url": "https://news.seoul.go.kr/welfare/archives/584184",
+      "event_at": "2026-11-11T00:00:00+00:00",
+      "program_id": "584184",
+      "program_key": "id:584184",
+      "application_deadline": "2026-11-11",
+      "application_start_date": "2026-10-27",
+      "application_channels": [
+        "mail",
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
+      "url": "https://news.seoul.go.kr/welfare/archives/584184",
+      "event_at": "2026-10-27T19:07:40+00:00",
+      "program_id": "584184",
+      "program_key": "id:584184",
+      "application_deadline": "2026-11-11",
+      "application_start_date": "2026-10-27",
+      "application_channels": [
+        "mail",
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
       "source": "서울시 경제",
       "event_model": "eligibility_rule",
       "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
@@ -2103,86 +2221,6 @@
           "서울"
         ]
       }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "[괴산서울농장] '수확행(사과편)' 프로그램 (10.31) 추첨결과 안내",
-      "url": "https://news.seoul.go.kr/gov/archives/581611",
-      "event_at": "2026-10-22T15:00:28+00:00",
-      "program_id": "581611",
-      "program_key": "id:581611",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "[괴산서울농장] '수확행(사과편)' 프로그램 (10.31) 추첨결과 안내",
-      "url": "https://news.seoul.go.kr/gov/archives/581611",
-      "event_at": "2026-10-22T15:00:28+00:00",
-      "program_id": "581611",
-      "program_key": "id:581611",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "selection_result",
-      "title": "산업재해 예방 분야 조사·연구위원 최종 합격자 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000522",
-      "event_at": "2026-10-14T17:07:58+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:산업재해-예방-분야-조사-연구위원-최종-합격자-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "산업재해 예방 분야 조사·연구위원",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "산업재해 예방 분야 조사·연구위원 최종 합격자 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000522",
-      "event_at": "2026-10-14T17:07:58+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:산업재해-예방-분야-조사-연구위원-최종-합격자-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "산업재해 예방 분야 조사·연구위원",
-      "eligibility_fields": {}
     }
   ],
   "source_backlog": {
