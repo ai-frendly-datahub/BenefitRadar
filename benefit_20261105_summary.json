@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-05",
+  "category": "benefit",
+  "article_count": 60,
+  "source_count": 9,
+  "matched_count": 60,
+  "top_entities": [
+    {
+      "name": "BenefitProgramKey",
+      "count": 60
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 54
+    },
+    {
+      "name": "SourceSignal",
+      "count": 42
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 38
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 33
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 27
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 26
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 23
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 21
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 17
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 16
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 11
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 10
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 9
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 6
+    },
+    {
+      "name": "TaxBenefit",
+      "count": 5
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 3
+    },
+    {
+      "name": "Eligibility",
+      "count": 3
+    },
+    {
+      "name": "SelectionProgramTitle",
+      "count": 3
+    },
+    {
+      "name": "BenefitAmount",
+      "count": 3
+    }
+  ],
+  "sources": {
+    "서울시 정책뉴스": 10,
+    "KFF Health News": 8,
+    "서울시 복지": 19,
+    "서울시 경제": 7,
+    "고용노동부 공지": 5,
+    "Tax Foundation": 4,
+    "Federal News Network": 2,
+    "고용노동부 입법예고": 1,
+    "Government Executive": 4
+  },
+  "generated_at": "2026-11-05T05:53:53.689526+00:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}

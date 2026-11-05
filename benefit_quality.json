@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-04T05:33:14.331872+00:00",
+  "generated_at": "2026-11-05T05:53:54.643577+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
@@ -13,12 +13,12 @@
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
-    "collection_error_count": 5,
+    "collection_error_count": 6,
     "unique_program_key_count": 23,
-    "deadline_with_program_key_events": 10,
-    "support_program_notice_events": 21,
-    "application_deadline_events": 10,
-    "eligibility_rule_events": 10,
+    "deadline_with_program_key_events": 11,
+    "support_program_notice_events": 22,
+    "application_deadline_events": 11,
+    "eligibility_rule_events": 9,
     "selection_result_events": 3
   },
   "sources": [
@@ -168,7 +168,7 @@
       "article_count": 5,
       "event_count": 5,
       "latest_event_at": "2026-11-04T10:31:08+00:00",
-      "age_days": 0.0,
+      "age_days": 0.81,
       "latest_title": "2027년 장애인고용촉진 유공 정부포상 공고",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100120",
       "latest_program_id": "",
@@ -358,10 +358,10 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "stale",
-      "article_count": 22,
-      "event_count": 2,
+      "article_count": 19,
+      "event_count": 1,
       "latest_event_at": "2026-10-28T15:29:50+00:00",
-      "age_days": 6.59,
+      "age_days": 7.6,
       "latest_title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584214",
       "latest_program_id": "584214",
@@ -389,23 +389,23 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 9,
-      "event_count": 9,
-      "latest_event_at": "2026-11-04T10:12:31+00:00",
-      "age_days": 0.0,
-      "latest_title": "[상주서울농장] 제철먹거리체험-상주곶감여행 (261120)",
-      "latest_url": "https://news.seoul.go.kr/gov/archives/581800",
-      "latest_program_id": "581800",
-      "latest_program_key": "id:581800",
-      "latest_application_deadline": "2026-11-12",
+      "article_count": 10,
+      "event_count": 10,
+      "latest_event_at": "2026-11-04T20:53:08+00:00",
+      "age_days": 0.38,
+      "latest_title": "로컬창업의 첫 걸음! 청년 창업가 모집('26.11.4.~11.18)",
+      "latest_url": "https://news.seoul.go.kr/gov/archives/581804",
+      "latest_program_id": "581804",
+      "latest_program_key": "id:581804",
+      "latest_application_deadline": "2026-12-01",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
-        "Region": [
-          "서울"
+        "TargetGroup": [
+          "청년"
         ]
       },
       "skip_reason": null,
@@ -422,22 +422,21 @@
       "status": "fresh",
       "article_count": 7,
       "event_count": 7,
-      "latest_event_at": "2026-11-04T11:29:27+00:00",
-      "age_days": 0.0,
-      "latest_title": "AI·바이오·로봇 등 미래산업 기업 100여 곳 한자리에…11월 9일 서울시 일자리박람회 개최",
-      "latest_url": "https://news.seoul.go.kr/economy/archives/575109",
-      "latest_program_id": "575109",
-      "latest_program_key": "id:575109",
-      "latest_application_deadline": "",
-      "latest_application_channels": [],
+      "latest_event_at": "2026-11-04T15:05:58+00:00",
+      "age_days": 0.62,
+      "latest_title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
+      "latest_url": "https://news.seoul.go.kr/economy/archives/575117",
+      "latest_program_id": "575117",
+      "latest_program_key": "id:575117",
+      "latest_application_deadline": "2026-11-02",
+      "latest_application_channels": [
+        "online"
+      ],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
         "Region": [
           "서울"
         ]
@@ -643,7 +642,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 10,
+      "article_count": 8,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1232,6 +1231,120 @@
   ],
   "events": [
     {
+      "source": "서울시 정책뉴스",
+      "event_model": "application_deadline",
+      "title": "로컬창업의 첫 걸음! 청년 창업가 모집('26.11.4.~11.18)",
+      "url": "https://news.seoul.go.kr/gov/archives/581804",
+      "event_at": "2026-12-01T00:00:00+00:00",
+      "program_id": "581804",
+      "program_key": "id:581804",
+      "application_deadline": "2026-12-01",
+      "application_start_date": "2026-11-18",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "eligibility_rule",
+      "title": "로컬창업의 첫 걸음! 청년 창업가 모집('26.11.4.~11.18)",
+      "url": "https://news.seoul.go.kr/gov/archives/581804",
+      "event_at": "2026-11-04T20:53:08+00:00",
+      "program_id": "581804",
+      "program_key": "id:581804",
+      "application_deadline": "2026-12-01",
+      "application_start_date": "2026-11-18",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "로컬창업의 첫 걸음! 청년 창업가 모집('26.11.4.~11.18)",
+      "url": "https://news.seoul.go.kr/gov/archives/581804",
+      "event_at": "2026-11-04T20:53:08+00:00",
+      "program_id": "581804",
+      "program_key": "id:581804",
+      "application_deadline": "2026-12-01",
+      "application_start_date": "2026-11-18",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575117",
+      "event_at": "2026-11-02T00:00:00+00:00",
+      "program_id": "575117",
+      "program_key": "id:575117",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575117",
+      "event_at": "2026-11-04T15:05:58+00:00",
+      "program_id": "575117",
+      "program_key": "id:575117",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
       "source": "서울시 경제",
       "event_model": "support_program_notice",
       "title": "AI·바이오·로봇 등 미래산업 기업 100여 곳 한자리에…11월 9일 서울시 일자리박람회 개최",
@@ -1695,28 +1808,6 @@
       }
     },
     {
-      "source": "서울시 복지",
-      "event_model": "eligibility_rule",
-      "title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
-      "url": "https://news.seoul.go.kr/welfare/archives/584214",
-      "event_at": "2026-10-28T15:29:50+00:00",
-      "program_id": "584214",
-      "program_key": "id:584214",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "장애인"
-        ]
-      }
-    },
-    {
       "source": "서울시 경제",
       "event_model": "support_program_notice",
       "title": "6개 야장 상권에서 10% 할인! 달빛상품권 100억원 발행",
@@ -1825,6 +1916,28 @@
       "eligibility_fields": {
         "Region": [
           "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
+      "url": "https://news.seoul.go.kr/welfare/archives/584214",
+      "event_at": "2026-10-28T15:29:50+00:00",
+      "program_id": "584214",
+      "program_key": "id:584214",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
         ]
       }
     },
@@ -2121,106 +2234,6 @@
           "서울"
         ]
       }
-    },
-    {
-      "source": "서울시 복지",
-      "event_model": "application_deadline",
-      "title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
-      "url": "https://news.seoul.go.kr/welfare/archives/584184",
-      "event_at": "2026-11-11T00:00:00+00:00",
-      "program_id": "584184",
-      "program_key": "id:584184",
-      "application_deadline": "2026-11-11",
-      "application_start_date": "2026-10-27",
-      "application_channels": [
-        "mail",
-        "email"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "장애인"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 복지",
-      "event_model": "eligibility_rule",
-      "title": "서울특별시장애인일자리센터 직원 채용 재공고(회계 업무 / 육아휴직 대체인력)",
-      "url": "https://news.seoul.go.kr/welfare/archives/584184",
-      "event_at": "2026-10-27T19:07:40+00:00",
-      "program_id": "584184",
-      "program_key": "id:584184",
-      "application_deadline": "2026-11-11",
-      "application_start_date": "2026-10-27",
-      "application_channels": [
-        "mail",
-        "email"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "장애인"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "eligibility_rule",
-      "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
-      "url": "https://news.seoul.go.kr/economy/archives/574894",
-      "event_at": "2026-10-16T10:09:29+00:00",
-      "program_id": "574894",
-      "program_key": "id:574894",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "로컬인서울, 5기 지역가치창업가 시제품 팝업스토어 개최",
-      "url": "https://news.seoul.go.kr/economy/archives/574894",
-      "event_at": "2026-10-16T10:09:29+00:00",
-      "program_id": "574894",
-      "program_key": "id:574894",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
     }
   ],
   "source_backlog": {
@@ -2260,6 +2273,7 @@
     ]
   },
   "errors": [
+    "http://www.mafra.go.kr/bbs/home/792/582148/artclView.do: summary is missing or not a string",
     "http://www.mafra.go.kr/bbs/home/792/582126/artclView.do: summary is missing or not a string",
     "http://www.mafra.go.kr/bbs/home/792/582085/artclView.do: summary is missing or not a string",
     "http://www.mafra.go.kr/bbs/home/792/582086/artclView.do: summary is missing or not a string",
