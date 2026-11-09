@@ -1,25 +1,25 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-08T05:17:39.064607+00:00",
+  "generated_at": "2026-11-09T05:30:03.541419+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 2,
+    "fresh_sources": 1,
     "quiet_sources": 0,
-    "stale_sources": 2,
+    "stale_sources": 3,
     "missing_sources": 2,
     "missing_event_sources": 1,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 3,
-    "unique_program_key_count": 26,
-    "deadline_with_program_key_events": 11,
-    "support_program_notice_events": 25,
-    "application_deadline_events": 11,
+    "unique_program_key_count": 24,
+    "deadline_with_program_key_events": 10,
+    "support_program_notice_events": 23,
+    "application_deadline_events": 10,
     "eligibility_rule_events": 10,
-    "selection_result_events": 4
+    "selection_result_events": 3
   },
   "sources": [
     {
@@ -168,7 +168,7 @@
       "article_count": 7,
       "event_count": 7,
       "latest_event_at": "2026-11-06T18:22:44+00:00",
-      "age_days": 1.45,
+      "age_days": 2.46,
       "latest_title": "(가칭)K-노동복지회의소 국민 참여 명칭 공모 계획 안내",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100255",
       "latest_program_id": "",
@@ -357,7 +357,7 @@
       "article_count": 23,
       "event_count": 1,
       "latest_event_at": "2026-10-28T15:29:50+00:00",
-      "age_days": 10.57,
+      "age_days": 11.58,
       "latest_title": "2025년 사회복지시설 평가결과 인센티브 대상 및 우수시설 명단 공개(장애인거주시설, 장애인단기거주시설)",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584214",
       "latest_program_id": "584214",
@@ -384,11 +384,11 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "fresh",
-      "article_count": 11,
-      "event_count": 11,
+      "status": "stale",
+      "article_count": 10,
+      "event_count": 10,
       "latest_event_at": "2026-11-05T15:00:11+00:00",
-      "age_days": 2.6,
+      "age_days": 3.6,
       "latest_title": "[괴산서울농장] '자연울림 맛의울림(총각김치편)' 프로그램 (11.14) 추첨결과 안내",
       "latest_url": "https://news.seoul.go.kr/gov/archives/581816",
       "latest_program_id": "581816",
@@ -416,10 +416,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "stale",
-      "article_count": 7,
-      "event_count": 7,
+      "article_count": 6,
+      "event_count": 6,
       "latest_event_at": "2026-11-04T15:05:58+00:00",
-      "age_days": 3.59,
+      "age_days": 4.6,
       "latest_title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575117",
       "latest_program_id": "575117",
@@ -638,7 +638,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 7,
+      "article_count": 5,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2236,96 +2236,6 @@
       "eligibility_fields": {
         "TargetGroup": [
           "청년"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "2026년 우수공무원 정부포상 추천 대상자 공개검증",
-      "url": "https://news.seoul.go.kr/gov/archives/581652",
-      "event_at": "2026-11-08T00:00:00+00:00",
-      "program_id": "581652",
-      "program_key": "id:581652",
-      "application_deadline": "2026-11-08",
-      "application_start_date": "2026-10-24",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "2026년 우수공무원 정부포상 추천 대상자 공개검증",
-      "url": "https://news.seoul.go.kr/gov/archives/581652",
-      "event_at": "2026-10-24T11:05:43+00:00",
-      "program_id": "581652",
-      "program_key": "id:581652",
-      "application_deadline": "2026-11-08",
-      "application_start_date": "2026-10-24",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "selection_result",
-      "title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
-      "url": "https://news.seoul.go.kr/economy/archives/574922",
-      "event_at": "2026-10-19T16:30:19+00:00",
-      "program_id": "574922",
-      "program_key": "id:574922",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "4500만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "42",
-      "execution_amount": "",
-      "selection_program_title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업' 42곳 최종 선정",
-      "url": "https://news.seoul.go.kr/economy/archives/574922",
-      "event_at": "2026-10-19T16:30:19+00:00",
-      "program_id": "574922",
-      "program_key": "id:574922",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "4500만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "42",
-      "execution_amount": "",
-      "selection_program_title": "서울시, 청년이 오래 일하고 싶은 '서울형 강소기업",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "Region": [
-          "서울"
         ]
       }
     }
