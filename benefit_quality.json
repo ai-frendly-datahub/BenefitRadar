@@ -1,24 +1,24 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-10T06:40:32.733094+00:00",
+  "generated_at": "2026-11-11T05:27:40.572434+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 3,
+    "fresh_sources": 4,
     "quiet_sources": 0,
-    "stale_sources": 1,
+    "stale_sources": 0,
     "missing_sources": 2,
     "missing_event_sources": 1,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
-    "collection_error_count": 2,
-    "unique_program_key_count": 24,
-    "deadline_with_program_key_events": 9,
-    "support_program_notice_events": 23,
-    "application_deadline_events": 9,
-    "eligibility_rule_events": 10,
+    "collection_error_count": 1,
+    "unique_program_key_count": 26,
+    "deadline_with_program_key_events": 11,
+    "support_program_notice_events": 25,
+    "application_deadline_events": 11,
+    "eligibility_rule_events": 11,
     "selection_result_events": 4
   },
   "sources": [
@@ -168,7 +168,7 @@
       "article_count": 7,
       "event_count": 7,
       "latest_event_at": "2026-11-09T14:58:45+00:00",
-      "age_days": 0.65,
+      "age_days": 1.6,
       "latest_title": "2026년 국가공무원 9급 공채 채용후보자(추가합격자) 임용관련 서류 제출 안내",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100284",
       "latest_program_id": "",
@@ -354,10 +354,10 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 23,
+      "article_count": 24,
       "event_count": 1,
       "latest_event_at": "2026-11-10T06:00:57+00:00",
-      "age_days": 0.03,
+      "age_days": 0.98,
       "latest_title": "디딤돌소득 3년의 이야기, 시민 여러분을 초대합니다!",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584396",
       "latest_program_id": "584396",
@@ -388,16 +388,18 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 10,
-      "event_count": 10,
-      "latest_event_at": "2026-11-10T11:34:00+00:00",
+      "article_count": 11,
+      "event_count": 11,
+      "latest_event_at": "2026-11-11T13:37:23+00:00",
       "age_days": 0.0,
-      "latest_title": "2026년 랜선나눔캠퍼스 우수사례 공모전 개최 안내(11.10.~11.30.)",
-      "latest_url": "https://news.seoul.go.kr/gov/archives/581891",
-      "latest_program_id": "581891",
-      "latest_program_key": "id:581891",
-      "latest_application_deadline": "2026-11-30",
-      "latest_application_channels": [],
+      "latest_title": "2026년 하반기 모범공무원 정부포상 추천 대상자 공개검증",
+      "latest_url": "https://news.seoul.go.kr/gov/archives/581941",
+      "latest_program_id": "581941",
+      "latest_program_key": "id:581941",
+      "latest_application_deadline": "2026-11-11",
+      "latest_application_channels": [
+        "email"
+      ],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
@@ -414,26 +416,33 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 6,
-      "event_count": 6,
-      "latest_event_at": "2026-11-04T15:05:58+00:00",
-      "age_days": 5.65,
-      "latest_title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
-      "latest_url": "https://news.seoul.go.kr/economy/archives/575117",
-      "latest_program_id": "575117",
-      "latest_program_key": "id:575117",
-      "latest_application_deadline": "2026-11-02",
+      "status": "fresh",
+      "article_count": 7,
+      "event_count": 7,
+      "latest_event_at": "2026-11-11T14:02:43+00:00",
+      "age_days": 0.0,
+      "latest_title": "2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청",
+      "latest_url": "https://news.seoul.go.kr/economy/archives/575178",
+      "latest_program_id": "575178",
+      "latest_program_key": "id:575178",
+      "latest_application_deadline": "2026-11-06",
       "latest_application_channels": [
-        "online"
+        "visit"
       ],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
+        "IncomeCondition": [
+          "소득",
+          "재산"
+        ],
         "Region": [
           "서울"
+        ],
+        "AgeCondition": [
+          "18+"
         ]
       },
       "skip_reason": null,
@@ -637,7 +646,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 5,
+      "article_count": 7,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1225,6 +1234,139 @@
     }
   ],
   "events": [
+    {
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청",
+      "url": "https://news.seoul.go.kr/economy/archives/575178",
+      "event_at": "2026-11-06T00:00:00+00:00",
+      "program_id": "575178",
+      "program_key": "id:575178",
+      "application_deadline": "2026-11-06",
+      "application_start_date": "2026-11-23",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득",
+          "재산"
+        ],
+        "Region": [
+          "서울"
+        ],
+        "AgeCondition": [
+          "18+"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "eligibility_rule",
+      "title": "2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청",
+      "url": "https://news.seoul.go.kr/economy/archives/575178",
+      "event_at": "2026-11-11T14:02:43+00:00",
+      "program_id": "575178",
+      "program_key": "id:575178",
+      "application_deadline": "2026-11-06",
+      "application_start_date": "2026-11-23",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득",
+          "재산"
+        ],
+        "Region": [
+          "서울"
+        ],
+        "AgeCondition": [
+          "18+"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청",
+      "url": "https://news.seoul.go.kr/economy/archives/575178",
+      "event_at": "2026-11-11T14:02:43+00:00",
+      "program_id": "575178",
+      "program_key": "id:575178",
+      "application_deadline": "2026-11-06",
+      "application_start_date": "2026-11-23",
+      "application_channels": [
+        "visit"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득",
+          "재산"
+        ],
+        "Region": [
+          "서울"
+        ],
+        "AgeCondition": [
+          "18+"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "application_deadline",
+      "title": "2026년 하반기 모범공무원 정부포상 추천 대상자 공개검증",
+      "url": "https://news.seoul.go.kr/gov/archives/581941",
+      "event_at": "2026-11-11T00:00:00+00:00",
+      "program_id": "581941",
+      "program_key": "id:581941",
+      "application_deadline": "2026-11-11",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "2026년 하반기 모범공무원 정부포상 추천 대상자 공개검증",
+      "url": "https://news.seoul.go.kr/gov/archives/581941",
+      "event_at": "2026-11-11T13:37:23+00:00",
+      "program_id": "581941",
+      "program_key": "id:581941",
+      "application_deadline": "2026-11-11",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
     {
       "source": "서울시 정책뉴스",
       "event_model": "application_deadline",
@@ -2261,7 +2403,6 @@
     ]
   },
   "errors": [
-    "http://www.mafra.go.kr/bbs/home/792/582152/artclView.do: summary is missing or not a string",
-    "http://www.mafra.go.kr/bbs/home/792/582148/artclView.do: summary is missing or not a string"
+    "http://www.mafra.go.kr/bbs/home/792/582152/artclView.do: summary is missing or not a string"
   ]
 }
