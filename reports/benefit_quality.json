@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-11T05:27:40.572434+00:00",
+  "generated_at": "2026-11-12T06:31:25.662800+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
@@ -13,13 +13,13 @@
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
-    "collection_error_count": 1,
+    "collection_error_count": 0,
     "unique_program_key_count": 26,
     "deadline_with_program_key_events": 11,
-    "support_program_notice_events": 25,
+    "support_program_notice_events": 24,
     "application_deadline_events": 11,
-    "eligibility_rule_events": 11,
-    "selection_result_events": 4
+    "eligibility_rule_events": 12,
+    "selection_result_events": 3
   },
   "sources": [
     {
@@ -165,14 +165,14 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 7,
-      "event_count": 7,
-      "latest_event_at": "2026-11-09T14:58:45+00:00",
-      "age_days": 1.6,
-      "latest_title": "2026년 국가공무원 9급 공채 채용후보자(추가합격자) 임용관련 서류 제출 안내",
-      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100284",
+      "article_count": 6,
+      "event_count": 6,
+      "latest_event_at": "2026-11-12T11:07:41+00:00",
+      "age_days": 0.0,
+      "latest_title": "국가공무원 7급 공개경쟁채용시험 채용후보자 자격 상실 처분 통지 공시송달 공고",
+      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100383",
       "latest_program_id": "",
-      "latest_program_key": "title:고용노동부-공지:2026년-국가공무원-9급-공채-채용후보자-추가합격자-임용관련-서류-제출-안내",
+      "latest_program_key": "title:고용노동부-공지:국가공무원-7급-공개경쟁채용시험-채용후보자-자격-상실-처분-통지-공시송달-공고",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -354,14 +354,14 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 24,
-      "event_count": 1,
-      "latest_event_at": "2026-11-10T06:00:57+00:00",
-      "age_days": 0.98,
-      "latest_title": "디딤돌소득 3년의 이야기, 시민 여러분을 초대합니다!",
-      "latest_url": "https://news.seoul.go.kr/welfare/archives/584396",
-      "latest_program_id": "584396",
-      "latest_program_key": "id:584396",
+      "article_count": 21,
+      "event_count": 2,
+      "latest_event_at": "2026-11-11T16:22:03+00:00",
+      "age_days": 0.59,
+      "latest_title": "서울체력장, 내 체력을 관리하는 첫걸음",
+      "latest_url": "https://news.seoul.go.kr/welfare/archives/584612",
+      "latest_program_id": "584612",
+      "latest_program_key": "id:584612",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -369,11 +369,11 @@
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
-        "IncomeCondition": [
-          "소득"
-        ],
         "Region": [
           "서울"
+        ],
+        "AgeCondition": [
+          "19+"
         ]
       },
       "skip_reason": null,
@@ -390,21 +390,23 @@
       "status": "fresh",
       "article_count": 11,
       "event_count": 11,
-      "latest_event_at": "2026-11-11T13:37:23+00:00",
+      "latest_event_at": "2026-11-12T14:56:35+00:00",
       "age_days": 0.0,
-      "latest_title": "2026년 하반기 모범공무원 정부포상 추천 대상자 공개검증",
-      "latest_url": "https://news.seoul.go.kr/gov/archives/581941",
-      "latest_program_id": "581941",
-      "latest_program_key": "id:581941",
-      "latest_application_deadline": "2026-11-11",
-      "latest_application_channels": [
-        "email"
-      ],
+      "latest_title": "[괴산서울농장] '자연울림 맛의울림(총각김치편)-2' 프로그램 (11.21) 추첨결과 안내",
+      "latest_url": "https://news.seoul.go.kr/gov/archives/581982",
+      "latest_program_id": "581982",
+      "latest_program_key": "id:581982",
+      "latest_application_deadline": "",
+      "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
-      "latest_eligibility_fields": {},
+      "latest_eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      },
       "skip_reason": null,
       "reenable_gate": null,
       "errors": []
@@ -420,7 +422,7 @@
       "article_count": 7,
       "event_count": 7,
       "latest_event_at": "2026-11-11T14:02:43+00:00",
-      "age_days": 0.0,
+      "age_days": 0.69,
       "latest_title": "2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575178",
       "latest_program_id": "575178",
@@ -646,7 +648,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 7,
+      "article_count": 6,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -673,7 +675,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 4,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1235,6 +1237,129 @@
   ],
   "events": [
     {
+      "source": "서울시 정책뉴스",
+      "event_model": "eligibility_rule",
+      "title": "[괴산서울농장] '자연울림 맛의울림(총각김치편)-2' 프로그램 (11.21) 추첨결과 안내",
+      "url": "https://news.seoul.go.kr/gov/archives/581982",
+      "event_at": "2026-11-12T14:56:35+00:00",
+      "program_id": "581982",
+      "program_key": "id:581982",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "[괴산서울농장] '자연울림 맛의울림(총각김치편)-2' 프로그램 (11.21) 추첨결과 안내",
+      "url": "https://news.seoul.go.kr/gov/archives/581982",
+      "event_at": "2026-11-12T14:56:35+00:00",
+      "program_id": "581982",
+      "program_key": "id:581982",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "국가공무원 7급 공개경쟁채용시험 채용후보자 자격 상실 처분 통지 공시송달 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100383",
+      "event_at": "2026-11-12T11:07:41+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:국가공무원-7급-공개경쟁채용시험-채용후보자-자격-상실-처분-통지-공시송달-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "selection_result",
+      "title": "자산운용 전문위원 채용 서류전형 합격자 및 면접전형 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100371",
+      "event_at": "2026-11-12T09:34:53+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:자산운용-전문위원-채용-서류전형-합격자-및-면접전형-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "자산운용 전문위원 채용 서류전형",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "자산운용 전문위원 채용 서류전형 합격자 및 면접전형 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100371",
+      "event_at": "2026-11-12T09:34:53+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:자산운용-전문위원-채용-서류전형-합격자-및-면접전형-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "자산운용 전문위원 채용 서류전형",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "서울체력장, 내 체력을 관리하는 첫걸음",
+      "url": "https://news.seoul.go.kr/welfare/archives/584612",
+      "event_at": "2026-11-11T16:22:03+00:00",
+      "program_id": "584612",
+      "program_key": "id:584612",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ],
+        "AgeCondition": [
+          "19+"
+        ]
+      }
+    },
+    {
       "source": "서울시 경제",
       "event_model": "application_deadline",
       "title": "2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청",
@@ -1677,72 +1802,6 @@
       }
     },
     {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
-      "url": "https://news.seoul.go.kr/gov/archives/581804",
-      "event_at": "2026-12-01T00:00:00+00:00",
-      "program_id": "581804",
-      "program_key": "id:581804",
-      "application_deadline": "2026-12-01",
-      "application_start_date": "2026-11-18",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
-      "url": "https://news.seoul.go.kr/gov/archives/581804",
-      "event_at": "2026-11-04T20:53:08+00:00",
-      "program_id": "581804",
-      "program_key": "id:581804",
-      "application_deadline": "2026-12-01",
-      "application_start_date": "2026-11-18",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
-      "url": "https://news.seoul.go.kr/gov/archives/581804",
-      "event_at": "2026-11-04T20:53:08+00:00",
-      "program_id": "581804",
-      "program_key": "id:581804",
-      "application_deadline": "2026-12-01",
-      "application_start_date": "2026-11-18",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
       "source": "서울시 경제",
       "event_model": "application_deadline",
       "title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
@@ -1816,15 +1875,63 @@
       }
     },
     {
-      "source": "고용노동부 공지",
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575053",
+      "event_at": "2026-11-02T00:00:00+00:00",
+      "program_id": "575053",
+      "program_key": "id:575053",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "2026-11-30",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
       "event_model": "support_program_notice",
-      "title": "2027년 장애인고용촉진 유공 정부포상 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100120",
-      "event_at": "2026-11-04T10:31:08+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:2027년-장애인고용촉진-유공-정부포상-공고",
-      "application_deadline": "",
-      "application_start_date": "",
+      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575053",
+      "event_at": "2026-10-30T17:34:44+00:00",
+      "program_id": "575053",
+      "program_key": "id:575053",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "2026-11-30",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "application_deadline",
+      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
+      "url": "https://news.seoul.go.kr/gov/archives/581804",
+      "event_at": "2026-12-01T00:00:00+00:00",
+      "program_id": "581804",
+      "program_key": "id:581804",
+      "application_deadline": "2026-12-01",
+      "application_start_date": "2026-11-18",
       "application_channels": [],
       "benefit_amounts": [],
       "selection_result_date": "",
@@ -1833,7 +1940,51 @@
       "selection_program_title": "",
       "eligibility_fields": {
         "TargetGroup": [
-          "장애인"
+          "청년"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "eligibility_rule",
+      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
+      "url": "https://news.seoul.go.kr/gov/archives/581804",
+      "event_at": "2026-11-04T20:53:08+00:00",
+      "program_id": "581804",
+      "program_key": "id:581804",
+      "application_deadline": "2026-12-01",
+      "application_start_date": "2026-11-18",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
+      "url": "https://news.seoul.go.kr/gov/archives/581804",
+      "event_at": "2026-11-04T20:53:08+00:00",
+      "program_id": "581804",
+      "program_key": "id:581804",
+      "application_deadline": "2026-12-01",
+      "application_start_date": "2026-11-18",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "청년"
         ]
       }
     },
@@ -1892,54 +2043,6 @@
       "application_deadline": "2026-11-12",
       "application_start_date": "2026-11-09",
       "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "application_deadline",
-      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575053",
-      "event_at": "2026-11-02T00:00:00+00:00",
-      "program_id": "575053",
-      "program_key": "id:575053",
-      "application_deadline": "2026-11-02",
-      "application_start_date": "2026-11-30",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575053",
-      "event_at": "2026-10-30T17:34:44+00:00",
-      "program_id": "575053",
-      "program_key": "id:575053",
-      "application_deadline": "2026-11-02",
-      "application_start_date": "2026-11-30",
-      "application_channels": [
-        "online"
-      ],
       "benefit_amounts": [],
       "selection_result_date": "",
       "selected_count": "",
@@ -2221,92 +2324,12 @@
     },
     {
       "source": "고용노동부 공지",
-      "event_model": "selection_result",
-      "title": "2026년 대학일자리플러스센터 등 사업 우수사례 선정결과",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261001030",
-      "event_at": "2026-10-30T09:36:13+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:2026년-대학일자리플러스센터-등-사업-우수사례-선정결과",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "2026년 대학일자리플러스센터 등 사업 우수사례",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "고용노동부 공지",
       "event_model": "support_program_notice",
-      "title": "2026년 대학일자리플러스센터 등 사업 우수사례 선정결과",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261001030",
-      "event_at": "2026-10-30T09:36:13+00:00",
+      "title": "2027년 장애인고용촉진 유공 정부포상 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100120",
+      "event_at": "2026-11-04T10:31:08+00:00",
       "program_id": "",
-      "program_key": "title:고용노동부-공지:2026년-대학일자리플러스센터-등-사업-우수사례-선정결과",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "2026년 대학일자리플러스센터 등 사업 우수사례",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "selection_result",
-      "title": "2026년 청년도전지원사업, 청년성장프로젝트 우수사례 공모전 선정 결과",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261001015",
-      "event_at": "2026-10-29T15:40:39+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:2026년-청년도전지원사업",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "2026년 청년도전지원사업",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "2026년 청년도전지원사업, 청년성장프로젝트 우수사례 공모전 선정 결과",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261001015",
-      "event_at": "2026-10-29T15:40:39+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:2026년-청년도전지원사업",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "2026년 청년도전지원사업",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "2026년 장애인고용 우수사업주 선정 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261000987",
-      "event_at": "2026-10-29T10:21:56+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:2026년-장애인고용-우수사업주-선정-공고",
+      "program_key": "title:고용노동부-공지:2027년-장애인고용촉진-유공-정부포상-공고",
       "application_deadline": "",
       "application_start_date": "",
       "application_channels": [],
@@ -2318,50 +2341,6 @@
       "eligibility_fields": {
         "TargetGroup": [
           "장애인"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "[괴산서울농장] '수확행(사과편)-2' 프로그램 (11.07) 추첨결과 안내",
-      "url": "https://news.seoul.go.kr/gov/archives/581717",
-      "event_at": "2026-10-29T14:00:44+00:00",
-      "program_id": "581717",
-      "program_key": "id:581717",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "[괴산서울농장] '수확행(사과편)-2' 프로그램 (11.07) 추첨결과 안내",
-      "url": "https://news.seoul.go.kr/gov/archives/581717",
-      "event_at": "2026-10-29T14:00:44+00:00",
-      "program_id": "581717",
-      "program_key": "id:581717",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
         ]
       }
     }
@@ -2402,7 +2381,5 @@
       }
     ]
   },
-  "errors": [
-    "http://www.mafra.go.kr/bbs/home/792/582152/artclView.do: summary is missing or not a string"
-  ]
+  "errors": []
 }
