@@ -1,24 +1,24 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-14T05:40:31.304113+00:00",
+  "generated_at": "2026-11-15T05:39:21.630017+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 4,
+    "fresh_sources": 2,
     "quiet_sources": 0,
-    "stale_sources": 0,
+    "stale_sources": 2,
     "missing_sources": 2,
     "missing_event_sources": 1,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 0,
-    "unique_program_key_count": 25,
-    "deadline_with_program_key_events": 11,
-    "support_program_notice_events": 23,
-    "application_deadline_events": 11,
-    "eligibility_rule_events": 12,
+    "unique_program_key_count": 23,
+    "deadline_with_program_key_events": 10,
+    "support_program_notice_events": 21,
+    "application_deadline_events": 10,
+    "eligibility_rule_events": 11,
     "selection_result_events": 3
   },
   "sources": [
@@ -168,7 +168,7 @@
       "article_count": 5,
       "event_count": 5,
       "latest_event_at": "2026-11-12T11:07:41+00:00",
-      "age_days": 1.77,
+      "age_days": 2.77,
       "latest_title": "국가공무원 7급 공개경쟁채용시험 채용후보자 자격 상실 처분 통지 공시송달 공고",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100383",
       "latest_program_id": "",
@@ -353,11 +353,11 @@
       "tracked": true,
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
-      "status": "fresh",
-      "article_count": 23,
+      "status": "stale",
+      "article_count": 22,
       "event_count": 2,
       "latest_event_at": "2026-11-11T16:22:03+00:00",
-      "age_days": 2.55,
+      "age_days": 3.55,
       "latest_title": "서울체력장, 내 체력을 관리하는 첫걸음",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584612",
       "latest_program_id": "584612",
@@ -391,7 +391,7 @@
       "article_count": 11,
       "event_count": 11,
       "latest_event_at": "2026-11-12T14:56:35+00:00",
-      "age_days": 1.61,
+      "age_days": 2.61,
       "latest_title": "[괴산서울농장] '자연울림 맛의울림(총각김치편)-2' 프로그램 (11.21) 추첨결과 안내",
       "latest_url": "https://news.seoul.go.kr/gov/archives/581982",
       "latest_program_id": "581982",
@@ -418,11 +418,11 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "fresh",
-      "article_count": 7,
-      "event_count": 7,
+      "status": "stale",
+      "article_count": 5,
+      "event_count": 5,
       "latest_event_at": "2026-11-11T14:02:43+00:00",
-      "age_days": 2.65,
+      "age_days": 3.65,
       "latest_title": "2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575178",
       "latest_program_id": "575178",
@@ -648,7 +648,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 6,
+      "article_count": 7,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -2219,98 +2219,6 @@
       "application_channels": [
         "visit"
       ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "eligibility_rule",
-      "title": "[서울배달+땡겨요] 이용 후기를 들려주세요! (가맹점 대상)",
-      "url": "https://news.seoul.go.kr/economy/archives/574968",
-      "event_at": "2026-10-26T14:49:07+00:00",
-      "program_id": "574968",
-      "program_key": "id:574968",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "10만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "[서울배달+땡겨요] 이용 후기를 들려주세요! (가맹점 대상)",
-      "url": "https://news.seoul.go.kr/economy/archives/574968",
-      "event_at": "2026-10-26T14:49:07+00:00",
-      "program_id": "574968",
-      "program_key": "id:574968",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "10만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "application_deadline",
-      "title": "사무공간부터 투자연계까지…서울창업허브 공덕, 유망 스타트업 27곳 찾는다",
-      "url": "https://news.seoul.go.kr/economy/archives/574958",
-      "event_at": "2026-10-16T00:00:00+00:00",
-      "program_id": "574958",
-      "program_key": "id:574958",
-      "application_deadline": "2026-10-16",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "사무공간부터 투자연계까지…서울창업허브 공덕, 유망 스타트업 27곳 찾는다",
-      "url": "https://news.seoul.go.kr/economy/archives/574958",
-      "event_at": "2026-10-26T14:23:32+00:00",
-      "program_id": "574958",
-      "program_key": "id:574958",
-      "application_deadline": "2026-10-16",
-      "application_start_date": "",
-      "application_channels": [],
       "benefit_amounts": [],
       "selection_result_date": "",
       "selected_count": "",
