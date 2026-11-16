@@ -1,25 +1,25 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-15T05:39:21.630017+00:00",
+  "generated_at": "2026-11-16T05:39:04.063104+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 2,
+    "fresh_sources": 4,
     "quiet_sources": 0,
-    "stale_sources": 2,
+    "stale_sources": 0,
     "missing_sources": 2,
     "missing_event_sources": 1,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 0,
-    "unique_program_key_count": 23,
+    "unique_program_key_count": 24,
     "deadline_with_program_key_events": 10,
     "support_program_notice_events": 21,
     "application_deadline_events": 10,
     "eligibility_rule_events": 11,
-    "selection_result_events": 3
+    "selection_result_events": 4
   },
   "sources": [
     {
@@ -165,14 +165,14 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 5,
-      "event_count": 5,
-      "latest_event_at": "2026-11-12T11:07:41+00:00",
-      "age_days": 2.77,
-      "latest_title": "국가공무원 7급 공개경쟁채용시험 채용후보자 자격 상실 처분 통지 공시송달 공고",
-      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100383",
+      "article_count": 6,
+      "event_count": 6,
+      "latest_event_at": "2026-11-16T14:01:02+00:00",
+      "age_days": 0.0,
+      "latest_title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고",
+      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542",
       "latest_program_id": "",
-      "latest_program_key": "title:고용노동부-공지:국가공무원-7급-공개경쟁채용시험-채용후보자-자격-상실-처분-통지-공시송달-공고",
+      "latest_program_key": "title:고용노동부-공지:일반직-공무원-행정7급-경력경쟁채용시험-서류전형-합격자-및-면접시험-공고",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -353,15 +353,15 @@
       "tracked": true,
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 22,
-      "event_count": 2,
-      "latest_event_at": "2026-11-11T16:22:03+00:00",
-      "age_days": 3.55,
-      "latest_title": "서울체력장, 내 체력을 관리하는 첫걸음",
-      "latest_url": "https://news.seoul.go.kr/welfare/archives/584612",
-      "latest_program_id": "584612",
-      "latest_program_key": "id:584612",
+      "status": "fresh",
+      "article_count": 18,
+      "event_count": 3,
+      "latest_event_at": "2026-11-16T10:00:57+00:00",
+      "age_days": 0.0,
+      "latest_title": "이른 유행주의보! 인플루엔자 예방접종하고 건강한 겨울나기",
+      "latest_url": "https://news.seoul.go.kr/welfare/archives/583236",
+      "latest_program_id": "583236",
+      "latest_program_key": "id:583236",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -369,11 +369,14 @@
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
-        "Region": [
-          "서울"
+        "TargetGroup": [
+          "어르신"
+        ],
+        "LifeStage": [
+          "임신"
         ],
         "AgeCondition": [
-          "19+"
+          "65+"
         ]
       },
       "skip_reason": null,
@@ -388,15 +391,15 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 11,
-      "event_count": 11,
-      "latest_event_at": "2026-11-12T14:56:35+00:00",
-      "age_days": 2.61,
-      "latest_title": "[괴산서울농장] '자연울림 맛의울림(총각김치편)-2' 프로그램 (11.21) 추첨결과 안내",
-      "latest_url": "https://news.seoul.go.kr/gov/archives/581982",
-      "latest_program_id": "581982",
-      "latest_program_key": "id:581982",
-      "latest_application_deadline": "",
+      "article_count": 9,
+      "event_count": 9,
+      "latest_event_at": "2026-11-16T11:06:27+00:00",
+      "age_days": 0.0,
+      "latest_title": "[괴산서울농장] 자연울림 맛의울림-김장편-2 (261205)",
+      "latest_url": "https://news.seoul.go.kr/gov/archives/582009",
+      "latest_program_id": "582009",
+      "latest_program_key": "id:582009",
+      "latest_application_deadline": "2026-11-26",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
@@ -418,33 +421,24 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 5,
-      "event_count": 5,
-      "latest_event_at": "2026-11-11T14:02:43+00:00",
-      "age_days": 3.65,
-      "latest_title": "2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청",
-      "latest_url": "https://news.seoul.go.kr/economy/archives/575178",
-      "latest_program_id": "575178",
-      "latest_program_key": "id:575178",
-      "latest_application_deadline": "2026-11-06",
-      "latest_application_channels": [
-        "visit"
-      ],
+      "status": "fresh",
+      "article_count": 6,
+      "event_count": 6,
+      "latest_event_at": "2026-11-16T10:21:09+00:00",
+      "age_days": 0.0,
+      "latest_title": "2026년도 2차 서울주얼리지원센터 직원(과장급) 채용공고",
+      "latest_url": "https://news.seoul.go.kr/economy/archives/575191",
+      "latest_program_id": "575191",
+      "latest_program_key": "id:575191",
+      "latest_application_deadline": "2026-11-28",
+      "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
-        "IncomeCondition": [
-          "소득",
-          "재산"
-        ],
         "Region": [
           "서울"
-        ],
-        "AgeCondition": [
-          "18+"
         ]
       },
       "skip_reason": null,
@@ -567,7 +561,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 3,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1236,6 +1230,180 @@
     }
   ],
   "events": [
+    {
+      "source": "고용노동부 공지",
+      "event_model": "selection_result",
+      "title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542",
+      "event_at": "2026-11-16T14:01:02+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:일반직-공무원-행정7급-경력경쟁채용시험-서류전형-합격자-및-면접시험-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542",
+      "event_at": "2026-11-16T14:01:02+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:일반직-공무원-행정7급-경력경쟁채용시험-서류전형-합격자-및-면접시험-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "application_deadline",
+      "title": "[괴산서울농장] 자연울림 맛의울림-김장편-2 (261205)",
+      "url": "https://news.seoul.go.kr/gov/archives/582009",
+      "event_at": "2026-11-26T00:00:00+00:00",
+      "program_id": "582009",
+      "program_key": "id:582009",
+      "application_deadline": "2026-11-26",
+      "application_start_date": "2026-11-23",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "eligibility_rule",
+      "title": "[괴산서울농장] 자연울림 맛의울림-김장편-2 (261205)",
+      "url": "https://news.seoul.go.kr/gov/archives/582009",
+      "event_at": "2026-11-16T11:06:27+00:00",
+      "program_id": "582009",
+      "program_key": "id:582009",
+      "application_deadline": "2026-11-26",
+      "application_start_date": "2026-11-23",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "[괴산서울농장] 자연울림 맛의울림-김장편-2 (261205)",
+      "url": "https://news.seoul.go.kr/gov/archives/582009",
+      "event_at": "2026-11-16T11:06:27+00:00",
+      "program_id": "582009",
+      "program_key": "id:582009",
+      "application_deadline": "2026-11-26",
+      "application_start_date": "2026-11-23",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "2026년도 2차 서울주얼리지원센터 직원(과장급) 채용공고",
+      "url": "https://news.seoul.go.kr/economy/archives/575191",
+      "event_at": "2026-11-28T00:00:00+00:00",
+      "program_id": "575191",
+      "program_key": "id:575191",
+      "application_deadline": "2026-11-28",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "2026년도 2차 서울주얼리지원센터 직원(과장급) 채용공고",
+      "url": "https://news.seoul.go.kr/economy/archives/575191",
+      "event_at": "2026-11-16T10:21:09+00:00",
+      "program_id": "575191",
+      "program_key": "id:575191",
+      "application_deadline": "2026-11-28",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "이른 유행주의보! 인플루엔자 예방접종하고 건강한 겨울나기",
+      "url": "https://news.seoul.go.kr/welfare/archives/583236",
+      "event_at": "2026-11-16T10:00:57+00:00",
+      "program_id": "583236",
+      "program_key": "id:583236",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "어르신"
+        ],
+        "LifeStage": [
+          "임신"
+        ],
+        "AgeCondition": [
+          "65+"
+        ]
+      }
+    },
     {
       "source": "서울시 정책뉴스",
       "event_model": "eligibility_rule",
@@ -2073,162 +2241,6 @@
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "[부여서울농장] 겨울 여행도 부여가 맛집 (261120)",
-      "url": "https://news.seoul.go.kr/gov/archives/581767",
-      "event_at": "2026-11-12T00:00:00+00:00",
-      "program_id": "581767",
-      "program_key": "id:581767",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "[부여서울농장] 겨울 여행도 부여가 맛집 (261120)",
-      "url": "https://news.seoul.go.kr/gov/archives/581767",
-      "event_at": "2026-11-02T18:07:59+00:00",
-      "program_id": "581767",
-      "program_key": "id:581767",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "[부여서울농장] 겨울 여행도 부여가 맛집 (261120)",
-      "url": "https://news.seoul.go.kr/gov/archives/581767",
-      "event_at": "2026-11-02T18:07:59+00:00",
-      "program_id": "581767",
-      "program_key": "id:581767",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "[괴산서울농장] 자연울림 맛의울림-총각김치편-2 (261121)",
-      "url": "https://news.seoul.go.kr/gov/archives/581763",
-      "event_at": "2026-11-12T00:00:00+00:00",
-      "program_id": "581763",
-      "program_key": "id:581763",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "[괴산서울농장] 자연울림 맛의울림-총각김치편-2 (261121)",
-      "url": "https://news.seoul.go.kr/gov/archives/581763",
-      "event_at": "2026-11-02T17:54:41+00:00",
-      "program_id": "581763",
-      "program_key": "id:581763",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "[괴산서울농장] 자연울림 맛의울림-총각김치편-2 (261121)",
-      "url": "https://news.seoul.go.kr/gov/archives/581763",
-      "event_at": "2026-11-02T17:54:41+00:00",
-      "program_id": "581763",
-      "program_key": "id:581763",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "잠자고 있는 '지방세 환급금' 찾아가세요",
-      "url": "https://news.seoul.go.kr/gov/archives/581709",
-      "event_at": "2026-10-31T16:26:05+00:00",
-      "program_id": "581709",
-      "program_key": "id:581709",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [
-        "visit"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
     }
   ],
   "source_backlog": {
