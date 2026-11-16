@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-16",
+  "category": "benefit",
+  "article_count": 54,
+  "source_count": 9,
+  "matched_count": 54,
+  "top_entities": [
+    {
+      "name": "BenefitProgramKey",
+      "count": 54
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 47
+    },
+    {
+      "name": "SourceSignal",
+      "count": 40
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 31
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 28
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 25
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 23
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 18
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 17
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 15
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 13
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 12
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 10
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 10
+    },
+    {
+      "name": "Eligibility",
+      "count": 9
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 7
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 5
+    },
+    {
+      "name": "SelectionProgramTitle",
+      "count": 4
+    },
+    {
+      "name": "CultureLeisure",
+      "count": 4
+    },
+    {
+      "name": "EligibilityAgeCondition",
+      "count": 3
+    }
+  ],
+  "sources": {
+    "고용노동부 공지": 6,
+    "서울시 정책뉴스": 9,
+    "서울시 경제": 6,
+    "서울시 복지": 18,
+    "KFF Health News": 7,
+    "Government Executive": 2,
+    "Federal News Network": 2,
+    "Tax Foundation": 3,
+    "고용노동부 입법예고": 1
+  },
+  "generated_at": "2026-11-16T05:39:03.319389+00:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
