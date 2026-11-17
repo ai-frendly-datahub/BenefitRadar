@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-16T05:39:04.063104+00:00",
+  "generated_at": "2026-11-17T07:15:39.085035+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
@@ -14,11 +14,11 @@
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 0,
-    "unique_program_key_count": 24,
-    "deadline_with_program_key_events": 10,
+    "unique_program_key_count": 25,
+    "deadline_with_program_key_events": 11,
     "support_program_notice_events": 21,
-    "application_deadline_events": 10,
-    "eligibility_rule_events": 11,
+    "application_deadline_events": 11,
+    "eligibility_rule_events": 13,
     "selection_result_events": 4
   },
   "sources": [
@@ -165,21 +165,26 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 6,
-      "event_count": 6,
-      "latest_event_at": "2026-11-16T14:01:02+00:00",
-      "age_days": 0.0,
-      "latest_title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고",
-      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542",
+      "article_count": 7,
+      "event_count": 7,
+      "latest_event_at": "2026-11-16T18:15:03+00:00",
+      "age_days": 0.54,
+      "latest_title": "근로복지공단 별정직 본부장 모집공고(광주지역, 대구지역)",
+      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100574",
       "latest_program_id": "",
-      "latest_program_key": "title:고용노동부-공지:일반직-공무원-행정7급-경력경쟁채용시험-서류전형-합격자-및-면접시험-공고",
+      "latest_program_key": "title:고용노동부-공지:근로복지공단-별정직-본부장-모집공고-광주지역-대구지역",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
-      "latest_eligibility_fields": {},
+      "latest_eligibility_fields": {
+        "Region": [
+          "대구",
+          "광주"
+        ]
+      },
       "skip_reason": null,
       "reenable_gate": null,
       "errors": []
@@ -354,29 +359,26 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 18,
-      "event_count": 3,
-      "latest_event_at": "2026-11-16T10:00:57+00:00",
+      "article_count": 20,
+      "event_count": 4,
+      "latest_event_at": "2026-11-17T10:59:53+00:00",
       "age_days": 0.0,
-      "latest_title": "이른 유행주의보! 인플루엔자 예방접종하고 건강한 겨울나기",
-      "latest_url": "https://news.seoul.go.kr/welfare/archives/583236",
-      "latest_program_id": "583236",
-      "latest_program_key": "id:583236",
-      "latest_application_deadline": "",
+      "latest_title": "노로바이러스 감염증 예방·관리 교육자료 신청 안내",
+      "latest_url": "https://news.seoul.go.kr/welfare/archives/584737",
+      "latest_program_id": "584737",
+      "latest_program_key": "id:584737",
+      "latest_application_deadline": "2026-12-01",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
-        "TargetGroup": [
-          "어르신"
-        ],
         "LifeStage": [
-          "임신"
+          "영유아"
         ],
-        "AgeCondition": [
-          "65+"
+        "Region": [
+          "서울"
         ]
       },
       "skip_reason": null,
@@ -394,7 +396,7 @@
       "article_count": 9,
       "event_count": 9,
       "latest_event_at": "2026-11-16T11:06:27+00:00",
-      "age_days": 0.0,
+      "age_days": 0.84,
       "latest_title": "[괴산서울농장] 자연울림 맛의울림-김장편-2 (261205)",
       "latest_url": "https://news.seoul.go.kr/gov/archives/582009",
       "latest_program_id": "582009",
@@ -422,10 +424,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 6,
-      "event_count": 6,
+      "article_count": 5,
+      "event_count": 5,
       "latest_event_at": "2026-11-16T10:21:09+00:00",
-      "age_days": 0.0,
+      "age_days": 0.87,
       "latest_title": "2026년도 2차 서울주얼리지원센터 직원(과장급) 채용공고",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575191",
       "latest_program_id": "575191",
@@ -588,7 +590,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 3,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -669,7 +671,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1231,6 +1233,102 @@
   ],
   "events": [
     {
+      "source": "서울시 복지",
+      "event_model": "application_deadline",
+      "title": "노로바이러스 감염증 예방·관리 교육자료 신청 안내",
+      "url": "https://news.seoul.go.kr/welfare/archives/584737",
+      "event_at": "2026-12-01T00:00:00+00:00",
+      "program_id": "584737",
+      "program_key": "id:584737",
+      "application_deadline": "2026-12-01",
+      "application_start_date": "2026-11-27",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "LifeStage": [
+          "영유아"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "노로바이러스 감염증 예방·관리 교육자료 신청 안내",
+      "url": "https://news.seoul.go.kr/welfare/archives/584737",
+      "event_at": "2026-11-17T10:59:53+00:00",
+      "program_id": "584737",
+      "program_key": "id:584737",
+      "application_deadline": "2026-12-01",
+      "application_start_date": "2026-11-27",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "LifeStage": [
+          "영유아"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "eligibility_rule",
+      "title": "근로복지공단 별정직 본부장 모집공고(광주지역, 대구지역)",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100574",
+      "event_at": "2026-11-16T18:15:03+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:근로복지공단-별정직-본부장-모집공고-광주지역-대구지역",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "대구",
+          "광주"
+        ]
+      }
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "근로복지공단 별정직 본부장 모집공고(광주지역, 대구지역)",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100574",
+      "event_at": "2026-11-16T18:15:03+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:근로복지공단-별정직-본부장-모집공고-광주지역-대구지역",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "대구",
+          "광주"
+        ]
+      }
+    },
+    {
       "source": "고용노동부 공지",
       "event_model": "selection_result",
       "title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고",
@@ -1697,13 +1795,61 @@
       "eligibility_fields": {}
     },
     {
-      "source": "서울시 복지",
-      "event_model": "eligibility_rule",
-      "title": "디딤돌소득 3년의 이야기, 시민 여러분을 초대합니다!",
-      "url": "https://news.seoul.go.kr/welfare/archives/584396",
-      "event_at": "2026-11-10T06:00:57+00:00",
-      "program_id": "584396",
-      "program_key": "id:584396",
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575117",
+      "event_at": "2026-11-02T00:00:00+00:00",
+      "program_id": "575117",
+      "program_key": "id:575117",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575117",
+      "event_at": "2026-11-04T15:05:58+00:00",
+      "program_id": "575117",
+      "program_key": "id:575117",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "AI·바이오·로봇 등 미래산업 기업 100여 곳 한자리에…11월 9일 서울시 일자리박람회 개최",
+      "url": "https://news.seoul.go.kr/economy/archives/575109",
+      "event_at": "2026-11-04T11:29:27+00:00",
+      "program_id": "575109",
+      "program_key": "id:575109",
       "application_deadline": "",
       "application_start_date": "",
       "application_channels": [],
@@ -1713,9 +1859,57 @@
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {
-        "IncomeCondition": [
-          "소득"
+        "TargetGroup": [
+          "청년"
         ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575053",
+      "event_at": "2026-11-02T00:00:00+00:00",
+      "program_id": "575053",
+      "program_key": "id:575053",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "2026-11-30",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575053",
+      "event_at": "2026-10-30T17:34:44+00:00",
+      "program_id": "575053",
+      "program_key": "id:575053",
+      "application_deadline": "2026-11-02",
+      "application_start_date": "2026-11-30",
+      "application_channels": [
+        "online"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
         "Region": [
           "서울"
         ]
@@ -1872,127 +2066,6 @@
       "eligibility_fields": {}
     },
     {
-      "source": "서울시 경제",
-      "event_model": "application_deadline",
-      "title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575117",
-      "event_at": "2026-11-02T00:00:00+00:00",
-      "program_id": "575117",
-      "program_key": "id:575117",
-      "application_deadline": "2026-11-02",
-      "application_start_date": "",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575117",
-      "event_at": "2026-11-04T15:05:58+00:00",
-      "program_id": "575117",
-      "program_key": "id:575117",
-      "application_deadline": "2026-11-02",
-      "application_start_date": "",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "AI·바이오·로봇 등 미래산업 기업 100여 곳 한자리에…11월 9일 서울시 일자리박람회 개최",
-      "url": "https://news.seoul.go.kr/economy/archives/575109",
-      "event_at": "2026-11-04T11:29:27+00:00",
-      "program_id": "575109",
-      "program_key": "id:575109",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "application_deadline",
-      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575053",
-      "event_at": "2026-11-02T00:00:00+00:00",
-      "program_id": "575053",
-      "program_key": "id:575053",
-      "application_deadline": "2026-11-02",
-      "application_start_date": "2026-11-30",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "2026 서울퀀텀캠퍼스 겨울캠프 양자컴퓨팅 활용 과정 교육생 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575053",
-      "event_at": "2026-10-30T17:34:44+00:00",
-      "program_id": "575053",
-      "program_key": "id:575053",
-      "application_deadline": "2026-11-02",
-      "application_start_date": "2026-11-30",
-      "application_channels": [
-        "online"
-      ],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
       "source": "고용노동부 공지",
       "event_model": "support_program_notice",
       "title": "(가칭)K-노동복지회의소 국민 참여 명칭 공모 계획 안내",
@@ -2049,6 +2122,31 @@
       "execution_amount": "",
       "selection_program_title": "",
       "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "디딤돌소득 3년의 이야기, 시민 여러분을 초대합니다!",
+      "url": "https://news.seoul.go.kr/welfare/archives/584396",
+      "event_at": "2026-11-10T06:00:57+00:00",
+      "program_id": "584396",
+      "program_key": "id:584396",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "IncomeCondition": [
+          "소득"
+        ],
         "Region": [
           "서울"
         ]
@@ -2221,26 +2319,6 @@
           "서울"
         ]
       }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "6개 야장 상권에서 10% 할인! 달빛상품권 100억원 발행",
-      "url": "https://news.seoul.go.kr/economy/archives/574982",
-      "event_at": "2026-10-27T10:52:09+00:00",
-      "program_id": "574982",
-      "program_key": "id:574982",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [
-        "50만원"
-      ],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
     }
   ],
   "source_backlog": {
