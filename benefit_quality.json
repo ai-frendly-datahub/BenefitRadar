@@ -1,6 +1,6 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-17T07:15:39.085035+00:00",
+  "generated_at": "2026-11-18T06:40:16.005428+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
@@ -14,12 +14,12 @@
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 0,
-    "unique_program_key_count": 25,
-    "deadline_with_program_key_events": 11,
-    "support_program_notice_events": 21,
-    "application_deadline_events": 11,
-    "eligibility_rule_events": 13,
-    "selection_result_events": 4
+    "unique_program_key_count": 21,
+    "deadline_with_program_key_events": 9,
+    "support_program_notice_events": 18,
+    "application_deadline_events": 9,
+    "eligibility_rule_events": 10,
+    "selection_result_events": 3
   },
   "sources": [
     {
@@ -165,10 +165,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 7,
-      "event_count": 7,
+      "article_count": 6,
+      "event_count": 6,
       "latest_event_at": "2026-11-16T18:15:03+00:00",
-      "age_days": 0.54,
+      "age_days": 1.52,
       "latest_title": "근로복지공단 별정직 본부장 모집공고(광주지역, 대구지역)",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100574",
       "latest_program_id": "",
@@ -359,10 +359,10 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 20,
-      "event_count": 4,
+      "article_count": 17,
+      "event_count": 3,
       "latest_event_at": "2026-11-17T10:59:53+00:00",
-      "age_days": 0.0,
+      "age_days": 0.82,
       "latest_title": "노로바이러스 감염증 예방·관리 교육자료 신청 안내",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584737",
       "latest_program_id": "584737",
@@ -393,10 +393,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 9,
-      "event_count": 9,
+      "article_count": 7,
+      "event_count": 7,
       "latest_event_at": "2026-11-16T11:06:27+00:00",
-      "age_days": 0.84,
+      "age_days": 1.82,
       "latest_title": "[괴산서울농장] 자연울림 맛의울림-김장편-2 (261205)",
       "latest_url": "https://news.seoul.go.kr/gov/archives/582009",
       "latest_program_id": "582009",
@@ -427,7 +427,7 @@
       "article_count": 5,
       "event_count": 5,
       "latest_event_at": "2026-11-16T10:21:09+00:00",
-      "age_days": 0.87,
+      "age_days": 1.85,
       "latest_title": "2026년도 2차 서울주얼리지원센터 직원(과장급) 채용공고",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575191",
       "latest_program_id": "575191",
@@ -590,7 +590,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -644,7 +644,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 7,
+      "article_count": 8,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -671,7 +671,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 0,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1759,42 +1759,6 @@
       "eligibility_fields": {}
     },
     {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "2026년 랜선나눔캠퍼스 우수사례 공모전 개최 안내(11.10.~11.30.)",
-      "url": "https://news.seoul.go.kr/gov/archives/581891",
-      "event_at": "2026-11-30T00:00:00+00:00",
-      "program_id": "581891",
-      "program_key": "id:581891",
-      "application_deadline": "2026-11-30",
-      "application_start_date": "2026-11-10",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "2026년 랜선나눔캠퍼스 우수사례 공모전 개최 안내(11.10.~11.30.)",
-      "url": "https://news.seoul.go.kr/gov/archives/581891",
-      "event_at": "2026-11-10T11:34:00+00:00",
-      "program_id": "581891",
-      "program_key": "id:581891",
-      "application_deadline": "2026-11-30",
-      "application_start_date": "2026-11-10",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {}
-    },
-    {
       "source": "서울시 경제",
       "event_model": "application_deadline",
       "title": "서울창업허브 스케일업센터, 2027년 입주 파트너스 9개사 모집",
@@ -1866,6 +1830,42 @@
           "서울"
         ]
       }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "application_deadline",
+      "title": "2026년 랜선나눔캠퍼스 우수사례 공모전 개최 안내(11.10.~11.30.)",
+      "url": "https://news.seoul.go.kr/gov/archives/581891",
+      "event_at": "2026-11-30T00:00:00+00:00",
+      "program_id": "581891",
+      "program_key": "id:581891",
+      "application_deadline": "2026-11-30",
+      "application_start_date": "2026-11-10",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "2026년 랜선나눔캠퍼스 우수사례 공모전 개최 안내(11.10.~11.30.)",
+      "url": "https://news.seoul.go.kr/gov/archives/581891",
+      "event_at": "2026-11-10T11:34:00+00:00",
+      "program_id": "581891",
+      "program_key": "id:581891",
+      "application_deadline": "2026-11-30",
+      "application_start_date": "2026-11-10",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {}
     },
     {
       "source": "서울시 경제",
@@ -2115,199 +2115,6 @@
       "program_key": "id:581816",
       "application_deadline": "",
       "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 복지",
-      "event_model": "eligibility_rule",
-      "title": "디딤돌소득 3년의 이야기, 시민 여러분을 초대합니다!",
-      "url": "https://news.seoul.go.kr/welfare/archives/584396",
-      "event_at": "2026-11-10T06:00:57+00:00",
-      "program_id": "584396",
-      "program_key": "id:584396",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "IncomeCondition": [
-          "소득"
-        ],
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "selection_result",
-      "title": "2026년도 K-디지털 트레이닝 AI 캠퍼스 추가 선정 결과 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100238",
-      "event_at": "2026-11-06T15:00:23+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:2026년도-k-디지털-트레이닝-ai-캠퍼스-추가-선정-결과-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "2026년도 K-디지털 트레이닝 AI 캠퍼스 추가",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "2026년도 K-디지털 트레이닝 AI 캠퍼스 추가 선정 결과 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100238",
-      "event_at": "2026-11-06T15:00:23+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:2026년도-k-디지털-트레이닝-ai-캠퍼스-추가-선정-결과-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "2026년도 K-디지털 트레이닝 AI 캠퍼스 추가",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
-      "url": "https://news.seoul.go.kr/gov/archives/581804",
-      "event_at": "2026-12-01T00:00:00+00:00",
-      "program_id": "581804",
-      "program_key": "id:581804",
-      "application_deadline": "2026-12-01",
-      "application_start_date": "2026-11-18",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
-      "url": "https://news.seoul.go.kr/gov/archives/581804",
-      "event_at": "2026-11-04T20:53:08+00:00",
-      "program_id": "581804",
-      "program_key": "id:581804",
-      "application_deadline": "2026-12-01",
-      "application_start_date": "2026-11-18",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "로컬 창업의 첫 걸음! 참여 청년 모집(~11.18)",
-      "url": "https://news.seoul.go.kr/gov/archives/581804",
-      "event_at": "2026-11-04T20:53:08+00:00",
-      "program_id": "581804",
-      "program_key": "id:581804",
-      "application_deadline": "2026-12-01",
-      "application_start_date": "2026-11-18",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "청년"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "application_deadline",
-      "title": "[상주서울농장] 제철먹거리체험-상주곶감여행 (261120)",
-      "url": "https://news.seoul.go.kr/gov/archives/581800",
-      "event_at": "2026-11-12T00:00:00+00:00",
-      "program_id": "581800",
-      "program_key": "id:581800",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "eligibility_rule",
-      "title": "[상주서울농장] 제철먹거리체험-상주곶감여행 (261120)",
-      "url": "https://news.seoul.go.kr/gov/archives/581800",
-      "event_at": "2026-11-04T10:12:31+00:00",
-      "program_id": "581800",
-      "program_key": "id:581800",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 정책뉴스",
-      "event_model": "support_program_notice",
-      "title": "[상주서울농장] 제철먹거리체험-상주곶감여행 (261120)",
-      "url": "https://news.seoul.go.kr/gov/archives/581800",
-      "event_at": "2026-11-04T10:12:31+00:00",
-      "program_id": "581800",
-      "program_key": "id:581800",
-      "application_deadline": "2026-11-12",
-      "application_start_date": "2026-11-09",
       "application_channels": [],
       "benefit_amounts": [],
       "selection_result_date": "",
