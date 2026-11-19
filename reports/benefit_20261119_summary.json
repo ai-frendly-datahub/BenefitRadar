@@ -1,0 +1,109 @@
+{
+  "date": "2026-11-19",
+  "category": "benefit",
+  "article_count": 53,
+  "source_count": 8,
+  "matched_count": 53,
+  "top_entities": [
+    {
+      "name": "BenefitProgramKey",
+      "count": 53
+    },
+    {
+      "name": "BenefitProgramId",
+      "count": 45
+    },
+    {
+      "name": "SourceSignal",
+      "count": 39
+    },
+    {
+      "name": "EligibilityRegion",
+      "count": 35
+    },
+    {
+      "name": "GovernmentPolicy",
+      "count": 28
+    },
+    {
+      "name": "OperationalEvent",
+      "count": 25
+    },
+    {
+      "name": "SubsidyProgram",
+      "count": 21
+    },
+    {
+      "name": "TargetDemographic",
+      "count": 19
+    },
+    {
+      "name": "EligibilityTargetGroup",
+      "count": 16
+    },
+    {
+      "name": "HousingAssistance",
+      "count": 14
+    },
+    {
+      "name": "SocialWelfare",
+      "count": 14
+    },
+    {
+      "name": "EmploymentBenefit",
+      "count": 11
+    },
+    {
+      "name": "ApplicationDeadline",
+      "count": 10
+    },
+    {
+      "name": "HealthBenefit",
+      "count": 9
+    },
+    {
+      "name": "Eligibility",
+      "count": 9
+    },
+    {
+      "name": "ApplicationStartDate",
+      "count": 7
+    },
+    {
+      "name": "ApplicationChannel",
+      "count": 5
+    },
+    {
+      "name": "SelectionProgramTitle",
+      "count": 4
+    },
+    {
+      "name": "FamilySupport",
+      "count": 4
+    },
+    {
+      "name": "EligibilityLifeStage",
+      "count": 3
+    }
+  ],
+  "sources": {
+    "서울시 정책뉴스": 7,
+    "고용노동부 공지": 7,
+    "서울시 복지": 18,
+    "KFF Health News": 9,
+    "Tax Foundation": 3,
+    "서울시 경제": 6,
+    "Government Executive": 2,
+    "고용노동부 입법예고": 1
+  },
+  "generated_at": "2026-11-19T06:41:50.804646+00:00",
+  "repo": "BenefitRadar",
+  "ontology_version": "0.1.0",
+  "event_models": [
+    "govsupport.support_program_notice",
+    "govsupport.application_deadline",
+    "govsupport.eligibility_rule",
+    "govsupport.selection_result"
+  ],
+  "ontology_metadata": {}
+}
