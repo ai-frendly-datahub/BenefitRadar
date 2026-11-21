@@ -1,25 +1,25 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-20T06:29:26.446451+00:00",
+  "generated_at": "2026-11-21T06:20:51.104150+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 4,
+    "fresh_sources": 3,
     "quiet_sources": 0,
-    "stale_sources": 0,
+    "stale_sources": 1,
     "missing_sources": 2,
     "missing_event_sources": 1,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 0,
-    "unique_program_key_count": 23,
-    "deadline_with_program_key_events": 10,
-    "support_program_notice_events": 19,
-    "application_deadline_events": 10,
-    "eligibility_rule_events": 12,
-    "selection_result_events": 4
+    "unique_program_key_count": 25,
+    "deadline_with_program_key_events": 11,
+    "support_program_notice_events": 20,
+    "application_deadline_events": 11,
+    "eligibility_rule_events": 13,
+    "selection_result_events": 5
   },
   "sources": [
     {
@@ -165,14 +165,14 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 6,
-      "event_count": 6,
-      "latest_event_at": "2026-11-19T13:58:34+00:00",
-      "age_days": 0.69,
-      "latest_title": "전문임기제 가급(인공지능) 공무원 경채시험 서류전형 합격자 및 면접시험 일정 공고",
-      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100694",
+      "article_count": 7,
+      "event_count": 7,
+      "latest_event_at": "2026-11-20T17:13:22+00:00",
+      "age_days": 0.55,
+      "latest_title": "2027년 미래유망분야 고졸인력양성 신규 트랙 선정계획 공고(제2026？535호)",
+      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100740",
       "latest_program_id": "",
-      "latest_program_key": "title:고용노동부-공지:전문임기제-가급-인공지능-공무원-경채시험-서류전형-합격자-및-면접시험-일정-공고",
+      "latest_program_key": "title:고용노동부-공지:2027년-미래유망분야-고졸인력양성-신규-트랙-선정계획-공고-제2026-535호",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -354,26 +354,28 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 19,
-      "event_count": 4,
-      "latest_event_at": "2026-11-20T13:21:51+00:00",
-      "age_days": 0.0,
-      "latest_title": "인플루엔자(독감) 예방접종, 아직 안하셨나요? 건강을 위해 지금 바로 접종하세요!",
-      "latest_url": "https://news.seoul.go.kr/welfare/archives/584811",
-      "latest_program_id": "584811",
-      "latest_program_key": "id:584811",
-      "latest_application_deadline": "",
-      "latest_application_channels": [],
+      "article_count": 20,
+      "event_count": 5,
+      "latest_event_at": "2026-11-20T17:01:23+00:00",
+      "age_days": 0.56,
+      "latest_title": "서울시립미래형장애인직업재활시설 굿윌스토어 밀알송파점 영업담당(종사자) 채용계획",
+      "latest_url": "https://news.seoul.go.kr/welfare/archives/584836",
+      "latest_program_id": "584836",
+      "latest_program_key": "id:584836",
+      "latest_application_deadline": "2026-12-07",
+      "latest_application_channels": [
+        "email"
+      ],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
       "latest_execution_amount": "",
       "latest_eligibility_fields": {
-        "LifeStage": [
-          "임신"
+        "TargetGroup": [
+          "장애인"
         ],
-        "AgeCondition": [
-          "65+"
+        "Region": [
+          "서울"
         ]
       },
       "skip_reason": null,
@@ -391,7 +393,7 @@
       "article_count": 7,
       "event_count": 7,
       "latest_event_at": "2026-11-19T15:00:53+00:00",
-      "age_days": 0.64,
+      "age_days": 1.64,
       "latest_title": "[괴산서울농장] '자연울림 맛의울림(김장편)' 프로그램 (11.28) 추첨결과 안내",
       "latest_url": "https://news.seoul.go.kr/gov/archives/582068",
       "latest_program_id": "582068",
@@ -418,11 +420,11 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "fresh",
+      "status": "stale",
       "article_count": 6,
       "event_count": 6,
       "latest_event_at": "2026-11-17T18:08:24+00:00",
-      "age_days": 2.51,
+      "age_days": 3.51,
       "latest_title": "강북노동자복지관 입주단체 모집",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575212",
       "latest_program_id": "575212",
@@ -639,7 +641,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 9,
+      "article_count": 12,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1227,6 +1229,96 @@
     }
   ],
   "events": [
+    {
+      "source": "고용노동부 공지",
+      "event_model": "selection_result",
+      "title": "2027년 미래유망분야 고졸인력양성 신규 트랙 선정계획 공고(제2026？535호)",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100740",
+      "event_at": "2026-11-20T17:13:22+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:2027년-미래유망분야-고졸인력양성-신규-트랙-선정계획-공고-제2026-535호",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "2027년 미래유망분야 고졸인력양성 신규 트랙",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "2027년 미래유망분야 고졸인력양성 신규 트랙 선정계획 공고(제2026？535호)",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100740",
+      "event_at": "2026-11-20T17:13:22+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:2027년-미래유망분야-고졸인력양성-신규-트랙-선정계획-공고-제2026-535호",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "2027년 미래유망분야 고졸인력양성 신규 트랙",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "application_deadline",
+      "title": "서울시립미래형장애인직업재활시설 굿윌스토어 밀알송파점 영업담당(종사자) 채용계획",
+      "url": "https://news.seoul.go.kr/welfare/archives/584836",
+      "event_at": "2026-12-07T00:00:00+00:00",
+      "program_id": "584836",
+      "program_key": "id:584836",
+      "application_deadline": "2026-12-07",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 복지",
+      "event_model": "eligibility_rule",
+      "title": "서울시립미래형장애인직업재활시설 굿윌스토어 밀알송파점 영업담당(종사자) 채용계획",
+      "url": "https://news.seoul.go.kr/welfare/archives/584836",
+      "event_at": "2026-11-20T17:01:23+00:00",
+      "program_id": "584836",
+      "program_key": "id:584836",
+      "application_deadline": "2026-12-07",
+      "application_start_date": "",
+      "application_channels": [
+        "email"
+      ],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ],
+        "Region": [
+          "서울"
+        ]
+      }
+    },
     {
       "source": "서울시 복지",
       "event_model": "eligibility_rule",
