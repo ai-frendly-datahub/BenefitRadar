@@ -1,25 +1,25 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-25T07:45:04.576793+00:00",
+  "generated_at": "2026-11-26T07:35:50.585312+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 3,
+    "fresh_sources": 4,
     "quiet_sources": 0,
-    "stale_sources": 1,
+    "stale_sources": 0,
     "missing_sources": 3,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 6,
     "skipped_disabled_sources": 31,
     "collection_error_count": 0,
-    "unique_program_key_count": 16,
+    "unique_program_key_count": 17,
     "deadline_with_program_key_events": 7,
-    "support_program_notice_events": 11,
+    "support_program_notice_events": 13,
     "application_deadline_events": 7,
     "eligibility_rule_events": 11,
-    "selection_result_events": 3
+    "selection_result_events": 4
   },
   "sources": [
     {
@@ -164,15 +164,15 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "stale",
-      "article_count": 4,
-      "event_count": 4,
-      "latest_event_at": "2026-11-20T17:13:22+00:00",
-      "age_days": 4.61,
-      "latest_title": "2027년도 「미래유망분야고졸인력양성사업」 신규 트랙 선정계획 공고(제2026-535호)",
-      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100740",
+      "status": "fresh",
+      "article_count": 5,
+      "event_count": 5,
+      "latest_event_at": "2026-11-25T17:32:23+00:00",
+      "age_days": 0.59,
+      "latest_title": "자산운용 전문위원 채용 최종합격자 공고",
+      "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100890",
       "latest_program_id": "",
-      "latest_program_key": "title:고용노동부-공지:2027년도-미래유망분야고졸인력양성사업-신규-트랙-선정계획-공고-제2026-535호",
+      "latest_program_key": "title:고용노동부-공지:자산운용-전문위원-채용-최종합격자-공고",
       "latest_application_deadline": "",
       "latest_application_channels": [],
       "latest_benefit_amounts": [],
@@ -354,10 +354,10 @@
       "event_model": "eligibility_rule",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 15,
-      "event_count": 5,
+      "article_count": 19,
+      "event_count": 4,
       "latest_event_at": "2026-11-24T15:45:20+00:00",
-      "age_days": 0.67,
+      "age_days": 1.66,
       "latest_title": "건강할 때 더 건강하게! 인플루엔자(독감) 국가예방접종 안내",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584921",
       "latest_program_id": "584921",
@@ -391,18 +391,16 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 3,
-      "event_count": 3,
-      "latest_event_at": "2026-11-24T10:43:35+00:00",
-      "age_days": 0.88,
-      "latest_title": "서울온 만족도 조사",
-      "latest_url": "https://news.seoul.go.kr/gov/archives/582085",
-      "latest_program_id": "582085",
-      "latest_program_key": "id:582085",
+      "article_count": 4,
+      "event_count": 4,
+      "latest_event_at": "2026-11-26T15:00:01+00:00",
+      "age_days": 0.0,
+      "latest_title": "[괴산서울농장] '자연울림 맛의울림(김장편)-2' 프로그램 (12.5) 추첨결과 안내",
+      "latest_url": "https://news.seoul.go.kr/gov/archives/582143",
+      "latest_program_id": "582143",
+      "latest_program_key": "id:582143",
       "latest_application_deadline": "",
-      "latest_application_channels": [
-        "online"
-      ],
+      "latest_application_channels": [],
       "latest_benefit_amounts": [],
       "latest_selection_result_date": "",
       "latest_selected_count": "",
@@ -427,7 +425,7 @@
       "article_count": 4,
       "event_count": 4,
       "latest_event_at": "2026-11-23T13:47:14+00:00",
-      "age_days": 1.75,
+      "age_days": 2.74,
       "latest_title": "KIST와 함께하는 과학 진로 특강 시리즈 (4,5회차) 참여자 모집 안내",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575344",
       "latest_program_id": "575344",
@@ -559,7 +557,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -586,7 +584,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 2,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1228,6 +1226,86 @@
     }
   ],
   "events": [
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "eligibility_rule",
+      "title": "[괴산서울농장] '자연울림 맛의울림(김장편)-2' 프로그램 (12.5) 추첨결과 안내",
+      "url": "https://news.seoul.go.kr/gov/archives/582143",
+      "event_at": "2026-11-26T15:00:01+00:00",
+      "program_id": "582143",
+      "program_key": "id:582143",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 정책뉴스",
+      "event_model": "support_program_notice",
+      "title": "[괴산서울농장] '자연울림 맛의울림(김장편)-2' 프로그램 (12.5) 추첨결과 안내",
+      "url": "https://news.seoul.go.kr/gov/archives/582143",
+      "event_at": "2026-11-26T15:00:01+00:00",
+      "program_id": "582143",
+      "program_key": "id:582143",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "selection_result",
+      "title": "자산운용 전문위원 채용 최종합격자 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100890",
+      "event_at": "2026-11-25T17:32:23+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:자산운용-전문위원-채용-최종합격자-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "자산운용 전문위원 채용",
+      "eligibility_fields": {}
+    },
+    {
+      "source": "고용노동부 공지",
+      "event_model": "support_program_notice",
+      "title": "자산운용 전문위원 채용 최종합격자 공고",
+      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100890",
+      "event_at": "2026-11-25T17:32:23+00:00",
+      "program_id": "",
+      "program_key": "title:고용노동부-공지:자산운용-전문위원-채용-최종합격자-공고",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "자산운용 전문위원 채용",
+      "eligibility_fields": {}
+    },
     {
       "source": "서울시 복지",
       "event_model": "eligibility_rule",
@@ -1935,34 +2013,6 @@
       "execution_amount": "",
       "selection_program_title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형",
       "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 복지",
-      "event_model": "eligibility_rule",
-      "title": "이른 유행주의보! 인플루엔자 예방접종하고 건강한 겨울나기",
-      "url": "https://news.seoul.go.kr/welfare/archives/583236",
-      "event_at": "2026-11-16T10:00:57+00:00",
-      "program_id": "583236",
-      "program_key": "id:583236",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "TargetGroup": [
-          "어르신"
-        ],
-        "LifeStage": [
-          "임신"
-        ],
-        "AgeCondition": [
-          "65+"
-        ]
-      }
     }
   ],
   "source_backlog": {
