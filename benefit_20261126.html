@@ -1,0 +1,2842 @@
+<!doctype html>
+<html lang="en" data-visual-system="radar-unified-v2" data-visual-surface="report" data-visual-page="daily-report">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>정부 혜택/지원금 레이더 - Report</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" />
+
+    <style>
+      :root{
+        --vs-bg-0:#0b0b0f;
+        --vs-bg-1:#121116;
+        --vs-surface-0:rgba(24, 22, 29, .74);
+        --vs-surface-1:rgba(28, 26, 34, .74);
+        --vs-surface-2:rgba(28, 26, 34, .92);
+        --vs-line:rgba(244, 244, 247, .14);
+        --vs-line-strong:rgba(244, 244, 247, .22);
+        --vs-shadow:0 18px 60px rgba(0,0,0,.44);
+        --vs-text:#e9eefb;
+        --vs-text-muted:rgba(233, 238, 251, .72);
+        --vs-text-faint:rgba(233, 238, 251, .52);
+        --vs-brand:#33d6c5;
+        --vs-brand-strong:#19b591;
+        --vs-accent:#f6c84c;
+        --vs-danger:#ff5b6e;
+        --vs-font-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        --vs-font-sans:"Pretendard Variable","Pretendard", ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+        --vs-radius:8px;
+        --vs-max:1180px;
+
+        --bg0:var(--vs-bg-0);
+        --bg1:var(--vs-bg-1);
+        --panel0:var(--vs-surface-0);
+        --panel1:var(--vs-surface-1);
+        --panel2:var(--vs-surface-2);
+        --line:var(--vs-line);
+        --line2:var(--vs-line-strong);
+        --shadow:var(--vs-shadow);
+        --text:var(--vs-text);
+        --muted:var(--vs-text-muted);
+        --faint:var(--vs-text-faint);
+        --brand:var(--vs-brand);
+        --brand2:var(--vs-brand-strong);
+        --accent:var(--vs-accent);
+        --danger:var(--vs-danger);
+
+        --radius:var(--vs-radius);
+        --radius2:var(--vs-radius);
+        --max:var(--vs-max);
+
+        --mono:var(--vs-font-mono);
+        --sans:var(--vs-font-sans);
+
+        --focus: 0 0 0 3px rgba(51, 214, 197, .20), 0 0 0 1px rgba(51, 214, 197, .70);
+      }
+
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family:var(--sans);
+        color:var(--text);
+        background: linear-gradient(180deg, var(--bg0), var(--bg1) 58%, #08080b);
+        overflow-x:hidden;
+      }
+
+      a{color:inherit; text-decoration:none}
+      a:hover{text-decoration:none}
+      ::selection{background:rgba(51,214,197,.24)}
+      .skip{
+        position:absolute;
+        left:-999px;
+        top:12px;
+        padding:10px 12px;
+        border-radius:8px;
+        background:rgba(14, 22, 42, .98);
+        border:1px solid var(--line2);
+        color:var(--text);
+        z-index:9999;
+      }
+      .skip:focus{left:12px; box-shadow:var(--focus); outline:none}
+
+      .wrap{max-width:var(--max); margin:0 auto; padding:20px 16px 64px}
+      .topbar{
+        position:sticky; top:0; z-index:50;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        background: linear-gradient(180deg, rgba(5,7,12,.92), rgba(5,7,12,.55));
+        border-bottom:1px solid rgba(150,190,255,.10);
+      }
+      .topbar-inner{max-width:var(--max); margin:0 auto; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:14px}
+      .brand{
+        display:flex; align-items:center; gap:10px;
+        min-width:220px;
+      }
+      .mark{
+        width:34px; height:34px; border-radius:12px;
+        background:
+          radial-gradient(18px 18px at 32% 28%, rgba(255,255,255,.18), transparent 55%),
+          linear-gradient(145deg, rgba(51,214,197,.95), rgba(25,167,195,.78) 55%, rgba(246,200,76,.72));
+        box-shadow: 0 10px 30px rgba(0,0,0,.45);
+        border:1px solid rgba(255,255,255,.10);
+      }
+      .brand-title{
+        line-height:1.05;
+        font-weight:750;
+        letter-spacing:-.02em;
+      }
+      .brand-sub{
+        display:block;
+        font-family:var(--mono);
+        font-size:12px;
+        color:var(--faint);
+        margin-top:4px;
+      }
+      .nav{
+        display:flex; flex-wrap:wrap; gap:8px;
+        justify-content:flex-end;
+      }
+      .pill{
+        display:inline-flex; align-items:center; gap:8px;
+        padding:9px 12px;
+        border-radius:999px;
+        border:1px solid rgba(150,190,255,.14);
+        background:rgba(10,16,30,.45);
+        color:var(--muted);
+        font-size:13px;
+        transition: transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
+        user-select:none;
+      }
+      .pill:hover{
+        transform: translateY(-1px);
+        border-color: rgba(51,214,197,.34);
+        background: rgba(10,16,30,.70);
+        color: rgba(233,238,251,.88);
+      }
+      .pill:focus-visible{outline:none; box-shadow:var(--focus)}
+
+      /* Report Navigation */
+      .report-navigation{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        margin-left:auto;
+      }
+      .nav-button{
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        padding:8px 14px;
+        border-radius:999px;
+        border:1px solid rgba(150,190,255,.14);
+        background:rgba(10,16,30,.45);
+        color:var(--muted);
+        font-size:13px;
+        font-weight:500;
+        transition: all .18s ease;
+        cursor:pointer;
+        text-decoration:none;
+      }
+      .nav-button:hover:not([disabled]){
+        transform: translateY(-1px);
+        border-color: rgba(51,214,197,.34);
+        background: rgba(10,16,30,.70);
+        color: rgba(233,238,251,.88);
+      }
+      .nav-button[disabled]{
+        opacity:.4;
+        cursor:not-allowed;
+        pointer-events:none;
+      }
+      .nav-button:focus-visible{outline:none; box-shadow:var(--focus)}
+
+      .hero{
+        padding:24px 0 12px;
+        display:grid;
+        grid-template-columns: 1.25fr .75fr;
+        gap:18px;
+        align-items:stretch;
+      }
+      .hero-card{
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, var(--panel2), rgba(14,22,42,.58));
+        border: 1px solid rgba(150,190,255,.14);
+        box-shadow: var(--shadow);
+        padding:18px 18px 16px;
+        position:relative;
+        overflow:hidden;
+      }
+      .hero-card:before{content:none}
+      .hero-body{position:relative}
+      .kicker{
+        display:inline-flex; align-items:center; gap:10px;
+        font-family:var(--mono);
+        font-size:12px;
+        color:rgba(233,238,251,.72);
+        letter-spacing:.06em;
+        text-transform:uppercase;
+      }
+      .dot{
+        width:8px; height:8px; border-radius:999px;
+        background: var(--brand);
+        box-shadow:0 0 0 4px rgba(51,214,197,.12);
+      }
+      h1{
+        margin:10px 0 0;
+        font-weight:820;
+        letter-spacing:-.03em;
+        font-size: clamp(28px, 3.2vw, 40px);
+        line-height:1.08;
+      }
+      .lede{
+        margin:10px 0 0;
+        color: var(--muted);
+        font-size:15px;
+        line-height:1.55;
+        max-width: 72ch;
+      }
+      .meta{
+        margin:14px 0 0;
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px 12px;
+        color: rgba(233,238,251,.70);
+        font-size:13px;
+      }
+      .meta span{
+        display:inline-flex; align-items:center; gap:8px;
+        padding:6px 10px;
+        border-radius:999px;
+        border:1px solid rgba(150,190,255,.12);
+        background: rgba(10,16,30,.40);
+      }
+      .mono{font-family:var(--mono)}
+      .accent{color: rgba(246,200,76,.96)}
+      .ok{color: rgba(51,214,197,.92)}
+      .bad{color: rgba(255,91,110,.92)}
+
+      .stats{
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, rgba(10,16,30,.64), rgba(10,16,30,.36));
+        border: 1px solid rgba(150,190,255,.12);
+        box-shadow: 0 12px 40px rgba(0,0,0,.34);
+        padding:16px;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:12px;
+      }
+      .stat{
+        border-radius: 8px;
+        background: rgba(14,22,42,.45);
+        border: 1px solid rgba(150,190,255,.12);
+        padding:12px 12px 10px;
+        min-height: 76px;
+      }
+      .stat .label{
+        color: rgba(233,238,251,.66);
+        font-size:12px;
+        font-family: var(--mono);
+        letter-spacing:.03em;
+      }
+      .stat .value{
+        margin-top:8px;
+        font-weight:800;
+        letter-spacing:-.02em;
+        font-size: 20px;
+        line-height:1.1;
+      }
+      .stat .hint{
+        margin-top:6px;
+        color: rgba(233,238,251,.60);
+        font-size:12px;
+        line-height:1.35;
+      }
+
+      .grid{
+        margin-top:14px;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap:14px;
+      }
+      .panel{
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, var(--panel0), var(--panel1));
+        border: 1px solid rgba(150,190,255,.12);
+        box-shadow: 0 16px 55px rgba(0,0,0,.38);
+        overflow:hidden;
+      }
+      .panel-hd{
+        padding:14px 16px;
+        display:flex;
+        justify-content:space-between;
+        align-items:flex-start;
+        gap:12px;
+        border-bottom:1px solid rgba(150,190,255,.10);
+        background: rgba(10,16,30,.20);
+      }
+      .panel-title{
+        margin:0;
+        font-weight:780;
+        letter-spacing:-.02em;
+        font-size:14px;
+      }
+      .panel-sub{
+        margin:6px 0 0;
+        color: rgba(233,238,251,.64);
+        font-size:12px;
+        line-height:1.35;
+        font-family: var(--mono);
+      }
+      .panel-bd{padding:14px 16px 16px}
+      .chart-wrap{position:relative; height: 290px}
+      .chart-wrap.tall{height: 320px}
+      canvas{max-width:100%}
+
+      /* Plugin Charts Container */
+      #plugin-charts{
+        margin-top:14px;
+      }
+      .plugin-chart{
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, var(--panel0), var(--panel1));
+        border: 1px solid rgba(150,190,255,.12);
+        box-shadow: 0 16px 55px rgba(0,0,0,.38);
+        overflow:hidden;
+        margin-bottom:14px;
+      }
+      .plugin-chart-header{
+        padding:14px 16px;
+        border-bottom:1px solid rgba(150,190,255,.10);
+        background: rgba(10,16,30,.20);
+      }
+      .plugin-chart h3{
+        margin:0;
+        font-weight:780;
+        letter-spacing:-.02em;
+        font-size:14px;
+        color: var(--text);
+      }
+      .plugin-chart .chart-container{
+        padding:14px 16px 16px;
+        min-height: 300px;
+      }
+
+      .extra-section-body{
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+      }
+      .extra-section-body p{
+        margin:0;
+        color: rgba(233,238,251,.76);
+        font-size:13px;
+        line-height:1.6;
+      }
+      .extra-section-body > div{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+      }
+      .extra-section-body h3{
+        margin:0;
+        font-size:13px;
+        font-weight:780;
+        letter-spacing:.02em;
+        text-transform:uppercase;
+        color: rgba(233,238,251,.74);
+        font-family: var(--mono);
+      }
+      .extra-section-body .metric-grid{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap:10px;
+      }
+      .extra-section-body .metric-card{
+        border-radius: 8px;
+        border: 1px solid rgba(150,190,255,.12);
+        background: rgba(10,16,30,.38);
+        padding: 12px;
+      }
+      .extra-section-body .metric-card span{
+        display:block;
+        color: rgba(233,238,251,.64);
+        font-size: 12px;
+      }
+      .extra-section-body .metric-card strong{
+        display:block;
+        margin-top:6px;
+        font-size: 20px;
+        line-height:1.1;
+        letter-spacing:-.02em;
+      }
+      .extra-section-body .inline-chips{
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+      }
+      .extra-section-body .data-table{
+        width:100%;
+        border-collapse: collapse;
+        font-size:13px;
+      }
+      .extra-section-body .data-table th,
+      .extra-section-body .data-table td{
+        padding:10px 8px;
+        border-top: 1px solid rgba(150,190,255,.12);
+        text-align:left;
+        vertical-align:top;
+      }
+      .extra-section-body .data-table th{
+        color: rgba(233,238,251,.64);
+        font-family: var(--mono);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+      }
+      .extra-section-body ul{
+        margin:0;
+        padding-left:18px;
+        color: rgba(233,238,251,.72);
+        font-size:13px;
+        line-height:1.55;
+      }
+      .extra-section-body li + li{
+        margin-top:6px;
+      }
+      .extra-section-body code{
+        font-family: var(--mono);
+        font-size:12px;
+        color: rgba(233,238,251,.86);
+      }
+
+      .notice{
+        margin-top:14px;
+        border-radius: var(--radius2);
+        border: 1px solid rgba(255,91,110,.28);
+        background: linear-gradient(180deg, rgba(255,91,110,.14), rgba(10,16,30,.56));
+        box-shadow: 0 18px 55px rgba(0,0,0,.34);
+        padding:14px 16px;
+      }
+      .notice h2{
+        margin:0;
+        font-size:14px;
+        font-weight:800;
+        letter-spacing:-.02em;
+      }
+      .notice p{
+        margin:8px 0 0;
+        color: rgba(233,238,251,.74);
+        font-size:13px;
+        line-height:1.5;
+      }
+      .notice ul{
+        margin:10px 0 0;
+        padding-left: 18px;
+        color: rgba(233,238,251,.72);
+        font-size:13px;
+        line-height:1.55;
+      }
+
+      .section{
+        margin-top:16px;
+      }
+      .section--extension .panel{
+        border-color: rgba(51,214,197,.18);
+      }
+      .section-hd{
+        display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+        margin: 20px 0 10px;
+      }
+      .section-hd h2{
+        margin:0;
+        font-size: 16px;
+        font-weight:820;
+        letter-spacing:-.02em;
+      }
+      .section-hd .right{
+        display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+      }
+      .muted{color: rgba(233,238,251,.68)}
+      .small{font-size:12px}
+      .kbd{
+        font-family: var(--mono);
+        font-size: 12px;
+        color: rgba(233,238,251,.72);
+        background: rgba(10,16,30,.52);
+        border:1px solid rgba(150,190,255,.14);
+        padding:6px 10px;
+        border-radius:999px;
+      }
+
+      /* Entity Pills Section */
+      .entity-section{
+        margin-top:14px;
+        padding:16px 18px;
+        border-radius: var(--radius2);
+        background: linear-gradient(180deg, var(--panel0), var(--panel1));
+        border: 1px solid rgba(150,190,255,.12);
+        box-shadow: 0 12px 40px rgba(0,0,0,.34);
+      }
+      .entity-pills{
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+      }
+      .entity-pill{
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        padding:6px 12px;
+        border-radius:999px;
+        border: 1px solid rgba(51,214,197,.18);
+        background: rgba(51,214,197,.10);
+        color: var(--text);
+        font-size:13px;
+        font-weight:500;
+        cursor:pointer;
+        transition: all .18s ease;
+      }
+      .entity-pill:hover{
+        transform: translateY(-1px);
+        border-color: rgba(51,214,197,.34);
+        background: rgba(51,214,197,.18);
+      }
+      .entity-pill .count{
+        font-family: var(--mono);
+        font-size:12px;
+        color: var(--accent);
+        font-weight:600;
+      }
+
+      .articles{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:10px;
+      }
+      .card{
+        border-radius: 8px;
+        background: rgba(14,22,42,.46);
+        border: 1px solid rgba(150,190,255,.12);
+        padding: 12px 12px 11px;
+        transition: transform .18s ease, border-color .18s ease, background .18s ease;
+        display:flex;
+        gap:10px;
+        align-items:flex-start;
+      }
+      .card:hover{
+        transform: translateY(-1px);
+        border-color: rgba(51,214,197,.22);
+        background: rgba(14,22,42,.62);
+      }
+      .card:focus-within{box-shadow: var(--focus)}
+      .card .left{flex:1; min-width:0}
+      .title{
+        margin:0;
+        font-weight:780;
+        letter-spacing:-.02em;
+        font-size: 14px;
+        line-height:1.35;
+      }
+      .title a{
+        display:inline-block;
+        outline:none;
+      }
+      .title a:focus-visible{outline:none}
+      .desc{
+        margin:8px 0 0;
+        color: rgba(233,238,251,.68);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      .row{
+        margin-top:10px;
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+        align-items:center;
+        color: rgba(233,238,251,.64);
+        font-size: 12px;
+      }
+      .chip{
+        display:inline-flex; align-items:center;
+        gap:8px;
+        padding:6px 10px;
+        border-radius:999px;
+        border: 1px solid rgba(150,190,255,.12);
+        background: rgba(10,16,30,.38);
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .chip strong{font-weight:800; color: rgba(233,238,251,.86)}
+      .chip.brand{
+        border-color: rgba(51,214,197,.18);
+        background: rgba(51,214,197,.10);
+      }
+      .actions{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        padding:10px 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(150,190,255,.14);
+        background: rgba(10,16,30,.46);
+        color: rgba(233,238,251,.86);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: -.01em;
+        transition: transform .18s ease, border-color .18s ease, background .18s ease;
+        cursor:pointer;
+        user-select:none;
+        min-width: 84px;
+      }
+      .btn:hover{
+        transform: translateY(-1px);
+        border-color: rgba(246,200,76,.30);
+        background: rgba(10,16,30,.68);
+      }
+      .btn:focus-visible{outline:none; box-shadow:var(--focus)}
+      .btn.primary{
+        border-color: rgba(51,214,197,.22);
+        background: linear-gradient(135deg, rgba(51,214,197,.22), rgba(25,167,195,.12));
+      }
+      .btn.primary:hover{border-color: rgba(51,214,197,.36)}
+      .btn[aria-disabled="true"]{opacity:.6; cursor:not-allowed}
+
+      .footer{
+        margin-top:24px;
+        padding-top:14px;
+        border-top: 1px solid rgba(150,190,255,.10);
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px 14px;
+        justify-content:space-between;
+        align-items:center;
+        color: rgba(233,238,251,.62);
+        font-size: 12px;
+      }
+      .footer a{color: rgba(233,238,251,.74)}
+      .footer a:hover{color: rgba(51,214,197,.90)}
+      .footer-actions{
+        display:flex;
+        gap:12px;
+        align-items:center;
+      }
+      .export-btn{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:8px 14px;
+        border-radius:999px;
+        border: 1px solid rgba(246,200,76,.22);
+        background: rgba(246,200,76,.12);
+        color: var(--accent);
+        font-size:13px;
+        font-weight:600;
+        cursor:pointer;
+        transition: all .18s ease;
+      }
+      .export-btn:hover{
+        transform: translateY(-1px);
+        border-color: rgba(246,200,76,.36);
+        background: rgba(246,200,76,.20);
+      }
+
+      @media (max-width: 980px){
+        .hero{grid-template-columns: 1fr; }
+        .stats{grid-template-columns: 1fr 1fr}
+        .grid{grid-template-columns: 1fr}
+        .report-navigation{margin-left:0; margin-top:8px; width:100%; justify-content:center}
+      }
+      @media (max-width: 560px){
+        .topbar-inner{align-items:flex-start; flex-wrap:wrap}
+        .brand{min-width: 0}
+        .nav{justify-content:flex-start}
+        .stats{grid-template-columns: 1fr}
+        .card{flex-direction:column}
+        .actions{justify-content:flex-start}
+        .btn{width:100%}
+        .chart-wrap{height: 260px}
+        .chart-wrap.tall{height: 300px}
+        .footer{flex-direction:column; text-align:center}
+        .footer-actions{width:100%; justify-content:center}
+      }
+      @media (prefers-reduced-motion: reduce){
+        *{scroll-behavior:auto !important}
+        .pill,.card,.btn,.entity-pill,.nav-button,.export-btn{transition:none !important}
+        .pill:hover,.card:hover,.btn:hover,.entity-pill:hover,.nav-button:hover,.export-btn:hover{transform:none !important}
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand" aria-label="Report identity">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-title">정부 혜택/지원금 레이더</div>
+            <span class="brand-sub">editorial report - charts + feed</span>
+          </div>
+        </div>
+
+        <nav class="report-navigation" aria-label="Day navigation">
+          <a href="benefit_20261125.html"
+             class="nav-button"
+
+             aria-label="Previous day report">
+            <span>&larr;</span> Previous Day
+          </a>
+          <a href="#"
+             class="nav-button"
+             disabled aria-disabled="true"
+             aria-label="Next day report">
+            Next Day <span>&rarr;</span>
+          </a>
+        </nav>
+
+        <nav class="nav" aria-label="Jump links">
+          <a class="pill" href="#charts">Charts</a>
+
+          <a class="pill" href="#entities">Entities</a>
+          <a class="pill" href="#articles">Articles</a>
+
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="wrap" role="main">
+      <section class="hero" aria-label="Overview">
+        <div class="hero-card">
+          <div class="hero-body">
+            <div class="kicker">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="mono">RADAR</span>
+              <span class="mono muted">/</span>
+              <span class="mono accent">정부 혜택/지원금 레이더</span>
+            </div>
+
+            <h1>정부 혜택/지원금 레이더</h1>
+            <p class="lede">
+              A fast, reusable HTML report for lightweight Radar projects: entity distribution, article velocity,
+              and source mix, alongside a clean reading list.
+            </p>
+
+            <div class="meta" aria-label="Key facts">
+              <span><span class="mono muted">articles</span><span class="mono ok">47</span></span>
+              <span><span class="mono muted">entities</span><span class="mono accent">23</span></span>
+              <span><span class="mono muted">errors</span><span class="mono ok">0</span></span>
+              <span title="Generated time"><span class="mono muted">Generated at</span><span class="mono">2026-11-26 07:35 UTC</span></span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="stats" aria-label="Quick stats">
+          <div class="stat">
+            <div class="label">SOURCES</div>
+            <div class="value">44</div>
+            <div class="hint">Active data sources</div>
+          </div>
+          <div class="stat">
+            <div class="label">COLLECTED</div>
+            <div class="value">47</div>
+            <div class="hint">Total items collected</div>
+          </div>
+          <div class="stat">
+            <div class="label">MATCHED</div>
+            <div class="value">47</div>
+            <div class="hint">Entity matches found</div>
+          </div>
+          <div class="stat">
+            <div class="label">WINDOW</div>
+            <div class="value">7d</div>
+            <div class="hint">Collection window</div>
+          </div>
+        </aside>
+      </section>
+
+
+
+      <section id="charts" class="section" aria-label="Charts">
+        <div class="section-hd">
+          <h2>Visuals</h2>
+          <div class="right">
+            <span class="kbd">Chart.js</span>
+            <span class="kbd">dark editorial</span>
+            <span class="kbd">responsive</span>
+          </div>
+        </div>
+
+        <div class="grid">
+          <article class="panel" aria-label="Entity distribution">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Entity Distribution</p>
+                <p class="panel-sub">Top entities by frequency</p>
+              </div>
+              <div class="pill" aria-hidden="true">bar</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Bar chart showing entity frequency">
+                <canvas id="chartEntities"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see entity distribution.</p>
+              </noscript>
+            </div>
+          </article>
+
+          <article class="panel" aria-label="Article timeline">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Article Timeline</p>
+                <p class="panel-sub">Daily volume inferred from article dates</p>
+              </div>
+              <div class="pill" aria-hidden="true">line</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap tall" role="img" aria-label="Line chart showing article volume over time">
+                <canvas id="chartTimeline"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see the timeline.</p>
+              </noscript>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid" style="margin-top:14px">
+          <article class="panel" aria-label="Source distribution">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Source Distribution</p>
+                <p class="panel-sub">Share of articles by source</p>
+              </div>
+              <div class="pill" aria-hidden="true">doughnut</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Doughnut chart showing article share by source">
+                <canvas id="chartSources"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see source breakdown.</p>
+              </noscript>
+            </div>
+          </article>
+
+          <article class="panel" aria-label="Data freshness">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Data Freshness</p>
+                <p class="panel-sub">Collection lag distribution</p>
+              </div>
+              <div class="pill" aria-hidden="true">lag</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Bar chart showing collection lag in hours">
+                <canvas id="chartFreshness"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see freshness data.</p>
+              </noscript>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid" style="margin-top:14px">
+          <article class="panel" aria-label="Entity extraction rate">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Entity Extraction Rate</p>
+                <p class="panel-sub">Percentage with matched entities</p>
+              </div>
+              <div class="pill" aria-hidden="true">rate</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Doughnut chart showing entity extraction rate">
+                <canvas id="chartEntityRate"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see extraction rate.</p>
+              </noscript>
+            </div>
+          </article>
+
+          <article class="panel" aria-label="Source health">
+            <header class="panel-hd">
+              <div>
+                <p class="panel-title">Source Health</p>
+                <p class="panel-sub">Article count by source (sorted)</p>
+              </div>
+              <div class="pill" aria-hidden="true">health</div>
+            </header>
+            <div class="panel-bd">
+              <div class="chart-wrap" role="img" aria-label="Horizontal bar chart showing source health">
+                <canvas id="chartSourceHealth"></canvas>
+              </div>
+              <noscript>
+                <p class="muted small">Charts require JavaScript. Enable JS to see source health.</p>
+              </noscript>
+            </div>
+          </article>
+        </div>
+
+
+        <div id="plugin-charts">
+
+
+            <div class="plugin-chart" id="plugin-entity_heatmap" data-config="<div style="height:400px; width:100%;">                        <script>window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-4.1.1.min.js" integrity="sha256-O24V1F27f8pb0glCkelh3cVHLNiHAJ5gCaVtq2aNch8=" crossorigin="anonymous"></script>                <div id="e96e8907-97bd-40d5-b656-0b2c1ffec3e8" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("e96e8907-97bd-40d5-b656-0b2c1ffec3e8")) {                    Plotly.newPlot(                        "e96e8907-97bd-40d5-b656-0b2c1ffec3e8",                        [{"colorscale":[[0.0,"rgb(247,251,255)"],[0.125,"rgb(222,235,247)"],[0.25,"rgb(198,219,239)"],[0.375,"rgb(158,202,225)"],[0.5,"rgb(107,174,214)"],[0.625,"rgb(66,146,198)"],[0.75,"rgb(33,113,181)"],[0.875,"rgb(8,81,156)"],[1.0,"rgb(8,48,107)"]],"hovertemplate":"\uc5d4\ud2f0\ud2f0: %{y}\u003cbr\u003e\ub0a0\uc9dc: %{x}\u003cbr\u003e\ube48\ub3c4: %{z}\uac74\u003cextra\u003e\u003c\u002fextra\u003e","showscale":true,"x":["11-13","11-14","11-15","11-16","11-17","11-18","11-19","11-20","11-21","11-22","11-23","11-24","11-25","11-26"],"y":["BenefitProgramKey","BenefitProgramId","SourceSignal","GovernmentPolicy","EligibilityRegion","TargetDemographic","OperationalEvent","EligibilityTargetGroup","HousingAssistance","SocialWelfare","SubsidyProgram","HealthBenefit","ApplicationDeadline","EmploymentBenefit","ApplicationStartDate"],"z":[[0,0,0,0,0,0,0,4,1,3,6,2,9,22],[0,0,0,0,0,0,0,3,1,2,6,2,8,20],[0,0,0,0,0,0,0,2,0,3,5,2,6,14],[0,0,0,0,0,0,0,4,0,3,2,1,4,12],[0,0,0,0,0,0,0,1,0,3,5,2,4,10],[0,0,0,0,0,0,0,1,0,1,4,1,4,8],[0,0,0,0,0,0,0,1,0,2,2,1,4,7],[0,0,0,0,0,0,0,1,0,1,3,1,3,8],[0,0,0,0,0,0,0,1,0,1,3,1,2,7],[0,0,0,0,0,0,0,2,0,2,1,0,1,9],[0,0,0,0,0,0,0,0,0,1,2,1,3,6],[0,0,0,0,0,0,0,1,1,0,0,0,3,2],[0,0,0,0,0,0,0,0,0,1,2,1,1,2],[0,0,0,0,0,0,0,1,0,1,1,0,1,1],[0,0,0,0,0,0,0,0,0,1,1,1,0,2]],"type":"heatmap"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05}}},"margin":{"l":120,"r":20,"t":24,"b":40},"font":{"color":"#e9eefb"},"xaxis":{"title":{"text":"\ub0a0\uc9dc"},"color":"#e9eefb","gridcolor":"rgba(233,238,251,0.1)"},"yaxis":{"title":{"text":""},"color":"#e9eefb","gridcolor":"rgba(233,238,251,0.1)","autorange":"reversed"},"height":400,"paper_bgcolor":"rgba(10,14,23,0)","plot_bgcolor":"rgba(14,22,42,0.5)"},                        {"responsive": true}                    )                };            </script>        </div>">
+              <div class="plugin-chart-header">
+                <h3>엔티티 히트맵 (Top 15 × 14일)</h3>
+              </div>
+              <div class="chart-container"></div>
+            </div>
+
+
+        </div>
+      </section>
+
+
+
+
+      <section id="benefit-quality" class="section" aria-label="Benefit quality">
+        <div class="section-hd">
+          <h2>Benefit Quality</h2>
+          <div class="right">
+            <span class="kbd">benefit_quality.json</span>
+            <span class="kbd">deadline + eligibility</span>
+          </div>
+        </div>
+        <article class="panel">
+          <header class="panel-hd">
+            <div>
+              <p class="panel-title">Application Readiness Checks</p>
+              <p class="panel-sub">deadline, eligibility, and selection-result coverage</p>
+            </div>
+          </header>
+          <div class="panel-bd">
+            <div class="row" aria-label="Benefit quality summary">
+              <span class="chip"><strong>fresh</strong> 5</span>
+<span class="chip"><strong>stale</strong> 0</span>
+<span class="chip"><strong>missing</strong> 1</span>
+<span class="chip"><strong>missing event</strong> 1</span>
+<span class="chip"><strong>notice events</strong> 67</span>
+<span class="chip"><strong>deadline events</strong> 7</span>
+<span class="chip"><strong>eligibility events</strong> 11</span>
+<span class="chip"><strong>selection events</strong> 4</span>
+<span class="chip"><strong>program keys</strong> 71</span>
+            </div>
+            <p class="muted small">Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.</p>
+            <ul><li><strong>고용노동부 정책</strong>: missing (support_program_notice)</li>
+<li><strong>고용노동부 입법예고</strong>: missing_event (eligibility_rule)</li></ul>
+            <ul><li><strong>고용노동부 공지</strong>: support_program_notice - 2026년도 직업능력개발훈련 심사평가 훈련과정 반납 신청 공고 (title:고용노동부-공지:2026년도-직업능력개발훈련-심사평가-훈련과정-반납-신청-공고)</li>
+<li><strong>고용노동부 공지</strong>: support_program_notice - 2027년 노동절 정부포상 계획 공고 (title:고용노동부-공지:2027년-노동절-정부포상-계획-공고)</li>
+<li><strong>고용노동부 공지</strong>: selection_result - 자산운용 전문위원 채용 최종합격자 공고 (title:고용노동부-공지:자산운용-전문위원-채용-최종합격자-공고)</li>
+<li><strong>고용노동부 공지</strong>: support_program_notice - 자산운용 전문위원 채용 최종합격자 공고 (title:고용노동부-공지:자산운용-전문위원-채용-최종합격자-공고)</li>
+<li><strong>고용노동부 공지</strong>: support_program_notice - 전문경력관 나군(사진·영상 촬영) 공무원 경력경쟁채용시험 공고 (title:고용노동부-공지:전문경력관-나군-사진-영상-촬영-공무원-경력경쟁채용시험-공고)</li>
+<li><strong>고용노동부 공지</strong>: support_program_notice - 2027년 고용노동부 디지털영상게시판 유지보수 용역 입찰공고 (title:고용노동부-공지:2027년-고용노동부-디지털영상게시판-유지보수-용역-입찰공고)</li></ul>
+          </div>
+        </article>
+      </section>
+      <section id="entities" class="section" aria-label="Entity table">
+        <div class="section-hd">
+          <h2>Entities</h2>
+          <div class="right">
+            <span class="kbd">clickable pills</span>
+            <span class="kbd">top 24 shown</span>
+          </div>
+        </div>
+
+        <div class="entity-section">
+
+          <div class="entity-pills" aria-label="Entity count list">
+
+            <span class="entity-pill" data-entity="BenefitProgramKey" role="button" tabindex="0">
+              BenefitProgramKey
+              <span class="count">47</span>
+            </span>
+
+            <span class="entity-pill" data-entity="BenefitProgramId" role="button" tabindex="0">
+              BenefitProgramId
+              <span class="count">42</span>
+            </span>
+
+            <span class="entity-pill" data-entity="SourceSignal" role="button" tabindex="0">
+              SourceSignal
+              <span class="count">32</span>
+            </span>
+
+            <span class="entity-pill" data-entity="EligibilityRegion" role="button" tabindex="0">
+              EligibilityRegion
+              <span class="count">31</span>
+            </span>
+
+            <span class="entity-pill" data-entity="GovernmentPolicy" role="button" tabindex="0">
+              GovernmentPolicy
+              <span class="count">26</span>
+            </span>
+
+            <span class="entity-pill" data-entity="SubsidyProgram" role="button" tabindex="0">
+              SubsidyProgram
+              <span class="count">22</span>
+            </span>
+
+            <span class="entity-pill" data-entity="OperationalEvent" role="button" tabindex="0">
+              OperationalEvent
+              <span class="count">22</span>
+            </span>
+
+            <span class="entity-pill" data-entity="TargetDemographic" role="button" tabindex="0">
+              TargetDemographic
+              <span class="count">21</span>
+            </span>
+
+            <span class="entity-pill" data-entity="SocialWelfare" role="button" tabindex="0">
+              SocialWelfare
+              <span class="count">18</span>
+            </span>
+
+            <span class="entity-pill" data-entity="EligibilityTargetGroup" role="button" tabindex="0">
+              EligibilityTargetGroup
+              <span class="count">17</span>
+            </span>
+
+            <span class="entity-pill" data-entity="HousingAssistance" role="button" tabindex="0">
+              HousingAssistance
+              <span class="count">15</span>
+            </span>
+
+            <span class="entity-pill" data-entity="HealthBenefit" role="button" tabindex="0">
+              HealthBenefit
+              <span class="count">8</span>
+            </span>
+
+            <span class="entity-pill" data-entity="ApplicationDeadline" role="button" tabindex="0">
+              ApplicationDeadline
+              <span class="count">7</span>
+            </span>
+
+            <span class="entity-pill" data-entity="Eligibility" role="button" tabindex="0">
+              Eligibility
+              <span class="count">6</span>
+            </span>
+
+            <span class="entity-pill" data-entity="EmploymentBenefit" role="button" tabindex="0">
+              EmploymentBenefit
+              <span class="count">6</span>
+            </span>
+
+            <span class="entity-pill" data-entity="ApplicationStartDate" role="button" tabindex="0">
+              ApplicationStartDate
+              <span class="count">5</span>
+            </span>
+
+            <span class="entity-pill" data-entity="SelectionProgramTitle" role="button" tabindex="0">
+              SelectionProgramTitle
+              <span class="count">4</span>
+            </span>
+
+            <span class="entity-pill" data-entity="FamilySupport" role="button" tabindex="0">
+              FamilySupport
+              <span class="count">4</span>
+            </span>
+
+            <span class="entity-pill" data-entity="EligibilityLifeStage" role="button" tabindex="0">
+              EligibilityLifeStage
+              <span class="count">3</span>
+            </span>
+
+            <span class="entity-pill" data-entity="EligibilityAgeCondition" role="button" tabindex="0">
+              EligibilityAgeCondition
+              <span class="count">3</span>
+            </span>
+
+            <span class="entity-pill" data-entity="ApplicationChannel" role="button" tabindex="0">
+              ApplicationChannel
+              <span class="count">3</span>
+            </span>
+
+            <span class="entity-pill" data-entity="EligibilityIncomeCondition" role="button" tabindex="0">
+              EligibilityIncomeCondition
+              <span class="count">2</span>
+            </span>
+
+            <span class="entity-pill" data-entity="CultureLeisure" role="button" tabindex="0">
+              CultureLeisure
+              <span class="count">1</span>
+            </span>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section id="articles" class="section" aria-label="Articles">
+        <div class="section-hd">
+          <h2>Articles</h2>
+          <div class="right">
+            <span class="kbd">cards</span>
+            <span class="kbd">source + date</span>
+            <span class="kbd">fast scan</span>
+          </div>
+        </div>
+
+        <article class="panel">
+          <header class="panel-hd">
+            <div>
+              <p class="panel-title">Reading List</p>
+              <p class="panel-sub">Click through to the original source</p>
+            </div>
+            <div class="pill" aria-hidden="true">47</div>
+          </header>
+          <div class="panel-bd">
+
+            <div class="articles" id="articles-list" aria-label="Article list">
+
+              <div class="card" role="article" aria-label="Article: [괴산서울농장] &#39;자연울림 맛의울림(김장편)-2&#39; 프로그램 (12.5) 추첨결과 안내" data-entities="["SubsidyProgram", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/gov/archives/582143" target="_blank" rel="noopener noreferrer">[괴산서울농장] &#39;자연울림 맛의울림(김장편)-2&#39; 프로그램 (12.5) 추첨결과 안내</a>
+                  </p>
+
+
+                  <p class="desc">[괴산서울농장] &#39;자연울림 맛의울림(김장편)-2&#39; 프로그램 (12.5) 추첨결과 안내 *11.26.(목)~ 괴산서울농장에서 선정자 대상 개별 연락 예정</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 정책뉴스</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-26</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/gov/archives/582143" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (새소식2026-131)(#평택)&#39;힐스테이트 고덕엘리스트 A35BL&#39; 서울시 장애인 특별공급 기관추천 재안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584968" target="_blank" rel="noopener noreferrer">(새소식2026-131)(#평택)&#39;힐스테이트 고덕엘리스트 A35BL&#39; 서울시 장애인 특별공급 기관추천 재안내</a>
+                  </p>
+
+
+                  <p class="desc">(새소식2026-131)(#평택)&#39;힐스테이트 고덕엘리스트 A35BL&#39; 서울시 장애인 특별공급 기관추천 재안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-26</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584968" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (새소식2026-130)(#평택)&#39;힐스테이트 고덕엘리스트 A34BL&#39; 서울시 장애인 특별공급 기관추천 재안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584962" target="_blank" rel="noopener noreferrer">(새소식2026-130)(#평택)&#39;힐스테이트 고덕엘리스트 A34BL&#39; 서울시 장애인 특별공급 기관추천 재안내</a>
+                  </p>
+
+
+                  <p class="desc">(새소식2026-130)(#평택)&#39;힐스테이트 고덕엘리스트 A34BL&#39; 서울시 장애인 특별공급 기관추천 재안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-26</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584962" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (새소식2026-129)(#평택)&#39;힐스테이트 고덕엘리스트 A31BL&#39; 서울시 장애인 특별공급 기관추천 재안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584959" target="_blank" rel="noopener noreferrer">(새소식2026-129)(#평택)&#39;힐스테이트 고덕엘리스트 A31BL&#39; 서울시 장애인 특별공급 기관추천 재안내</a>
+                  </p>
+
+
+                  <p class="desc">(새소식2026-129)(#평택)&#39;힐스테이트 고덕엘리스트 A31BL&#39; 서울시 장애인 특별공급 기관추천 재안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-26</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584959" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (새소식2026-128)(#인천)&#39;영종에테르자이르네&#39; 서울시 장애인 특별공급 기관추천 안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584953" target="_blank" rel="noopener noreferrer">(새소식2026-128)(#인천)&#39;영종에테르자이르네&#39; 서울시 장애인 특별공급 기관추천 안내</a>
+                  </p>
+
+
+                  <p class="desc">(새소식2026-128)(#인천)&#39;영종에테르자이르네&#39; 서울시 장애인 특별공급 기관추천 안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-26</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584953" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (새소식2026-127)(#성남)&#39;두산위브 더포레 성남&#39; 서울시 장애인 특별공급 기관추천 안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584948" target="_blank" rel="noopener noreferrer">(새소식2026-127)(#성남)&#39;두산위브 더포레 성남&#39; 서울시 장애인 특별공급 기관추천 안내</a>
+                  </p>
+
+
+                  <p class="desc">(새소식2026-127)(#성남)&#39;두산위브 더포레 성남&#39; 서울시 장애인 특별공급 기관추천 안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-26</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584948" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 자산운용 전문위원 채용 최종합격자 공고" data-entities="["Eligibility", "EmploymentBenefit", "GovernmentPolicy", "BenefitProgramKey", "SelectionProgramTitle", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100890" target="_blank" rel="noopener noreferrer">자산운용 전문위원 채용 최종합격자 공고</a>
+                  </p>
+
+
+                  <p class="desc">자산운용 전문위원 채용 최종합격자 공고</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 고용노동부 공지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-25</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100890" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (일정변경)(#수원)&#39;서수원 제일풍경채 C-4BL&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584943" target="_blank" rel="noopener noreferrer">(일정변경)(#수원)&#39;서수원 제일풍경채 C-4BL&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내</a>
+                  </p>
+
+
+                  <p class="desc">(일정변경)(#수원)&#39;서수원 제일풍경채 C-4BL&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-25</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584943" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: It’s the Paperwork, Not the Work, Causing Enrollees To Lose Medicaid in Nebraska" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/health-care-costs/medicaid-work-requirements-new-rules-coverage-dropped-nebraska-rollout" target="_blank" rel="noopener noreferrer">It’s the Paperwork, Not the Work, Causing Enrollees To Lose Medicaid in Nebraska</a>
+                  </p>
+
+
+                  <p class="desc">Data from the months after the state’s early rollout of new federal work requirements bolsters concerns that red tape will leave many stuck without coverage.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-25</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/health-care-costs/medicaid-work-requirements-new-rules-coverage-dropped-nebraska-rollout" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Medicare Open Enrollment: Here’s What’s Changing, and What Mistakes To Avoid" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/insurance/medicare-open-enrollment-guide-medicare-advantage-medigap-part-d-drugs-premiums" target="_blank" rel="noopener noreferrer">Medicare Open Enrollment: Here’s What’s Changing, and What Mistakes To Avoid</a>
+                  </p>
+
+
+                  <p class="desc">Medicare’s zero-premium drug plans are disappearing, millions are losing their plans, and the average prescription drug plan premium could rise 50% if you stay put. Here’s what to check.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-25</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/insurance/medicare-open-enrollment-guide-medicare-advantage-medigap-part-d-drugs-premiums" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (추천명단)(#남양주)&#39;왕숙 한신더휴 센텀&#39; 서울시 장애인 특별공급 기관추천 명단" data-entities="["TargetDemographic", "HousingAssistance", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584918" target="_blank" rel="noopener noreferrer">(추천명단)(#남양주)&#39;왕숙 한신더휴 센텀&#39; 서울시 장애인 특별공급 기관추천 명단</a>
+                  </p>
+
+
+                  <p class="desc">(추천명단)(#남양주)&#39;왕숙 한신더휴 센텀&#39; 서울시 장애인 특별공급 기관추천 명단</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-24</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584918" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 건강할 때 더 건강하게! 인플루엔자(독감) 국가예방접종 안내" data-entities="["SubsidyProgram", "TargetDemographic", "HealthBenefit", "FamilySupport", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityLifeStage", "EligibilityAgeCondition", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584921" target="_blank" rel="noopener noreferrer">건강할 때 더 건강하게! 인플루엔자(독감) 국가예방접종 안내</a>
+                  </p>
+
+
+                  <p class="desc">인플루엔자 무료 접종 대상은 6개월~14세 어린이, 임신부, 65세 이상 어르신입니다 접종 기간은 2027년 4월 30일까지입니다. 아직 접종하지 않으셨다면 지금 참여해 자신과 가족의 건강을 지키세요!</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-24</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 12</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584921" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 서울온 만족도 조사" data-entities="["SubsidyProgram", "BenefitProgramId", "BenefitProgramKey", "ApplicationChannel", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/gov/archives/582085" target="_blank" rel="noopener noreferrer">서울온 만족도 조사</a>
+                  </p>
+
+
+                  <p class="desc">서울온은 서비스 개선을 위해 만족도 조사를 진행 중입니다. 기간은 2026년 11월 23일부터 12월 7일까지 15일간입니다. 서울온 이용자 등 누구나 참여 가능입니다. 참여 방법은 엠보팅 온라인 설문입니다. 경품은 추첨을 통해 1,500명께 커피 쿠폰을 드리는 것입니다. 응답 내용은 비밀이 보장되며 서비스 개선 자료로만 활용될 것입니다.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 정책뉴스</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-24</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/gov/archives/582085" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: When Disaster Strikes, Medicaid Work Rules Add Barriers for Potential Enrollees" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/medicaid/natural-disasters-medicaid-work-requirements-eligibility-barriers-hawaii" target="_blank" rel="noopener noreferrer">When Disaster Strikes, Medicaid Work Rules Add Barriers for Potential Enrollees</a>
+                  </p>
+
+
+                  <p class="desc">Medicaid provides a critical safety net for people to maintain healthcare coverage. But new work requirements create barriers for those trying to recover from natural disasters.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-24</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/medicaid/natural-disasters-medicaid-work-requirements-eligibility-barriers-hawaii" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: KIST와 함께하는 과학 진로 특강 시리즈 (4,5회차) 참여자 모집 안내" data-entities="["SubsidyProgram", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "ApplicationStartDate", "ApplicationDeadline", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/economy/archives/575344" target="_blank" rel="noopener noreferrer">KIST와 함께하는 과학 진로 특강 시리즈 (4,5회차) 참여자 모집 안내</a>
+                  </p>
+
+
+                  <p class="desc">KIST와 사이언스 스테이션에서 과학 진로 특강dl 열립니다. 장소는 6호선 상월곡역 지하2층 강연장으로 참가비는 무료입니다. 중고생과 가족 등 회차별 선착순 30명이 신청 가능하며 홈페이지 접수 방식입니다. 4회차는 11월26일, 5회차는 12월19일 진행 예정입니다.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 경제</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-23</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/economy/archives/575344" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (일정변경)(#서초구)&#39;디에이치 반포124&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584846" target="_blank" rel="noopener noreferrer">(일정변경)(#서초구)&#39;디에이치 반포124&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내</a>
+                  </p>
+
+
+                  <p class="desc">(일정변경)(#서초구)&#39;디에이치 반포124&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-23</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584846" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: ‘Smart’ Implants Are Driving Up Health Costs — Even When Patients Don’t Ask for Them" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/health-industry/smart-joint-implants-knees-health-costs-patients-surprised" target="_blank" rel="noopener noreferrer">‘Smart’ Implants Are Driving Up Health Costs — Even When Patients Don’t Ask for Them</a>
+                  </p>
+
+
+                  <p class="desc">Two patients are suing after allegedly waking from knee replacement surgery and learning they’d received “smart” joints, capable of transmitting data. Researchers say their usefulness is unproven, yet Medicare and privat...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-23</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/health-industry/smart-joint-implants-knees-health-costs-patients-surprised" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: ‘Medicare for All’ Is Back on Drawing Board. Does It Stand a Better Chance This Time?" data-entities="["SocialWelfare", "HealthBenefit", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/insurance/congress-democrats-medicare-for-all-unity-challenge-universal-healthcare" target="_blank" rel="noopener noreferrer">‘Medicare for All’ Is Back on Drawing Board. Does It Stand a Better Chance This Time?</a>
+                  </p>
+
+
+                  <p class="desc">Some incoming lawmakers told voters they’d fight for universal, government-funded health coverage. Julie Rovner, KFF Health News’ chief Washington correspondent, writes about what the coming health debate has in common w...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-23</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 4</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/insurance/congress-democrats-medicare-for-all-unity-challenge-universal-healthcare" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Democrats Demand Answers From Oz After Delay in $50B Rural Health Awards" data-entities="["SocialWelfare", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/rural-health/rural-health-transformation-fund-delays-democrats-demand-answers-mehmet-oz" target="_blank" rel="noopener noreferrer">Democrats Demand Answers From Oz After Delay in $50B Rural Health Awards</a>
+                  </p>
+
+
+                  <p class="desc">Eighteen congressional Democrats are pressing Centers for Medicare &amp; Medicaid Services chief Mehmet Oz for answers about the $50 billion Rural Health Transformation Program after delays to states’ second-year awards. The...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-20</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 4</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/rural-health/rural-health-transformation-fund-delays-democrats-demand-answers-mehmet-oz" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 2027년도 「미래유망분야고졸인력양성사업」 신규 트랙 선정계획 공고(제2026-535호)" data-entities="["SubsidyProgram", "GovernmentPolicy", "BenefitProgramKey", "SelectionProgramTitle", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100740" target="_blank" rel="noopener noreferrer">2027년도 「미래유망분야고졸인력양성사업」 신규 트랙 선정계획 공고(제2026-535호)</a>
+                  </p>
+
+
+                  <p class="desc">2027년도 「미래유망분야고졸인력양성사업」 신규 트랙 선정계획 공고(제2026-535호)</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 고용노동부 공지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-20</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 6</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100740" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 서울시립미래형장애인직업재활시설 굿윌스토어 밀알송파점 영업담당(종사자) 채용계획" data-entities="["SubsidyProgram", "TargetDemographic", "Eligibility", "EmploymentBenefit", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "ApplicationDeadline", "ApplicationChannel", "EligibilityTargetGroup", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584836" target="_blank" rel="noopener noreferrer">서울시립미래형장애인직업재활시설 굿윌스토어 밀알송파점 영업담당(종사자) 채용계획</a>
+                  </p>
+
+
+                  <p class="desc">서울시립미래형장애인직업재활시설 굿윌스토어 송파점에서 영업담당 계약직 1명을 모집 중입니다. 업무는 KPI 설정, 판매·마케팅 기획, 상품·재고 관리, 장애인 근로 지도 등입니다. 주5일 9시~18시 근무하며 3개월 시용 후 정규직 전환을 검토하는 조건입니다. 이메일 접수는 12월7일까지이며 서류·면접 전형 후 최종 합격자를 발표할 예정입니다.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-20</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 13</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584836" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 인플루엔자(독감) 예방접종, 아직 안하셨나요? 건강을 위해 지금 바로 접종하세요!" data-entities="["SubsidyProgram", "TargetDemographic", "HealthBenefit", "FamilySupport", "BenefitProgramId", "BenefitProgramKey", "EligibilityLifeStage", "EligibilityAgeCondition", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584811" target="_blank" rel="noopener noreferrer">인플루엔자(독감) 예방접종, 아직 안하셨나요? 건강을 위해 지금 바로 접종하세요!</a>
+                  </p>
+
+
+                  <p class="desc">65세 이상·6개월~14세 어린이·임신부는 2027.4.30까지 무료 독감 접종 대상입니다. 65세 이상은 독감·코로나19를 동시에 맞을 수 있는 편리한 혜택입니다.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-20</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 10</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584811" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Big Win Sets Up Democrats To Intensify Probe of Trump’s Obamacare Purge" data-entities="["HealthBenefit", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/elections/midterms-democratic-wins-aca-obamacare-purge-senate-insurance-investigation" target="_blank" rel="noopener noreferrer">Big Win Sets Up Democrats To Intensify Probe of Trump’s Obamacare Purge</a>
+                  </p>
+
+
+                  <p class="desc">The Trump administration canceled healthcare coverage for 760,000 enrollees in Affordable Care Act insurance plans, saying the enrollments were unauthorized. Now, with Democrats poised to take control of the House and Se...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-20</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/elections/midterms-democratic-wins-aca-obamacare-purge-senate-insurance-investigation" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Finding an ACA Plan Have You Feeling Overwhelmed? Free Help Is Available" data-entities="["HealthBenefit", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/insurance/wamu-health-hub-open-enrollment-aca-obamacare-first-time-free-help-assisters" target="_blank" rel="noopener noreferrer">Finding an ACA Plan Have You Feeling Overwhelmed? Free Help Is Available</a>
+                  </p>
+
+
+                  <p class="desc">Open enrollment season is here. “HealthQ” host Blake Farmer sits down with WAMU’s “Health Hub” to tell first-time shoppers what they need to know about picking out a health plan.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-20</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/insurance/wamu-health-hub-open-enrollment-aca-obamacare-first-time-free-help-assisters" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Your 2027 federal benefits could cost you more. Here&#39;s what to check now" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.govexec.com/pay-benefits/2026/11/2027-federal-benefits-cost-more-check-now/417334" target="_blank" rel="noopener noreferrer">Your 2027 federal benefits could cost you more. Here&#39;s what to check now</a>
+                  </p>
+
+
+                  <p class="desc">A new FSA card, higher Medicare costs and another long-term care insurance freeze make this year&#39;s Open Season especially important. Here&#39;s what to know before Dec. 14.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Government Executive</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-19</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.govexec.com/pay-benefits/2026/11/2027-federal-benefits-cost-more-check-now/417334" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (추천명단)(#종로구)&#39;경희궁 에피트&#39; 서울시 장애인 특별공급 기관추천 명단" data-entities="["TargetDemographic", "HousingAssistance", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584786" target="_blank" rel="noopener noreferrer">(추천명단)(#종로구)&#39;경희궁 에피트&#39; 서울시 장애인 특별공급 기관추천 명단</a>
+                  </p>
+
+
+                  <p class="desc">(추천명단)(#종로구)&#39;경희궁 에피트&#39; 서울시 장애인 특별공급 기관추천 명단</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-19</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584786" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: [괴산서울농장] &#39;자연울림 맛의울림(김장편)&#39; 프로그램 (11.28) 추첨결과 안내" data-entities="["SubsidyProgram", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/gov/archives/582068" target="_blank" rel="noopener noreferrer">[괴산서울농장] &#39;자연울림 맛의울림(김장편)&#39; 프로그램 (11.28) 추첨결과 안내</a>
+                  </p>
+
+
+                  <p class="desc">[괴산서울농장] &#39;자연울림 맛의울림(김장편)&#39; 프로그램 (11.28) 추첨결과 안내 *11.19(목)~ 괴산서울농장에서 선정자 대상 개별 연락 예정</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 정책뉴스</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-19</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/gov/archives/582068" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 전문임기제 가급(인공지능) 공무원 경채시험 서류전형 합격자 및 면접시험 일정 공고" data-entities="["GovernmentPolicy", "BenefitProgramKey", "SelectionProgramTitle", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100694" target="_blank" rel="noopener noreferrer">전문임기제 가급(인공지능) 공무원 경채시험 서류전형 합격자 및 면접시험 일정 공고</a>
+                  </p>
+
+
+                  <p class="desc">전문임기제 가급(인공지능) 공무원 경채시험 서류전형 합격자 및 면접시험 일정 공고</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 고용노동부 공지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-19</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 5</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100694" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (일정변경)(#광주)&#39;경기광주역 롯데캐슬 시그니처 2단지&#39; 서울시 장애인 특별공급 기관추천 일정 6차 변경 안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584800" target="_blank" rel="noopener noreferrer">(일정변경)(#광주)&#39;경기광주역 롯데캐슬 시그니처 2단지&#39; 서울시 장애인 특별공급 기관추천 일정 6차 변경 안내</a>
+                  </p>
+
+
+                  <p class="desc">(일정변경)(#광주)&#39;경기광주역 롯데캐슬 시그니처 2단지&#39; 서울시 장애인 특별공급 기관추천 일정 6차 변경 안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-19</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584800" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: FEHB and Medicare: Understanding how they work together in retirement" data-entities="["SocialWelfare", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://federalnewsnetwork.com/federal-insights/2026/11/fehb-and-medicare-understanding-how-they-work-together-in-retirement" target="_blank" rel="noopener noreferrer">FEHB and Medicare: Understanding how they work together in retirement</a>
+                  </p>
+
+
+                  <p class="desc">With updates to the FEHB program and new requirements for certain retirees, it’s more important than ever to understand how FEHB and Medicare work together.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Federal News Network</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-19</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 4</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://federalnewsnetwork.com/federal-insights/2026/11/fehb-and-medicare-understanding-how-they-work-together-in-retirement" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: What’s Behind a Recent Spike in Early Social Security Claims?" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/aging/social-security-early-claims-spike-doge-new-old-age" target="_blank" rel="noopener noreferrer">What’s Behind a Recent Spike in Early Social Security Claims?</a>
+                  </p>
+
+
+                  <p class="desc">Experts point to well-publicized turmoil at the Social Security Administration last year as a potential spark.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-19</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/aging/social-security-early-claims-spike-doge-new-old-age" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Washington Can Start Delivering on Affordability by Rejecting Trump’s Tariffs" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://taxfoundation.org/oped/congress-trump-tariffs-affordability-inflation" target="_blank" rel="noopener noreferrer">Washington Can Start Delivering on Affordability by Rejecting Trump’s Tariffs</a>
+                  </p>
+
+
+                  <p class="desc">This new Congress will need to address the existing policies hurting affordability, prepare for Social Security insolvency in 2032, and build a regulatory environment that allows American dynamism to flourish.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> Tax Foundation</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-17</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://taxfoundation.org/oped/congress-trump-tariffs-affordability-inflation" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 강북노동자복지관 입주단체 모집" data-entities="["SubsidyProgram", "SocialWelfare", "BenefitProgramId", "BenefitProgramKey", "ApplicationStartDate", "ApplicationDeadline", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/economy/archives/575212" target="_blank" rel="noopener noreferrer">강북노동자복지관 입주단체 모집</a>
+                  </p>
+
+
+                  <p class="desc">서울시 강북노동자복지관 3층 302호(38.62㎡) 입주단체를 모집 중입니다. 사용 기간은 입주일부터 2028년 9월 24일까지입니다. 노동자 복지·권익 활동을 하며 사업자등록이 있는 단체만 신청 대상입니다. 접수는 11월 16~30일까지로, 문의는 강북노동자복지관 02-2088-0567입니다.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 경제</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-17</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 9</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/economy/archives/575212" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: [괴산서울농장] 자연울림 맛의울림-김장편-2 (261205)" data-entities="["SubsidyProgram", "CultureLeisure", "BenefitProgramId", "BenefitProgramKey", "ApplicationStartDate", "ApplicationDeadline", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/gov/archives/582009" target="_blank" rel="noopener noreferrer">[괴산서울농장] 자연울림 맛의울림-김장편-2 (261205)</a>
+                  </p>
+
+
+                  <p class="desc">신청기간 : 11. 23.(월) 10:00 ~ / 여행기간 : 12. 5.(토) ~ 12. 6.(일) ※ 추첨제로 참가자 선정, 11.26.(목)부터 선정자 대상 개별 연락 예정</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 정책뉴스</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-16</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 9</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/gov/archives/582009" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (추천명단)(#부천)&#39;부천대장 하우스토리 디센트&#39; 서울시 장애인 특별공급 기관추천 명단" data-entities="["TargetDemographic", "HousingAssistance", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584778" target="_blank" rel="noopener noreferrer">(추천명단)(#부천)&#39;부천대장 하우스토리 디센트&#39; 서울시 장애인 특별공급 기관추천 명단</a>
+                  </p>
+
+
+                  <p class="desc">(추천명단)(#부천)&#39;부천대장 하우스토리 디센트&#39; 서울시 장애인 특별공급 기관추천 명단</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-18</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584778" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (추천명단)(#안산)&#39;아르뮤제자이&#39; 서울시 장애인 특별공급 기관추천 명단" data-entities="["TargetDemographic", "HousingAssistance", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584774" target="_blank" rel="noopener noreferrer">(추천명단)(#안산)&#39;아르뮤제자이&#39; 서울시 장애인 특별공급 기관추천 명단</a>
+                  </p>
+
+
+                  <p class="desc">(추천명단)(#안산)&#39;아르뮤제자이&#39; 서울시 장애인 특별공급 기관추천 명단</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-18</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584774" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Trump Administration OKs Native Traditional Healing for Two States’ Medicaid Programs" data-entities="["SocialWelfare", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/medicaid/medicaid-cms-native-american-traditional-healing-state-waivers-utah-maine" target="_blank" rel="noopener noreferrer">Trump Administration OKs Native Traditional Healing for Two States’ Medicaid Programs</a>
+                  </p>
+
+
+                  <p class="desc">The administration’s expansion of traditional healing for Native Americans comes as it shrinks Medicaid in other ways, including through restrictions that will affect access to care for an estimated 7.5 million people.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-18</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/medicaid/medicaid-cms-native-american-traditional-healing-state-waivers-utah-maine" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (추천명단)(#영등포구)&#39;해링턴 플레이스 문래&#39; 서울시 장애인 특별공급 기관추천 명단" data-entities="["TargetDemographic", "HousingAssistance", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584760" target="_blank" rel="noopener noreferrer">(추천명단)(#영등포구)&#39;해링턴 플레이스 문래&#39; 서울시 장애인 특별공급 기관추천 명단</a>
+                  </p>
+
+
+                  <p class="desc">(추천명단)(#영등포구)&#39;해링턴 플레이스 문래&#39; 서울시 장애인 특별공급 기관추천 명단</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-17</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584760" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 노로바이러스 감염증 예방·관리 교육자료 신청 안내" data-entities="["SubsidyProgram", "TargetDemographic", "FamilySupport", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "ApplicationStartDate", "ApplicationDeadline", "EligibilityLifeStage", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584737" target="_blank" rel="noopener noreferrer">노로바이러스 감염증 예방·관리 교육자료 신청 안내</a>
+                  </p>
+
+
+                  <p class="desc">서울시 시민건강국 감염병관리과에서는 영유아 시설과 가정의 노로바이러스 예방 역량 강화를 위해 교육자료 6종을 제작하였습니다. 신청 대상은 서울시 소재 어린이집·유치원 및 학부모입니다. 자료는 지침서 1종, 포스터 2종, 청소·소독 절차 2종, 리플릿 1종으로 구성되어 있습니다. QR코드를 통해 11월 27일까지 신청서를 제출하시면 12월 1일부터 기재하신 주소로 순차 배송됩니다. 수량이 제한...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-17</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 12</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584737" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 2026년도 2차 서울주얼리지원센터 직원(과장급) 채용공고" data-entities="["SubsidyProgram", "EmploymentBenefit", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "ApplicationDeadline", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/economy/archives/575191" target="_blank" rel="noopener noreferrer">2026년도 2차 서울주얼리지원센터 직원(과장급) 채용공고</a>
+                  </p>
+
+
+                  <p class="desc">서울주얼리지원센터는 2026년 2차 공고로 과장급 계약직 1명을 모집 중입니다. 주요 업무는 주얼리 지원사업 기획·예산·성과관리이며 근무는 화~토 10~19시이고 월급은 세전 315만6,900원입니다. 지원 마감은 11월 28일 14시이며 제출처는 meet@sjc.or.kr입니다.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 경제</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-16</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 9</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/economy/archives/575191" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (일정변경)(#성북구)&#39;해링턴 플레이스 장위포레&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584715" target="_blank" rel="noopener noreferrer">(일정변경)(#성북구)&#39;해링턴 플레이스 장위포레&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내</a>
+                  </p>
+
+
+                  <p class="desc">(일정변경)(#성북구)&#39;해링턴 플레이스 장위포레&#39; 서울시 장애인 특별공급 기관추천 일정 1차 변경 안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-17</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584715" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 근로복지공단 별정직 본부장 모집공고(광주지역, 대구지역)" data-entities="["SubsidyProgram", "SocialWelfare", "GovernmentPolicy", "BenefitProgramKey", "EligibilityRegion", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100574" target="_blank" rel="noopener noreferrer">근로복지공단 별정직 본부장 모집공고(광주지역, 대구지역)</a>
+                  </p>
+
+
+                  <p class="desc">근로복지공단 별정직 본부장 모집공고(광주지역, 대구지역)</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 고용노동부 공지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-16</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 7</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100574" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청" data-entities="["Eligibility", "SocialWelfare", "EmploymentBenefit", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "ApplicationStartDate", "ApplicationDeadline", "ApplicationChannel", "EligibilityIncomeCondition", "EligibilityRegion", "EligibilityAgeCondition", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/economy/archives/575178" target="_blank" rel="noopener noreferrer">2027년 상반기 서울 동행일자리 6,500여 명 모집…11월 23일까지 신청</a>
+                  </p>
+
+
+                  <p class="desc">2027년 상반기 ‘동행일자리’ 신청은 11월 6~23일 주소지 동주민센터에서 이루어집니다. 모집 규모는 6,500명이며 안전·돌봄·디지털·환경·경제·활력 6개 분야 758개 사업 참여입니다. 구직등록 확인증 폐지, 부양가족 점수 확대, 일급 6만5천 원, 소득 85%·재산 4.99억 이하 만 18세 이상이 대상입니다.</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 경제</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-11</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 14</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/economy/archives/575178" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: Moving to a New State? Your Healthcare Might Get More Complicated" data-entities="["HealthBenefit", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/insurance/healthq-moving-new-state-new-healthcare-access-insurance" target="_blank" rel="noopener noreferrer">Moving to a New State? Your Healthcare Might Get More Complicated</a>
+                  </p>
+
+
+                  <p class="desc">New apartment, new friends, new … healthcare hurdles? Medical matters might not be at the top of your list when moving to a new state. But planning ahead will help you get the health insurance, doctors, and healthcare ac...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-17</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 3</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/insurance/healthq-moving-new-state-new-healthcare-access-insurance" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: (일정변경)(#광주)&#39;경기광주역 롯데캐슬 시그니처 2단지&#39; 서울시 장애인 특별공급 기관추천 일정 5차 변경 안내" data-entities="["TargetDemographic", "HousingAssistance", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey", "EligibilityTargetGroup", "EligibilityRegion", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://news.seoul.go.kr/welfare/archives/584709" target="_blank" rel="noopener noreferrer">(일정변경)(#광주)&#39;경기광주역 롯데캐슬 시그니처 2단지&#39; 서울시 장애인 특별공급 기관추천 일정 5차 변경 안내</a>
+                  </p>
+
+
+                  <p class="desc">(일정변경)(#광주)&#39;경기광주역 롯데캐슬 시그니처 2단지&#39; 서울시 장애인 특별공급 기관추천 일정 5차 변경 안내</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 서울시 복지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-16</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 8</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://news.seoul.go.kr/welfare/archives/584709" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: 일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고" data-entities="["EmploymentBenefit", "GovernmentPolicy", "BenefitProgramKey", "SelectionProgramTitle", "OperationalEvent", "SourceSignal"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542" target="_blank" rel="noopener noreferrer">일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고</a>
+                  </p>
+
+
+                  <p class="desc">일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> 고용노동부 공지</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-16</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 6</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+              <div class="card" role="article" aria-label="Article: These Governors-Elect Campaigned on Expanding Medicaid. It Won’t Be Easy." data-entities="["Eligibility", "SocialWelfare", "HealthBenefit", "GovernmentPolicy", "BenefitProgramId", "BenefitProgramKey"]">
+                <div class="left">
+                  <p class="title">
+                    <a href="https://kffhealthnews.org/medicaid/democrats-medicaid-expansion-governors-lance-bottoms-hinojosa-crowley-georgia-texas-wisconsin" target="_blank" rel="noopener noreferrer">These Governors-Elect Campaigned on Expanding Medicaid. It Won’t Be Easy.</a>
+                  </p>
+
+
+                  <p class="desc">A handful of states that haven’t fully expanded Medicaid just elected Democratic candidates for governor who campaigned on broadening access to the government health insurance program for low-income people. But doing so ...</p>
+
+
+                  <div class="row" aria-label="Article metadata">
+                    <span class="chip"><strong>source</strong> KFF Health News</span>
+
+                    <span class="chip"><strong>date</strong> <span class="mono">2026-11-16</span></span>
+
+
+                    <span class="chip brand"><strong>entities</strong> 6</span>
+
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <a class="btn primary" href="https://kffhealthnews.org/medicaid/democrats-medicaid-expansion-governors-lance-bottoms-hinojosa-crowley-georgia-texas-wisconsin" target="_blank" rel="noopener noreferrer" aria-label="Open article">Open</a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </article>
+      </section>
+
+      <footer class="footer" role="contentinfo">
+        <div>
+          <span class="mono">category</span>
+          <span class="muted">/</span>
+          <span>정부 혜택/지원금 레이더</span>
+          <span class="muted">·</span>
+          <span class="mono">2026-11-26 07:35 UTC</span>
+        </div>
+        <div class="footer-actions">
+          <a href="#content" class="mono" aria-label="Back to top">back to top</a>
+          <button id="export-csv" class="export-btn" aria-label="Export to CSV">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Export CSV
+          </button>
+        </div>
+      </footer>
+
+      <script id="articles-data" type="application/json">[{"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/gov/archives/582143", "matched_entities": {"BenefitProgramId": ["582143"], "BenefitProgramKey": ["id:582143"], "EligibilityRegion": ["\uc11c\uc6b8"], "GovernmentPolicy": ["\uc548\ub0b4"], "OperationalEvent": ["eligibility_rule"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\uc120\uc815", "\ucd94\ucca8"]}, "published_at": "2026-11-26T15:00:01+00:00", "source": "\uc11c\uc6b8\uc2dc \uc815\ucc45\ub274\uc2a4", "summary": "[\uad34\uc0b0\uc11c\uc6b8\ub18d\uc7a5] \u0027\uc790\uc5f0\uc6b8\ub9bc \ub9db\uc758\uc6b8\ub9bc(\uae40\uc7a5\ud3b8)-2\u0027 \ud504\ub85c\uadf8\ub7a8 (12.5) \ucd94\ucca8\uacb0\uacfc \uc548\ub0b4 *11.26.(\ubaa9)~ \uad34\uc0b0\uc11c\uc6b8\ub18d\uc7a5\uc5d0\uc11c \uc120\uc815\uc790 \ub300\uc0c1 \uac1c\ubcc4 \uc5f0\ub77d \uc608\uc815", "title": "[\uad34\uc0b0\uc11c\uc6b8\ub18d\uc7a5] \u0027\uc790\uc5f0\uc6b8\ub9bc \ub9db\uc758\uc6b8\ub9bc(\uae40\uc7a5\ud3b8)-2\u0027 \ud504\ub85c\uadf8\ub7a8 (12.5) \ucd94\ucca8\uacb0\uacfc \uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584968", "matched_entities": {"BenefitProgramId": ["584968"], "BenefitProgramKey": ["id:584968"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-26T14:42:13+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc0c8\uc18c\uc2dd2026-131)(#\ud3c9\ud0dd)\u0027\ud790\uc2a4\ud14c\uc774\ud2b8 \uace0\ub355\uc5d8\ub9ac\uc2a4\ud2b8 A35BL\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc7ac\uc548\ub0b4", "title": "(\uc0c8\uc18c\uc2dd2026-131)(#\ud3c9\ud0dd)\u0027\ud790\uc2a4\ud14c\uc774\ud2b8 \uace0\ub355\uc5d8\ub9ac\uc2a4\ud2b8 A35BL\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc7ac\uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584962", "matched_entities": {"BenefitProgramId": ["584962"], "BenefitProgramKey": ["id:584962"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-26T14:39:49+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc0c8\uc18c\uc2dd2026-130)(#\ud3c9\ud0dd)\u0027\ud790\uc2a4\ud14c\uc774\ud2b8 \uace0\ub355\uc5d8\ub9ac\uc2a4\ud2b8 A34BL\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc7ac\uc548\ub0b4", "title": "(\uc0c8\uc18c\uc2dd2026-130)(#\ud3c9\ud0dd)\u0027\ud790\uc2a4\ud14c\uc774\ud2b8 \uace0\ub355\uc5d8\ub9ac\uc2a4\ud2b8 A34BL\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc7ac\uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584959", "matched_entities": {"BenefitProgramId": ["584959"], "BenefitProgramKey": ["id:584959"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-26T14:36:58+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc0c8\uc18c\uc2dd2026-129)(#\ud3c9\ud0dd)\u0027\ud790\uc2a4\ud14c\uc774\ud2b8 \uace0\ub355\uc5d8\ub9ac\uc2a4\ud2b8 A31BL\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc7ac\uc548\ub0b4", "title": "(\uc0c8\uc18c\uc2dd2026-129)(#\ud3c9\ud0dd)\u0027\ud790\uc2a4\ud14c\uc774\ud2b8 \uace0\ub355\uc5d8\ub9ac\uc2a4\ud2b8 A31BL\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc7ac\uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584953", "matched_entities": {"BenefitProgramId": ["584953"], "BenefitProgramKey": ["id:584953"], "EligibilityRegion": ["\uc11c\uc6b8", "\uc778\ucc9c"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-26T14:29:59+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc0c8\uc18c\uc2dd2026-128)(#\uc778\ucc9c)\u0027\uc601\uc885\uc5d0\ud14c\ub974\uc790\uc774\ub974\ub124\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc548\ub0b4", "title": "(\uc0c8\uc18c\uc2dd2026-128)(#\uc778\ucc9c)\u0027\uc601\uc885\uc5d0\ud14c\ub974\uc790\uc774\ub974\ub124\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584948", "matched_entities": {"BenefitProgramId": ["584948"], "BenefitProgramKey": ["id:584948"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-26T14:23:40+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc0c8\uc18c\uc2dd2026-127)(#\uc131\ub0a8)\u0027\ub450\uc0b0\uc704\ube0c \ub354\ud3ec\ub808 \uc131\ub0a8\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc548\ub0b4", "title": "(\uc0c8\uc18c\uc2dd2026-127)(#\uc131\ub0a8)\u0027\ub450\uc0b0\uc704\ube0c \ub354\ud3ec\ub808 \uc131\ub0a8\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100890", "matched_entities": {"BenefitProgramKey": ["title:\uace0\uc6a9\ub178\ub3d9\ubd80-\uacf5\uc9c0:\uc790\uc0b0\uc6b4\uc6a9-\uc804\ubb38\uc704\uc6d0-\ucc44\uc6a9-\ucd5c\uc885\ud569\uaca9\uc790-\uacf5\uace0"], "Eligibility": ["\uc790\uc0b0"], "EmploymentBenefit": ["\ucc44\uc6a9"], "GovernmentPolicy": ["\uacf5\uace0"], "OperationalEvent": ["selection_result"], "SelectionProgramTitle": ["\uc790\uc0b0\uc6b4\uc6a9 \uc804\ubb38\uc704\uc6d0 \ucc44\uc6a9"], "SourceSignal": ["support_program_notice"]}, "published_at": "2026-11-25T17:32:23+00:00", "source": "\uace0\uc6a9\ub178\ub3d9\ubd80 \uacf5\uc9c0", "summary": "\uc790\uc0b0\uc6b4\uc6a9 \uc804\ubb38\uc704\uc6d0 \ucc44\uc6a9 \ucd5c\uc885\ud569\uaca9\uc790 \uacf5\uace0", "title": "\uc790\uc0b0\uc6b4\uc6a9 \uc804\ubb38\uc704\uc6d0 \ucc44\uc6a9 \ucd5c\uc885\ud569\uaca9\uc790 \uacf5\uace0"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584943", "matched_entities": {"BenefitProgramId": ["584943"], "BenefitProgramKey": ["id:584943"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-25T15:36:23+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc77c\uc815\ubcc0\uacbd)(#\uc218\uc6d0)\u0027\uc11c\uc218\uc6d0 \uc81c\uc77c\ud48d\uacbd\ucc44 C-4BL\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 1\ucc28 \ubcc0\uacbd \uc548\ub0b4", "title": "(\uc77c\uc815\ubcc0\uacbd)(#\uc218\uc6d0)\u0027\uc11c\uc218\uc6d0 \uc81c\uc77c\ud48d\uacbd\ucc44 C-4BL\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 1\ucc28 \ubcc0\uacbd \uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://kffhealthnews.org/health-care-costs/medicaid-work-requirements-new-rules-coverage-dropped-nebraska-rollout", "matched_entities": {"BenefitProgramId": ["medicaid-work-requirements-new-rules-coverage-dropped-nebraska-rollout"], "BenefitProgramKey": ["id:medicaid-work-requirements-new-rules-coverage-dropped-nebraska-rollout"], "SocialWelfare": ["medicaid"]}, "published_at": "2026-11-25T10:00:00+00:00", "source": "KFF Health News", "summary": "Data from the months after the state\u2019s early rollout of new federal work requirements bolsters concerns that red tape will leave many stuck without coverage.", "title": "It\u2019s the Paperwork, Not the Work, Causing Enrollees To Lose Medicaid in Nebraska"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://kffhealthnews.org/insurance/medicare-open-enrollment-guide-medicare-advantage-medigap-part-d-drugs-premiums", "matched_entities": {"BenefitProgramId": ["medicare-open-enrollment-guide-medicare-advantage-medigap-part-d-drugs-premiums"], "BenefitProgramKey": ["id:medicare-open-enrollment-guide-medicare-advantage-medigap-part-d-drugs-premiums"], "SocialWelfare": ["medicare"]}, "published_at": "2026-11-25T10:00:00+00:00", "source": "KFF Health News", "summary": "Medicare\u2019s zero-premium drug plans are disappearing, millions are losing their plans, and the average prescription drug plan premium could rise 50% if you stay put. Here\u2019s what to check.", "title": "Medicare Open Enrollment: Here\u2019s What\u2019s Changing, and What Mistakes To Avoid"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584918", "matched_entities": {"BenefitProgramId": ["584918"], "BenefitProgramKey": ["id:584918"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-24T16:00:35+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\ucd94\ucc9c\uba85\ub2e8)(#\ub0a8\uc591\uc8fc)\u0027\uc655\uc219 \ud55c\uc2e0\ub354\ud734 \uc13c\ud140\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8", "title": "(\ucd94\ucc9c\uba85\ub2e8)(#\ub0a8\uc591\uc8fc)\u0027\uc655\uc219 \ud55c\uc2e0\ub354\ud734 \uc13c\ud140\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584921", "matched_entities": {"BenefitProgramId": ["584921"], "BenefitProgramKey": ["id:584921"], "EligibilityAgeCondition": ["65+"], "EligibilityLifeStage": ["\uc784\uc2e0"], "EligibilityTargetGroup": ["\uc5b4\ub974\uc2e0"], "FamilySupport": ["\uc784\uc2e0"], "GovernmentPolicy": ["\uc548\ub0b4"], "HealthBenefit": ["\uc608\ubc29\uc811\uc885"], "OperationalEvent": ["eligibility_rule"], "SourceSignal": ["eligibility_rule"], "SubsidyProgram": ["\ubb34\ub8cc"], "TargetDemographic": ["\uc5b4\ub974\uc2e0", "\uc784\uc2e0\ubd80"]}, "published_at": "2026-11-24T15:45:20+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "\uc778\ud50c\ub8e8\uc5d4\uc790 \ubb34\ub8cc \uc811\uc885 \ub300\uc0c1\uc740 6\uac1c\uc6d4~14\uc138 \uc5b4\ub9b0\uc774, \uc784\uc2e0\ubd80, 65\uc138 \uc774\uc0c1 \uc5b4\ub974\uc2e0\uc785\ub2c8\ub2e4 \uc811\uc885 \uae30\uac04\uc740 2027\ub144 4\uc6d4 30\uc77c\uae4c\uc9c0\uc785\ub2c8\ub2e4. \uc544\uc9c1 \uc811\uc885\ud558\uc9c0 \uc54a\uc73c\uc168\ub2e4\uba74 \uc9c0\uae08 \ucc38\uc5ec\ud574 \uc790\uc2e0\uacfc \uac00\uc871\uc758 \uac74\uac15\uc744 \uc9c0\ud0a4\uc138\uc694!", "title": "\uac74\uac15\ud560 \ub54c \ub354 \uac74\uac15\ud558\uac8c! \uc778\ud50c\ub8e8\uc5d4\uc790(\ub3c5\uac10) \uad6d\uac00\uc608\ubc29\uc811\uc885 \uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/gov/archives/582085", "matched_entities": {"ApplicationChannel": ["online"], "BenefitProgramId": ["582085"], "BenefitProgramKey": ["id:582085"], "EligibilityRegion": ["\uc11c\uc6b8"], "OperationalEvent": ["eligibility_rule"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\ucfe0\ud3f0", "\ucd94\ucca8"]}, "published_at": "2026-11-24T10:43:35+00:00", "source": "\uc11c\uc6b8\uc2dc \uc815\ucc45\ub274\uc2a4", "summary": "\uc11c\uc6b8\uc628\uc740 \uc11c\ube44\uc2a4 \uac1c\uc120\uc744 \uc704\ud574 \ub9cc\uc871\ub3c4 \uc870\uc0ac\ub97c \uc9c4\ud589 \uc911\uc785\ub2c8\ub2e4. \uae30\uac04\uc740 2026\ub144 11\uc6d4 23\uc77c\ubd80\ud130 12\uc6d4 7\uc77c\uae4c\uc9c0 15\uc77c\uac04\uc785\ub2c8\ub2e4. \uc11c\uc6b8\uc628 \uc774\uc6a9\uc790 \ub4f1 \ub204\uad6c\ub098 \ucc38\uc5ec \uac00\ub2a5\uc785\ub2c8\ub2e4. \ucc38\uc5ec \ubc29\ubc95\uc740 \uc5e0\ubcf4\ud305 \uc628\ub77c\uc778 \uc124\ubb38\uc785\ub2c8\ub2e4. \uacbd\ud488\uc740 \ucd94\ucca8\uc744 \ud1b5\ud574 1,500\uba85\uaed8 \ucee4\ud53c \ucfe0\ud3f0\uc744 \ub4dc\ub9ac\ub294 \uac83\uc785\ub2c8\ub2e4. \uc751\ub2f5 \ub0b4\uc6a9\uc740 \ube44\ubc00\uc774 \ubcf4\uc7a5\ub418\uba70 \uc11c\ube44\uc2a4 \uac1c\uc120 \uc790\ub8cc\ub85c\ub9cc \ud65c\uc6a9\ub420 \uac83\uc785\ub2c8\ub2e4.", "title": "\uc11c\uc6b8\uc628 \ub9cc\uc871\ub3c4 \uc870\uc0ac"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://kffhealthnews.org/medicaid/natural-disasters-medicaid-work-requirements-eligibility-barriers-hawaii", "matched_entities": {"BenefitProgramId": ["natural-disasters-medicaid-work-requirements-eligibility-barriers-hawaii"], "BenefitProgramKey": ["id:natural-disasters-medicaid-work-requirements-eligibility-barriers-hawaii"], "SocialWelfare": ["medicaid", "safety net"]}, "published_at": "2026-11-24T10:00:00+00:00", "source": "KFF Health News", "summary": "Medicaid provides a critical safety net for people to maintain healthcare coverage. But new work requirements create barriers for those trying to recover from natural disasters.", "title": "When Disaster Strikes, Medicaid Work Rules Add Barriers for Potential Enrollees"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/economy/archives/575344", "matched_entities": {"ApplicationDeadline": ["2026-12-19"], "ApplicationStartDate": ["2026-11-26"], "BenefitProgramId": ["575344"], "BenefitProgramKey": ["id:575344"], "GovernmentPolicy": ["\uc548\ub0b4"], "OperationalEvent": ["application_deadline"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\uc811\uc218", "\ubb34\ub8cc", "\uc120\ucc29\uc21c"]}, "published_at": "2026-11-23T13:47:14+00:00", "source": "\uc11c\uc6b8\uc2dc \uacbd\uc81c", "summary": "KIST\uc640 \uc0ac\uc774\uc5b8\uc2a4 \uc2a4\ud14c\uc774\uc158\uc5d0\uc11c \uacfc\ud559 \uc9c4\ub85c \ud2b9\uac15dl \uc5f4\ub9bd\ub2c8\ub2e4. \uc7a5\uc18c\ub294 6\ud638\uc120 \uc0c1\uc6d4\uace1\uc5ed \uc9c0\ud5582\uce35 \uac15\uc5f0\uc7a5\uc73c\ub85c \ucc38\uac00\ube44\ub294 \ubb34\ub8cc\uc785\ub2c8\ub2e4. \uc911\uace0\uc0dd\uacfc \uac00\uc871 \ub4f1 \ud68c\ucc28\ubcc4 \uc120\ucc29\uc21c 30\uba85\uc774 \uc2e0\uccad \uac00\ub2a5\ud558\uba70 \ud648\ud398\uc774\uc9c0 \uc811\uc218 \ubc29\uc2dd\uc785\ub2c8\ub2e4. 4\ud68c\ucc28\ub294 11\uc6d426\uc77c, 5\ud68c\ucc28\ub294 12\uc6d419\uc77c \uc9c4\ud589 \uc608\uc815\uc785\ub2c8\ub2e4.", "title": "KIST\uc640 \ud568\uaed8\ud558\ub294 \uacfc\ud559 \uc9c4\ub85c \ud2b9\uac15 \uc2dc\ub9ac\uc988 (4,5\ud68c\ucc28) \ucc38\uc5ec\uc790 \ubaa8\uc9d1 \uc548\ub0b4"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584846", "matched_entities": {"BenefitProgramId": ["584846"], "BenefitProgramKey": ["id:584846"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-23T11:25:30+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc77c\uc815\ubcc0\uacbd)(#\uc11c\ucd08\uad6c)\u0027\ub514\uc5d0\uc774\uce58 \ubc18\ud3ec124\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 1\ucc28 \ubcc0\uacbd \uc548\ub0b4", "title": "(\uc77c\uc815\ubcc0\uacbd)(#\uc11c\ucd08\uad6c)\u0027\ub514\uc5d0\uc774\uce58 \ubc18\ud3ec124\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 1\ucc28 \ubcc0\uacbd \uc548\ub0b4"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://kffhealthnews.org/health-industry/smart-joint-implants-knees-health-costs-patients-surprised", "matched_entities": {"BenefitProgramId": ["smart-joint-implants-knees-health-costs-patients-surprised"], "BenefitProgramKey": ["id:smart-joint-implants-knees-health-costs-patients-surprised"], "SocialWelfare": ["medicare"]}, "published_at": "2026-11-23T10:00:00+00:00", "source": "KFF Health News", "summary": "Two patients are suing after allegedly waking from knee replacement surgery and learning they\u2019d received \u201csmart\u201d joints, capable of transmitting data. Researchers say their usefulness is unproven, yet Medicare and private insurers pay doctors to monitor such devices.", "title": "\u2018Smart\u2019 Implants Are Driving Up Health Costs \u2014 Even When Patients Don\u2019t Ask for Them"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://kffhealthnews.org/insurance/congress-democrats-medicare-for-all-unity-challenge-universal-healthcare", "matched_entities": {"BenefitProgramId": ["congress-democrats-medicare-for-all-unity-challenge-universal-healthcare"], "BenefitProgramKey": ["id:congress-democrats-medicare-for-all-unity-challenge-universal-healthcare"], "HealthBenefit": ["health coverage"], "SocialWelfare": ["medicare"]}, "published_at": "2026-11-23T10:00:00+00:00", "source": "KFF Health News", "summary": "Some incoming lawmakers told voters they\u2019d fight for universal, government-funded health coverage. Julie Rovner, KFF Health News\u2019 chief Washington correspondent, writes about what the coming health debate has in common with past fights \u2014 and something that\u2019s different this time around.", "title": "\u2018Medicare for All\u2019 Is Back on Drawing Board. Does It Stand a Better Chance This Time?"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://kffhealthnews.org/rural-health/rural-health-transformation-fund-delays-democrats-demand-answers-mehmet-oz", "matched_entities": {"BenefitProgramId": ["rural-health-transformation-fund-delays-democrats-demand-answers-mehmet-oz"], "BenefitProgramKey": ["id:rural-health-transformation-fund-delays-democrats-demand-answers-mehmet-oz"], "GovernmentPolicy": ["program"], "SocialWelfare": ["medicare", "medicaid"]}, "published_at": "2026-11-20T21:50:27+00:00", "source": "KFF Health News", "summary": "Eighteen congressional Democrats are pressing Centers for Medicare \u0026 Medicaid Services chief Mehmet Oz for answers about the $50 billion Rural Health Transformation Program after delays to states\u2019 second-year awards. Their letter calls out an \u201calarming lack of public transparency.\u201d", "title": "Democrats Demand Answers From Oz After Delay in $50B Rural Health Awards"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100740", "matched_entities": {"BenefitProgramKey": ["title:\uace0\uc6a9\ub178\ub3d9\ubd80-\uacf5\uc9c0:2027\ub144\ub3c4-\ubbf8\ub798\uc720\ub9dd\ubd84\uc57c\uace0\uc878\uc778\ub825\uc591\uc131\uc0ac\uc5c5-\uc2e0\uaddc-\ud2b8\ub799-\uc120\uc815\uacc4\ud68d-\uacf5\uace0-\uc81c2026-535\ud638"], "GovernmentPolicy": ["\uacf5\uace0"], "OperationalEvent": ["selection_result"], "SelectionProgramTitle": ["2027\ub144\ub3c4 \u300c\ubbf8\ub798\uc720\ub9dd\ubd84\uc57c\uace0\uc878\uc778\ub825\uc591\uc131\uc0ac\uc5c5\u300d \uc2e0\uaddc \ud2b8\ub799"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\uc120\uc815"]}, "published_at": "2026-11-20T17:13:22+00:00", "source": "\uace0\uc6a9\ub178\ub3d9\ubd80 \uacf5\uc9c0", "summary": "2027\ub144\ub3c4 \u300c\ubbf8\ub798\uc720\ub9dd\ubd84\uc57c\uace0\uc878\uc778\ub825\uc591\uc131\uc0ac\uc5c5\u300d \uc2e0\uaddc \ud2b8\ub799 \uc120\uc815\uacc4\ud68d \uacf5\uace0(\uc81c2026-535\ud638)", "title": "2027\ub144\ub3c4 \u300c\ubbf8\ub798\uc720\ub9dd\ubd84\uc57c\uace0\uc878\uc778\ub825\uc591\uc131\uc0ac\uc5c5\u300d \uc2e0\uaddc \ud2b8\ub799 \uc120\uc815\uacc4\ud68d \uacf5\uace0(\uc81c2026-535\ud638)"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584836", "matched_entities": {"ApplicationChannel": ["email"], "ApplicationDeadline": ["2026-12-07"], "BenefitProgramId": ["584836"], "BenefitProgramKey": ["id:584836"], "Eligibility": ["\uc870\uac74"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "EmploymentBenefit": ["\ucc44\uc6a9"], "GovernmentPolicy": ["\ubc1c\ud45c"], "OperationalEvent": ["application_deadline", "eligibility_rule"], "SourceSignal": ["eligibility_rule"], "SubsidyProgram": ["\uc811\uc218"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-20T17:01:23+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "\uc11c\uc6b8\uc2dc\ub9bd\ubbf8\ub798\ud615\uc7a5\uc560\uc778\uc9c1\uc5c5\uc7ac\ud65c\uc2dc\uc124 \uad7f\uc70c\uc2a4\ud1a0\uc5b4 \uc1a1\ud30c\uc810\uc5d0\uc11c \uc601\uc5c5\ub2f4\ub2f9 \uacc4\uc57d\uc9c1 1\uba85\uc744 \ubaa8\uc9d1 \uc911\uc785\ub2c8\ub2e4. \uc5c5\ubb34\ub294 KPI \uc124\uc815, \ud310\ub9e4\u00b7\ub9c8\ucf00\ud305 \uae30\ud68d, \uc0c1\ud488\u00b7\uc7ac\uace0 \uad00\ub9ac, \uc7a5\uc560\uc778 \uadfc\ub85c \uc9c0\ub3c4 \ub4f1\uc785\ub2c8\ub2e4. \uc8fc5\uc77c 9\uc2dc~18\uc2dc \uadfc\ubb34\ud558\uba70 3\uac1c\uc6d4 \uc2dc\uc6a9 \ud6c4 \uc815\uaddc\uc9c1 \uc804\ud658\uc744 \uac80\ud1a0\ud558\ub294 \uc870\uac74\uc785\ub2c8\ub2e4. \uc774\uba54\uc77c \uc811\uc218\ub294 12\uc6d47\uc77c\uae4c\uc9c0\uc774\uba70 \uc11c\ub958\u00b7\uba74\uc811 \uc804\ud615 \ud6c4 \ucd5c\uc885 \ud569\uaca9\uc790\ub97c \ubc1c\ud45c\ud560 \uc608\uc815\uc785\ub2c8\ub2e4.", "title": "\uc11c\uc6b8\uc2dc\ub9bd\ubbf8\ub798\ud615\uc7a5\uc560\uc778\uc9c1\uc5c5\uc7ac\ud65c\uc2dc\uc124 \uad7f\uc70c\uc2a4\ud1a0\uc5b4 \ubc00\uc54c\uc1a1\ud30c\uc810 \uc601\uc5c5\ub2f4\ub2f9(\uc885\uc0ac\uc790) \ucc44\uc6a9\uacc4\ud68d"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584811", "matched_entities": {"BenefitProgramId": ["584811"], "BenefitProgramKey": ["id:584811"], "EligibilityAgeCondition": ["65+"], "EligibilityLifeStage": ["\uc784\uc2e0"], "FamilySupport": ["\uc784\uc2e0"], "HealthBenefit": ["\uc608\ubc29\uc811\uc885"], "OperationalEvent": ["eligibility_rule"], "SourceSignal": ["eligibility_rule"], "SubsidyProgram": ["\ud61c\ud0dd", "\ubb34\ub8cc"], "TargetDemographic": ["\uc784\uc2e0\ubd80"]}, "published_at": "2026-11-20T13:21:51+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "65\uc138 \uc774\uc0c1\u00b76\uac1c\uc6d4~14\uc138 \uc5b4\ub9b0\uc774\u00b7\uc784\uc2e0\ubd80\ub294 2027.4.30\uae4c\uc9c0 \ubb34\ub8cc \ub3c5\uac10 \uc811\uc885 \ub300\uc0c1\uc785\ub2c8\ub2e4. 65\uc138 \uc774\uc0c1\uc740 \ub3c5\uac10\u00b7\ucf54\ub85c\ub09819\ub97c \ub3d9\uc2dc\uc5d0 \ub9de\uc744 \uc218 \uc788\ub294 \ud3b8\ub9ac\ud55c \ud61c\ud0dd\uc785\ub2c8\ub2e4.", "title": "\uc778\ud50c\ub8e8\uc5d4\uc790(\ub3c5\uac10) \uc608\ubc29\uc811\uc885, \uc544\uc9c1 \uc548\ud558\uc168\ub098\uc694? \uac74\uac15\uc744 \uc704\ud574 \uc9c0\uae08 \ubc14\ub85c \uc811\uc885\ud558\uc138\uc694!"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://kffhealthnews.org/elections/midterms-democratic-wins-aca-obamacare-purge-senate-insurance-investigation", "matched_entities": {"BenefitProgramId": ["midterms-democratic-wins-aca-obamacare-purge-senate-insurance-investigation"], "BenefitProgramKey": ["id:midterms-democratic-wins-aca-obamacare-purge-senate-insurance-investigation"], "HealthBenefit": ["affordable care", "obamacare"]}, "published_at": "2026-11-20T10:00:00+00:00", "source": "KFF Health News", "summary": "The Trump administration canceled healthcare coverage for 760,000 enrollees in Affordable Care Act insurance plans, saying the enrollments were unauthorized. Now, with Democrats poised to take control of the House and Senate, key lawmakers want answers about the process.", "title": "Big Win Sets Up Democrats To Intensify Probe of Trump\u2019s Obamacare Purge"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://kffhealthnews.org/insurance/wamu-health-hub-open-enrollment-aca-obamacare-first-time-free-help-assisters", "matched_entities": {"BenefitProgramId": ["wamu-health-hub-open-enrollment-aca-obamacare-first-time-free-help-assisters"], "BenefitProgramKey": ["id:wamu-health-hub-open-enrollment-aca-obamacare-first-time-free-help-assisters"], "HealthBenefit": ["aca"]}, "published_at": "2026-11-20T10:00:00+00:00", "source": "KFF Health News", "summary": "Open enrollment season is here. \u201cHealthQ\u201d host Blake Farmer sits down with WAMU\u2019s \u201cHealth Hub\u201d to tell first-time shoppers what they need to know about picking out a health plan.", "title": "Finding an ACA Plan Have You Feeling Overwhelmed? Free Help Is Available"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://www.govexec.com/pay-benefits/2026/11/2027-federal-benefits-cost-more-check-now/417334", "matched_entities": {"BenefitProgramId": ["417334"], "BenefitProgramKey": ["id:417334"], "SocialWelfare": ["medicare"]}, "published_at": "2026-11-19T20:00:00+00:00", "source": "Government Executive", "summary": "A new FSA card, higher Medicare costs and another long-term care insurance freeze make this year\u0027s Open Season especially important. Here\u0027s what to know before Dec. 14.", "title": "Your 2027 federal benefits could cost you more. Here\u0027s what to check now"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584786", "matched_entities": {"BenefitProgramId": ["584786"], "BenefitProgramKey": ["id:584786"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-19T16:02:02+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\ucd94\ucc9c\uba85\ub2e8)(#\uc885\ub85c\uad6c)\u0027\uacbd\ud76c\uad81 \uc5d0\ud53c\ud2b8\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8", "title": "(\ucd94\ucc9c\uba85\ub2e8)(#\uc885\ub85c\uad6c)\u0027\uacbd\ud76c\uad81 \uc5d0\ud53c\ud2b8\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://news.seoul.go.kr/gov/archives/582068", "matched_entities": {"BenefitProgramId": ["582068"], "BenefitProgramKey": ["id:582068"], "EligibilityRegion": ["\uc11c\uc6b8"], "GovernmentPolicy": ["\uc548\ub0b4"], "OperationalEvent": ["eligibility_rule"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\uc120\uc815", "\ucd94\ucca8"]}, "published_at": "2026-11-19T15:00:53+00:00", "source": "\uc11c\uc6b8\uc2dc \uc815\ucc45\ub274\uc2a4", "summary": "[\uad34\uc0b0\uc11c\uc6b8\ub18d\uc7a5] \u0027\uc790\uc5f0\uc6b8\ub9bc \ub9db\uc758\uc6b8\ub9bc(\uae40\uc7a5\ud3b8)\u0027 \ud504\ub85c\uadf8\ub7a8 (11.28) \ucd94\ucca8\uacb0\uacfc \uc548\ub0b4 *11.19(\ubaa9)~ \uad34\uc0b0\uc11c\uc6b8\ub18d\uc7a5\uc5d0\uc11c \uc120\uc815\uc790 \ub300\uc0c1 \uac1c\ubcc4 \uc5f0\ub77d \uc608\uc815", "title": "[\uad34\uc0b0\uc11c\uc6b8\ub18d\uc7a5] \u0027\uc790\uc5f0\uc6b8\ub9bc \ub9db\uc758\uc6b8\ub9bc(\uae40\uc7a5\ud3b8)\u0027 \ud504\ub85c\uadf8\ub7a8 (11.28) \ucd94\ucca8\uacb0\uacfc \uc548\ub0b4"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100694", "matched_entities": {"BenefitProgramKey": ["title:\uace0\uc6a9\ub178\ub3d9\ubd80-\uacf5\uc9c0:\uc804\ubb38\uc784\uae30\uc81c-\uac00\uae09-\uc778\uacf5\uc9c0\ub2a5-\uacf5\ubb34\uc6d0-\uacbd\ucc44\uc2dc\ud5d8-\uc11c\ub958\uc804\ud615-\ud569\uaca9\uc790-\ubc0f-\uba74\uc811\uc2dc\ud5d8-\uc77c\uc815-\uacf5\uace0"], "GovernmentPolicy": ["\uacf5\uace0"], "OperationalEvent": ["selection_result"], "SelectionProgramTitle": ["\uc804\ubb38\uc784\uae30\uc81c \uac00\uae09(\uc778\uacf5\uc9c0\ub2a5) \uacf5\ubb34\uc6d0 \uacbd\ucc44\uc2dc\ud5d8 \uc11c\ub958\uc804\ud615"], "SourceSignal": ["support_program_notice"]}, "published_at": "2026-11-19T13:58:34+00:00", "source": "\uace0\uc6a9\ub178\ub3d9\ubd80 \uacf5\uc9c0", "summary": "\uc804\ubb38\uc784\uae30\uc81c \uac00\uae09(\uc778\uacf5\uc9c0\ub2a5) \uacf5\ubb34\uc6d0 \uacbd\ucc44\uc2dc\ud5d8 \uc11c\ub958\uc804\ud615 \ud569\uaca9\uc790 \ubc0f \uba74\uc811\uc2dc\ud5d8 \uc77c\uc815 \uacf5\uace0", "title": "\uc804\ubb38\uc784\uae30\uc81c \uac00\uae09(\uc778\uacf5\uc9c0\ub2a5) \uacf5\ubb34\uc6d0 \uacbd\ucc44\uc2dc\ud5d8 \uc11c\ub958\uc804\ud615 \ud569\uaca9\uc790 \ubc0f \uba74\uc811\uc2dc\ud5d8 \uc77c\uc815 \uacf5\uace0"}, {"collected_at": "2026-11-24T09:08:38.101289+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584800", "matched_entities": {"BenefitProgramId": ["584800"], "BenefitProgramKey": ["id:584800"], "EligibilityRegion": ["\uc11c\uc6b8", "\uacbd\uae30", "\uad11\uc8fc"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-19T13:25:26+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc77c\uc815\ubcc0\uacbd)(#\uad11\uc8fc)\u0027\uacbd\uae30\uad11\uc8fc\uc5ed \ub86f\ub370\uce90\uc2ac \uc2dc\uadf8\ub2c8\ucc98 2\ub2e8\uc9c0\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 6\ucc28 \ubcc0\uacbd \uc548\ub0b4", "title": "(\uc77c\uc815\ubcc0\uacbd)(#\uad11\uc8fc)\u0027\uacbd\uae30\uad11\uc8fc\uc5ed \ub86f\ub370\uce90\uc2ac \uc2dc\uadf8\ub2c8\ucc98 2\ub2e8\uc9c0\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 6\ucc28 \ubcc0\uacbd \uc548\ub0b4"}, {"collected_at": "2026-11-20T06:29:25.094528+00:00", "link": "https://federalnewsnetwork.com/federal-insights/2026/11/fehb-and-medicare-understanding-how-they-work-together-in-retirement", "matched_entities": {"BenefitProgramId": ["fehb-and-medicare-understanding-how-they-work-together-in-retirement"], "BenefitProgramKey": ["id:fehb-and-medicare-understanding-how-they-work-together-in-retirement"], "GovernmentPolicy": ["program"], "SocialWelfare": ["medicare"]}, "published_at": "2026-11-19T12:58:11+00:00", "source": "Federal News Network", "summary": "With updates to the FEHB program and new requirements for certain retirees, it\u2019s more important than ever to understand how FEHB and Medicare work together.", "title": "FEHB and Medicare: Understanding how they work together in retirement"}, {"collected_at": "2026-11-25T07:45:03.555119+00:00", "link": "https://kffhealthnews.org/aging/social-security-early-claims-spike-doge-new-old-age", "matched_entities": {"BenefitProgramId": ["social-security-early-claims-spike-doge-new-old-age"], "BenefitProgramKey": ["id:social-security-early-claims-spike-doge-new-old-age"], "SocialWelfare": ["social security"]}, "published_at": "2026-11-19T10:00:00+00:00", "source": "KFF Health News", "summary": "Experts point to well-publicized turmoil at the Social Security Administration last year as a potential spark.", "title": "What\u2019s Behind a Recent Spike in Early Social Security Claims?"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://taxfoundation.org/oped/congress-trump-tariffs-affordability-inflation", "matched_entities": {"BenefitProgramId": ["congress-trump-tariffs-affordability-inflation"], "BenefitProgramKey": ["id:congress-trump-tariffs-affordability-inflation"], "SocialWelfare": ["social security"]}, "published_at": "2026-11-17T22:21:47+00:00", "source": "Tax Foundation", "summary": "This new Congress will need to address the existing policies hurting affordability, prepare for Social Security insolvency in 2032, and build a regulatory environment that allows American dynamism to flourish.", "title": "Washington Can Start Delivering on Affordability by Rejecting Trump\u2019s Tariffs"}, {"collected_at": "2026-11-26T07:35:49.693869+00:00", "link": "https://news.seoul.go.kr/economy/archives/575212", "matched_entities": {"ApplicationDeadline": ["2026-11-16"], "ApplicationStartDate": ["2028-09-24"], "BenefitProgramId": ["575212"], "BenefitProgramKey": ["id:575212"], "EligibilityRegion": ["\uc11c\uc6b8"], "OperationalEvent": ["application_deadline", "eligibility_rule"], "SocialWelfare": ["\ubcf5\uc9c0", "\ubcf5\uc9c0\uad00"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\uc811\uc218"]}, "published_at": "2026-11-17T18:08:24+00:00", "source": "\uc11c\uc6b8\uc2dc \uacbd\uc81c", "summary": "\uc11c\uc6b8\uc2dc \uac15\ubd81\ub178\ub3d9\uc790\ubcf5\uc9c0\uad00 3\uce35 302\ud638(38.62\u33a1) \uc785\uc8fc\ub2e8\uccb4\ub97c \ubaa8\uc9d1 \uc911\uc785\ub2c8\ub2e4. \uc0ac\uc6a9 \uae30\uac04\uc740 \uc785\uc8fc\uc77c\ubd80\ud130 2028\ub144 9\uc6d4 24\uc77c\uae4c\uc9c0\uc785\ub2c8\ub2e4. \ub178\ub3d9\uc790 \ubcf5\uc9c0\u00b7\uad8c\uc775 \ud65c\ub3d9\uc744 \ud558\uba70 \uc0ac\uc5c5\uc790\ub4f1\ub85d\uc774 \uc788\ub294 \ub2e8\uccb4\ub9cc \uc2e0\uccad \ub300\uc0c1\uc785\ub2c8\ub2e4. \uc811\uc218\ub294 11\uc6d4 16~30\uc77c\uae4c\uc9c0\ub85c, \ubb38\uc758\ub294 \uac15\ubd81\ub178\ub3d9\uc790\ubcf5\uc9c0\uad00 02-2088-0567\uc785\ub2c8\ub2e4.", "title": "\uac15\ubd81\ub178\ub3d9\uc790\ubcf5\uc9c0\uad00 \uc785\uc8fc\ub2e8\uccb4 \ubaa8\uc9d1"}, {"collected_at": "2026-11-24T09:08:38.101289+00:00", "link": "https://news.seoul.go.kr/gov/archives/582009", "matched_entities": {"ApplicationDeadline": ["2026-11-26"], "ApplicationStartDate": ["2026-11-23"], "BenefitProgramId": ["582009"], "BenefitProgramKey": ["id:582009"], "CultureLeisure": ["\uc5ec\ud589"], "EligibilityRegion": ["\uc11c\uc6b8"], "OperationalEvent": ["application_deadline", "eligibility_rule"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\uc120\uc815", "\uc2e0\uccad\uae30\uac04", "\ucd94\ucca8"]}, "published_at": "2026-11-16T11:06:27+00:00", "source": "\uc11c\uc6b8\uc2dc \uc815\ucc45\ub274\uc2a4", "summary": "\uc2e0\uccad\uae30\uac04 : 11. 23.(\uc6d4) 10:00 ~ / \uc5ec\ud589\uae30\uac04 : 12. 5.(\ud1a0) ~ 12. 6.(\uc77c) \u203b \ucd94\ucca8\uc81c\ub85c \ucc38\uac00\uc790 \uc120\uc815, 11.26.(\ubaa9)\ubd80\ud130 \uc120\uc815\uc790 \ub300\uc0c1 \uac1c\ubcc4 \uc5f0\ub77d \uc608\uc815", "title": "[\uad34\uc0b0\uc11c\uc6b8\ub18d\uc7a5] \uc790\uc5f0\uc6b8\ub9bc \ub9db\uc758\uc6b8\ub9bc-\uae40\uc7a5\ud3b8-2 (261205)"}, {"collected_at": "2026-11-23T06:40:28.621678+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584778", "matched_entities": {"BenefitProgramId": ["584778"], "BenefitProgramKey": ["id:584778"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-18T16:11:56+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\ucd94\ucc9c\uba85\ub2e8)(#\ubd80\ucc9c)\u0027\ubd80\ucc9c\ub300\uc7a5 \ud558\uc6b0\uc2a4\ud1a0\ub9ac \ub514\uc13c\ud2b8\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8", "title": "(\ucd94\ucc9c\uba85\ub2e8)(#\ubd80\ucc9c)\u0027\ubd80\ucc9c\ub300\uc7a5 \ud558\uc6b0\uc2a4\ud1a0\ub9ac \ub514\uc13c\ud2b8\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8"}, {"collected_at": "2026-11-23T06:40:28.621678+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584774", "matched_entities": {"BenefitProgramId": ["584774"], "BenefitProgramKey": ["id:584774"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-18T13:44:42+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\ucd94\ucc9c\uba85\ub2e8)(#\uc548\uc0b0)\u0027\uc544\ub974\ubba4\uc81c\uc790\uc774\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8", "title": "(\ucd94\ucc9c\uba85\ub2e8)(#\uc548\uc0b0)\u0027\uc544\ub974\ubba4\uc81c\uc790\uc774\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8"}, {"collected_at": "2026-11-23T06:40:28.621678+00:00", "link": "https://kffhealthnews.org/medicaid/medicaid-cms-native-american-traditional-healing-state-waivers-utah-maine", "matched_entities": {"BenefitProgramId": ["medicaid-cms-native-american-traditional-healing-state-waivers-utah-maine"], "BenefitProgramKey": ["id:medicaid-cms-native-american-traditional-healing-state-waivers-utah-maine"], "SocialWelfare": ["medicaid"]}, "published_at": "2026-11-18T10:00:00+00:00", "source": "KFF Health News", "summary": "The administration\u2019s expansion of traditional healing for Native Americans comes as it shrinks Medicaid in other ways, including through restrictions that will affect access to care for an estimated 7.5 million people.", "title": "Trump Administration OKs Native Traditional Healing for Two States\u2019 Medicaid Programs"}, {"collected_at": "2026-11-23T06:40:28.621678+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584760", "matched_entities": {"BenefitProgramId": ["584760"], "BenefitProgramKey": ["id:584760"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-17T16:00:52+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\ucd94\ucc9c\uba85\ub2e8)(#\uc601\ub4f1\ud3ec\uad6c)\u0027\ud574\ub9c1\ud134 \ud50c\ub808\uc774\uc2a4 \ubb38\ub798\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8", "title": "(\ucd94\ucc9c\uba85\ub2e8)(#\uc601\ub4f1\ud3ec\uad6c)\u0027\ud574\ub9c1\ud134 \ud50c\ub808\uc774\uc2a4 \ubb38\ub798\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uba85\ub2e8"}, {"collected_at": "2026-11-23T06:40:28.621678+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584737", "matched_entities": {"ApplicationDeadline": ["2026-12-01"], "ApplicationStartDate": ["2026-11-27"], "BenefitProgramId": ["584737"], "BenefitProgramKey": ["id:584737"], "EligibilityLifeStage": ["\uc601\uc720\uc544"], "EligibilityRegion": ["\uc11c\uc6b8"], "FamilySupport": ["\uc5b4\ub9b0\uc774\uc9d1", "\uc720\uce58\uc6d0"], "GovernmentPolicy": ["\uc548\ub0b4"], "OperationalEvent": ["application_deadline", "eligibility_rule"], "SourceSignal": ["eligibility_rule"], "SubsidyProgram": ["\uc120\ucc29\uc21c"], "TargetDemographic": ["\uc601\uc720\uc544", "\uc720\uc544"]}, "published_at": "2026-11-17T10:59:53+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "\uc11c\uc6b8\uc2dc \uc2dc\ubbfc\uac74\uac15\uad6d \uac10\uc5fc\ubcd1\uad00\ub9ac\uacfc\uc5d0\uc11c\ub294 \uc601\uc720\uc544 \uc2dc\uc124\uacfc \uac00\uc815\uc758 \ub178\ub85c\ubc14\uc774\ub7ec\uc2a4 \uc608\ubc29 \uc5ed\ub7c9 \uac15\ud654\ub97c \uc704\ud574 \uad50\uc721\uc790\ub8cc 6\uc885\uc744 \uc81c\uc791\ud558\uc600\uc2b5\ub2c8\ub2e4. \uc2e0\uccad \ub300\uc0c1\uc740 \uc11c\uc6b8\uc2dc \uc18c\uc7ac \uc5b4\ub9b0\uc774\uc9d1\u00b7\uc720\uce58\uc6d0 \ubc0f \ud559\ubd80\ubaa8\uc785\ub2c8\ub2e4. \uc790\ub8cc\ub294 \uc9c0\uce68\uc11c 1\uc885, \ud3ec\uc2a4\ud130 2\uc885, \uccad\uc18c\u00b7\uc18c\ub3c5 \uc808\ucc28 2\uc885, \ub9ac\ud50c\ub9bf 1\uc885\uc73c\ub85c \uad6c\uc131\ub418\uc5b4 \uc788\uc2b5\ub2c8\ub2e4. QR\ucf54\ub4dc\ub97c \ud1b5\ud574 11\uc6d4 27\uc77c\uae4c\uc9c0 \uc2e0\uccad\uc11c\ub97c \uc81c\ucd9c\ud558\uc2dc\uba74 12\uc6d4 1\uc77c\ubd80\ud130 \uae30\uc7ac\ud558\uc2e0 \uc8fc\uc18c\ub85c \uc21c\ucc28 \ubc30\uc1a1\ub429\ub2c8\ub2e4. \uc218\ub7c9\uc774 \uc81c\ud55c\ub418\uc5b4 \uc120\ucc29\uc21c \ubc30\ubd80\ud558\uba70, \uc790\ub8cc\ub294 \ucd9c\ucc98 \ud45c\uc2dc \ud6c4 \ube44\uc601\ub9ac\uc801 \uacf5\uc720\ub9cc \uac00\ub2a5\ud568\uc744 \uc548\ub0b4\ub4dc\ub9bd\ub2c8\ub2e4.", "title": "\ub178\ub85c\ubc14\uc774\ub7ec\uc2a4 \uac10\uc5fc\uc99d \uc608\ubc29\u00b7\uad00\ub9ac \uad50\uc721\uc790\ub8cc \uc2e0\uccad \uc548\ub0b4"}, {"collected_at": "2026-11-23T06:40:28.621678+00:00", "link": "https://news.seoul.go.kr/economy/archives/575191", "matched_entities": {"ApplicationDeadline": ["2026-11-28"], "BenefitProgramId": ["575191"], "BenefitProgramKey": ["id:575191"], "EligibilityRegion": ["\uc11c\uc6b8"], "EmploymentBenefit": ["\ucc44\uc6a9"], "GovernmentPolicy": ["\uacf5\uace0"], "OperationalEvent": ["application_deadline"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\uc9c0\uc6d0\uc0ac\uc5c5", "\ub9c8\uac10"]}, "published_at": "2026-11-16T10:21:09+00:00", "source": "\uc11c\uc6b8\uc2dc \uacbd\uc81c", "summary": "\uc11c\uc6b8\uc8fc\uc5bc\ub9ac\uc9c0\uc6d0\uc13c\ud130\ub294 2026\ub144 2\ucc28 \uacf5\uace0\ub85c \uacfc\uc7a5\uae09 \uacc4\uc57d\uc9c1 1\uba85\uc744 \ubaa8\uc9d1 \uc911\uc785\ub2c8\ub2e4. \uc8fc\uc694 \uc5c5\ubb34\ub294 \uc8fc\uc5bc\ub9ac \uc9c0\uc6d0\uc0ac\uc5c5 \uae30\ud68d\u00b7\uc608\uc0b0\u00b7\uc131\uacfc\uad00\ub9ac\uc774\uba70 \uadfc\ubb34\ub294 \ud654~\ud1a0 10~19\uc2dc\uc774\uace0 \uc6d4\uae09\uc740 \uc138\uc804 315\ub9cc6,900\uc6d0\uc785\ub2c8\ub2e4. \uc9c0\uc6d0 \ub9c8\uac10\uc740 11\uc6d4 28\uc77c 14\uc2dc\uc774\uba70 \uc81c\ucd9c\ucc98\ub294 meet@sjc.or.kr\uc785\ub2c8\ub2e4.", "title": "2026\ub144\ub3c4 2\ucc28 \uc11c\uc6b8\uc8fc\uc5bc\ub9ac\uc9c0\uc6d0\uc13c\ud130 \uc9c1\uc6d0(\uacfc\uc7a5\uae09) \ucc44\uc6a9\uacf5\uace0"}, {"collected_at": "2026-11-22T05:52:48.689787+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584715", "matched_entities": {"BenefitProgramId": ["584715"], "BenefitProgramKey": ["id:584715"], "EligibilityRegion": ["\uc11c\uc6b8"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-17T09:01:59+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc77c\uc815\ubcc0\uacbd)(#\uc131\ubd81\uad6c)\u0027\ud574\ub9c1\ud134 \ud50c\ub808\uc774\uc2a4 \uc7a5\uc704\ud3ec\ub808\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 1\ucc28 \ubcc0\uacbd \uc548\ub0b4", "title": "(\uc77c\uc815\ubcc0\uacbd)(#\uc131\ubd81\uad6c)\u0027\ud574\ub9c1\ud134 \ud50c\ub808\uc774\uc2a4 \uc7a5\uc704\ud3ec\ub808\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 1\ucc28 \ubcc0\uacbd \uc548\ub0b4"}, {"collected_at": "2026-11-22T05:52:48.689787+00:00", "link": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100574", "matched_entities": {"BenefitProgramKey": ["title:\uace0\uc6a9\ub178\ub3d9\ubd80-\uacf5\uc9c0:\uadfc\ub85c\ubcf5\uc9c0\uacf5\ub2e8-\ubcc4\uc815\uc9c1-\ubcf8\ubd80\uc7a5-\ubaa8\uc9d1\uacf5\uace0-\uad11\uc8fc\uc9c0\uc5ed-\ub300\uad6c\uc9c0\uc5ed"], "EligibilityRegion": ["\ub300\uad6c", "\uad11\uc8fc"], "GovernmentPolicy": ["\uacf5\uace0"], "OperationalEvent": ["eligibility_rule"], "SocialWelfare": ["\ubcf5\uc9c0"], "SourceSignal": ["support_program_notice"], "SubsidyProgram": ["\ubaa8\uc9d1\uacf5\uace0"]}, "published_at": "2026-11-16T18:15:03+00:00", "source": "\uace0\uc6a9\ub178\ub3d9\ubd80 \uacf5\uc9c0", "summary": "\uadfc\ub85c\ubcf5\uc9c0\uacf5\ub2e8 \ubcc4\uc815\uc9c1 \ubcf8\ubd80\uc7a5 \ubaa8\uc9d1\uacf5\uace0(\uad11\uc8fc\uc9c0\uc5ed, \ub300\uad6c\uc9c0\uc5ed)", "title": "\uadfc\ub85c\ubcf5\uc9c0\uacf5\ub2e8 \ubcc4\uc815\uc9c1 \ubcf8\ubd80\uc7a5 \ubaa8\uc9d1\uacf5\uace0(\uad11\uc8fc\uc9c0\uc5ed, \ub300\uad6c\uc9c0\uc5ed)"}, {"collected_at": "2026-11-22T05:52:48.689787+00:00", "link": "https://news.seoul.go.kr/economy/archives/575178", "matched_entities": {"ApplicationChannel": ["visit"], "ApplicationDeadline": ["2026-11-06"], "ApplicationStartDate": ["2026-11-23"], "BenefitProgramId": ["575178"], "BenefitProgramKey": ["id:575178"], "Eligibility": ["\uc8fc\uc18c\uc9c0", "\uc7ac\uc0b0", "\ubd80\uc591\uac00\uc871"], "EligibilityAgeCondition": ["18+"], "EligibilityIncomeCondition": ["\uc18c\ub4dd", "\uc7ac\uc0b0"], "EligibilityRegion": ["\uc11c\uc6b8"], "EmploymentBenefit": ["\uc77c\uc790\ub9ac", "\uad6c\uc9c1"], "GovernmentPolicy": ["\ud655\ub300"], "OperationalEvent": ["application_deadline", "eligibility_rule"], "SocialWelfare": ["\ub3cc\ubd04"], "SourceSignal": ["support_program_notice"]}, "published_at": "2026-11-11T14:02:43+00:00", "source": "\uc11c\uc6b8\uc2dc \uacbd\uc81c", "summary": "2027\ub144 \uc0c1\ubc18\uae30 \u2018\ub3d9\ud589\uc77c\uc790\ub9ac\u2019 \uc2e0\uccad\uc740 11\uc6d4 6~23\uc77c \uc8fc\uc18c\uc9c0 \ub3d9\uc8fc\ubbfc\uc13c\ud130\uc5d0\uc11c \uc774\ub8e8\uc5b4\uc9d1\ub2c8\ub2e4. \ubaa8\uc9d1 \uaddc\ubaa8\ub294 6,500\uba85\uc774\uba70 \uc548\uc804\u00b7\ub3cc\ubd04\u00b7\ub514\uc9c0\ud138\u00b7\ud658\uacbd\u00b7\uacbd\uc81c\u00b7\ud65c\ub825 6\uac1c \ubd84\uc57c 758\uac1c \uc0ac\uc5c5 \ucc38\uc5ec\uc785\ub2c8\ub2e4. \uad6c\uc9c1\ub4f1\ub85d \ud655\uc778\uc99d \ud3d0\uc9c0, \ubd80\uc591\uac00\uc871 \uc810\uc218 \ud655\ub300, \uc77c\uae09 6\ub9cc5\ucc9c \uc6d0, \uc18c\ub4dd 85%\u00b7\uc7ac\uc0b0 4.99\uc5b5 \uc774\ud558 \ub9cc 18\uc138 \uc774\uc0c1\uc774 \ub300\uc0c1\uc785\ub2c8\ub2e4.", "title": "2027\ub144 \uc0c1\ubc18\uae30 \uc11c\uc6b8 \ub3d9\ud589\uc77c\uc790\ub9ac 6,500\uc5ec \uba85 \ubaa8\uc9d1\u202611\uc6d4 23\uc77c\uae4c\uc9c0 \uc2e0\uccad"}, {"collected_at": "2026-11-21T06:20:49.880096+00:00", "link": "https://kffhealthnews.org/insurance/healthq-moving-new-state-new-healthcare-access-insurance", "matched_entities": {"BenefitProgramId": ["healthq-moving-new-state-new-healthcare-access-insurance"], "BenefitProgramKey": ["id:healthq-moving-new-state-new-healthcare-access-insurance"], "HealthBenefit": ["health insurance"]}, "published_at": "2026-11-17T10:00:00+00:00", "source": "KFF Health News", "summary": "New apartment, new friends, new \u2026 healthcare hurdles? Medical matters might not be at the top of your list when moving to a new state. But planning ahead will help you get the health insurance, doctors, and healthcare access you need.", "title": "Moving to a New State? Your Healthcare Might Get More Complicated"}, {"collected_at": "2026-11-20T06:29:25.094528+00:00", "link": "https://news.seoul.go.kr/welfare/archives/584709", "matched_entities": {"BenefitProgramId": ["584709"], "BenefitProgramKey": ["id:584709"], "EligibilityRegion": ["\uc11c\uc6b8", "\uacbd\uae30", "\uad11\uc8fc"], "EligibilityTargetGroup": ["\uc7a5\uc560\uc778"], "GovernmentPolicy": ["\uc548\ub0b4"], "HousingAssistance": ["\ud2b9\ubcc4\uacf5\uae09"], "SourceSignal": ["eligibility_rule"], "TargetDemographic": ["\uc7a5\uc560\uc778"]}, "published_at": "2026-11-16T16:46:07+00:00", "source": "\uc11c\uc6b8\uc2dc \ubcf5\uc9c0", "summary": "(\uc77c\uc815\ubcc0\uacbd)(#\uad11\uc8fc)\u0027\uacbd\uae30\uad11\uc8fc\uc5ed \ub86f\ub370\uce90\uc2ac \uc2dc\uadf8\ub2c8\ucc98 2\ub2e8\uc9c0\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 5\ucc28 \ubcc0\uacbd \uc548\ub0b4", "title": "(\uc77c\uc815\ubcc0\uacbd)(#\uad11\uc8fc)\u0027\uacbd\uae30\uad11\uc8fc\uc5ed \ub86f\ub370\uce90\uc2ac \uc2dc\uadf8\ub2c8\ucc98 2\ub2e8\uc9c0\u0027 \uc11c\uc6b8\uc2dc \uc7a5\uc560\uc778 \ud2b9\ubcc4\uacf5\uae09 \uae30\uad00\ucd94\ucc9c \uc77c\uc815 5\ucc28 \ubcc0\uacbd \uc548\ub0b4"}, {"collected_at": "2026-11-20T06:29:25.094528+00:00", "link": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542", "matched_entities": {"BenefitProgramKey": ["title:\uace0\uc6a9\ub178\ub3d9\ubd80-\uacf5\uc9c0:\uc77c\ubc18\uc9c1-\uacf5\ubb34\uc6d0-\ud589\uc8157\uae09-\uacbd\ub825\uacbd\uc7c1\ucc44\uc6a9\uc2dc\ud5d8-\uc11c\ub958\uc804\ud615-\ud569\uaca9\uc790-\ubc0f-\uba74\uc811\uc2dc\ud5d8-\uacf5\uace0"], "EmploymentBenefit": ["\ucc44\uc6a9"], "GovernmentPolicy": ["\uacf5\uace0"], "OperationalEvent": ["selection_result"], "SelectionProgramTitle": ["\uc77c\ubc18\uc9c1 \uacf5\ubb34\uc6d0(\ud589\uc8157\uae09) \uacbd\ub825\uacbd\uc7c1\ucc44\uc6a9\uc2dc\ud5d8 \uc11c\ub958\uc804\ud615"], "SourceSignal": ["support_program_notice"]}, "published_at": "2026-11-16T14:01:02+00:00", "source": "\uace0\uc6a9\ub178\ub3d9\ubd80 \uacf5\uc9c0", "summary": "\uc77c\ubc18\uc9c1 \uacf5\ubb34\uc6d0(\ud589\uc8157\uae09) \uacbd\ub825\uacbd\uc7c1\ucc44\uc6a9\uc2dc\ud5d8 \uc11c\ub958\uc804\ud615 \ud569\uaca9\uc790 \ubc0f \uba74\uc811\uc2dc\ud5d8 \uacf5\uace0", "title": "\uc77c\ubc18\uc9c1 \uacf5\ubb34\uc6d0(\ud589\uc8157\uae09) \uacbd\ub825\uacbd\uc7c1\ucc44\uc6a9\uc2dc\ud5d8 \uc11c\ub958\uc804\ud615 \ud569\uaca9\uc790 \ubc0f \uba74\uc811\uc2dc\ud5d8 \uacf5\uace0"}, {"collected_at": "2026-11-20T06:29:25.094528+00:00", "link": "https://kffhealthnews.org/medicaid/democrats-medicaid-expansion-governors-lance-bottoms-hinojosa-crowley-georgia-texas-wisconsin", "matched_entities": {"BenefitProgramId": ["democrats-medicaid-expansion-governors-lance-bottoms-hinojosa-crowley-georgia-texas-wisconsin"], "BenefitProgramKey": ["id:democrats-medicaid-expansion-governors-lance-bottoms-hinojosa-crowley-georgia-texas-wisconsin"], "Eligibility": ["low-income"], "GovernmentPolicy": ["program"], "HealthBenefit": ["health insurance"], "SocialWelfare": ["medicaid"]}, "published_at": "2026-11-16T10:00:00+00:00", "source": "KFF Health News", "summary": "A handful of states that haven\u2019t fully expanded Medicaid just elected Democratic candidates for governor who campaigned on broadening access to the government health insurance program for low-income people. But doing so won\u2019t be so simple given recent changes to Medicaid, including looming work requirements.", "title": "These Governors-Elect Campaigned on Expanding Medicaid. It Won\u2019t Be Easy."}]</script>
+      <script id="entities-data" type="application/json">{"ApplicationChannel": 3, "ApplicationDeadline": 7, "ApplicationStartDate": 5, "BenefitProgramId": 42, "BenefitProgramKey": 47, "CultureLeisure": 1, "Eligibility": 6, "EligibilityAgeCondition": 3, "EligibilityIncomeCondition": 2, "EligibilityLifeStage": 3, "EligibilityRegion": 31, "EligibilityTargetGroup": 17, "EmploymentBenefit": 6, "FamilySupport": 4, "GovernmentPolicy": 26, "HealthBenefit": 8, "HousingAssistance": 15, "OperationalEvent": 22, "SelectionProgramTitle": 4, "SocialWelfare": 18, "SourceSignal": 32, "SubsidyProgram": 22, "TargetDemographic": 21}</script>
+
+
+      <script src="static/chart.min.js"></script>
+      <script>
+        if (typeof Chart === 'undefined') {
+          var s = document.createElement('script');
+          s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js';
+          document.head.appendChild(s);
+        }
+      </script>
+      <script>
+        (function () {
+          const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+          function readJson(id, fallback) {
+            const el = document.getElementById(id);
+            if (!el) return fallback;
+            const txt = (el.textContent || "").trim();
+            if (!txt) return fallback;
+            try { return JSON.parse(txt); } catch (e) { return fallback; }
+          }
+
+          const articles = readJson("articles-data", []);
+          const entityCountsRaw = readJson("entities-data", {});
+
+          function normalizeEntityPairs(raw) {
+            if (!raw) return [];
+            if (Array.isArray(raw)) {
+              if (raw.length && Array.isArray(raw[0]) && raw[0].length >= 2) {
+                return raw.map(p => [String(p[0]), Number(p[1]) || 0]);
+              }
+              if (raw.length && typeof raw[0] === "object") {
+                return raw.map(o => [String(o.name || o.entity || ""), Number(o.count || o.value || 0) || 0]).filter(p => p[0]);
+              }
+              return [];
+            }
+            if (typeof raw === "object") {
+              return Object.entries(raw).map(([k, v]) => [String(k), Number(v) || 0]);
+            }
+            return [];
+          }
+
+          function getArticleDate(a) {
+            const v = a && (a.published_at || a.published || a.date || a.datetime || a.publishedAt || a.publishedAtISO);
+            if (!v) return null;
+
+            const s = String(v);
+            const direct = new Date(s);
+            if (!isNaN(direct.getTime())) return direct;
+
+            const m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+            if (m) {
+              const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+              if (!isNaN(d.getTime())) return d;
+            }
+            return null;
+          }
+
+          function toDayKey(d) {
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, "0");
+            const day = String(d.getDate()).padStart(2, "0");
+            return y + "-" + m + "-" + day;
+          }
+
+          function buildTimeline(items) {
+            const map = new Map();
+            for (const a of items) {
+              const d = getArticleDate(a);
+              if (!d) continue;
+              const k = toDayKey(d);
+              map.set(k, (map.get(k) || 0) + 1);
+            }
+            const keys = Array.from(map.keys()).sort();
+            return { labels: keys, values: keys.map(k => map.get(k) || 0) };
+          }
+
+          function buildSources(items) {
+            const map = new Map();
+            for (const a of items) {
+              const s = (a && (a.source || a.source_name || a.publisher || a.feed || a.domain)) ? String(a.source || a.source_name || a.publisher || a.feed || a.domain) : "unknown";
+              const key = s.trim() || "unknown";
+              map.set(key, (map.get(key) || 0) + 1);
+            }
+            const pairs = Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+            const top = pairs.slice(0, 10);
+            const rest = pairs.slice(10).reduce((acc, p) => acc + p[1], 0);
+            const labels = top.map(p => p[0]);
+            const values = top.map(p => p[1]);
+            if (rest > 0) { labels.push("other"); values.push(rest); }
+            return { labels, values };
+          }
+
+          function palette(n) {
+            const base = [
+              "rgba(51,214,197,.86)",
+              "rgba(25,167,195,.78)",
+              "rgba(246,200,76,.86)",
+              "rgba(120,162,255,.78)",
+              "rgba(255,91,110,.74)",
+              "rgba(160,118,255,.70)",
+              "rgba(95,222,132,.70)",
+              "rgba(255,154,74,.70)",
+              "rgba(226,93,255,.62)",
+              "rgba(233,238,251,.46)"
+            ];
+            const out = [];
+            for (let i = 0; i < n; i++) out.push(base[i % base.length]);
+            return out;
+          }
+
+          function chartDefaults() {
+            return {
+              color: "rgba(233,238,251,.78)",
+              borderColor: "rgba(150,190,255,.14)",
+              font: { family: '"Pretendard Variable","Pretendard",system-ui,-apple-system,Segoe UI,sans-serif', size: 12 },
+              animation: reducedMotion ? false : { duration: 650, easing: "easeOutQuart" }
+            };
+          }
+
+          if (!window.Chart) return;
+
+          Chart.defaults.maintainAspectRatio = false;
+          Chart.defaults.responsive = true;
+          Chart.defaults.plugins.legend.labels.boxWidth = 10;
+          Chart.defaults.plugins.legend.labels.boxHeight = 10;
+          Chart.defaults.plugins.legend.labels.usePointStyle = true;
+
+          const defaults = chartDefaults();
+          Chart.defaults.color = defaults.color;
+          Chart.defaults.borderColor = defaults.borderColor;
+          Chart.defaults.font = defaults.font;
+          Chart.defaults.animation = defaults.animation;
+
+          const entityPairs = normalizeEntityPairs(entityCountsRaw)
+            .filter(p => p[0] && Number.isFinite(p[1]))
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 12);
+
+          const timeline = buildTimeline(articles);
+          const sources = buildSources(articles);
+
+          // 1. Entity Distribution
+          const entityCanvas = document.getElementById("chartEntities");
+          if (entityCanvas && entityPairs.length) {
+            const labels = entityPairs.map(p => p[0]);
+            const values = entityPairs.map(p => p[1]);
+            new Chart(entityCanvas.getContext("2d"), {
+              type: "bar",
+              data: {
+                labels,
+                datasets: [{
+                  label: "count",
+                  data: values,
+                  backgroundColor: "rgba(51,214,197,.35)",
+                  borderColor: "rgba(51,214,197,.72)",
+                  borderWidth: 1.2,
+                  borderRadius: 10,
+                  maxBarThickness: 44
+                }]
+              },
+              options: {
+                plugins: {
+                  legend: { display: false },
+                  tooltip: {
+                    backgroundColor: "rgba(10,16,30,.92)",
+                    borderColor: "rgba(150,190,255,.20)",
+                    borderWidth: 1,
+                    titleColor: "rgba(233,238,251,.92)",
+                    bodyColor: "rgba(233,238,251,.84)"
+                  }
+                },
+                scales: {
+                  x: { grid: { display: false }, ticks: { color: "rgba(233,238,251,.68)" } },
+                  y: { beginAtZero: true, grid: { color: "rgba(150,190,255,.10)" }, ticks: { color: "rgba(233,238,251,.64)" } }
+                }
+              }
+            });
+          }
+
+          // 2. Timeline
+          const timelineCanvas = document.getElementById("chartTimeline");
+          if (timelineCanvas && timeline.labels.length) {
+            new Chart(timelineCanvas.getContext("2d"), {
+              type: "line",
+              data: {
+                labels: timeline.labels,
+                datasets: [{
+                  label: "articles/day",
+                  data: timeline.values,
+                  tension: 0.28,
+                  fill: true,
+                  borderColor: "rgba(246,200,76,.84)",
+                  backgroundColor: "rgba(246,200,76,.12)",
+                  pointRadius: 2.8,
+                  pointHoverRadius: 4.2,
+                  pointBackgroundColor: "rgba(246,200,76,.84)",
+                  pointBorderColor: "rgba(10,16,30,.92)",
+                  pointBorderWidth: 1.2
+                }]
+              },
+              options: {
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                },
+                scales: {
+                  x: { grid: { display: false }, ticks: { color: "rgba(233,238,251,.68)", maxRotation: 0, autoSkip: true, maxTicksLimit: 9 } },
+                  y: { beginAtZero: true, grid: { color: "rgba(150,190,255,.10)" }, ticks: { color: "rgba(233,238,251,.64)" } }
+                }
+              }
+            });
+          }
+
+          // 3. Source Distribution
+          const sourcesCanvas = document.getElementById("chartSources");
+          if (sourcesCanvas && sources.labels.length) {
+            const colors = palette(sources.labels.length);
+            new Chart(sourcesCanvas.getContext("2d"), {
+              type: "doughnut",
+              data: {
+                labels: sources.labels,
+                datasets: [{
+                  label: "articles",
+                  data: sources.values,
+                  backgroundColor: colors.map(c => c.replace(")", ", .24)").replace("rgba", "rgba")),
+                  borderColor: colors.map(c => c.replace(")", ", .80)").replace("rgba", "rgba")),
+                  borderWidth: 1.1,
+                  hoverOffset: 6
+                }]
+              },
+              options: {
+                cutout: "62%",
+                plugins: {
+                  legend: { position: "bottom", labels: { color: "rgba(233,238,251,.72)", padding: 14 } },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                }
+              }
+            });
+          }
+
+          // 4. Data Freshness
+          function buildFreshness(items) {
+            const lagBuckets = { "0-1h": 0, "1-6h": 0, "6-24h": 0, "1-3d": 0, "3-7d": 0, "7d+": 0 };
+            for (const a of items) {
+              const pubStr = a && (a.published_at || a.published);
+              const collStr = a && a.collected_at;
+              if (!pubStr || !collStr) continue;
+              const pubDate = new Date(String(pubStr));
+              const collDate = new Date(String(collStr));
+              if (isNaN(pubDate.getTime()) || isNaN(collDate.getTime())) continue;
+              const lagMs = collDate.getTime() - pubDate.getTime();
+              const lagHours = lagMs / (1000 * 60 * 60);
+              if (lagHours < 1) lagBuckets["0-1h"]++;
+              else if (lagHours < 6) lagBuckets["1-6h"]++;
+              else if (lagHours < 24) lagBuckets["6-24h"]++;
+              else if (lagHours < 72) lagBuckets["1-3d"]++;
+              else if (lagHours < 168) lagBuckets["3-7d"]++;
+              else lagBuckets["7d+"]++;
+            }
+            return { labels: Object.keys(lagBuckets), values: Object.values(lagBuckets) };
+          }
+
+          const freshnessData = buildFreshness(articles);
+          const freshnessCanvas = document.getElementById("chartFreshness");
+          if (freshnessCanvas && freshnessData.labels.length) {
+            new Chart(freshnessCanvas.getContext("2d"), {
+              type: "bar",
+              data: {
+                labels: freshnessData.labels,
+                datasets: [{
+                  label: "articles",
+                  data: freshnessData.values,
+                  backgroundColor: "rgba(120,162,255,.35)",
+                  borderColor: "rgba(120,162,255,.72)",
+                  borderWidth: 1.2,
+                  borderRadius: 8,
+                  maxBarThickness: 44
+                }]
+              },
+              options: {
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                },
+                scales: {
+                  x: { grid: { display: false }, ticks: { color: "rgba(233,238,251,.68)" } },
+                  y: { beginAtZero: true, grid: { color: "rgba(150,190,255,.10)" }, ticks: { color: "rgba(233,238,251,.64)" } }
+                }
+              }
+            });
+          }
+
+          // 5. Entity Extraction Rate
+          function buildEntityRate(items) {
+            let withEntities = 0, withoutEntities = 0;
+            for (const a of items) {
+              const ents = a && a.matched_entities;
+              if (ents && Object.keys(ents).length > 0) withEntities++;
+              else withoutEntities++;
+            }
+            return { with: withEntities, without: withoutEntities };
+          }
+
+          const entityRateData = buildEntityRate(articles);
+          const entityRateCanvas = document.getElementById("chartEntityRate");
+          if (entityRateCanvas) {
+            const total = entityRateData.with + entityRateData.without;
+            const pct = total > 0 ? Math.round((entityRateData.with / total) * 100) : 0;
+            const plugin = {
+              id: "textCenter",
+              beforeDatasetsDraw(c) {
+                const { width, height } = c.chartArea;
+                const x = c.chartArea.left + width / 2;
+                const y = c.chartArea.top + height / 2;
+                c.ctx.save();
+                c.ctx.font = "bold 24px sans-serif";
+                c.ctx.fillStyle = "rgba(233,238,251,.8)";
+                c.ctx.textAlign = "center";
+                c.ctx.textBaseline = "middle";
+                c.ctx.fillText(pct + "%", x, y);
+                c.ctx.restore();
+              }
+            };
+            new Chart(entityRateCanvas.getContext("2d"), {
+              type: "doughnut",
+              data: {
+                labels: ["With entities", "Without entities"],
+                datasets: [{
+                  data: [entityRateData.with, entityRateData.without],
+                  backgroundColor: ["rgba(95,222,132,.35)", "rgba(255,91,110,.35)"],
+                  borderColor: ["rgba(95,222,132,.80)", "rgba(255,91,110,.80)"],
+                  borderWidth: 1.2
+                }]
+              },
+              options: {
+                cutout: "62%",
+                plugins: {
+                  legend: { position: "bottom", labels: { color: "rgba(233,238,251,.72)", padding: 14 } },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                }
+              },
+              plugins: [plugin]
+            });
+          }
+
+          // 6. Source Health
+          function buildSourceHealth(items) {
+            const map = new Map();
+            for (const a of items) {
+              const s = (a && (a.source || a.source_name || a.publisher || a.feed || a.domain)) ? String(a.source || a.source_name || a.publisher || a.feed || a.domain) : "unknown";
+              const key = s.trim() || "unknown";
+              map.set(key, (map.get(key) || 0) + 1);
+            }
+            const pairs = Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+            return { labels: pairs.map(p => p[0]), values: pairs.map(p => p[1]) };
+          }
+
+          const sourceHealthData = buildSourceHealth(articles);
+          const sourceHealthCanvas = document.getElementById("chartSourceHealth");
+          if (sourceHealthCanvas && sourceHealthData.labels.length) {
+            const colors = palette(sourceHealthData.labels.length);
+            new Chart(sourceHealthCanvas.getContext("2d"), {
+              type: "bar",
+              data: {
+                labels: sourceHealthData.labels,
+                datasets: [{
+                  label: "articles",
+                  data: sourceHealthData.values,
+                  backgroundColor: colors.map(c => c.replace(")", ", .35)").replace("rgba", "rgba")),
+                  borderColor: colors.map(c => c.replace(")", ", .80)").replace("rgba", "rgba")),
+                  borderWidth: 1.2,
+                  borderRadius: 8,
+                  maxBarThickness: 44
+                }]
+              },
+              options: {
+                indexAxis: "y",
+                plugins: {
+                  legend: { display: false },
+                  tooltip: { backgroundColor: "rgba(10,16,30,.92)", borderColor: "rgba(150,190,255,.20)", borderWidth: 1 }
+                },
+                scales: {
+                  x: { beginAtZero: true, grid: { color: "rgba(150,190,255,.10)" }, ticks: { color: "rgba(233,238,251,.64)" } },
+                  y: { grid: { display: false }, ticks: { color: "rgba(233,238,251,.68)" } }
+                }
+              }
+            });
+          }
+
+          // CSV Export
+          function exportCSV() {
+            const data = articles;
+            if (!data.length) { alert("No data to export"); return; }
+            const BOM = "\uFEFF";
+            const headers = ["Title","Source","Published","Summary","Entities","Link"];
+            const rows = [headers.join(",")];
+            for (const a of data) {
+              let ents = "";
+              if (a.matched_entities) {
+                ents = Object.entries(a.matched_entities).map(e => e[0] + ": " + (Array.isArray(e[1]) ? e[1].join(", ") : e[1])).join("; ");
+              }
+              let pub = a.published_at || a.published || "";
+              if (pub) { const d = new Date(String(pub)); if (!isNaN(d.getTime())) pub = d.toISOString().slice(0,10); }
+              rows.push([
+                csvEsc(a.title || ""), csvEsc(a.source || ""), csvEsc(String(pub)),
+                csvEsc(a.summary || ""), csvEsc(ents), csvEsc(a.link || "")
+              ].join(","));
+            }
+            const csv = BOM + rows.join("\n");
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const el = document.createElement("a");
+            const title = document.querySelector(".brand-title");
+            const catName = title ? title.textContent.trim().replace(/\s+/g, "_") : "report";
+            const dateStr = new Date().toISOString().slice(0,10);
+            el.href = url; el.download = catName + "_report_" + dateStr + ".csv";
+            document.body.appendChild(el); el.click(); document.body.removeChild(el);
+            URL.revokeObjectURL(url);
+          }
+
+          function csvEsc(s) {
+            if (s == null) return '""';
+            s = String(s);
+            if (s.indexOf(",") >= 0 || s.indexOf('"') >= 0 || s.indexOf("\n") >= 0)
+              return '"' + s.replace(/"/g, '""') + '"';
+            return s;
+          }
+
+          const exportBtn = document.getElementById("export-csv");
+          if (exportBtn) {
+            exportBtn.addEventListener("click", exportCSV);
+          }
+
+          // Entity pill click handler
+          document.querySelectorAll(".entity-pill").forEach(pill => {
+            pill.addEventListener("click", function() {
+              const entity = this.dataset.entity;
+              const cards = document.querySelectorAll("#articles-list .card");
+              cards.forEach(card => {
+                const cardEntities = JSON.parse(card.dataset.entities || "[]");
+                if (entity && !cardEntities.includes(entity)) {
+                  card.style.opacity = "0.3";
+                } else {
+                  card.style.opacity = "1";
+                }
+              });
+            });
+            pill.addEventListener("keydown", function(e) {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                this.click();
+              }
+            });
+          });
+        })();
+      </script>
+    </main>
+  </body>
+</html>
