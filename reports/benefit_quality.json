@@ -1,13 +1,13 @@
 {
   "category": "benefit",
-  "generated_at": "2026-11-26T07:35:50.585312+00:00",
+  "generated_at": "2026-11-27T07:33:31.371174+00:00",
   "operational_depth_note": "Deadline, eligibility, and selection-result signals are tracked separately; benefit summaries must not be treated as final application eligibility.",
   "summary": {
     "total_sources": 44,
     "tracked_sources": 7,
-    "fresh_sources": 4,
+    "fresh_sources": 3,
     "quiet_sources": 0,
-    "stale_sources": 0,
+    "stale_sources": 1,
     "missing_sources": 3,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
@@ -16,7 +16,7 @@
     "collection_error_count": 0,
     "unique_program_key_count": 17,
     "deadline_with_program_key_events": 7,
-    "support_program_notice_events": 13,
+    "support_program_notice_events": 12,
     "application_deadline_events": 7,
     "eligibility_rule_events": 11,
     "selection_result_events": 4
@@ -165,10 +165,10 @@
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
       "status": "fresh",
-      "article_count": 5,
-      "event_count": 5,
+      "article_count": 4,
+      "event_count": 4,
       "latest_event_at": "2026-11-25T17:32:23+00:00",
-      "age_days": 0.59,
+      "age_days": 1.58,
       "latest_title": "자산운용 전문위원 채용 최종합격자 공고",
       "latest_url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100890",
       "latest_program_id": "",
@@ -357,7 +357,7 @@
       "article_count": 19,
       "event_count": 4,
       "latest_event_at": "2026-11-24T15:45:20+00:00",
-      "age_days": 1.66,
+      "age_days": 2.66,
       "latest_title": "건강할 때 더 건강하게! 인플루엔자(독감) 국가예방접종 안내",
       "latest_url": "https://news.seoul.go.kr/welfare/archives/584921",
       "latest_program_id": "584921",
@@ -394,7 +394,7 @@
       "article_count": 4,
       "event_count": 4,
       "latest_event_at": "2026-11-26T15:00:01+00:00",
-      "age_days": 0.0,
+      "age_days": 0.69,
       "latest_title": "[괴산서울농장] '자연울림 맛의울림(김장편)-2' 프로그램 (12.5) 추첨결과 안내",
       "latest_url": "https://news.seoul.go.kr/gov/archives/582143",
       "latest_program_id": "582143",
@@ -421,11 +421,11 @@
       "tracked": true,
       "event_model": "support_program_notice",
       "freshness_sla_days": 3,
-      "status": "fresh",
+      "status": "stale",
       "article_count": 4,
       "event_count": 4,
       "latest_event_at": "2026-11-23T13:47:14+00:00",
-      "age_days": 2.74,
+      "age_days": 3.74,
       "latest_title": "KIST와 함께하는 과학 진로 특강 시리즈 (4,5회차) 참여자 모집 안내",
       "latest_url": "https://news.seoul.go.kr/economy/archives/575344",
       "latest_program_id": "575344",
@@ -638,7 +638,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 12,
+      "article_count": 11,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -665,7 +665,7 @@
       "event_model": "",
       "freshness_sla_days": null,
       "status": "not_tracked",
-      "article_count": 1,
+      "article_count": 0,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1227,6 +1227,28 @@
   ],
   "events": [
     {
+      "source": "서울시 복지",
+      "event_model": "selection_result",
+      "title": "(공지)(#추천명단)장애인 특별공급 기관추천 선정자 공고 명단 일부 변경 공지",
+      "url": "https://news.seoul.go.kr/welfare/archives/584983",
+      "event_at": "2026-11-26T17:05:03+00:00",
+      "program_id": "584983",
+      "program_key": "id:584983",
+      "application_deadline": "",
+      "application_start_date": "",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "추천명단)장애인 특별공급 기관추천",
+      "eligibility_fields": {
+        "TargetGroup": [
+          "장애인"
+        ]
+      }
+    },
+    {
       "source": "서울시 정책뉴스",
       "event_model": "eligibility_rule",
       "title": "[괴산서울농장] '자연울림 맛의울림(김장편)-2' 프로그램 (12.5) 추첨결과 안내",
@@ -1534,6 +1556,72 @@
       }
     },
     {
+      "source": "서울시 경제",
+      "event_model": "application_deadline",
+      "title": "강북노동자복지관 입주단체 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575212",
+      "event_at": "2026-11-16T00:00:00+00:00",
+      "program_id": "575212",
+      "program_key": "id:575212",
+      "application_deadline": "2026-11-16",
+      "application_start_date": "2028-09-24",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "eligibility_rule",
+      "title": "강북노동자복지관 입주단체 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575212",
+      "event_at": "2026-11-17T18:08:24+00:00",
+      "program_id": "575212",
+      "program_key": "id:575212",
+      "application_deadline": "2026-11-16",
+      "application_start_date": "2028-09-24",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
+      "source": "서울시 경제",
+      "event_model": "support_program_notice",
+      "title": "강북노동자복지관 입주단체 모집",
+      "url": "https://news.seoul.go.kr/economy/archives/575212",
+      "event_at": "2026-11-17T18:08:24+00:00",
+      "program_id": "575212",
+      "program_key": "id:575212",
+      "application_deadline": "2026-11-16",
+      "application_start_date": "2028-09-24",
+      "application_channels": [],
+      "benefit_amounts": [],
+      "selection_result_date": "",
+      "selected_count": "",
+      "execution_amount": "",
+      "selection_program_title": "",
+      "eligibility_fields": {
+        "Region": [
+          "서울"
+        ]
+      }
+    },
+    {
       "source": "서울시 정책뉴스",
       "event_model": "eligibility_rule",
       "title": "[괴산서울농장] '자연울림 맛의울림(김장편)' 프로그램 (11.28) 추첨결과 안내",
@@ -1612,72 +1700,6 @@
       "execution_amount": "",
       "selection_program_title": "전문임기제 가급(인공지능) 공무원 경채시험 서류전형",
       "eligibility_fields": {}
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "application_deadline",
-      "title": "강북노동자복지관 입주단체 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575212",
-      "event_at": "2026-11-16T00:00:00+00:00",
-      "program_id": "575212",
-      "program_key": "id:575212",
-      "application_deadline": "2026-11-16",
-      "application_start_date": "2028-09-24",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "eligibility_rule",
-      "title": "강북노동자복지관 입주단체 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575212",
-      "event_at": "2026-11-17T18:08:24+00:00",
-      "program_id": "575212",
-      "program_key": "id:575212",
-      "application_deadline": "2026-11-16",
-      "application_start_date": "2028-09-24",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
-    },
-    {
-      "source": "서울시 경제",
-      "event_model": "support_program_notice",
-      "title": "강북노동자복지관 입주단체 모집",
-      "url": "https://news.seoul.go.kr/economy/archives/575212",
-      "event_at": "2026-11-17T18:08:24+00:00",
-      "program_id": "575212",
-      "program_key": "id:575212",
-      "application_deadline": "2026-11-16",
-      "application_start_date": "2028-09-24",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "",
-      "eligibility_fields": {
-        "Region": [
-          "서울"
-        ]
-      }
     },
     {
       "source": "서울시 정책뉴스",
@@ -1977,42 +1999,6 @@
           "18+"
         ]
       }
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "selection_result",
-      "title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542",
-      "event_at": "2026-11-16T14:01:02+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:일반직-공무원-행정7급-경력경쟁채용시험-서류전형-합격자-및-면접시험-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형",
-      "eligibility_fields": {}
-    },
-    {
-      "source": "고용노동부 공지",
-      "event_model": "support_program_notice",
-      "title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형 합격자 및 면접시험 공고",
-      "url": "https://www.moel.go.kr/news/notice/noticeView.do?bbs_seq=20261100542",
-      "event_at": "2026-11-16T14:01:02+00:00",
-      "program_id": "",
-      "program_key": "title:고용노동부-공지:일반직-공무원-행정7급-경력경쟁채용시험-서류전형-합격자-및-면접시험-공고",
-      "application_deadline": "",
-      "application_start_date": "",
-      "application_channels": [],
-      "benefit_amounts": [],
-      "selection_result_date": "",
-      "selected_count": "",
-      "execution_amount": "",
-      "selection_program_title": "일반직 공무원(행정7급) 경력경쟁채용시험 서류전형",
-      "eligibility_fields": {}
     }
   ],
   "source_backlog": {
